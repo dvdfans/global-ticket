@@ -233,10 +233,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
     <!-- 晚数筛选 -->
     <div class="fbar-chips" id="nightChips"></div>
   </div>
-      <span style="color:var(--text3);font-size:14px;">&rsaquo;</span>
-    </div>
-    <button class="search-btn" id="searchBtn">查 询 机 票</button>
-  </div>
   <!-- Calendar -->
   <div class="calendar-section" id="calendarSection">
     <div class="cal-title">&#128197; 选择出发日期</div>
@@ -665,8 +661,8 @@ function renderHotRoutes(){
   const title = document.getElementById('hotSectionTitle');
   const backBtn = document.getElementById('hotBackBtn');
   
-  // 刷新筛选Chips（包裹try-catch防止出错阻塞内容渲染）
-  try { renderFilterChips(); } catch(e) { console.error('Chips error:', e); }
+  // 刷新筛选Chips
+  try { if(typeof renderFilterChips === 'function') renderFilterChips(); } catch(e){}
   
   // ========== 非首页模式：嵌入搜索结果/详情 ==========
   if(state.viewMode === 'results') {
