@@ -2745,8 +2745,8 @@
     "dest": "清迈",
     "airline_str": "东方航空,春秋航空",
     "airline_codes": [
-      "MU",
-      "9C"
+      "9C",
+      "MU"
     ],
     "color": "#f39c12",
     "min_price": 2550,
@@ -5536,8 +5536,8 @@
     "dest": "济州岛",
     "airline_str": "东方航空,吉祥航空",
     "airline_codes": [
-      "MU",
-      "HO"
+      "HO",
+      "MU"
     ],
     "color": "#e67e22",
     "min_price": 1020,
@@ -9127,8 +9127,8 @@
     "dest": "新加坡",
     "airline_str": "中国国航,新加坡航空",
     "airline_codes": [
-      "CA",
-      "SQ"
+      "SQ",
+      "CA"
     ],
     "color": "#e74c3c",
     "min_price": 2250,
@@ -13118,14 +13118,14 @@
     "dest": "东京",
     "airline_str": "上海航空,东方航空,中国国航,南方航空,捷星日本,日本航空",
     "airline_codes": [
-      "CA",
-      "JL",
-      "MU",
-      "FM",
       "GK",
-      "CZ"
+      "JL",
+      "FM",
+      "CA",
+      "CZ",
+      "MU"
     ],
-    "color": "#e74c3c",
+    "color": "#27ae60",
     "min_price": 2499,
     "max_price": 6299,
     "count": 95,
@@ -15025,7 +15025,7 @@
         "f2_arr_time": "19:45",
         "f2_dep_airport": "东京羽田机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 9
@@ -15050,7 +15050,7 @@
         "f2_arr_time": "19:45",
         "f2_dep_airport": "东京羽田机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 10
@@ -15075,7 +15075,7 @@
         "f2_arr_time": "19:45",
         "f2_dep_airport": "东京羽田机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 4
@@ -15100,7 +15100,7 @@
         "f2_arr_time": "14:00",
         "f2_dep_airport": "东京羽田机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 18
@@ -15125,7 +15125,7 @@
         "f2_arr_time": "19:45",
         "f2_dep_airport": "东京羽田机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 11
@@ -15150,7 +15150,7 @@
         "f2_arr_time": "19:45",
         "f2_dep_airport": "东京羽田机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 16
@@ -15513,9 +15513,9 @@
     "dest": "大阪",
     "airline_str": "上海航空,东方航空,中国国航,日本航空",
     "airline_codes": [
+      "JL",
       "CA",
       "FM",
-      "JL",
       "MU"
     ],
     "color": "#e74c3c",
@@ -16643,7 +16643,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 6
@@ -16668,7 +16668,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 7
@@ -16693,7 +16693,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 9
@@ -16718,7 +16718,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 10
@@ -16768,7 +16768,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 14
@@ -16793,7 +16793,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 15
@@ -16818,7 +16818,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 17
@@ -16843,7 +16843,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 20
@@ -16868,7 +16868,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 4
@@ -16893,7 +16893,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 8
@@ -16918,7 +16918,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 12
@@ -16943,7 +16943,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 13
@@ -16968,7 +16968,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 16
@@ -16993,7 +16993,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 18
@@ -17018,7 +17018,7 @@
         "f2_arr_time": "11:45",
         "f2_dep_airport": "大阪关西机场",
         "f2_arr_airport": "上海浦东机场",
-        "baggage": "1件×20kg",
+        "baggage": "2件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 19
@@ -17586,12 +17586,12 @@
     "dest": "香港",
     "airline_str": "上海航空,东方航空,国泰航空",
     "airline_codes": [
-      "FM",
       "CX",
-      "MU",
-      "NX"
+      "FM",
+      "NX",
+      "MU"
     ],
-    "color": "#666",
+    "color": "#6c3483",
     "min_price": 1420,
     "max_price": 2900,
     "count": 43,
@@ -18679,8 +18679,8 @@
     "dest": "巴厘岛",
     "airline_str": "东方航空,吉祥航空",
     "airline_codes": [
-      "MU",
-      "HO"
+      "HO",
+      "MU"
     ],
     "color": "#e67e22",
     "min_price": 3350,
@@ -29629,10 +29629,10 @@
     "airline_str": "上海航空,东方航空,澳门航空",
     "airline_codes": [
       "FM",
-      "MU",
-      "NX"
+      "NX",
+      "MU"
     ],
-    "color": "#666",
+    "color": "#a93226",
     "min_price": 1140,
     "max_price": 2299,
     "count": 29,
@@ -33593,7 +33593,7 @@
       "FM",
       "MU"
     ],
-    "color": "#c0392b",
+    "color": "#2980b9",
     "min_price": 1899,
     "max_price": 3999,
     "count": 11,
@@ -37398,7 +37398,7 @@
     "airline_codes": [
       "JD"
     ],
-    "color": "#666",
+    "color": "#e74c3c",
     "min_price": 1849,
     "max_price": 2649,
     "count": 22,
@@ -37963,7 +37963,7 @@
     "airline_codes": [
       "NH"
     ],
-    "color": "#666",
+    "color": "#1a5276",
     "min_price": 3949,
     "max_price": 4949,
     "count": 3,
@@ -38053,7 +38053,7 @@
     "airline_codes": [
       "GJ"
     ],
-    "color": "#666",
+    "color": "#2c3e50",
     "min_price": 3149,
     "max_price": 3649,
     "count": 7,
@@ -38241,12 +38241,12 @@
     "dest": "首尔",
     "airline_str": "东方航空,中国国航,大韩航空,韩亚航空",
     "airline_codes": [
-      "CA",
       "OZ",
-      "MU",
-      "KE"
+      "CA",
+      "KE",
+      "MU"
     ],
-    "color": "#666",
+    "color": "#e74c3c",
     "min_price": 1799,
     "max_price": 3449,
     "count": 136,
@@ -41661,7 +41661,7 @@
     "airline_codes": [
       "GJ"
     ],
-    "color": "#666",
+    "color": "#2c3e50",
     "min_price": 1899,
     "max_price": 2999,
     "count": 24,
@@ -42276,7 +42276,7 @@
     "airline_codes": [
       "ZE"
     ],
-    "color": "#666",
+    "color": "#e74c3c",
     "min_price": 2199,
     "max_price": 2199,
     "count": 14,
@@ -46384,8 +46384,8 @@
     "dest": "首尔",
     "airline_str": "东方航空,深圳航空",
     "airline_codes": [
-      "MU",
-      "ZH"
+      "ZH",
+      "MU"
     ],
     "color": "#d35400",
     "min_price": 2100,
@@ -46412,7 +46412,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 51
@@ -46637,7 +46637,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 47
@@ -46662,7 +46662,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 9
@@ -46687,7 +46687,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 16
@@ -46712,7 +46712,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 44
@@ -46912,7 +46912,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 12
@@ -46937,7 +46937,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 19
@@ -46962,7 +46962,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 23
@@ -46987,7 +46987,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 30
@@ -47012,7 +47012,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 37
@@ -47537,7 +47537,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 26
@@ -47562,7 +47562,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 33
@@ -47587,7 +47587,7 @@
         "f2_arr_time": "15:45",
         "f2_dep_airport": "首尔仁川机场",
         "f2_arr_airport": "苏南硕放机场",
-        "baggage": "1件×20kg",
+        "baggage": "1件×23kg",
         "meal": "含餐",
         "f2_schedule": "",
         "dayDiff": 40
