@@ -2748,7 +2748,7 @@
       "9C",
       "MU"
     ],
-    "color": "#f39c12",
+    "color": "#2980b9",
     "min_price": 2550,
     "max_price": 6700,
     "count": 111,
@@ -3984,7 +3984,7 @@
         "airline": "春秋航空",
         "airline_code": "9C",
         "dep_date": "2026-07-15",
-        "ret_date": "2026-07-19",
+        "ret_date": "2026-07-20",
         "nights": 4,
         "available": 10,
         "price": 2500,
@@ -4000,7 +4000,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 5
       },
       {
@@ -4009,7 +4009,7 @@
         "airline": "春秋航空",
         "airline_code": "9C",
         "dep_date": "2026-07-17",
-        "ret_date": "2026-07-21",
+        "ret_date": "2026-07-22",
         "nights": 4,
         "available": 10,
         "price": 2500,
@@ -4025,7 +4025,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 7
       },
       {
@@ -4034,7 +4034,7 @@
         "airline": "春秋航空",
         "airline_code": "9C",
         "dep_date": "2026-07-22",
-        "ret_date": "2026-07-26",
+        "ret_date": "2026-07-27",
         "nights": 4,
         "available": 10,
         "price": 2500,
@@ -4050,7 +4050,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 12
       },
       {
@@ -4059,7 +4059,7 @@
         "airline": "春秋航空",
         "airline_code": "9C",
         "dep_date": "2026-07-24",
-        "ret_date": "2026-07-28",
+        "ret_date": "2026-07-29",
         "nights": 4,
         "available": 10,
         "price": 2500,
@@ -4075,7 +4075,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 14
       },
       {
@@ -4084,7 +4084,7 @@
         "airline": "春秋航空",
         "airline_code": "9C",
         "dep_date": "2026-07-29",
-        "ret_date": "2026-08-02",
+        "ret_date": "2026-08-03",
         "nights": 4,
         "available": 10,
         "price": 2500,
@@ -4100,7 +4100,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 19
       },
       {
@@ -4109,7 +4109,7 @@
         "airline": "春秋航空",
         "airline_code": "9C",
         "dep_date": "2026-07-31",
-        "ret_date": "2026-08-04",
+        "ret_date": "2026-08-05",
         "nights": 4,
         "available": 10,
         "price": 2500,
@@ -4125,7 +4125,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 21
       },
       {
@@ -5539,7 +5539,7 @@
       "HO",
       "MU"
     ],
-    "color": "#e67e22",
+    "color": "#2980b9",
     "min_price": 1020,
     "max_price": 4149,
     "count": 143,
@@ -8916,7 +8916,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 4
       },
       {
@@ -8941,7 +8941,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -8966,7 +8966,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 25
       },
       {
@@ -8991,7 +8991,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 32
       },
       {
@@ -9016,7 +9016,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -9041,7 +9041,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -9066,7 +9066,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 83
       },
       {
@@ -9091,7 +9091,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -9116,7 +9116,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 83
       }
     ]
@@ -13118,14 +13118,14 @@
     "dest": "东京",
     "airline_str": "上海航空,东方航空,中国国航,南方航空,捷星日本,日本航空",
     "airline_codes": [
-      "GK",
-      "JL",
       "FM",
-      "CA",
+      "MU",
       "CZ",
-      "MU"
+      "GK",
+      "CA",
+      "JL"
     ],
-    "color": "#27ae60",
+    "color": "#2980b9",
     "min_price": 2499,
     "max_price": 6299,
     "count": 95,
@@ -14252,7 +14252,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -14627,7 +14627,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 76
       },
       {
@@ -14902,7 +14902,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 87
       },
       {
@@ -14977,7 +14977,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 87
       },
       {
@@ -15002,7 +15002,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -15027,7 +15027,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 9
       },
       {
@@ -15052,7 +15052,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 10
       },
       {
@@ -15077,7 +15077,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 4
       },
       {
@@ -15102,7 +15102,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -15127,7 +15127,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 11
       },
       {
@@ -15152,7 +15152,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 16
       },
       {
@@ -15252,7 +15252,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -15277,7 +15277,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -15427,7 +15427,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -15452,7 +15452,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -15477,7 +15477,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 83
       },
       {
@@ -15502,7 +15502,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       }
     ]
@@ -15515,10 +15515,10 @@
     "airline_codes": [
       "JL",
       "CA",
-      "FM",
-      "MU"
+      "MU",
+      "FM"
     ],
-    "color": "#e74c3c",
+    "color": "#2980b9",
     "min_price": 2599,
     "max_price": 6299,
     "count": 67,
@@ -15670,7 +15670,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 3
       },
       {
@@ -15695,7 +15695,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 5
       },
       {
@@ -15720,7 +15720,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 8
       },
       {
@@ -15795,7 +15795,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 4
       },
       {
@@ -15820,7 +15820,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 46
       },
       {
@@ -15870,7 +15870,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 8
       },
       {
@@ -15895,7 +15895,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 10
       },
       {
@@ -15970,7 +15970,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 9
       },
       {
@@ -16020,7 +16020,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 11
       },
       {
@@ -16045,7 +16045,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 8
       },
       {
@@ -16070,7 +16070,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 87
       },
       {
@@ -16095,7 +16095,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 87
       },
       {
@@ -16220,7 +16220,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 36
       },
       {
@@ -16245,7 +16245,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 41
       },
       {
@@ -16270,7 +16270,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 33
       },
       {
@@ -16295,7 +16295,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 17
       },
       {
@@ -16320,7 +16320,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 37
       },
       {
@@ -16345,7 +16345,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 20
       },
       {
@@ -16370,7 +16370,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 34
       },
       {
@@ -16395,7 +16395,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 41
       },
       {
@@ -16420,7 +16420,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 13
       },
       {
@@ -16445,7 +16445,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 15
       },
       {
@@ -16470,7 +16470,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -16495,7 +16495,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -16620,7 +16620,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 36
       },
       {
@@ -16645,7 +16645,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 6
       },
       {
@@ -16670,7 +16670,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -16695,7 +16695,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 9
       },
       {
@@ -16720,7 +16720,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 10
       },
       {
@@ -16745,7 +16745,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 16
       },
       {
@@ -16770,7 +16770,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -16795,7 +16795,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 15
       },
       {
@@ -16820,7 +16820,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 17
       },
       {
@@ -16845,7 +16845,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 20
       },
       {
@@ -16870,7 +16870,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 4
       },
       {
@@ -16895,7 +16895,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 8
       },
       {
@@ -16920,7 +16920,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 12
       },
       {
@@ -16945,7 +16945,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 13
       },
       {
@@ -16970,7 +16970,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 16
       },
       {
@@ -16995,7 +16995,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -17020,7 +17020,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -17045,7 +17045,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -17070,7 +17070,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -17095,7 +17095,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 83
       },
       {
@@ -17120,7 +17120,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -17145,7 +17145,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -17170,7 +17170,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 83
       },
       {
@@ -17195,7 +17195,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       }
     ]
@@ -17235,7 +17235,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 8
       },
       {
@@ -17285,7 +17285,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -17310,7 +17310,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 40
       },
       {
@@ -17525,7 +17525,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -17550,7 +17550,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -17575,7 +17575,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 37
       }
     ]
@@ -17586,10 +17586,10 @@
     "dest": "香港",
     "airline_str": "上海航空,东方航空,国泰航空",
     "airline_codes": [
-      "CX",
       "FM",
-      "NX",
-      "MU"
+      "CX",
+      "MU",
+      "NX"
     ],
     "color": "#6c3483",
     "min_price": 1420,
@@ -17618,7 +17618,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -17643,7 +17643,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -17693,7 +17693,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -17968,7 +17968,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 2
       },
       {
@@ -17993,7 +17993,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 44
       },
       {
@@ -18018,7 +18018,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 43
       },
       {
@@ -18543,7 +18543,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 167
       },
       {
@@ -18682,7 +18682,7 @@
       "HO",
       "MU"
     ],
-    "color": "#e67e22",
+    "color": "#2980b9",
     "min_price": 3350,
     "max_price": 5849,
     "count": 241,
@@ -24720,12 +24720,12 @@
     "dest": "首尔",
     "airline_str": "上海航空,东方航空,南方航空,韩亚航空",
     "airline_codes": [
-      "CZ",
-      "OZ",
       "FM",
-      "MU"
+      "MU",
+      "CZ",
+      "OZ"
     ],
-    "color": "#27ae60",
+    "color": "#2980b9",
     "min_price": 1599,
     "max_price": 3599,
     "count": 170,
@@ -24777,7 +24777,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 104
       },
       {
@@ -24802,7 +24802,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 111
       },
       {
@@ -24827,7 +24827,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 118
       },
       {
@@ -24852,7 +24852,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 125
       },
       {
@@ -24877,7 +24877,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 132
       },
       {
@@ -24902,7 +24902,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 139
       },
       {
@@ -24927,7 +24927,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 146
       },
       {
@@ -24952,7 +24952,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 153
       },
       {
@@ -24977,7 +24977,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 160
       },
       {
@@ -25002,7 +25002,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 75
       },
       {
@@ -25027,7 +25027,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 55
       },
       {
@@ -25052,7 +25052,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 62
       },
       {
@@ -25077,7 +25077,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 63
       },
       {
@@ -25102,7 +25102,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 105
       },
       {
@@ -25127,7 +25127,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 106
       },
       {
@@ -25152,7 +25152,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 50
       },
       {
@@ -25177,7 +25177,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 57
       },
       {
@@ -25202,7 +25202,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 64
       },
       {
@@ -25227,7 +25227,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 69
       },
       {
@@ -25252,7 +25252,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 70
       },
       {
@@ -25277,7 +25277,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 97
       },
       {
@@ -25302,7 +25302,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 98
       },
       {
@@ -25327,7 +25327,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 49
       },
       {
@@ -25927,7 +25927,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -25952,7 +25952,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 56
       },
       {
@@ -26102,7 +26102,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 75
       },
       {
@@ -26127,7 +26127,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 174
       },
       {
@@ -26377,7 +26377,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 6
       },
       {
@@ -26402,7 +26402,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -26427,7 +26427,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 6
       },
       {
@@ -26452,7 +26452,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 8
       },
       {
@@ -26477,7 +26477,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -26502,7 +26502,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 22
       },
       {
@@ -26527,7 +26527,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 29
       },
       {
@@ -26552,7 +26552,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 5
       },
       {
@@ -26577,7 +26577,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -26602,7 +26602,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -26627,7 +26627,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 49
       },
       {
@@ -26877,7 +26877,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 13
       },
       {
@@ -26902,7 +26902,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 20
       },
       {
@@ -26927,7 +26927,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 22
       },
       {
@@ -26952,7 +26952,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 27
       },
       {
@@ -26977,7 +26977,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 34
       },
       {
@@ -27002,7 +27002,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 36
       },
       {
@@ -27027,7 +27027,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 13
       },
       {
@@ -27052,7 +27052,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -27077,7 +27077,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 20
       },
       {
@@ -27102,7 +27102,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 33
       },
       {
@@ -27127,7 +27127,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -27152,7 +27152,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 40
       },
       {
@@ -27177,7 +27177,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -27202,7 +27202,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 12
       },
       {
@@ -27227,7 +27227,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 13
       },
       {
@@ -27252,7 +27252,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 15
       },
       {
@@ -27277,7 +27277,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -27302,7 +27302,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 20
       },
       {
@@ -27327,7 +27327,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 22
       },
       {
@@ -27352,7 +27352,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 27
       },
       {
@@ -27377,7 +27377,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -27402,7 +27402,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 33
       },
       {
@@ -27427,7 +27427,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 34
       },
       {
@@ -27452,7 +27452,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 36
       },
       {
@@ -27477,7 +27477,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 40
       },
       {
@@ -27502,7 +27502,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 41
       },
       {
@@ -27527,7 +27527,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 29
       },
       {
@@ -27552,7 +27552,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -27577,7 +27577,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -27602,7 +27602,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -27627,7 +27627,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -27652,7 +27652,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 15
       },
       {
@@ -27677,7 +27677,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -27702,7 +27702,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 25
       },
       {
@@ -27727,7 +27727,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 34
       },
       {
@@ -27752,7 +27752,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 41
       },
       {
@@ -27777,7 +27777,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 5
       },
       {
@@ -27802,7 +27802,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 50
       },
       {
@@ -27827,7 +27827,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -27852,7 +27852,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -27877,7 +27877,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -27902,7 +27902,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -27927,7 +27927,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 12
       },
       {
@@ -27952,7 +27952,7 @@
         "f2_arr_airport": "",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -27977,7 +27977,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -28002,7 +28002,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -28027,7 +28027,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -28052,7 +28052,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 22
       },
       {
@@ -28077,7 +28077,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 29
       },
       {
@@ -28102,7 +28102,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 36
       },
       {
@@ -28127,7 +28127,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 43
       },
       {
@@ -28152,7 +28152,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 12
       },
       {
@@ -28177,7 +28177,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -28202,7 +28202,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -28227,7 +28227,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 33
       },
       {
@@ -28252,7 +28252,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 40
       },
       {
@@ -28277,7 +28277,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 47
       },
       {
@@ -28302,7 +28302,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 27
       },
       {
@@ -28327,7 +28327,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 6
       },
       {
@@ -28352,7 +28352,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 20
       },
       {
@@ -28377,7 +28377,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 27
       },
       {
@@ -28402,7 +28402,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 34
       },
       {
@@ -28427,7 +28427,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 41
       },
       {
@@ -28452,7 +28452,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 48
       },
       {
@@ -28477,7 +28477,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -28502,7 +28502,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -28527,7 +28527,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -28552,7 +28552,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -28577,7 +28577,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -28602,7 +28602,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -28677,7 +28677,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -28802,7 +28802,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 82
       },
       {
@@ -28827,7 +28827,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -28852,7 +28852,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -28877,7 +28877,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 83
       },
       {
@@ -28902,7 +28902,7 @@
         "f2_arr_airport": "浦东国际机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 83
       },
       {
@@ -28927,7 +28927,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 85
       },
       {
@@ -28952,7 +28952,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 85
       },
       {
@@ -28977,7 +28977,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       }
     ]
@@ -29017,7 +29017,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 47
       },
       {
@@ -29042,7 +29042,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 49
       },
       {
@@ -29067,7 +29067,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 54
       },
       {
@@ -29092,7 +29092,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 56
       },
       {
@@ -29117,7 +29117,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 61
       },
       {
@@ -29142,7 +29142,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 63
       },
       {
@@ -29167,7 +29167,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 68
       },
       {
@@ -29192,7 +29192,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 70
       },
       {
@@ -29217,7 +29217,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 89
       },
       {
@@ -29242,7 +29242,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 91
       },
       {
@@ -29267,7 +29267,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 96
       },
       {
@@ -29292,7 +29292,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 98
       },
       {
@@ -29317,7 +29317,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 103
       },
       {
@@ -29342,7 +29342,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 105
       },
       {
@@ -29367,7 +29367,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 110
       },
       {
@@ -29392,7 +29392,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 112
       },
       {
@@ -29417,7 +29417,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 75
       },
       {
@@ -29442,7 +29442,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -29467,7 +29467,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -29492,7 +29492,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -29517,7 +29517,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -29542,7 +29542,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 33
       },
       {
@@ -29567,7 +29567,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -29592,7 +29592,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 40
       },
       {
@@ -29617,7 +29617,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       }
     ]
@@ -29629,10 +29629,10 @@
     "airline_str": "上海航空,东方航空,澳门航空",
     "airline_codes": [
       "FM",
-      "NX",
-      "MU"
+      "MU",
+      "NX"
     ],
-    "color": "#a93226",
+    "color": "#2980b9",
     "min_price": 1140,
     "max_price": 2299,
     "count": 29,
@@ -29659,7 +29659,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29684,7 +29684,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29709,7 +29709,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29734,7 +29734,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29834,7 +29834,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29859,7 +29859,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29909,7 +29909,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 87
       },
       {
@@ -29934,7 +29934,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29959,7 +29959,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -29984,7 +29984,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 9
       },
       {
@@ -30009,7 +30009,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 16
       },
       {
@@ -30034,7 +30034,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 23
       },
       {
@@ -30059,7 +30059,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 30
       },
       {
@@ -30084,7 +30084,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 37
       },
       {
@@ -30109,7 +30109,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 44
       },
       {
@@ -30134,7 +30134,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 87
       },
       {
@@ -30159,7 +30159,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 87
       },
       {
@@ -30184,7 +30184,7 @@
         "f2_arr_airport": "上海虹桥机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       },
       {
@@ -30359,7 +30359,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       }
     ]
@@ -33279,7 +33279,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 6
       },
       {
@@ -33304,7 +33304,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 11
       },
       {
@@ -33329,7 +33329,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 8
       },
       {
@@ -33354,7 +33354,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 13
       },
       {
@@ -33379,7 +33379,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 15
       },
       {
@@ -33404,7 +33404,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 20
       },
       {
@@ -33429,7 +33429,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 25
       },
       {
@@ -33454,7 +33454,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 32
       },
       {
@@ -33479,7 +33479,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 39
       },
       {
@@ -33504,7 +33504,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 22
       },
       {
@@ -33529,7 +33529,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 27
       },
       {
@@ -33554,7 +33554,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 29
       },
       {
@@ -33579,7 +33579,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 34
       }
     ]
@@ -33820,7 +33820,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 167
       },
       {
@@ -33845,7 +33845,7 @@
         "f2_arr_airport": "上海浦东机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 166
       },
       {
@@ -37425,7 +37425,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 56
       },
       {
@@ -37450,7 +37450,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 63
       },
       {
@@ -37475,7 +37475,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 70
       },
       {
@@ -37500,7 +37500,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 52
       },
       {
@@ -37525,7 +37525,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 59
       },
       {
@@ -37550,7 +37550,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 66
       },
       {
@@ -37575,7 +37575,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 73
       },
       {
@@ -37600,7 +37600,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -37625,7 +37625,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 49
       },
       {
@@ -37650,7 +37650,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 3
       },
       {
@@ -37675,7 +37675,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -37700,7 +37700,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -37725,7 +37725,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -37750,7 +37750,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -37775,7 +37775,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 38
       },
       {
@@ -37800,7 +37800,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -37825,7 +37825,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 10
       },
       {
@@ -37850,7 +37850,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 17
       },
       {
@@ -37875,7 +37875,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 24
       },
       {
@@ -37900,7 +37900,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 31
       },
       {
@@ -37925,7 +37925,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 38
       },
       {
@@ -37950,7 +37950,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 45
       }
     ]
@@ -37990,7 +37990,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 11
       },
       {
@@ -38015,7 +38015,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 39
       },
       {
@@ -38040,7 +38040,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 32
       }
     ]
@@ -38080,7 +38080,7 @@
         "f2_arr_airport": "",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 45
       },
       {
@@ -38105,7 +38105,7 @@
         "f2_arr_airport": "",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 17
       },
       {
@@ -38130,7 +38130,7 @@
         "f2_arr_airport": "",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 24
       },
       {
@@ -38155,7 +38155,7 @@
         "f2_arr_airport": "",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 38
       },
       {
@@ -38180,7 +38180,7 @@
         "f2_arr_airport": "",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 21
       },
       {
@@ -38205,7 +38205,7 @@
         "f2_arr_airport": "",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 28
       },
       {
@@ -38230,7 +38230,7 @@
         "f2_arr_airport": "",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五",
         "dayDiff": 35
       }
     ]
@@ -38241,12 +38241,12 @@
     "dest": "首尔",
     "airline_str": "东方航空,中国国航,大韩航空,韩亚航空",
     "airline_codes": [
-      "OZ",
       "CA",
+      "MU",
       "KE",
-      "MU"
+      "OZ"
     ],
-    "color": "#e74c3c",
+    "color": "#2980b9",
     "min_price": 1799,
     "max_price": 3449,
     "count": 136,
@@ -40898,7 +40898,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 13
       },
       {
@@ -41273,7 +41273,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -41298,7 +41298,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -41323,7 +41323,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 27
       },
       {
@@ -41498,7 +41498,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 22
       },
       {
@@ -41523,7 +41523,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 29
       },
       {
@@ -41548,7 +41548,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 36
       },
       {
@@ -41573,7 +41573,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 43
       },
       {
@@ -41598,7 +41598,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -41623,7 +41623,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -41648,7 +41648,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       }
     ]
@@ -41672,7 +41672,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-30",
-        "ret_date": "2026-09-02",
+        "ret_date": "2026-09-03",
         "nights": 3,
         "available": 6,
         "price": 1699,
@@ -41688,7 +41688,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 51
       },
       {
@@ -41713,7 +41713,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 52
       },
       {
@@ -41738,7 +41738,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 49
       },
       {
@@ -41747,7 +41747,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-23",
-        "ret_date": "2026-08-26",
+        "ret_date": "2026-08-27",
         "nights": 3,
         "available": 6,
         "price": 2299,
@@ -41763,7 +41763,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 44
       },
       {
@@ -41772,7 +41772,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-07-26",
-        "ret_date": "2026-07-29",
+        "ret_date": "2026-07-30",
         "nights": 3,
         "available": 6,
         "price": 2399,
@@ -41788,7 +41788,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 16
       },
       {
@@ -41797,7 +41797,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-02",
-        "ret_date": "2026-08-05",
+        "ret_date": "2026-08-06",
         "nights": 3,
         "available": 6,
         "price": 2399,
@@ -41813,7 +41813,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 23
       },
       {
@@ -41822,7 +41822,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-09",
-        "ret_date": "2026-08-12",
+        "ret_date": "2026-08-13",
         "nights": 3,
         "available": 6,
         "price": 2399,
@@ -41838,7 +41838,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 30
       },
       {
@@ -41863,7 +41863,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 35
       },
       {
@@ -41872,7 +41872,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-16",
-        "ret_date": "2026-08-19",
+        "ret_date": "2026-08-20",
         "nights": 3,
         "available": 6,
         "price": 2399,
@@ -41888,7 +41888,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 37
       },
       {
@@ -41913,7 +41913,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 42
       },
       {
@@ -41922,7 +41922,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-26",
-        "ret_date": "2026-08-30",
+        "ret_date": "2026-08-31",
         "nights": 4,
         "available": 6,
         "price": 2399,
@@ -41938,7 +41938,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 47
       },
       {
@@ -41963,7 +41963,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 14
       },
       {
@@ -41988,7 +41988,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 21
       },
       {
@@ -42013,7 +42013,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 28
       },
       {
@@ -42022,7 +42022,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-07-27",
-        "ret_date": "2026-07-31",
+        "ret_date": "2026-08-01",
         "nights": 4,
         "available": 6,
         "price": 2499,
@@ -42038,7 +42038,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 17
       },
       {
@@ -42047,7 +42047,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-03",
-        "ret_date": "2026-08-07",
+        "ret_date": "2026-08-08",
         "nights": 4,
         "available": 6,
         "price": 2499,
@@ -42063,7 +42063,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 24
       },
       {
@@ -42072,7 +42072,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-10",
-        "ret_date": "2026-08-14",
+        "ret_date": "2026-08-15",
         "nights": 4,
         "available": 6,
         "price": 2499,
@@ -42088,7 +42088,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 31
       },
       {
@@ -42097,7 +42097,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-17",
-        "ret_date": "2026-08-21",
+        "ret_date": "2026-08-22",
         "nights": 4,
         "available": 6,
         "price": 2499,
@@ -42113,7 +42113,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 38
       },
       {
@@ -42122,7 +42122,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-24",
-        "ret_date": "2026-08-28",
+        "ret_date": "2026-08-29",
         "nights": 4,
         "available": 6,
         "price": 2499,
@@ -42138,7 +42138,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 45
       },
       {
@@ -42147,7 +42147,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-07-22",
-        "ret_date": "2026-07-26",
+        "ret_date": "2026-07-27",
         "nights": 4,
         "available": 6,
         "price": 2699,
@@ -42163,7 +42163,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 12
       },
       {
@@ -42172,7 +42172,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-07-29",
-        "ret_date": "2026-08-02",
+        "ret_date": "2026-08-03",
         "nights": 4,
         "available": 6,
         "price": 2699,
@@ -42188,7 +42188,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 19
       },
       {
@@ -42197,7 +42197,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-05",
-        "ret_date": "2026-08-09",
+        "ret_date": "2026-08-10",
         "nights": 4,
         "available": 6,
         "price": 2699,
@@ -42213,7 +42213,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 26
       },
       {
@@ -42222,7 +42222,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-12",
-        "ret_date": "2026-08-16",
+        "ret_date": "2026-08-17",
         "nights": 4,
         "available": 6,
         "price": 2699,
@@ -42238,7 +42238,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 33
       },
       {
@@ -42247,7 +42247,7 @@
         "airline": "浙江长龙航空",
         "airline_code": "GJ",
         "dep_date": "2026-08-19",
-        "ret_date": "2026-08-23",
+        "ret_date": "2026-08-24",
         "nights": 4,
         "available": 6,
         "price": 2699,
@@ -42263,7 +42263,7 @@
         "f2_arr_airport": "杭州萧山机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "一,二,四,六",
         "dayDiff": 40
       }
     ]
@@ -42303,7 +42303,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 7
       },
       {
@@ -42328,7 +42328,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 14
       },
       {
@@ -42353,7 +42353,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 21
       },
       {
@@ -42378,7 +42378,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 28
       },
       {
@@ -42403,7 +42403,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 35
       },
       {
@@ -42428,7 +42428,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 42
       },
       {
@@ -42453,7 +42453,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 49
       },
       {
@@ -42478,7 +42478,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 3
       },
       {
@@ -42503,7 +42503,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 10
       },
       {
@@ -42528,7 +42528,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 17
       },
       {
@@ -42553,7 +42553,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 24
       },
       {
@@ -42578,7 +42578,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 31
       },
       {
@@ -42603,7 +42603,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 38
       },
       {
@@ -42628,7 +42628,7 @@
         "f2_arr_airport": "南通兴东机场",
         "baggage": "无免费托运",
         "meal": "无餐食",
-        "f2_schedule": "",
+        "f2_schedule": "一,三,五,六",
         "dayDiff": 45
       }
     ]
@@ -45233,7 +45233,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 15
       },
       {
@@ -45258,7 +45258,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 22
       },
       {
@@ -45283,7 +45283,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -45308,7 +45308,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 29
       },
       {
@@ -45333,7 +45333,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 49
       },
       {
@@ -45358,7 +45358,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 5
       },
       {
@@ -45383,7 +45383,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -45408,7 +45408,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 46
       },
       {
@@ -45433,7 +45433,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 49
       },
       {
@@ -45458,7 +45458,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 15
       },
       {
@@ -45483,7 +45483,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 29
       },
       {
@@ -45508,7 +45508,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 12
       },
       {
@@ -45533,7 +45533,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -45558,7 +45558,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -45583,7 +45583,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -45608,7 +45608,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -45633,7 +45633,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -45658,7 +45658,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 33
       },
       {
@@ -45683,7 +45683,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -45708,7 +45708,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 40
       },
       {
@@ -45733,7 +45733,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -45758,7 +45758,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       },
       {
@@ -45783,7 +45783,7 @@
         "f2_arr_airport": "南京禄口机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 84
       }
     ]
@@ -45823,7 +45823,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 11
       },
       {
@@ -45848,7 +45848,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -45873,7 +45873,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 25
       },
       {
@@ -45898,7 +45898,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 32
       },
       {
@@ -45923,7 +45923,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 39
       },
       {
@@ -45948,7 +45948,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 46
       },
       {
@@ -45973,7 +45973,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -45998,7 +45998,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -46023,7 +46023,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -46048,7 +46048,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 28
       },
       {
@@ -46073,7 +46073,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -46098,7 +46098,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       },
       {
@@ -46123,7 +46123,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 4
       },
       {
@@ -46148,7 +46148,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 11
       },
       {
@@ -46173,7 +46173,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 18
       },
       {
@@ -46198,7 +46198,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 25
       },
       {
@@ -46223,7 +46223,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 39
       },
       {
@@ -46248,7 +46248,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 46
       },
       {
@@ -46273,7 +46273,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 7
       },
       {
@@ -46298,7 +46298,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 14
       },
       {
@@ -46323,7 +46323,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 21
       },
       {
@@ -46348,7 +46348,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 35
       },
       {
@@ -46373,7 +46373,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×20kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 42
       }
     ]
@@ -46387,7 +46387,7 @@
       "ZH",
       "MU"
     ],
-    "color": "#d35400",
+    "color": "#2980b9",
     "min_price": 2100,
     "max_price": 2999,
     "count": 57,
@@ -46414,7 +46414,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 51
       },
       {
@@ -46639,7 +46639,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 47
       },
       {
@@ -46664,7 +46664,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 9
       },
       {
@@ -46689,7 +46689,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 16
       },
       {
@@ -46714,7 +46714,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 44
       },
       {
@@ -46914,7 +46914,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 12
       },
       {
@@ -46939,7 +46939,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 19
       },
       {
@@ -46964,7 +46964,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 23
       },
       {
@@ -46989,7 +46989,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 30
       },
       {
@@ -47014,7 +47014,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 37
       },
       {
@@ -47539,7 +47539,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 26
       },
       {
@@ -47564,7 +47564,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 33
       },
       {
@@ -47589,7 +47589,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "1件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 40
       },
       {
@@ -47854,7 +47854,7 @@
         "f2_arr_airport": "苏南硕放机场",
         "baggage": "2件×23kg",
         "meal": "含餐",
-        "f2_schedule": "",
+        "f2_schedule": "每日",
         "dayDiff": 86
       }
     ]
