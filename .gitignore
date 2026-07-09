@@ -1,0 +1,10 @@
+# 原始数据
+原始全数据包含直客价*.CSV
+*.CSV
+
+# 备份
+*.bak
+
+# 系统
+.DS_Store
+Thumbs.db
