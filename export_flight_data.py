@@ -132,9 +132,17 @@ DEFAULT_SVC = {'baggage':'1件×20kg','meal':'含餐','note':'标准服务'}
 
 # ======== 加载航班时刻表 ========
 def load_schedule():
-    """从航班定义表xlsx加载时刻，返回 {(航班号, 出发城市, 到达城市): {time, airport, ...}}"""
+    """自动找最新的航班定义表CSV加载时刻，返回 {(航班号, 出发城市, 到达城市): {time, airport, ...}}"""
     try:
-        sched = pd.read_excel('航班定义表.260514.xlsx')
+        # 找最新的航班定义表CSV
+        csv_files = sorted(glob.glob('航班定义表*.CSV'))
+        if not csv_files:
+            print('⚠️ 未找到航班定义表CSV，尝试旧xlsx...')
+            sched = pd.read_excel('航班定义表.260514.xlsx')
+        else:
+            latest = csv_files[-1]
+            print(f'📂 使用航班定义表: {latest}')
+            sched = pd.read_csv(latest)
         lookup = {}
         for _, row in sched.iterrows():
             fn = str(row['航班号']).strip()
