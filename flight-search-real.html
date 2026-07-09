@@ -1021,39 +1021,90 @@ function renderGridDetail(){
   
   const wrap = document.createElement('div'); wrap.className = 'hot-scroll-wrap';
   
-  const detail = document.createElement('div'); detail.style.cssText = 'background:var(--card);border-radius:12px;padding:16px';
-  detail.innerHTML = `
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-      <div style="font-size:18px;font-weight:500">${state.from.name} <span style="color:var(--text3);font-size:14px">&#8594;</span> ${state.to.name}</div>
-      <span style="font-size:14px;color:var(--primary-light);font-weight:600">&#165;${item.retail_price}</span>
+  // 去程段
+  const outSeg = document.createElement('div'); outSeg.style.cssText = 'background:var(--card);border-radius:12px;padding:16px;margin-bottom:8px';
+  outSeg.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+      <span style="font-size:11px;color:var(--primary-light);font-weight:500;background:color-mix(in srgb,var(--primary) 15%,transparent);padding:2px 10px;border-radius:6px">&#9992; 去程</span>
+      <span style="font-size:12px;font-weight:500">${fmtD(item.dep_date)}</span>
     </div>
-    <div style="background:var(--card2);border-radius:10px;padding:12px;margin-bottom:10px">
-      <div style="font-size:13px;font-weight:500;color:var(--text2);margin-bottom:6px">${item.airline||state.currentRoute.airline_str} ${item.flight1}${isRound?' / '+item.flight2:''}</div>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--text3)">
-        <span>去程: ${fmtD(item.dep_date)} ${item.f1_dep_time||''}${item.f1_arr_time?'→'+item.f1_arr_time:''}</span>
-        ${isRound ? `<span>回程: ${fmtD(retD)} ${item.f2_dep_time||''}${item.f2_arr_time?'→'+item.f2_arr_time:''}</span>` : ''}
-        <span>${isRound ? item.nights+'天团' : '单程'}</span>
-        <span>余${item.available}位</span>
+    <div style="font-size:13px;font-weight:500;color:var(--text2);margin-bottom:8px">${item.airline||''} ${item.flight1}</div>
+    <div style="display:flex;align-items:center;gap:6px">
+      <div style="flex:1;text-align:right">
+        <div style="font-size:15px;font-weight:500">${state.from.name}</div>
+        <div style="font-size:10px;color:var(--text3)">${item.f1_dep_airport||''}</div>
+      </div>
+      <div style="text-align:center">
+        <div style="font-size:13px;font-weight:600;color:var(--green)">${item.f1_dep_time||'--'}</div>
+        <div style="font-size:16px;color:var(--text3);line-height:1">&#8594;</div>
+        <div style="font-size:13px;font-weight:600;color:var(--green)">${item.f1_arr_time||'--'}</div>
+      </div>
+      <div style="flex:1">
+        <div style="font-size:15px;font-weight:500">${state.to.name}</div>
+        <div style="font-size:10px;color:var(--text3)">${item.f1_arr_airport||''}</div>
       </div>
     </div>
-    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
-      <span style="background:color-mix(in srgb,var(--primary) 20%,transparent);color:var(--primary-light);padding:3px 10px;border-radius:8px;font-size:11px;font-weight:500">${item.baggage||''}</span>
-      <span style="background:color-mix(in srgb,var(--amber) 20%,transparent);color:var(--amber);padding:3px 10px;border-radius:8px;font-size:11px">${item.meal||''}</span>
-      <span style="background:color-mix(in srgb,var(--green) 20%,transparent);color:var(--green);padding:3px 10px;border-radius:8px;font-size:11px">含税</span>
-    </div>
-    <button style="width:100%;padding:12px;border:none;border-radius:10px;background:var(--primary);color:#fff;font-size:15px;font-weight:600;cursor:pointer" onclick="document.getElementById('consultModal').classList.add('show');document.getElementById('consultSheet').style.display='flex'">📞 立即咨询</button>
   `;
+  wrap.appendChild(outSeg);
   
-  wrap.appendChild(detail);
+  // 回程段
+  if(isRound) {
+    const retSeg = document.createElement('div'); retSeg.style.cssText = 'background:var(--card);border-radius:12px;padding:16px;margin-bottom:8px';
+    retSeg.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <span style="font-size:11px;color:var(--amber);font-weight:500;background:color-mix(in srgb,var(--amber) 20%,transparent);padding:2px 10px;border-radius:6px">&#9992; 回程</span>
+        <span style="font-size:12px;font-weight:500">${fmtD(retD)}</span>
+      </div>
+      <div style="font-size:13px;font-weight:500;color:var(--text2);margin-bottom:8px">${item.airline||''} ${item.flight2}</div>
+      <div style="display:flex;align-items:center;gap:6px">
+        <div style="flex:1;text-align:right">
+          <div style="font-size:15px;font-weight:500">${state.to.name}</div>
+          <div style="font-size:10px;color:var(--text3)">${item.f2_dep_airport||''}</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-size:13px;font-weight:600;color:var(--green)">${item.f2_dep_time||'--'}</div>
+          <div style="font-size:16px;color:var(--text3);line-height:1">&#8594;</div>
+          <div style="font-size:13px;font-weight:600;color:var(--green)">${item.f2_arr_time||'--'}</div>
+        </div>
+        <div style="flex:1">
+          <div style="font-size:15px;font-weight:500">${state.from.name}</div>
+          <div style="font-size:10px;color:var(--text3)">${item.f2_arr_airport||''}</div>
+        </div>
+      </div>
+    `;
+    wrap.appendChild(retSeg);
+  } else {
+    // 单程：显示拼回程提示
+    const singleTip = document.createElement('div'); singleTip.style.cssText = 'background:var(--card);border-radius:12px;padding:16px;margin-bottom:8px;text-align:center;color:var(--text3);font-size:13px';
+    singleTip.innerHTML = '&#9992; 单程产品 · 可拼回程';
+    wrap.appendChild(singleTip);
+  }
+  
+  // 报价条
+  const priceBar = document.createElement('div'); priceBar.style.cssText = 'background:var(--card);border-radius:12px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center';
+  priceBar.innerHTML = `
+    <div>
+      <div style="font-size:20px;font-weight:700;color:var(--green)">&#165;${item.retail_price}<span style="font-size:12px;font-weight:400;color:var(--text3)">/人</span></div>
+      <div style="display:flex;gap:6px;margin-top:4px;flex-wrap:wrap">
+        <span style="font-size:10px;padding:1px 6px;border-radius:4px;background:color-mix(in srgb,var(--primary) 15%,transparent);color:var(--primary-light);font-weight:500">${item.baggage||''}</span>
+        <span style="font-size:10px;padding:1px 6px;border-radius:4px;background:color-mix(in srgb,var(--amber) 15%,transparent);color:var(--amber);font-weight:500">${item.meal||''}</span>
+        <span style="font-size:10px;padding:1px 6px;border-radius:4px;background:color-mix(in srgb,var(--green) 15%,transparent);color:var(--green);font-weight:500">含税</span>
+        <span style="font-size:10px;padding:1px 6px;border-radius:4px;background:color-mix(in srgb,var(--danger) 15%,transparent);color:var(--danger);font-weight:500">余${item.available}位</span>
+      </div>
+    </div>
+    <button style="padding:10px 20px;border:none;border-radius:10px;background:var(--primary);color:#fff;font-size:14px;font-weight:600;cursor:pointer" onclick="document.getElementById('consultModal').classList.add('show');document.getElementById('consultSheet').style.display='flex'">立即咨询</button>
+  `;
+  wrap.appendChild(priceBar);
+  
   grid.appendChild(wrap);
   
   // 更新咨询弹窗内容
   document.getElementById('consultContent').innerHTML =
-`<b>航线</b>: ${state.from.name}→${state.to.name}<br>
-<b>航班</b>: ${item.flight1}${isRound?' / '+item.flight2:''}<br>
-<b>${isRound?'去程: '+fmtD(item.dep_date)+'  回程: '+fmtD(retD)+'<br><b>天数</b>: '+item.nights+'天团':'日期: '+fmtD(item.dep_date)+' · 单程'}<br>
-<b>余位</b>: ${item.available}位<br>
-<b>价格</b>: &#165;${item.retail_price}/人 <span style="color:var(--text3)">含税</span>`;
+`<b>航线</b>: ${state.from.name} → ${state.to.name}<br>
+<b>去程</b>: ${item.flight1} ${fmtD(item.dep_date)} ${item.f1_dep_time||''} ${item.f1_dep_airport||''} → ${item.f1_arr_airport||''} ${item.f1_arr_time||''}<br>
+${isRound ? `<b>回程</b>: ${item.flight2} ${fmtD(retD)} ${item.f2_dep_time||''} ${item.f2_dep_airport||''} → ${item.f2_arr_airport||''} ${item.f2_arr_time||''}<br>` : ''}
+<b>价格</b>: &#165;${item.retail_price}/人 <span style="color:var(--text3)">含税</span><br>
+<b>行李</b>: ${item.baggage||''} | <b>餐食</b>: ${item.meal||''} | <b>余位</b>: ${item.available}位`;
 }
 
 // ======== SEARCH RESULTS (保留旧版供排序等引用) ========
