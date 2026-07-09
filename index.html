@@ -85,6 +85,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
 .s-avail-low{background:color-mix(in srgb,var(--danger) 20%,transparent);color:var(--danger)}
 .s-avail-mid{background:color-mix(in srgb,var(--amber) 20%,transparent);color:var(--amber)}
 .s-avail-high{background:color-mix(in srgb,var(--green) 15%,transparent);color:var(--green)}
+/* Grid sort bar */
+.grid-sort-bar{display:flex;gap:6px;margin-bottom:10px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.grid-sort-item{flex-shrink:0;padding:4px 12px;font-size:12px;border-radius:16px;background:var(--card2);color:var(--text3);cursor:pointer;transition:.15s}
+.grid-sort-item.active{background:var(--primary);color:#fff}
+.grid-sort-item:active{opacity:.8}
 /* Result page */
 .result-header{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--card);margin:0 0 10px;border-radius:0 0 14px 14px}
 .result-header .back-btn{font-size:18px;cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--card2);flex-shrink:0}
@@ -235,9 +240,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
     <div class="calendar-weekdays"><span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span></div>
     <div class="calendar-days" id="calendarDays"></div>
   </div>
-  <!-- Hot deals -->
+  <!-- Hot deals / results / detail -->
   <div class="hot-section">
     <div class="section-title" style="display:flex;align-items:center;gap:8px">
+      <span id="hotBackBtn" style="display:none;font-size:16px;cursor:pointer;width:24px;height:24px;align-items:center;justify-content:center;border-radius:50%;background:var(--card2);flex-shrink:0">&larr;</span>
       <span id="hotSectionBadge" style="background:var(--danger);color:#fff;font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500">尾单</span>
       <span id="hotSectionTitle">余位告急 · 一周内出发</span>
     </div>
@@ -366,7 +372,9 @@ const state = {
   results: [],
   pickerTarget: 'from',
   tabChanged: true,  // Tab切换标志，初始为true走Tab逻辑
-  combo: {outbound: null, return: null}  // 单程拼往返
+  combo: {outbound: null, return: null},  // 单程拼往返
+  viewMode: 'home',  // 'home' | 'results' | 'detail'
+  currentItem: null  // 当前查看的详情产品
 };
 const DAY_NAMES = ['周日','周一','周二','周三','周四','周五','周六'];
 
@@ -555,6 +563,29 @@ function renderHotRoutes(){
   
   const badge = document.getElementById('hotSectionBadge');
   const title = document.getElementById('hotSectionTitle');
+  const backBtn = document.getElementById('hotBackBtn');
+  
+  // ========== 非首页模式：嵌入搜索结果/详情 ==========
+  if(state.viewMode === 'results') {
+    backBtn.style.display = 'flex';
+    backBtn.onclick = () => { state.viewMode = 'home'; renderHotRoutes(); };
+    badge.textContent = '🔍 搜索结果';
+    badge.style.background = 'var(--primary)';
+    title.textContent = `${state.from.name} → ${state.to.name} · ${state.results.length}个班期`;
+    renderGridResults();
+    return;
+  }
+  if(state.viewMode === 'detail') {
+    backBtn.style.display = 'flex';
+    backBtn.onclick = () => { state.viewMode = 'results'; renderHotRoutes(); };
+    badge.textContent = '📋 产品详情';
+    badge.style.background = 'var(--primary)';
+    title.textContent = `${state.from.name} → ${state.to.name}`;
+    renderGridDetail();
+    return;
+  }
+  // 首页模式：隐藏返回按钮
+  backBtn.style.display = 'none';
   
   // ========== 用户手动输入航线：精确匹配展示 ==========
   if(!state.tabChanged && fromCity !== state.to.name) {
@@ -892,7 +923,140 @@ function renderHotRoutes(){
   });
 }
 
-// ======== SEARCH ========
+// ======== GRID RENDERERS (内嵌首页滑动区) ========
+function renderGridResults(){
+  const grid = document.getElementById('hotGrid'); grid.innerHTML = '';
+  grid.style.display = 'block';
+  
+  // 排序条
+  const sortBar = document.createElement('div'); sortBar.className = 'grid-sort-bar';
+  sortBar.innerHTML = `
+    <span class="grid-sort-item active" data-sort="date">日期</span>
+    <span class="grid-sort-item" data-sort="price-low">价格低</span>
+    <span class="grid-sort-item" data-sort="price-high">价格高</span>
+    <span class="grid-sort-item" data-sort="avail">余位</span>
+  `;
+  sortBar.querySelectorAll('.grid-sort-item').forEach(s => s.onclick = ()=>{
+    sortBar.querySelectorAll('.grid-sort-item').forEach(x => x.classList.remove('active'));
+    s.classList.add('active');
+    const by = s.dataset.sort;
+    if(by === 'date') state.results.sort((a,b)=>(a.dep_date||'').localeCompare(b.dep_date||''));
+    else if(by === 'price-low') state.results.sort((a,b)=>a.retail_price - b.retail_price);
+    else if(by === 'price-high') state.results.sort((a,b)=>b.retail_price - a.retail_price);
+    else if(by === 'avail') state.results.sort((a,b)=>a.available - b.available);
+    renderGridResults();
+  });
+  grid.appendChild(sortBar);
+  
+  // 结果列表
+  const wrap = document.createElement('div'); wrap.className = 'hot-scroll-wrap';
+  const list = document.createElement('div'); list.className = 'hot-scroll-list';
+  
+  const fmtD = (d) => { if(!d||d==='--')return'--';const p=d.split('-');return parseInt(p[1])+'月'+parseInt(p[2])+'日'; };
+  
+  state.results.forEach(item => {
+    const div = document.createElement('div'); div.className = 'hot-scroll-item';
+    const retD = item.ret_date||'';
+    const isRound = !!retD;
+    const tripTag = isRound ? `${item.nights}天团` : '单程';
+    const tagStyle = isRound ? 'color:var(--green)' : 'color:var(--amber)';
+    let availClass = 's-avail-high';
+    if(item.available <= 3) availClass = 's-avail-low';
+    else if(item.available <= 10) availClass = 's-avail-mid';
+    
+    div.innerHTML = `
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:4px">
+        <div>
+          <div style="font-size:15px;font-weight:500">${state.from.name} → ${state.to.name}</div>
+          <div style="font-size:10px;color:var(--text3);margin-top:1px">${item.airline||state.currentRoute.airline_str} ${item.flight1}${isRound?'/'+item.flight2:''}</div>
+        </div>
+        <span style="font-size:10px;padding:1px 6px;border-radius:6px;background:color-mix(in srgb,var(--green) 20%,transparent);${tagStyle};flex-shrink:0;font-weight:500">${tripTag}</span>
+      </div>
+      <div class="date-line" style="padding:4px 0;margin:0">
+        <span class="date-block">
+          <span class="date-label">去程</span>
+          <span class="date-val" style="font-size:13px">${fmtD(item.dep_date)}</span>
+          <span class="time-val">${item.f1_dep_time||''}${item.f1_arr_time?'→'+item.f1_arr_time:''}</span>
+        </span>
+        ${isRound ? `<span class="date-arrow">&#8594;</span>
+        <span class="date-block">
+          <span class="date-label">回程</span>
+          <span class="date-val" style="font-size:13px">${fmtD(retD)}</span>
+          <span class="time-val">${item.f2_dep_time||''}${item.f2_arr_time?'→'+item.f2_arr_time:''}</span>
+        </span>` : '<span class="date-arrow">&#8594;</span><span class="date-block"><span class="date-label">&nbsp;</span><span class="date-val" style="color:var(--text3);font-size:13px">单程</span></span>'}
+        <span class="date-block" style="margin-left:auto;text-align:right">
+          <span class="date-label">价格</span>
+          <span class="date-val" style="color:var(--green);font-weight:600;font-size:15px">&#165;${item.retail_price}</span>
+        </span>
+      </div>
+      <div style="display:flex;gap:8px;margin-top:4px;font-size:10px;color:var(--text3)">
+        <span class="${availClass}" style="padding:1px 6px;border-radius:6px;font-weight:500">余${item.available}位</span>
+        <span>${isRound ? item.nights+'晚' : '单程'}</span>
+        <span>${item.baggage||''}</span>
+        <span>含税</span>
+      </div>
+    `;
+    div.onclick = ()=>{
+      state.currentItem = item;
+      state.viewMode = 'detail';
+      renderHotRoutes();
+    };
+    list.appendChild(div);
+  });
+  
+  wrap.appendChild(list);
+  grid.appendChild(wrap);
+}
+
+function renderGridDetail(){
+  const grid = document.getElementById('hotGrid'); grid.innerHTML = '';
+  grid.style.display = 'block';
+  
+  const item = state.currentItem;
+  if(!item) return;
+  
+  const retD = item.ret_date||'';
+  const isRound = !!retD;
+  const fmtD = (d) => { if(!d||d==='--')return'--';const p=d.split('-');return parseInt(p[1])+'月'+parseInt(p[2])+'日'; };
+  
+  const wrap = document.createElement('div'); wrap.className = 'hot-scroll-wrap';
+  
+  const detail = document.createElement('div'); detail.style.cssText = 'background:var(--card);border-radius:12px;padding:16px';
+  detail.innerHTML = `
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+      <div style="font-size:18px;font-weight:500">${state.from.name} <span style="color:var(--text3);font-size:14px">&#8594;</span> ${state.to.name}</div>
+      <span style="font-size:14px;color:var(--primary-light);font-weight:600">&#165;${item.retail_price}</span>
+    </div>
+    <div style="background:var(--card2);border-radius:10px;padding:12px;margin-bottom:10px">
+      <div style="font-size:13px;font-weight:500;color:var(--text2);margin-bottom:6px">${item.airline||state.currentRoute.airline_str} ${item.flight1}${isRound?' / '+item.flight2:''}</div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;font-size:12px;color:var(--text3)">
+        <span>去程: ${fmtD(item.dep_date)} ${item.f1_dep_time||''}${item.f1_arr_time?'→'+item.f1_arr_time:''}</span>
+        ${isRound ? `<span>回程: ${fmtD(retD)} ${item.f2_dep_time||''}${item.f2_arr_time?'→'+item.f2_arr_time:''}</span>` : ''}
+        <span>${isRound ? item.nights+'天团' : '单程'}</span>
+        <span>余${item.available}位</span>
+      </div>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+      <span style="background:color-mix(in srgb,var(--primary) 20%,transparent);color:var(--primary-light);padding:3px 10px;border-radius:8px;font-size:11px;font-weight:500">${item.baggage||''}</span>
+      <span style="background:color-mix(in srgb,var(--amber) 20%,transparent);color:var(--amber);padding:3px 10px;border-radius:8px;font-size:11px">${item.meal||''}</span>
+      <span style="background:color-mix(in srgb,var(--green) 20%,transparent);color:var(--green);padding:3px 10px;border-radius:8px;font-size:11px">含税</span>
+    </div>
+    <button style="width:100%;padding:12px;border:none;border-radius:10px;background:var(--primary);color:#fff;font-size:15px;font-weight:600;cursor:pointer" onclick="document.getElementById('consultModal').classList.add('show');document.getElementById('consultSheet').style.display='flex'">📞 立即咨询</button>
+  `;
+  
+  wrap.appendChild(detail);
+  grid.appendChild(wrap);
+  
+  // 更新咨询弹窗内容
+  document.getElementById('consultContent').innerHTML =
+`<b>航线</b>: ${state.from.name}→${state.to.name}<br>
+<b>航班</b>: ${item.flight1}${isRound?' / '+item.flight2:''}<br>
+<b>${isRound?'去程: '+fmtD(item.dep_date)+'  回程: '+fmtD(retD)+'<br><b>天数</b>: '+item.nights+'天团':'日期: '+fmtD(item.dep_date)+' · 单程'}<br>
+<b>余位</b>: ${item.available}位<br>
+<b>价格</b>: &#165;${item.retail_price}/人 <span style="color:var(--text3)">含税</span>`;
+}
+
+// ======== SEARCH RESULTS (保留旧版供排序等引用) ========
 function doSearch(){
   const routeKey = `${state.from.name}→${state.to.name}`;
   const route = flightRoutes.find(r => r.route === routeKey);
@@ -913,8 +1077,9 @@ function doSearch(){
     alert(`该航线暂无${isRound?'团票（往返）':'单程'}产品`);
     state.results = [...route.items];
   }
-  switchPage('results');
-  renderResults();
+  // 嵌入首页滑动区
+  state.viewMode = 'results';
+  renderHotRoutes();
 }
 
 function renderResults(){
@@ -1211,9 +1376,9 @@ document.querySelectorAll('input[name="trip"]').forEach(r => r.onchange = ()=>{
     renderResults();
   }
 });
-document.getElementById('backToSearch').onclick = ()=>{switchPage('search');document.body.style.paddingBottom='calc(var(--tab-h) + var(--safe-bottom) + 8px)'};
-document.getElementById('backToResults').onclick = ()=>{switchPage('results');document.body.style.paddingBottom='calc(var(--tab-h) + var(--safe-bottom) + 8px)'};
-document.getElementById('modifyBtn').onclick = ()=>{switchPage('search');document.body.style.paddingBottom='calc(var(--tab-h) + var(--safe-bottom) + 8px)'};
+document.getElementById('backToSearch').onclick = ()=>{ state.viewMode = 'home'; renderHotRoutes(); };
+document.getElementById('backToResults').onclick = ()=>{ state.viewMode = 'home'; renderHotRoutes(); };
+document.getElementById('modifyBtn').onclick = ()=>{ state.viewMode = 'home'; renderHotRoutes(); };
 document.querySelectorAll('.sort-item').forEach(s=>{s.onclick=()=>{document.querySelectorAll('.sort-item').forEach(x=>x.classList.remove('active'));s.classList.add('active');applySort(s.dataset.sort)}});
 document.querySelectorAll('.bottom-tab .tab-item').forEach(t=>{t.onclick=()=>{const p=t.dataset.page;document.querySelectorAll('.bottom-tab .tab-item').forEach(x=>x.classList.remove('active'));t.classList.add('active');if(p!=='search'){alert(`「${t.querySelector('.tab-label').textContent}」页面（Demo）`);switchPage('search')}}});
 
