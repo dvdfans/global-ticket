@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <title>环球机票查询</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 :root{
@@ -648,9 +649,9 @@ function filterByChips(item){
 }
 
 function renderHotRoutes(){
-  console.log('renderHotRoutes called, viewMode:', state.viewMode, 'tab:', document.querySelector('.route-tab.active')?.dataset.tab);
-  const grid = document.getElementById('hotGrid'); grid.innerHTML = '';
-  if(!grid) { console.error('hotGrid not found!'); return; }
+  const grid = document.getElementById('hotGrid');
+  if(!grid) return;
+  grid.innerHTML = '';
   grid.style.display = '';
   const fromCity = state.from.name;
   const today = new Date(); today.setHours(0,0,0,0);
@@ -662,9 +663,6 @@ function renderHotRoutes(){
   const badge = document.getElementById('hotSectionBadge');
   const title = document.getElementById('hotSectionTitle');
   const backBtn = document.getElementById('hotBackBtn');
-  
-  // 刷新筛选Chips
-  try { if(typeof renderFilterChips === 'function') renderFilterChips(); } catch(e){}
   
   // ========== 非首页模式：嵌入搜索结果/详情 ==========
   if(state.viewMode === 'results') {
