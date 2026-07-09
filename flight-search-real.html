@@ -22,25 +22,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
 .route-tabs{display:flex;margin:0 16px 8px;background:var(--card);border-radius:10px;overflow:hidden}
 .route-tab{flex:1;text-align:center;padding:10px 0;font-size:14px;font-weight:500;color:var(--text3);cursor:pointer;position:relative;transition:.2s}
 .route-tab.active{color:var(--primary-light)}.route-tab.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:24px;height:3px;border-radius:2px;background:var(--primary)}
-/* Search card */
-.search-card{background:var(--card);margin:0 16px;border-radius:14px;padding:10px}
-.trip-type{display:flex;gap:12px;margin-bottom:6px}
-.trip-type label{font-size:12px;color:var(--text3);cursor:pointer;display:flex;align-items:center;gap:4px}
-.trip-type input[type="radio"]{accent-color:var(--primary);width:14px;height:14px}
-.city-row{display:flex;align-items:center;gap:6px;margin-bottom:6px}
-.city-box{flex:1;padding:6px 10px;background:var(--card2);border-radius:10px;cursor:pointer}
-.city-box .city-label{font-size:10px;color:var(--text3)}.city-box .city-value{font-size:16px;font-weight:600}
-.city-box .city-code{font-size:10px;color:var(--text3);margin-top:1px}
-.swap-btn{width:32px;height:32px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:14px;transition:.2s}
-.swap-btn:active{transform:rotate(180deg)}
-.date-row{display:flex;gap:6px;margin-bottom:6px}
-.date-box{flex:1;padding:6px 10px;background:var(--card2);border-radius:10px;cursor:pointer}
-.date-box .date-label{font-size:10px;color:var(--text3)}.date-box .date-value{font-size:14px;font-weight:500}
-.date-box .date-week{font-size:10px;color:var(--text3);margin-top:1px}
-.pax-row{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;background:var(--card2);border-radius:10px;margin-bottom:8px;cursor:pointer}
-.pax-row .pax-label{font-size:10px;color:var(--text3)}.pax-row .pax-value{font-size:13px;font-weight:500;color:var(--text2)}
-.search-btn{width:100%;padding:10px;border:none;border-radius:10px;background:linear-gradient(135deg,var(--primary),#2563eb);color:#fff;font-size:15px;font-weight:600;cursor:pointer;transition:.2s;letter-spacing:.5px}
-.search-btn:active{opacity:.85;transform:scale(.98)}
+/* Filter bar (原搜索框简化) */
+.filter-card{background:var(--card);margin:0 16px;border-radius:12px;padding:8px 12px}
+.filter-row{display:flex;align-items:center;gap:6px}
+.filter-city{flex:1;display:flex;align-items:center;gap:4px;padding:4px 8px;background:var(--card2);border-radius:8px;cursor:pointer}
+.filter-city .fc-label{font-size:9px;color:var(--text3)}.filter-city .fc-value{font-size:13px;font-weight:500;color:var(--text1)}
+.filter-swap{width:22px;height:22px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:11px}
+.filter-date{display:flex;align-items:center;gap:3px;padding:4px 8px;background:var(--card2);border-radius:8px;cursor:pointer;flex-shrink:0}
+.filter-date .fd-label{font-size:9px;color:var(--text3)}.filter-date .fd-value{font-size:11px;font-weight:500;color:var(--text1);white-space:nowrap}
+.filter-search{width:32px;height:32px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.filter-trip{display:flex;gap:8px;margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
+.filter-trip label{font-size:11px;color:var(--text3);cursor:pointer;display:flex;align-items:center;gap:3px}
+.filter-trip input[type="radio"]{accent-color:var(--primary);width:12px;height:12px}
 /* Calendar */
 .calendar-section{margin:12px 16px 0;display:none}.calendar-section.show{display:block}
 .calendar-section .cal-title{font-size:13px;font-weight:500;margin-bottom:8px;color:var(--text2)}
@@ -209,22 +202,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
     <div class="route-tab" style="flex:0 0 auto;padding:8px 14px;font-size:12px" data-tab="东南亚">东南亚</div>
     <div class="route-tab" style="flex:0 0 auto;padding:8px 14px;font-size:12px" data-tab="港澳">港澳</div>
   </div>
-  <div class="search-card">
-    <div class="trip-type">
-      <label><input type="radio" name="trip" value="round" checked> 团票（往返）</label>
+  <div class="filter-card">
+    <div class="filter-row">
+      <div class="filter-city" id="fromCity">
+        <span class="fc-label">出发</span>
+        <span class="fc-value">上海</span>
+      </div>
+      <span class="filter-swap" id="swapBtn">&#8644;</span>
+      <div class="filter-city" id="toCity">
+        <span class="fc-label">到达</span>
+        <span class="fc-value">${state ? state.to.name : '首尔'}</span>
+      </div>
+      <div class="filter-date" id="depDate">
+        <span class="fd-label">出发</span>
+        <span class="fd-value loading-date">--</span>
+      </div>
+      <button class="filter-search" id="searchBtn">&#128269;</button>
+    </div>
+    <div class="filter-trip">
+      <label><input type="radio" name="trip" value="round" checked> 团票</label>
       <label><input type="radio" name="trip" value="oneway"> 单程</label>
     </div>
-    <div class="city-row">
-      <div class="city-box" id="fromCity"><div class="city-label">出发</div><div class="city-value">上海</div><div class="city-code">SHA</div></div>
-      <div class="swap-btn" id="swapBtn">&#8644;</div>
-      <div class="city-box" id="toCity"><div class="city-label">到达</div><div class="city-value">首尔</div><div class="city-code">ICN</div></div>
-    </div>
-    <div class="date-row">
-      <div class="date-box" id="depDate"><div class="date-label">出发日期</div><div class="date-value loading-date">--</div><div class="date-week">--</div></div>
-      <div class="date-box" id="retDate"><div class="date-label">返程日期</div><div class="date-value loading-date">--</div><div class="date-week">--</div></div>
-    </div>
-    <div class="pax-row" id="paxRow">
-      <div><div class="pax-label">乘客</div><div class="pax-value" id="paxDisplay">1位成人</div></div>
+  </div>
       <span style="color:var(--text3);font-size:14px;">&rsaquo;</span>
     </div>
     <button class="search-btn" id="searchBtn">查 询 机 票</button>
@@ -312,22 +311,6 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
   <div class="modal-header"><h3 id="cityModalTitle">选择城市</h3><span class="close-btn" id="closeCityModal">&times;</span></div>
   <div class="modal-search"><input type="text" id="citySearch" placeholder="搜索城市" autocomplete="off"></div>
   <div class="modal-list" id="cityList"></div>
-</div>
-
-<div class="modal-overlay" id="paxModal"></div>
-<div class="modal-sheet pax-modal" id="paxSheet">
-  <div class="modal-header"><h3>选择乘客</h3><span class="close-btn" id="closePaxModal">&times;</span></div>
-  <div style="padding:0 16px 16px">
-    <div class="pax-row-edit">
-      <div class="pax-info"><div class="pax-title">成人</div><div class="pax-sub">12岁以上</div></div>
-      <div class="pax-stepper"><button id="adultMinus">-</button><span class="count" id="adultCount">1</span><button id="adultPlus">+</button></div>
-    </div>
-    <div class="pax-row-edit">
-      <div class="pax-info"><div class="pax-title">儿童</div><div class="pax-sub">2-12岁</div></div>
-      <div class="pax-stepper"><button id="childMinus">-</button><span class="count" id="childCount">0</span><button id="childPlus">+</button></div>
-    </div>
-    <button class="modal-confirm" id="paxConfirm">确定</button>
-  </div>
 </div>
 
 <!-- ========== CONSULTATION MODAL ========== -->
@@ -442,10 +425,10 @@ function renderCalendar(){
 // ======== DATE DISPLAY ========
 function updateDateDisplay(){
   const fmt = d => `${d.getMonth()+1}月${d.getDate()}日`;
-  document.querySelector('#depDate .date-value').textContent = fmt(state.depDate);
-  document.querySelector('#depDate .date-week').textContent = DAY_NAMES[state.depDate.getDay()];
-  document.querySelector('#retDate .date-value').textContent = fmt(state.retDate);
-  document.querySelector('#retDate .date-week').textContent = DAY_NAMES[state.retDate.getDay()];
+  document.querySelector('#depDate .fd-value').textContent = fmt(state.depDate);
+  // 返程日期显示在出发日期后
+  const ret = fmt(state.retDate);
+  document.querySelector('#depDate .fd-value').textContent += `-${ret}`;
 }
 
 // ======== CITY MODAL ========
@@ -527,10 +510,10 @@ function selectCity(name){
   state.tabChanged = false;  // 用户手动选城市
   if(state.pickerTarget === 'from') {
     state.from.name = name;
-    document.querySelector('#fromCity .city-value').textContent = name;
+    document.querySelector('#fromCity .fc-value').textContent = name;
   } else {
     state.to.name = name;
-    document.querySelector('#toCity .city-value').textContent = name;
+    document.querySelector('#toCity .fc-value').textContent = name;
   }
   closeCityPicker();
   updateCalendarPrices();
@@ -545,8 +528,8 @@ function updateCalendarPrices(){
 function swapCities(){
   state.tabChanged = false;  // 用户手动交换城市
   [state.from, state.to] = [state.to, state.from];
-  document.querySelector('#fromCity .city-value').textContent = state.from.name;
-  document.querySelector('#toCity .city-value').textContent = state.to.name;
+  document.querySelector('#fromCity .fc-value').textContent = state.from.name;
+  document.querySelector('#toCity .fc-value').textContent = state.to.name;
   updateCalendarPrices();
 }
 
@@ -639,7 +622,7 @@ function renderHotRoutes(){
         `;
         div.onclick = ()=>{
           state.to.name = item.dest;
-          document.querySelector('#toCity .city-value').textContent = item.dest;
+          document.querySelector('#toCity .fc-value').textContent = item.dest;
           if(item.dep_date) {
             state.depDate = new Date(item.dep_date);
             state.currentMonth = new Date(state.depDate.getFullYear(), state.depDate.getMonth(), 1);
@@ -730,7 +713,7 @@ function renderHotRoutes(){
       `;
       div.onclick = ()=>{
         state.to.name = d.dest;
-        document.querySelector('#toCity .city-value').textContent = d.dest;
+        document.querySelector('#toCity .fc-value').textContent = d.dest;
         // 同步日期
         if(d.dep_date) {
           state.depDate = new Date(d.dep_date);
@@ -820,7 +803,7 @@ function renderHotRoutes(){
       `;
       div.onclick = ()=>{
         state.to.name = item.dest;
-        document.querySelector('#toCity .city-value').textContent = item.dest;
+        document.querySelector('#toCity .fc-value').textContent = item.dest;
         // 同步日期到该产品的具体去程/回程
         if(item.dep_date) {
           state.depDate = new Date(item.dep_date);
@@ -908,7 +891,7 @@ function renderHotRoutes(){
     `;
     div.onclick = ()=>{
       state.to.name = d.dest;
-      document.querySelector('#toCity .city-value').textContent = d.dest;
+      document.querySelector('#toCity .fc-value').textContent = d.dest;
       // 同步日期到该产品的具体去程/回程
       if(d.dep_date) {
         state.depDate = new Date(d.dep_date);
@@ -1249,8 +1232,8 @@ function openDetail(item){
       const origTo = state.to.name;
       state.from.name = origTo;
       state.to.name = origFrom;
-      document.querySelector('#fromCity .city-value').textContent = origTo;
-      document.querySelector('#toCity .city-value').textContent = origFrom;
+      document.querySelector('#fromCity .fc-value').textContent = origTo;
+      document.querySelector('#toCity .fc-value').textContent = origFrom;
       doSearch();
       // 结果上方提示
       document.getElementById('resultSummary').innerHTML =
@@ -1344,7 +1327,7 @@ document.querySelectorAll('.route-tab').forEach(tab => {
     const destCity = TAB_ROUTES[tabName];
     if(destCity) {
       state.to.name = destCity;
-      document.querySelector('#toCity .city-value').textContent = destCity;
+      document.querySelector('#toCity .fc-value').textContent = destCity;
       
       if(tabName === '热门') {
         // 热门=国庆，默认9/30~10/5
@@ -1399,9 +1382,6 @@ document.getElementById('depDate').onclick = ()=>document.getElementById('calend
 document.getElementById('retDate').onclick = ()=>{};
 document.getElementById('prevMonth').onclick = ()=>{state.currentMonth=new Date(state.currentMonth.getFullYear(),state.currentMonth.getMonth()-1,1);renderCalendar()};
 document.getElementById('nextMonth').onclick = ()=>{state.currentMonth=new Date(state.currentMonth.getFullYear(),state.currentMonth.getMonth()+1,1);renderCalendar()};
-document.getElementById('paxRow').onclick = ()=>{document.getElementById('paxModal').classList.add('show');document.getElementById('paxSheet').style.display='flex'};
-document.getElementById('closePaxModal').onclick = ()=>{document.getElementById('paxModal').classList.remove('show');document.getElementById('paxSheet').style.display='none'};
-document.getElementById('paxModal').onclick = ()=>{document.getElementById('paxModal').classList.remove('show');document.getElementById('paxSheet').style.display='none'};
 document.getElementById('paxSheet').onclick = e=>e.stopPropagation();
 // Consult modal
 document.getElementById('closeConsult').onclick = ()=>{document.getElementById('consultModal').classList.remove('show');document.getElementById('consultSheet').style.display='none'};
@@ -1432,20 +1412,6 @@ document.getElementById('backToResults').onclick = ()=>{ state.viewMode = 'home'
 document.getElementById('modifyBtn').onclick = ()=>{ state.viewMode = 'home'; renderHotRoutes(); };
 document.querySelectorAll('.sort-item').forEach(s=>{s.onclick=()=>{document.querySelectorAll('.sort-item').forEach(x=>x.classList.remove('active'));s.classList.add('active');applySort(s.dataset.sort)}});
 document.querySelectorAll('.bottom-tab .tab-item').forEach(t=>{t.onclick=()=>{const p=t.dataset.page;document.querySelectorAll('.bottom-tab .tab-item').forEach(x=>x.classList.remove('active'));t.classList.add('active');if(p!=='search'){alert(`「${t.querySelector('.tab-label').textContent}」页面（Demo）`);switchPage('search')}}});
-
-// Steppers
-['adult','child'].forEach(k=>{
-  const min = k==='adult'?1:0;
-  document.getElementById(k+'Minus').onclick=()=>{state[k+'s']=Math.max(min,state[k+'s']-1);document.getElementById(k+'Count').textContent=state[k+'s']};
-  document.getElementById(k+'Plus').onclick=()=>{state[k+'s']=Math.min(9,state[k+'s']+1);document.getElementById(k+'Count').textContent=state[k+'s']};
-});
-document.getElementById('paxConfirm').onclick = ()=>{document.getElementById('paxModal').classList.remove('show');document.getElementById('paxSheet').style.display='none';updatePaxDisplay()};
-function updatePaxDisplay(){
-  let parts=[];
-  if(state.adults>0)parts.push(`${state.adults}位成人`);
-  if(state.children>0)parts.push(`${state.children}位儿童`);
-  document.getElementById('paxDisplay').textContent=parts.join(' ')||'1位成人';
-}
 
 // ======== INIT ========
 loadData();
