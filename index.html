@@ -578,9 +578,11 @@ function swapCities(){
 
 // ======== CHIPS: 月份 + 晚数筛选 ========
 function renderFilterChips(){
+  if(!flightRoutes || flightRoutes.length === 0) return;
   const fromCity = state.from.name;
   const today = new Date(); today.setHours(0,0,0,0);
-  const tripMode = document.querySelector('input[name="trip"]:checked').value;
+  const tripRadio = document.querySelector('input[name="trip"]:checked');
+  const tripMode = tripRadio ? tripRadio.value : 'round';
   
   // 收集所有匹配的产品
   let items = [];
@@ -599,7 +601,7 @@ function renderFilterChips(){
   const months = new Set();
   const nights = new Set();
   items.forEach(item => {
-    if(item.dep_date) months.add(item.dep_date.split('-')[1]);  // '07','08'...
+    if(item.dep_date && item.dep_date.includes('-')) months.add(item.dep_date.split('-')[1]);
     if(item.nights && item.ret_date) nights.add(item.nights);
   });
   
@@ -663,8 +665,8 @@ function renderHotRoutes(){
   const title = document.getElementById('hotSectionTitle');
   const backBtn = document.getElementById('hotBackBtn');
   
-  // 刷新筛选Chips
-  renderFilterChips();
+  // 刷新筛选Chips（包裹try-catch防止出错阻塞内容渲染）
+  try { renderFilterChips(); } catch(e) { console.error('Chips error:', e); }
   
   // ========== 非首页模式：嵌入搜索结果/详情 ==========
   if(state.viewMode === 'results') {
