@@ -22,18 +22,23 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
 .route-tabs{display:flex;margin:0 16px 8px;background:var(--card);border-radius:10px;overflow:hidden}
 .route-tab{flex:1;text-align:center;padding:10px 0;font-size:14px;font-weight:500;color:var(--text3);cursor:pointer;position:relative;transition:.2s}
 .route-tab.active{color:var(--primary-light)}.route-tab.active::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:24px;height:3px;border-radius:2px;background:var(--primary)}
-/* Filter bar (原搜索框简化) */
-.filter-card{background:var(--card);margin:0 16px;border-radius:12px;padding:8px 12px}
-.filter-row{display:flex;align-items:center;gap:6px}
-.filter-city{flex:1;display:flex;align-items:center;gap:4px;padding:4px 8px;background:var(--card2);border-radius:8px;cursor:pointer}
-.filter-city .fc-label{font-size:9px;color:var(--text3)}.filter-city .fc-value{font-size:13px;font-weight:500;color:var(--text1)}
-.filter-swap{width:22px;height:22px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:11px}
-.filter-date{display:flex;align-items:center;gap:3px;padding:4px 8px;background:var(--card2);border-radius:8px;cursor:pointer;flex-shrink:0}
-.filter-date .fd-label{font-size:9px;color:var(--text3)}.filter-date .fd-value{font-size:11px;font-weight:500;color:var(--text1);white-space:nowrap}
-.filter-search{width:32px;height:32px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.filter-trip{display:flex;gap:8px;margin-top:6px;padding-top:6px;border-top:1px solid var(--border)}
-.filter-trip label{font-size:11px;color:var(--text3);cursor:pointer;display:flex;align-items:center;gap:3px}
-.filter-trip input[type="radio"]{accent-color:var(--primary);width:12px;height:12px}
+/* Filter bar (筛选框) */
+#filterArea{background:var(--card);margin:0 12px;border-radius:10px;padding:6px 10px}
+.fbar{display:flex;align-items:center;gap:4px}
+.fbar-city{flex:1;display:flex;align-items:baseline;gap:3px;padding:4px 8px;background:var(--card2);border-radius:8px;cursor:pointer;min-width:0}
+.fbar-city .fc-label{font-size:8px;color:var(--text3);flex-shrink:0}
+.fbar-city .fc-name{font-size:13px;font-weight:500;color:var(--text1)}
+.fbar-city .fc-code{font-size:9px;color:var(--text3)}.fbar-city .fc-code::before{content:'('}.fbar-city .fc-code::after{content:')'}
+.fbar-swap{width:20px;height:20px;border-radius:50%;background:var(--card2);display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;font-size:10px}
+.fbar-btn{width:30px;height:30px;border-radius:8px;background:var(--primary);border:none;color:#fff;font-size:13px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.fbar-trip{display:flex;gap:6px;margin-top:4px;padding-top:4px;border-top:1px solid var(--border)}
+.fbar-trip label{font-size:10px;color:var(--text3);cursor:pointer;display:flex;align-items:center;gap:2px}
+.fbar-trip input[type="radio"]{accent-color:var(--primary);width:11px;height:11px}
+/* Chips filter row */
+.fbar-chips{display:flex;gap:4px;margin-top:4px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.fbar-chip{padding:2px 10px;font-size:11px;border-radius:12px;background:var(--card2);color:var(--text3);cursor:pointer;flex-shrink:0;transition:.15s;border:1px solid transparent}
+.fbar-chip.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+.fbar-chip:active{opacity:.7}
 /* Calendar */
 .calendar-section{margin:12px 16px 0;display:none}.calendar-section.show{display:block}
 .calendar-section .cal-title{font-size:13px;font-weight:500;margin-bottom:8px;color:var(--text2)}
@@ -202,27 +207,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Helvetica Neue"
     <div class="route-tab" style="flex:0 0 auto;padding:8px 14px;font-size:12px" data-tab="东南亚">东南亚</div>
     <div class="route-tab" style="flex:0 0 auto;padding:8px 14px;font-size:12px" data-tab="港澳">港澳</div>
   </div>
-  <div class="filter-card">
-    <div class="filter-row">
-      <div class="filter-city" id="fromCity">
+  <div id="filterArea">
+    <!-- 筛选框：出发⇄到达（一行） -->
+    <div class="fbar">
+      <div class="fbar-city" id="fromCity">
         <span class="fc-label">出发</span>
-        <span class="fc-value">上海</span>
+        <span class="fc-name">上海</span>
+        <span class="fc-code" id="fromCode">PVG</span>
       </div>
-      <span class="filter-swap" id="swapBtn">&#8644;</span>
-      <div class="filter-city" id="toCity">
+      <span class="fbar-swap" id="swapBtn">&#8644;</span>
+      <div class="fbar-city" id="toCity">
         <span class="fc-label">到达</span>
-        <span class="fc-value">${state ? state.to.name : '首尔'}</span>
+        <span class="fc-name" id="toName">首尔</span>
+        <span class="fc-code" id="toCode">ICN</span>
       </div>
-      <div class="filter-date" id="depDate">
-        <span class="fd-label">出发</span>
-        <span class="fd-value loading-date">--</span>
-      </div>
-      <button class="filter-search" id="searchBtn">&#128269;</button>
+      <button class="fbar-btn" id="searchBtn">&#128269;</button>
     </div>
-    <div class="filter-trip">
+    <!-- 团票/单程 -->
+    <div class="fbar-trip">
       <label><input type="radio" name="trip" value="round" checked> 团票</label>
       <label><input type="radio" name="trip" value="oneway"> 单程</label>
     </div>
+    <!-- 月份筛选 -->
+    <div class="fbar-chips" id="monthChips"></div>
+    <!-- 晚数筛选 -->
+    <div class="fbar-chips" id="nightChips"></div>
   </div>
       <span style="color:var(--text3);font-size:14px;">&rsaquo;</span>
     </div>
@@ -342,8 +351,36 @@ let flightRoutes = [];
 let allCities = [];
 
 // ======== STATE ========
+// 机场中文名 → IATA代码映射
+const AIRPORT_CODES = {
+  '上海浦东机场':'PVG','上海虹桥机场':'SHA','浦东国际机场':'PVG',
+  '东京成田机场':'NRT','东京羽田机场':'HND',
+  '首尔仁川机场':'ICN','首尔金浦机场':'GMP','仁川国际机场':'ICN',
+  '大阪关西机场':'KIX',
+  '香港机场':'HKG','澳门机场':'MFM',
+  '曼谷素万那普机场':'BKK',
+  '普吉机场':'HKT','普吉国际机场':'HKT',
+  '巴厘岛机场':'DPS',
+  '新加坡樟宜机场':'SIN','樟宜机场':'SIN',
+  '济州机场':'CJU','济州国际机场':'CJU',
+  '清迈机场':'CNX',
+  '福冈机场':'FUK',
+  '冲绳那霸机场':'OKA',
+  '札幌新千岁机场':'CTS',
+  '釜山金海机场':'PUS',
+  '亚庇国际机场':'BKI',
+  '杭州萧山机场':'HGH',
+  '南京禄口机场':'NKG',
+  '南通兴东机场':'NTG',
+  '苏南硕放机场':'WUX',
+  '杜恩当机场':'?',
+};
+function airportCode(name){
+  return AIRPORT_CODES[name] || name.replace(/机场$/,'').slice(0,3).toUpperCase();
+}
+
 const state = {
-  from: {name:'上海',code:'SHA'},
+  from: {name:'上海',code:'PVG'},
   to: {name:'首尔',code:'ICN'},
   trip: 'round',
   depDate: new Date(),
@@ -354,10 +391,12 @@ const state = {
   currentRoute: null,
   results: [],
   pickerTarget: 'from',
-  tabChanged: true,  // Tab切换标志，初始为true走Tab逻辑
-  combo: {outbound: null, return: null},  // 单程拼往返
-  viewMode: 'home',  // 'home' | 'results' | 'detail'
-  currentItem: null  // 当前查看的详情产品
+  tabChanged: true,
+  filterMonth: '',  // 月份筛选: '7','8','9','10','11' 或 ''
+  filterNights: '', // 晚数筛选: '3','4','5','6','7' 或 ''
+  combo: {outbound: null, return: null},
+  viewMode: 'home',
+  currentItem: null
 };
 const DAY_NAMES = ['周日','周一','周二','周三','周四','周五','周六'];
 
@@ -510,10 +549,12 @@ function selectCity(name){
   state.tabChanged = false;  // 用户手动选城市
   if(state.pickerTarget === 'from') {
     state.from.name = name;
-    document.querySelector('#fromCity .fc-value').textContent = name;
+    document.querySelector('#fromCity .fc-name').textContent = name;
+    document.querySelector('#fromCity .fc-code').textContent = airportCode(name);
   } else {
     state.to.name = name;
-    document.querySelector('#toCity .fc-value').textContent = name;
+    document.querySelector('#toCity .fc-name').textContent = name;
+    document.querySelector('#toCity .fc-code').textContent = airportCode(name);
   }
   closeCityPicker();
   updateCalendarPrices();
@@ -526,14 +567,88 @@ function updateCalendarPrices(){
 
 // ======== SWAP ========
 function swapCities(){
-  state.tabChanged = false;  // 用户手动交换城市
+  state.tabChanged = false;
   [state.from, state.to] = [state.to, state.from];
-  document.querySelector('#fromCity .fc-value').textContent = state.from.name;
-  document.querySelector('#toCity .fc-value').textContent = state.to.name;
+  document.querySelector('#fromCity .fc-name').textContent = state.from.name;
+  document.querySelector('#fromCity .fc-code').textContent = state.from.code;
+  document.querySelector('#toCity .fc-name').textContent = state.to.name;
+  document.querySelector('#toCity .fc-code').textContent = state.to.code;
   updateCalendarPrices();
 }
 
+// ======== CHIPS: 月份 + 晚数筛选 ========
+function renderFilterChips(){
+  const fromCity = state.from.name;
+  const today = new Date(); today.setHours(0,0,0,0);
+  const tripMode = document.querySelector('input[name="trip"]:checked').value;
+  
+  // 收集所有匹配的产品
+  let items = [];
+  flightRoutes.forEach(route => {
+    if(route.dep !== fromCity) return;
+    route.items.forEach(item => {
+      if(!item.dep_date || !item.retail_price || item.retail_price <= 0) return;
+      if(item.available <= 0) return;
+      if(tripMode === 'round' && !item.ret_date) return;
+      if(tripMode === 'oneway' && item.ret_date) return;
+      items.push(item);
+    });
+  });
+  
+  // 月份去重
+  const months = new Set();
+  const nights = new Set();
+  items.forEach(item => {
+    if(item.dep_date) months.add(item.dep_date.split('-')[1]);  // '07','08'...
+    if(item.nights && item.ret_date) nights.add(item.nights);
+  });
+  
+  // 渲染月份
+  const mc = document.getElementById('monthChips'); mc.innerHTML = '';
+  const monthNames = {'07':'7月','08':'8月','09':'9月','10':'10月','11':'11月'};
+  const monthOrder = ['07','08','09','10','11'];
+  monthOrder.forEach(m => {
+    if(!months.has(m)) return;
+    const chip = document.createElement('span'); chip.className = 'fbar-chip';
+    if(state.filterMonth === m) chip.classList.add('active');
+    chip.textContent = monthNames[m] || m+'月';
+    chip.onclick = ()=>{
+      state.filterMonth = state.filterMonth === m ? '' : m;
+      renderFilterChips();
+      renderHotRoutes();
+    };
+    mc.appendChild(chip);
+  });
+  
+  // 渲染晚数
+  const nc = document.getElementById('nightChips'); nc.innerHTML = '';
+  [3,4,5,6,7].forEach(n => {
+    if(!nights.has(n)) return;
+    const chip = document.createElement('span'); chip.className = 'fbar-chip';
+    if(state.filterNights === n) chip.classList.add('active');
+    chip.textContent = n+'天';
+    chip.onclick = ()=>{
+      state.filterNights = state.filterNights === n ? '' : n;
+      renderFilterChips();
+      renderHotRoutes();
+    };
+    nc.appendChild(chip);
+  });
+}
+
 // ======== HOT ROUTES ========
+function filterByChips(item){
+  // 应用月份和晚数筛选
+  if(state.filterMonth) {
+    const m = item.dep_date ? item.dep_date.split('-')[1] : '';
+    if(m !== state.filterMonth) return false;
+  }
+  if(state.filterNights) {
+    if(item.nights !== state.filterNights) return false;
+  }
+  return true;
+}
+
 function renderHotRoutes(){
   const grid = document.getElementById('hotGrid'); grid.innerHTML = '';
   grid.style.display = '';  // 重置display，避免region tab的block影响其他tab
@@ -547,6 +662,9 @@ function renderHotRoutes(){
   const badge = document.getElementById('hotSectionBadge');
   const title = document.getElementById('hotSectionTitle');
   const backBtn = document.getElementById('hotBackBtn');
+  
+  // 刷新筛选Chips
+  renderFilterChips();
   
   // ========== 非首页模式：嵌入搜索结果/详情 ==========
   if(state.viewMode === 'results') {
@@ -589,6 +707,7 @@ function renderHotRoutes(){
         const hasReturn = !!item.ret_date;
         if(tripMode === 'round' && !hasReturn) return false;
         if(tripMode === 'oneway' && hasReturn) return false;
+        if(!filterByChips(item)) return false;
         const depDate = new Date(item.dep_date);
         return depDate >= today && depDate <= thirtyDaysLater;
       });
@@ -622,7 +741,7 @@ function renderHotRoutes(){
         `;
         div.onclick = ()=>{
           state.to.name = item.dest;
-          document.querySelector('#toCity .fc-value').textContent = item.dest;
+          document.querySelector('#toCity .fc-name').textContent = item.dest;
           if(item.dep_date) {
             state.depDate = new Date(item.dep_date);
             state.currentMonth = new Date(state.depDate.getFullYear(), state.depDate.getMonth(), 1);
@@ -670,6 +789,7 @@ function renderHotRoutes(){
         const tm = document.querySelector('input[name="trip"]:checked').value;
         if(tm === 'round' && !item.ret_date) return;
         if(tm === 'oneway' && item.ret_date) return;
+        if(!filterByChips(item)) return;
         nationalDayDeals.push({
           ...item,
           route: route.route,
@@ -713,7 +833,7 @@ function renderHotRoutes(){
       `;
       div.onclick = ()=>{
         state.to.name = d.dest;
-        document.querySelector('#toCity .fc-value').textContent = d.dest;
+        document.querySelector('#toCity .fc-name').textContent = d.dest;
         // 同步日期
         if(d.dep_date) {
           state.depDate = new Date(d.dep_date);
@@ -758,6 +878,7 @@ function renderHotRoutes(){
         const tm = document.querySelector('input[name="trip"]:checked').value;
         if(tm === 'round' && !item.ret_date) return;
         if(tm === 'oneway' && item.ret_date) return;
+        if(!filterByChips(item)) return;
         allProducts.push({
           ...item,
           route: route.route,
@@ -803,7 +924,7 @@ function renderHotRoutes(){
       `;
       div.onclick = ()=>{
         state.to.name = item.dest;
-        document.querySelector('#toCity .fc-value').textContent = item.dest;
+        document.querySelector('#toCity .fc-name').textContent = item.dest;
         // 同步日期到该产品的具体去程/回程
         if(item.dep_date) {
           state.depDate = new Date(item.dep_date);
@@ -846,6 +967,7 @@ function renderHotRoutes(){
         const tm = document.querySelector('input[name="trip"]:checked').value;
         if(tm === 'round' && !item.ret_date) return;
         if(tm === 'oneway' && item.ret_date) return;
+        if(!filterByChips(item)) return;
         deals.push({
           ...item,
           route: route.route,
@@ -891,7 +1013,7 @@ function renderHotRoutes(){
     `;
     div.onclick = ()=>{
       state.to.name = d.dest;
-      document.querySelector('#toCity .fc-value').textContent = d.dest;
+      document.querySelector('#toCity .fc-name').textContent = d.dest;
       // 同步日期到该产品的具体去程/回程
       if(d.dep_date) {
         state.depDate = new Date(d.dep_date);
@@ -1232,8 +1354,8 @@ function openDetail(item){
       const origTo = state.to.name;
       state.from.name = origTo;
       state.to.name = origFrom;
-      document.querySelector('#fromCity .fc-value').textContent = origTo;
-      document.querySelector('#toCity .fc-value').textContent = origFrom;
+      document.querySelector('#fromCity .fc-name').textContent = origTo;
+      document.querySelector('#toCity .fc-name').textContent = origFrom;
       doSearch();
       // 结果上方提示
       document.getElementById('resultSummary').innerHTML =
@@ -1327,7 +1449,7 @@ document.querySelectorAll('.route-tab').forEach(tab => {
     const destCity = TAB_ROUTES[tabName];
     if(destCity) {
       state.to.name = destCity;
-      document.querySelector('#toCity .fc-value').textContent = destCity;
+      document.querySelector('#toCity .fc-name').textContent = destCity;
       
       if(tabName === '热门') {
         // 热门=国庆，默认9/30~10/5
@@ -1392,14 +1514,16 @@ document.getElementById('searchBtn').onclick = doSearch;
 // 往返/单程切换
 document.querySelectorAll('input[name="trip"]').forEach(r => r.onchange = ()=>{
   state.trip = r.value;
-  // 如果当前在搜索结果页，重新按类型过滤
-  if(state.currentPage === 'results' && state.currentRoute) {
+  state.filterMonth = '';  // 切换团票/单程时重置筛选
+  state.filterNights = '';
+  if(state.viewMode === 'home') {
+    renderHotRoutes();
+  } else if(state.currentPage === 'results' && state.currentRoute) {
     const isRound = state.trip === 'round';
     state.results = state.currentRoute.items.filter(item => {
       const hasReturn = !!item.ret_date;
       return isRound ? hasReturn : !hasReturn;
     });
-    // 同航线按出发日期升序
     state.results.sort((a,b) => (a.dep_date||'').localeCompare(b.dep_date||''));
     if(state.results.length === 0) {
       state.results = [...state.currentRoute.items];
