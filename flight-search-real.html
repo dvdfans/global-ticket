@@ -399,7 +399,7 @@ const DAY_NAMES = ['周日','周一','周二','周三','周四','周五','周六
 // ======== LOAD DATA ========
 async function loadData(){
   try{
-    const resp = await fetch('flight_data.json');
+    const resp = await fetch('flight_data.json?v='+Date.now());
     flightRoutes = await resp.json();
     // Build city list
     const citySet = {};
@@ -648,8 +648,10 @@ function filterByChips(item){
 }
 
 function renderHotRoutes(){
+  console.log('renderHotRoutes called, viewMode:', state.viewMode, 'tab:', document.querySelector('.route-tab.active')?.dataset.tab);
   const grid = document.getElementById('hotGrid'); grid.innerHTML = '';
-  grid.style.display = '';  // 重置display，避免region tab的block影响其他tab
+  if(!grid) { console.error('hotGrid not found!'); return; }
+  grid.style.display = '';
   const fromCity = state.from.name;
   const today = new Date(); today.setHours(0,0,0,0);
   
