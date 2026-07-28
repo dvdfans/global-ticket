@@ -1,0 +1,7 @@
+# 数据库文件（每日自动生成，不纳入版本管理）
+price_db.json
+price_db_fe.json
+
+# OS files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#DA3A2C">
+  <title>数据统计 - 环球度假</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Noto Sans SC', sans-serif; background: #F0F2F5; padding: 20px; max-width: 600px; margin: 0 auto; }
+    h1 { font-size: 20px; font-weight: 800; color: #1A1A1A; margin-bottom: 4px; }
+    .sub { font-size: 12px; color: #999; margin-bottom: 20px; }
+    .card { background: #fff; border-radius: 12px; padding: 16px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
+    .card h2 { font-size: 14px; font-weight: 700; color: #333; margin-bottom: 10px; }
+    .stat-row { display: flex; justify-content: space-between; padding: 6px 0; font-size: 13px; border-bottom: 1px solid #F5F5F5; }
+    .stat-row:last-child { border: none; }
+    .stat-label { color: #666; }
+    .stat-val { font-weight: 700; color: #DA3A2C; }
+    .stat-val.green { color: #389C39; }
+    .stat-val.blue { color: #0C6FA8; }
+    .num { font-size: 28px; font-weight: 800; }
+    .meta { font-size: 11px; color: #C0C0C0; margin-top: 20px; text-align: center; }
+    .no-data { text-align: center; padding: 40px 0; color: #999; font-size: 14px; }
+    .badge { display: inline-block; font-size: 10px; padding: 2px 6px; border-radius: 4px; font-weight: 500; }
+    .badge-admin { background: #FFF1F0; color: #DA3A2C; }
+    .badge-cs { background: #E8F5E9; color: #389C39; }
+    .badge-guest { background: #F5F5F5; color: #999; }
+    .top-bar { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+    .back { font-size: 13px; color: #DA3A2C; text-decoration: none; }
+    .day-nav { display: flex; gap: 6px; margin-bottom: 14px; overflow-x: auto; }
+    .day-btn { padding: 4px 12px; border-radius: 14px; font-size: 12px; border: 1px solid #E5E6EB; background: #fff; cursor: pointer; white-space: nowrap; }
+    .day-btn.active { background: #DA3A2C; color: #fff; border-color: #DA3A2C; }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <div>
+      <h1>📊 数据统计</h1>
+      <div class="sub" id="statsDate">加载中...</div>
+    </div>
+    <a href="index.html" class="back">← 返回</a>
+  </div>
+
+  <div id="statsContent"></div>
+
+  <div class="meta">数据仅存储于本地设备 · 每日重置</div>
+
+  <script>
+    loadStats();
+
+    function formatDate(d) {
+      var m = d.getMonth()+1, day = d.getDate(), w = ['日','一','二','三','四','五','六'][d.getDay()];
+      return m + '月' + day + '日 (周' + w + ')';
+    }
+
+    function loadStats() {
+      var selectedDay = 0;
+      var days = [];
+      for (var i=0; i<7; i++) {
+        var d = new Date(); d.setDate(d.getDate() - i);
+        days.push(d.toISOString().slice(0,10));
+      }
+      renderDay(0);
+
+      function getDayData(dayOffset) {
+        var key = 'click_stats_' + days[dayOffset];
+        try { return JSON.parse(localStorage.getItem(key) || '[]'); } catch(e) { return []; }
+      }
+
+      function renderDay(idx) {
+        selectedDay = idx;
+        var records = getDayData(idx);
+        var total = records.length;
+
+        document.getElementById('statsDate').textContent = formatDate(new Date(days[idx])) + ' · ' + total + '条记录';
+
+        var html = '';
+
+        // 概览卡片：聚焦报价卡片点击 + 复制
+        var cardClicks = records.filter(function(r){return r.action==='detail_view'}).length;
+        var copies = records.filter(function(r){return r.action==='copy_all'||r.action==='copy_card'}).length;
+        var consults = records.filter(function(r){return r.action==='consult'||r.action==='consult_request'}).length;
+        var qrClicks = records.filter(function(r){return r.action==='qr_click'}).length;
+        var guests = {}, csUsers = {};
+        records.forEach(function(r){
+          if (r.role === 'guest') guests[r.user] = (guests[r.user]||0) + 1;
+          else csUsers[r.user] = (csUsers[r.user]||0) + 1;
+        });
+        var copyRate = cardClicks > 0 ? (copies / cardClicks * 100).toFixed(1) : '0';
+
+        html += '<div class="card"><h2>📈 报价卡片数据</h2>'
+          + '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;text-align:center">'
+          + '<div><div class="num" style="color:#0C6FA8">' + cardClicks + '</div><div style="font-size:11px;color:#999">卡片点击</div></div>'
+          + '<div><div class="num" style="color:#389C39">' + copies + '</div><div style="font-size:11px;color:#999">复制次数</div></div>'
+          + '<div><div class="num" style="color:#DA3A2C">' + copyRate + '%</div><div style="font-size:11px;color:#999">复制率</div></div>'
+          + '<div><div class="num" style="color:#FF7D00">' + qrClicks + '</div><div style="font-size:11px;color:#999">扫码客服</div></div>'
+          + '<div><div class="num" style="color:#491B87">' + consults + '</div><div style="font-size:11px;color:#999">咨询次数</div></div>'
+          + '<div><div class="num">' + total + '</div><div style="font-size:11px;color:#999">总操作数</div></div>'
+          + '</div></div>';
+
+        // 热门组合（航班+天数+日期）
+        var combos = {};
+        records.forEach(function(r){
+          if (!r.route || !r.flight) return;
+          var key = r.route + ' ' + (r.days||'') + '天 ' + r.flight + ' ' + (r.date||'');
+          if (!combos[key]) combos[key] = {clicks:0,copies:0};
+          if (r.action === 'detail_view') combos[key].clicks++;
+          if (r.action === 'copy_all' || r.action === 'copy_card') combos[key].copies++;
+        });
+        var comboKeys = Object.keys(combos).sort(function(a,b){
+          return (combos[b].clicks + combos[b].copies*2) - (combos[a].clicks + combos[a].copies*2);
+        });
+        html += '<div class="card"><h2>🎯 热门报价组合</h2>';
+        if (comboKeys.length) {
+          html += '<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:4px;font-size:11px;color:#999;padding:4px 0 6px;border-bottom:1px solid #F5F5F5"><span>航线·天数·航班·日期</span><span style="text-align:center">点击</span><span style="text-align:center">复制</span></div>';
+          comboKeys.slice(0, 8).forEach(function(k){
+            html += '<div class="stat-row"><span class="stat-label" style="font-size:12px">' + k + '</span><span style="text-align:center;width:36px"><span class="stat-val blue">' + combos[k].clicks + '</span></span><span style="text-align:center;width:36px"><span class="stat-val green">' + combos[k].copies + '</span></span></div>';
+          });
+        } else { html += '<div style="font-size:12px;color:#999">暂无数据</div>'; }
+        html += '</div>';
+
+        // 热门航线
+        var routes = {};
+        records.forEach(function(r){
+          if (!r.route) return;
+          if (!routes[r.route]) routes[r.route] = {clicks:0,copies:0};
+          if (r.action === 'detail_view') routes[r.route].clicks++;
+          if (r.action === 'copy_all' || r.action === 'copy_card') routes[r.route].copies++;
+        });
+        var sorted = Object.keys(routes).sort(function(a,b){
+          var scoreA = routes[a].clicks + routes[a].copies * 2;
+          var scoreB = routes[b].clicks + routes[b].copies * 2;
+          return scoreB - scoreA;
+        });
+        html += '<div class="card"><h2>🔥 热门航线</h2>';
+        if (sorted.length) {
+          html += '<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:4px;font-size:11px;color:#999;padding:4px 0 6px;border-bottom:1px solid #F5F5F5"><span>航线</span><span style="text-align:center">点击</span><span style="text-align:center">复制</span></div>';
+          sorted.slice(0, 10).forEach(function(k){
+            html += '<div class="stat-row"><span class="stat-label">' + k + '</span><span style="text-align:center;width:40px"><span class="stat-val blue">' + routes[k].clicks + '</span></span><span style="text-align:center;width:40px"><span class="stat-val green">' + routes[k].copies + '</span></span></div>';
+          });
+        } else { html += '<div style="font-size:12px;color:#999">暂无数据</div>'; }
+        html += '</div>';
+
+        // 近期操作明细
+        var recent = records.slice(-20).reverse();
+        html += '<div class="card"><h2>📋 近期操作（最近20条）</h2>';
+        if (recent.length) {
+          recent.forEach(function(r){
+            var actionLabel = r.action === 'detail_view' ? '👁 查看' : r.action === 'copy_all' || r.action === 'copy_card' ? '📋 复制' : r.action === 'consult' || r.action === 'consult_request' ? '💬 咨询' : r.action === 'qr_click' ? '📱 扫码' : r.action;
+            var roleLabel = r.role === 'admin' ? '👑' : r.role === 'cs' ? '👤' : '🔍';
+            var time = (r.timestamp || '').slice(11, 19);
+            var detail = '';
+            if (r.route && r.flight) {
+              detail = ' ' + r.route + ' ' + (r.days||'') + '天 ' + r.flight;
+            } else if (r.route) {
+              detail = ' ' + r.route;
+            }
+            html += '<div class="stat-row"><span class="stat-label">' + roleLabel + ' ' + r.user + ' ' + actionLabel + detail + (r.price ? ' ¥' + r.price : '') + '</span><span class="stat-val" style="font-size:11px;font-weight:400">' + time + '</span></div>';
+          });
+        } else { html += '<div style="font-size:12px;color:#999">暂无操作记录</div>'; }
+        html += '</div>';
+          userSorted.slice(0, 10).forEach(function(u){
+            var s = userStats[u];
+            var cls = s.role === 'admin' ? 'badge-admin' : s.role === 'cs' ? 'badge-cs' : 'badge-guest';
+            var label = s.role === 'admin' ? '管理员' : s.role === 'cs' ? '客服' : '游客';
+            html += '<div class="stat-row"><span class="stat-label"><span class="badge ' + cls + '">' + label + '</span> ' + u + '</span><span class="stat-val">' + s.total + ' 次</span></div>';
+          });
+        } else { html += '<div style="font-size:12px;color:#999">暂无数据</div>'; }
+        html += '</div>';
+
+        // 日期导航
+        var navHtml = '<div class="day-nav">';
+        for (var i=0; i<days.length; i++) {
+          var d = new Date(days[i]);
+          var label = i===0 ? '今天' : i===1 ? '昨天' : (d.getMonth()+1)+'/'+d.getDate();
+          navHtml += '<div class="day-btn' + (i===idx?' active':'') + '" onclick="renderDay(' + i + ')">' + label + '</div>';
+        }
+        navHtml += '</div>';
+
+        document.getElementById('statsContent').innerHTML = navHtml + html
+          + '<div style="text-align:center;margin-top:12px">'
+          + '<a href="https://358dca43f84e43379510a9528ec4a499.app.codebuddy.work" target="_blank" style="display:inline-block;padding:8px 20px;border:1px solid #0C6FA8;border-radius:6px;background:#fff;color:#0C6FA8;font-size:12px;text-decoration:none;margin-bottom:8px">📈 查看图表看板</a><br>'
+          + '<button onclick="exportStats()" style="padding:8px 20px;border:1px solid #DA3A2C;border-radius:6px;background:#fff;color:#DA3A2C;font-size:12px;cursor:pointer">📤 导出数据（供AI分析）</button></div>';
+      }
+      window.renderDay = renderDay;
+    }
+
+    // 导出统计数据为 JSON，供 AI 分析
+    function exportStats() {
+      var data = { exported_at: new Date().toISOString(), days: {} };
+      for (var i=0; i<30; i++) {
+        var d = new Date(); d.setDate(d.getDate() - i);
+        var key = 'click_stats_' + d.toISOString().slice(0,10);
+        try {
+          var arr = JSON.parse(localStorage.getItem(key) || '[]');
+          if (arr.length) data.days[key] = arr;
+        } catch(e) {}
+      }
+      var blob = new Blob([JSON.stringify(data, null, 2)], {type:'application/json'});
+      var url = URL.createObjectURL(blob);
+      var a = document.createElement('a');
+      a.href = url; a.download = 'pricequote_stats_' + new Date().toISOString().slice(0,10) + '.json';
+      a.click();
+      URL.revokeObjectURL(url);
+      alert('✅ 已导出！请将下载的文件发给我，我写入腾讯文档并分析。');
+    }
+  </script>
+</body>
+</html>

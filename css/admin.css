@@ -1,0 +1,52 @@
+/* 后台管理样式 */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; background: #F0F1F3; color: #1F2329; font-size: 13px; }
+
+.login-screen { position: fixed; inset: 0; background: linear-gradient(135deg, #E60012, #4A0000); display: flex; align-items: center; justify-content: center; z-index: 999; }
+.login-box { background: #fff; padding: 40px 32px; border-radius: 12px; width: 320px; text-align: center; }
+.login-logo { width: 60px; border-radius: 50%; margin-bottom: 12px; }
+.login-box h2 { font-size: 16px; margin-bottom: 20px; }
+.login-box input { width: 100%; padding: 10px; border: 1px solid #E5E6EB; border-radius: 6px; font-size: 14px; margin-bottom: 12px; }
+.login-box button { width: 100%; padding: 10px; background: #E60012; color: #fff; border: none; border-radius: 6px; font-size: 14px; cursor: pointer; }
+.login-hint { font-size: 11px; color: #86909C; margin-top: 12px; }
+
+.admin-header { display: flex; align-items: center; padding: 8px 16px; background: #fff; border-bottom: 1px solid #E5E6EB; gap: 10px; }
+.mini-logo { width: 28px; height: 28px; border-radius: 50%; }
+.admin-header h1 { font-size: 15px; }
+.user-badge { background: #F2F3F5; color: #4E5969; font-size: 11px; padding: 2px 6px; border-radius: 4px; }
+.btn-sm { background: #F2F3F5; border: none; padding: 6px 12px; border-radius: 4px; font-size: 12px; cursor: pointer; }
+.btn-sm:hover { background: #E5E6EB; }
+
+.admin-dashboard { padding: 12px 16px; }
+.stat-cards { display: flex; gap: 8px; flex-wrap: wrap; }
+.stat-card { background: #fff; padding: 12px 16px; border-radius: 6px; flex: 1; min-width: 100px; }
+.stat-card .num { font-size: 20px; font-weight: 800; }
+.stat-card .label { font-size: 11px; color: #86909C; margin-top: 4px; }
+.stat-card.total .num { color: #1F2329; }
+.stat-card.matched .num { color: #00B42A; }
+.stat-card.sup_only .num { color: #FAAD14; }
+.stat-card.erp_only .num { color: #86909C; }
+
+.admin-toolbar { padding: 0 16px 8px; }
+.filter-row { display: flex; gap: 8px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+.filter-row input { flex: 1; min-width: 200px; padding: 8px; border: 1px solid #E5E6EB; border-radius: 4px; font-size: 12px; }
+.filter-row select { padding: 8px; border: 1px solid #E5E6EB; border-radius: 4px; font-size: 12px; background: #fff; }
+.result-count { font-size: 12px; color: #86909C; }
+.btn-export { background: #E60012; color: #fff; }
+.btn-export:hover { background: #C00000; }
+.btn-refresh { background: #165DFF; color: #fff; }
+.btn-refresh:hover { background: #0E42D2; }
+
+.admin-table-wrap { padding: 0 16px 20px; overflow-x: auto; }
+.admin-table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 6px; overflow: hidden; }
+.admin-table th { background: #F2F3F5; padding: 10px 8px; text-align: left; font-size: 11px; color: #86909C; font-weight: 600; white-space: nowrap; cursor: pointer; user-select: none; }
+.admin-table th:hover { background: #E5E6EB; }
+.admin-table td { padding: 8px; border-bottom: 1px solid #F0F1F3; white-space: nowrap; font-size: 12px; }
+.admin-table tr:hover { background: #F7F8FA; }
+.admin-table .tr-match td { background: #F0FFF0; }
+.admin-table .tr-sup_only td { background: #FFFBE6; }
+.admin-table .tr-erp_only td { background: #F4F5F7; }
+.admin-table .tr-independent td { border-left: 3px solid #165DFF; }
+.price-up { color: #E60012; }
+.price-down { color: #00B42A; }
+.price-flat { color: #86909C; }

@@ -1,0 +1,447 @@
+/* === H5 报价网页 v3 — LOGO配色 + 开源字体 === */
+
+/* ── 开源字体加载 ── */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;800&display=swap');
+
+:root {
+  /* LOGO 主色 */
+  --red: #DA3A2C;
+  --red-dark: #B82E1F;
+  --red-light: #FEF0EF;
+  --gold: #F9BE00;
+  --gold-light: #FFF8E6;
+  --purple: #491B87;
+  --cyan: #28B7BD;
+  --blue: #0C6FA8;
+  --blue-dark: #004286;
+  --green: #389C39;
+  --lime: #9DCA3B;
+
+  /* 语义色 */
+  --bg: #F0F2F5;
+  --card-bg: #FFFFFF;
+  --text: #1A1A1A;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --border: #E8E8EC;
+  --tag-bg: #F1F2F4;
+  --shadow: rgba(0, 0, 0, 0.06);
+}
+
+/* ── 深色模式 ── */
+.dark {
+  --bg: #1a1a2e;
+  --card-bg: #16213e;
+  --text: #e8e8f0;
+  --text-secondary: #a0a0b8;
+  --text-light: #7a7a90;
+  --border: #2a2a4a;
+  --tag-bg: #1e2a4a;
+  --shadow: rgba(0, 0, 0, 0.3);
+  --red: #ff4757;
+  --red-dark: #e83344;
+  --red-light: #2a1a1e;
+  --gold: #ffc048;
+  --gold-light: #2a2815;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", "Microsoft YaHei", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 400;
+}
+
+/* ── 固定顶部（LOGO红渐变）── */
+.app-header {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 112px; z-index: 100;
+}
+.header-bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 50%, #5C1A10 100%);
+  overflow: hidden;
+}
+.header-bg::after {
+  content: ''; position: absolute;
+  right: -30px; top: -20px;
+  width: 140px; height: 140px;
+  background: radial-gradient(circle, rgba(249,190,0,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.header-content {
+  position: relative; z-index: 1;
+  padding: 12px 16px 14px;
+  color: #fff;
+  display: flex; flex-direction: column;
+  height: 100%;
+}
+.brand { display: flex; align-items: center; }
+.header-theme{font-size:14px;cursor:pointer;margin-left:auto;padding:2px 4px;line-height:1;user-select:none;opacity:.7;align-self:flex-start;margin-top:4px}
+.logo {
+  width: 40px; height: 40px; margin-right: 10px;
+  border-radius: 50%;
+  background: #fff; padding: 2px;
+  box-shadow: 0 2px 8px rgba(218,58,44,0.3);
+}
+.brand-text { flex: 1; }
+.brand-title {
+  font-size: 22px; font-weight: 800;
+  letter-spacing: 1px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+.brand-sub { font-size: 11px; opacity: 0.85; margin-top: 1px; display: none; }
+.header-stats {
+  font-size: 10px; opacity: 0.7; margin-top: 2px;
+  letter-spacing: 0.3px;
+}
+.header-stats span { font-weight: 700; color: var(--gold); }
+.header-promo {
+  font-size: 13px; font-weight: 700;
+  margin-top: 2px; align-self: flex-end;
+  color: var(--gold);
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  animation: pulse 2s infinite;
+}
+.header-plane{position:absolute;right:12px;top:12px;font-size:80px;opacity:0.15;color:#fff;transform:rotate(-8deg);pointer-events:none;line-height:1}
+/* 滑动区固定顶栏 */
+.sticky-bar{position:sticky;top:0;z-index:10;background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:8px 4px 6px;border-bottom:1px solid var(--border);min-height:38px}.sticky-label{font-size:14px;font-weight:700;color:var(--text)}.sticky-filter{font-size:11px;font-weight:600;color:var(--red);cursor:pointer;padding:3px 8px;border-radius:10px;background:var(--red-light);line-height:1.4}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.7} }
+
+/* ── Tab栏 ── */
+.tab-bar {
+  position: fixed; top: 112px; left: 0; right: 0;
+  height: 40px; z-index: 99;
+  background: var(--card-bg);
+  display: flex;
+  border-bottom: 1px solid var(--border);
+}
+.tab-scroll {
+  display: flex; flex: 1;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.tab-scroll::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 0 0 auto; padding: 0 18px;
+  font-size: 14px; color: var(--text-secondary);
+  background: transparent; border: none;
+  border-bottom: 2px solid transparent;
+  font-weight: 500; cursor: pointer; white-space: nowrap;
+}
+.tab.active {
+  color: var(--red);
+  border-bottom-color: var(--red);
+  font-weight: 700;
+}
+
+/* ── 卡片区 ── */
+.card-list {
+  flex: 1; min-height: 0;
+  margin-top: 152px; margin-bottom: 96px;
+  overflow-y: auto; padding: 0 12px 10px;
+}
+.loading { text-align: center; color: var(--text-light); padding: 60px 0; font-size: 14px; }
+
+/* 卡片分级标签 */
+.card-level {
+  position: absolute; top: 0; left: 14px;
+  padding: 4px 10px; font-size: 11px; font-weight: 700;
+  color: #fff; border-radius: 0 0 6px 6px; z-index: 2;
+}
+.card-level.hot { background: linear-gradient(135deg, var(--red), var(--red-dark)); box-shadow: 0 2px 8px rgba(218,58,44,0.3); }
+.card-level.featured { background: linear-gradient(135deg, var(--gold), #D49A00); }
+.card-level.special { background: linear-gradient(135deg, var(--cyan), #1E9196); }
+
+/* ── 报价卡片（cardHTML / 筛选结果）── */
+.card {
+  position: relative;
+  background: var(--card-bg);
+  border-radius: 16px;
+  margin-bottom: 12px;
+  padding: 16px 14px 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05), 0 0 0 1px rgba(0,0,0,0.03);
+  transition: all .15s;
+  cursor: pointer;
+  overflow: hidden;
+}
+.card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; border-radius: 4px 0 0 4px;
+  background: var(--card-stripe, #DA3A2C);
+}
+.card::after {
+  content: ''; position: absolute; top: -20px; right: -20px;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle at top right, rgba(0,0,0,0.02) 0%, transparent 70%);
+  border-radius: 50%; pointer-events: none;
+}
+.card:active { transform: scale(0.98); box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+.card-level { position: absolute; top: 12px; right: 12px; left: auto; }
+.card-level + .card-body { margin-top: 0; }
+
+/* 卡片内容容器 */
+.card-body { position: relative; z-index: 1; }
+
+/* 顶部：航线 + 日期 + 时长 */
+.card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+.card-route-line { display: flex; align-items: center; gap: 6px; }
+.card-city-dep, .card-city-arr { font-size: 17px; font-weight: 700; color: var(--text); }
+.card-route-arrow { color: var(--text-light); font-size: 13px; margin: 0 2px; }
+.card-airport-sm { font-size: 10px; color: var(--text-light); }
+.card-badge-group { display: flex; align-items: center; gap: 6px; }
+.card-nights-badge {
+  display: inline-flex; align-items: center;
+  background: linear-gradient(135deg, var(--gold-light), #FFFDF5);
+  color: #B8860B; padding: 4px 10px; border-radius: 12px;
+  font-size: 12px; font-weight: 600;
+}
+.card-date-badge {
+  display: inline-flex; align-items: center;
+  background: var(--tag-bg); color: var(--text-secondary);
+  padding: 4px 10px; border-radius: 12px;
+  font-size: 12px; font-weight: 500;
+}
+
+/* 中部：航班信息行 */
+.card-mid { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; flex-wrap: wrap; }
+.card-airline-tag {
+  display: inline-flex; align-items: center;
+  background: linear-gradient(135deg, #F0F1F5, #E8E9ED);
+  color: var(--text-secondary); padding: 3px 8px; border-radius: 6px;
+  font-size: 11px; font-weight: 600;
+}
+.card-flight-num {
+  font-family: "SF Mono","Consolas","Menlo",monospace;
+  font-size: 12px; font-weight: 500; color: var(--text);
+  letter-spacing: 0.2px;
+}
+.card-type-tag {
+  display: inline-flex; align-items: center; padding: 2px 7px;
+  border-radius: 4px; font-size: 10px; font-weight: 600;
+}
+.card-type-tag.group { background: var(--red-light); color: var(--red); }
+.card-type-tag.flex { background: #E8F5E9; color: #2E7D32; }
+
+/* 底部：价格 + 余位 + 按钮 */
+.card-footer-v2 {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px dashed rgba(0,0,0,0.06);
+}
+.card-price-main { display: flex; align-items: baseline; gap: 2px; }
+.card-price-num {
+  font-size: 26px; font-weight: 800; color: var(--red);
+  letter-spacing: -0.5px; line-height: 1;
+}
+.card-price-unit { font-size: 12px; color: var(--text-light); font-weight: 400; }
+.card-meta { display: flex; align-items: center; gap: 8px; }
+.card-btn-v2 {
+  background: linear-gradient(135deg, #FF6B35, var(--red));
+  color: #fff; border: none;
+  padding: 7px 16px; border-radius: 20px;
+  font-size: 12px; font-weight: 700;
+  box-shadow: 0 2px 8px rgba(218,58,44,0.25);
+  cursor: pointer; letter-spacing: 0.3px;
+}
+.card-btn-v2:active { opacity: 0.85; transform: scale(0.96); }
+/* 单程机票需搭配标签 */
+.cf-oneway-tag{font-size:10px;color:#FF7D00;background:rgba(255,125,0,0.1);padding:1px 6px;border-radius:4px;margin-left:4px;font-weight:500;white-space:nowrap}
+/* 简化版卡片（首页尾单） */
+.cfs-card{padding:10px 12px;margin-bottom:6px;border-radius:10px;background:var(--card-bg);border:1px solid var(--border);cursor:pointer;font-size:12px;line-height:1.6}.cfs-card:active{opacity:.8}
+.cfs-top{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:2px;font-weight:500;color:var(--text-primary)}
+.cfs-route{font-weight:700;font-size:13px;color:var(--text)}
+.cfs-price{font-weight:800;color:var(--red);font-size:14px}
+.cfs-airline{font-size:11px;color:var(--text-secondary);margin-left:auto}
+.cfs-row{font-size:12px;color:var(--text-secondary);padding:1px 0;display:flex;align-items:flex-start;gap:4px}
+.cfs-body{display:flex;align-items:center;gap:6px}.cfs-flights{flex:1;min-width:0}
+.cfs-consult{font-size:11px;font-weight:600;color:var(--red);cursor:pointer;white-space:nowrap;padding:4px 8px;border-radius:6px;background:var(--red-light);flex-shrink:0;align-self:stretch;display:flex;align-items:center}
+.cfs-icon{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:3px;background:var(--blue);color:#fff;font-size:9px;font-weight:700;flex-shrink:0;margin-top:2px}.cfs-icon-ret{background:var(--green)}
+
+/* 兼容旧样式 */
+.card-route { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+.route-end { display: flex; align-items: center; flex: 1; }
+.route-end .city { font-size: 18px; font-weight: 700; }
+.route-end .airport { font-size: 11px; color: var(--text-light); margin-top: 2px; }
+.card-time {
+  display: flex; align-items: baseline;
+  background: var(--gold-light); color: #D49A00;
+  padding: 4px 10px; border-radius: 6px; font-size: 12px;
+}
+.card-time .duration { font-weight: 700; margin-left: 4px; }
+.card-row { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 13px; color: var(--text-secondary); }
+.card-flight { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--text); }
+.card-flight .airline-tag { background: var(--tag-bg); color: var(--text-secondary); padding: 2px 6px; border-radius: 4px; font-size: 10px; }
+.card-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 10px; padding-top: 10px; border-top: 1px dashed var(--border); }
+.card-price-wrap { display: flex; align-items: baseline; }
+.card-price { font-size: 24px; font-weight: 800; color: var(--red); }
+.card-price-suffix { font-size: 12px; color: var(--text-light); margin-left: 4px; }
+.card-seats { color: var(--green); font-size: 11px; margin-left: 6px; }
+.card-seats-empty { color: var(--text-light); font-size: 11px; }
+.card-btn {
+  background: linear-gradient(135deg, #FF6B35, var(--red));
+  color: #fff; border: none;
+  padding: 8px 18px; border-radius: 20px;
+  font-size: 13px; font-weight: 700;
+  box-shadow: 0 2px 6px rgba(218,58,44,0.3);
+  cursor: pointer;
+}
+.card-btn:active { opacity: 0.9; }
+
+/* ── 底部条 ── */
+.app-footer {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  height: 96px;
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  display: flex; z-index: 100; padding: 8px 16px;
+}
+.qr-item {
+  flex: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  cursor: pointer;
+}
+.qr-img {
+  width: 56px; height: 56px;
+  background: var(--tag-bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.qr-img img { width: 100%; height: 100%; border-radius: 8px; }
+.qr-share-icon { font-size: 24px; background: var(--tag-bg) !important; }
+.qr-item p { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+
+/* ── 详情弹层 ── */
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; display: none; align-items: center; justify-content: center; padding: 20px; }
+.modal.active { display: flex; }
+.modal-content { background: var(--card-bg); border-radius: 14px; max-width: 400px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 0; }
+.modal-qr { max-width: 320px; text-align: center; padding: 20px; }
+
+.detail-header { background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); color: #fff; padding: 8px 14px 10px; position: relative; }
+.detail-close { font-size: 13px; cursor: pointer; color: rgba(255,255,255,0.85); }
+.detail-x { font-size: 16px; cursor: pointer; color: rgba(255,255,255,0.7); }
+.dh-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+.dh-route { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+.dh-flight { font-size: 11px; opacity: 0.9; }
+.dh-flight .dh-time { font-weight: 600; }
+.dh-flight .dh-dur { opacity: 0.7; margin: 0 4px; }
+.dh-flight .dh-code { font-size: 10px; opacity: 0.6; margin: 0 1px; }
+.dh-dates { font-size: 11px; opacity: 0.8; margin-top: 2px; }
+.detail-route { display: flex; align-items: center; justify-content: space-between; }
+.detail-route .city { font-size: 20px; font-weight: 800; }
+.detail-route .airport { font-size: 11px; opacity: 0.85; margin-top: 2px; }
+.detail-time { font-size: 12px; margin-top: 6px; opacity: 0.9; }
+.detail-body { padding: 16px; }
+.detail-section { margin-bottom: 16px; }
+.detail-section h4 { font-size: 12px; color: var(--text-light); margin-bottom: 8px; font-weight: 500; letter-spacing: 0.5px; }
+.detail-row { display: flex; justify-content: space-between; padding: 7px 0; font-size: 13px; border-bottom: 1px solid #F0F1F5; }
+.detail-row .label { color: var(--text-light); }
+.detail-row .value { color: var(--text); font-weight: 500; }
+.detail-price { text-align: center; background: linear-gradient(135deg, var(--red-light), #FFF5F5); padding: 16px; border-radius: 10px; margin: 12px 0; }
+.detail-price-num { font-size: 34px; font-weight: 800; color: var(--red); }
+.detail-price-tip { font-size: 11px; color: var(--text-light); margin-top: 4px; }
+/* 紧凑价格行 */
+.dp-row{display:flex;align-items:center;padding:10px 14px;background:linear-gradient(135deg,var(--red-light),#FFF5F5);border-bottom:1px solid var(--border);gap:6px}.dp-price{font-size:22px;font-weight:800;color:var(--red)}.dp-tax{font-size:12px;color:var(--text-light)}.dp-seat{margin-left:auto;font-size:13px}
+/* 其他日期折叠切换 */
+.dd-toggle{font-size:13px;font-weight:600;color:var(--red);padding:10px 14px;cursor:pointer;border-top:1px solid var(--border)}.dd-toggle:active{opacity:.7}
+/* 航站楼标签 */
+.t-term{font-size:9px;color:var(--text-light);margin-left:1px;font-weight:400;background:var(--tag-bg);border-radius:2px;padding:0 2px}.detail-row .t-term{color:var(--text-light);background:var(--tag-bg)}
+
+.detail-actions { display: flex; gap: 8px; padding: 0 16px 16px; }
+.detail-actions button { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; }
+.detail-share { background: linear-gradient(135deg, var(--blue), var(--blue-dark)); color: #fff; }
+.detail-share:active { opacity: 0.9; }
+.detail-consult { background: linear-gradient(135deg, #FF6B35, var(--red)); color: #fff; }
+.detail-consult:active { opacity: 0.9; }
+
+/* 可选日期列表 */
+.odate { display: flex; align-items: center; gap: 6px; padding: 8px; margin-bottom: 4px; border-radius: 8px; cursor: pointer; font-size: 12px; background: var(--tag-bg); }
+.odate:hover { background: #E8E9ED; }
+.odate-price { font-weight: 700; color: var(--red); margin-left: auto; }
+.odate-seats { color: var(--green); font-size: 11px; min-width: 30px; }
+.odate-time { color: var(--text-light); font-size: 11px; }
+
+/* Toast */
+#toast { position: fixed; bottom: 120px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 13px; z-index: 500; transition: opacity .3s; white-space: nowrap; pointer-events: none; }
+.share-copy:active,.share-wx:active{opacity:0.9}
+.ticket-badge{font-size:10px;padding:1px 5px;border-radius:3px;margin-left:4px;white-space:nowrap}.ticket-badge.group{background:var(--red-light);color:var(--red)}.ticket-badge.flex{background:#E8F5E9;color:var(--green)}
+.rodate{display:flex;align-items:center;gap:6px;padding:7px 8px;margin-bottom:4px;border-radius:6px;cursor:pointer;font-size:12px;background:var(--tag-bg);transition:background .1s}.rodate:hover{background:#E8E9ED}.ro-check{font-size:10px;width:14px;color:var(--text-light)}.ro-flight{font-weight:500;min-width:60px}.ro-date{color:var(--text-secondary);min-width:85px}.ro-time{color:var(--text-light);font-size:11px;min-width:50px}.ro-price{font-weight:700;color:var(--red);margin-left:auto;min-width:50px}.ro-seats{color:var(--green);font-size:11px;min-width:30px}
+.sup-dot{display:inline-block;width:6px;height:6px;border-radius:50%;margin-right:4px;vertical-align:middle}
+.tab[data-tab="home"]{font-weight:600;padding:0 12px}
+.tab-filter-btn{flex:0 0 auto;padding:0 10px;font-size:13px;color:var(--red);background:transparent;border:none;border-left:1px solid var(--border);font-weight:600;cursor:pointer;white-space:nowrap;display:flex;align-items:center}.tab-filter-btn:active{opacity:0.7}
+.qr-filter-icon{font-size:22px;background:var(--tag-bg)!important;border:1px solid var(--border)!important;color:var(--red)}
+.fit-route{display:flex;align-items:center;padding:10px 12px;margin-bottom:6px;border-radius:8px;cursor:pointer;font-size:13px;background:var(--tag-bg);transition:all .1s}.fit-route:hover{background:#E8E9ED}.fit-cities{font-weight:500;flex:1}.fit-count{font-size:11px;color:var(--text-light);margin-right:10px}.fit-price{font-weight:700;color:var(--red)}
+.qr-item-link .qr-img{width:48px!important;height:48px!important}.qr-item-link p{font-size:10px}
+.hm-section{margin-bottom:4px}.hm-section-title{font-size:13px;font-weight:700;padding:10px 0 6px;color:var(--text);position:sticky;top:0;background:var(--bg);z-index:2}.hm-group{border-radius:8px;margin-bottom:6px;overflow:hidden;background:var(--card-bg);box-shadow:0 1px 3px var(--shadow)}.hm-group-hd{display:flex;align-items:center;padding:10px 12px;cursor:pointer;gap:6px;font-size:13px}.hm-group-hd:active{background:var(--tag-bg)}.hm-route{font-weight:600;flex:1}.hm-nights{color:var(--text-secondary);font-size:12px}.hm-count{color:var(--text-light);font-size:11px;min-width:30px}.hm-minprice{font-weight:700;color:var(--red);min-width:50px;text-align:right}.hm-arrow{color:var(--text-light);font-size:12px;transition:transform.2s}.hm-group-bd{padding:0 12px 8px}.hm-card{padding:10px;margin-bottom:6px;border-radius:6px;background:var(--tag-bg);cursor:pointer;transition:background.1s}.hm-card:active{background:#E8E9ED}.hm-row{display:flex;align-items:center;justify-content:space-between;font-size:12px;padding:2px 0}.hm-date{font-weight:600;color:var(--text)}.hm-flight{color:var(--text-secondary)}.hm-route-sm{color:var(--text-light);font-size:11px}.hm-time{color:var(--text-secondary)}.hm-row-last{margin-top:4px}.hm-price{font-size:16px;font-weight:800;color:var(--red)}.hm-seats{color:var(--green);font-size:11px;margin-left:auto}.hm-ret{color:var(--cyan);font-size:11px;margin-left:8px}
+.seat-soldout{color:var(--text-light);font-size:11px}.seat-full{color:var(--green);font-size:11px}.seat-unknown{color:var(--text-light);font-size:11px}.seat-low{color:#FF7D00;font-size:11px;font-weight:600}.seat-ok{color:var(--green);font-size:11px}
+/* ── hmCard（列表卡片）── */
+.hmcard{padding:14px!important;margin-bottom:8px!important;border-radius:12px!important;box-shadow:0 1px 4px rgba(0,0,0,0.04)!important;border-left:4px solid #DA3A2C!important;transition:all .15s;position:relative;overflow:hidden}
+.hmcard::after{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right, rgba(0,0,0,0.02) 0%, transparent 70%);border-radius:0 0 0 80px;pointer-events:none}
+.hmcard:active{transform:scale(0.985);box-shadow:0 1px 2px rgba(0,0,0,0.04)!important}
+.hmcard-row{display:flex;align-items:center;gap:8px;font-size:12px;flex-wrap:wrap}
+.hmcard-date{font-weight:700;color:var(--text);min-width:82px;font-size:13px;letter-spacing:-0.2px}
+.hmcard-flight{color:var(--text-secondary);font-weight:500;font-family:"SF Mono","Consolas","Menlo",monospace;letter-spacing:0.3px}
+.hmcard-row2{margin-top:6px;display:flex;align-items:center;gap:8px}
+.hmcard-route{font-size:12px;color:var(--text);font-weight:500}
+.hmcard-time{font-size:11px;color:var(--text-light);margin-left:auto}
+.hmcard-ret{font-size:11px;color:var(--cyan);font-weight:500;background:rgba(40,183,189,0.08);padding:2px 6px;border-radius:4px}
+/* hmCard footer */
+.hmcard-footer{display:flex;align-items:center;justify-content:space-between;margin-top:8px;padding-top:8px;border-top:1px dashed rgba(0,0,0,0.06)}
+.hmcard-price{font-size:22px;font-weight:800;color:var(--red);letter-spacing:-0.5px}
+.hmcard-price-suffix{font-size:11px;color:var(--text-light);margin-left:3px;font-weight:400}
+.hmcard-seats-wrap{display:flex;align-items:center;gap:6px}
+/* 筛选搜索框 */
+.fit-search{border:1px solid var(--border);border-radius:8px;padding:8px 12px;font-size:13px;width:100%;box-sizing:border-box;outline:none;transition:border .2s;background:var(--card-bg);color:var(--text)}.fit-search:focus{border-color:var(--red)}
+/* 搜索结果项 */
+.fit-sr{padding:8px 10px;margin-bottom:4px;border-radius:6px;cursor:pointer;background:var(--tag-bg);font-size:12px;line-height:1.6}.fit-sr:active{opacity:.7}
+/* 日历单元格 */
+.cal-cell{min-height:44px;padding:3px;background:var(--tag-bg);border-radius:6px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}.cal-cell:active{opacity:.7}
+/* 筛选底部按钮 */
+.fit-footer{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--border);margin-top:10px}.fit-reset{flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text-secondary);font-size:13px;font-weight:500;cursor:pointer}.fit-apply{flex:2;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer}.fit-apply:active,.fit-reset:active{opacity:.8}
+/* 余位徽章 */
+.seat-badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:10px;font-size:11px;font-weight:600;line-height:1.3}
+.seat-badge.low{background:#FFF3E0;color:#E65100}
+.seat-badge.ok{background:#E8F5E9;color:#2E7D32}
+.seat-badge.soldout{background:#F5F5F5;color:#999}
+.seat-badge.full{background:#E3F2FD;color:#1565C0}
+.seat-badge.unknown{background:#F5F5F5;color:#999}
+/* 供应商色条 */
+.hmcard-sup-bar{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
+
+/* ── cf-card 新格式报价卡片 ── */
+.cf-card{padding:14px!important;border-radius:14px!important;box-shadow:0 1px 6px rgba(0,0,0,0.05)!important;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.cf-card:active{transform:scale(0.985)}
+.cf-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px;background:var(--card-stripe,#DA3A2C)}
+/* 头行：航线 / 反向航线 + 天数晚数 + 航司 */
+.cf-header{display:flex;align-items:center;gap:6px;margin-bottom:8px;font-size:12px;flex-wrap:wrap}
+.cf-route{font-weight:700;color:var(--text);font-size:14px}
+.cf-duration-badge{display:inline-flex;align-items:center;padding:2px 7px;border-radius:10px;font-size:11px;font-weight:600;background:var(--gold-light);color:#B8860B}
+.cf-airline-tag{display:inline-flex;align-items:center;padding:2px 7px;border-radius:6px;font-size:11px;font-weight:600;background:var(--tag-bg);color:var(--text-secondary);margin-left:auto}
+/* 航班信息行 */
+.cf-row{display:flex;align-items:center;gap:2px;font-size:12px;color:var(--text);padding:4px 0;flex-wrap:wrap;line-height:1.6}
+.cf-label{display:inline-flex;align-items:center;justify-content:center;width:32px;height:20px;font-size:10px;font-weight:700;color:var(--red);background:var(--red-light);border-radius:4px;flex-shrink:0}
+.cf-date{font-weight:600;color:var(--text);min-width:52px;font-size:11px}
+.cf-flight{font-family:"SF Mono","Consolas","Menlo",monospace;font-weight:600;color:var(--text);font-size:12px;letter-spacing:0.3px}
+.cf-airport{color:var(--text-secondary);font-size:11px}
+.cf-city{color:var(--text);font-size:11px;font-weight:600}
+.cf-time{color:var(--text);font-weight:500;font-size:11px;white-space:nowrap}
+.cf-duration{color:var(--text-light);font-size:10px;background:var(--tag-bg);padding:0 4px;border-radius:3px}
+/* 文本流航班信息（v4新格式） */
+.cf-info-text{flex:1;min-width:0;font-size:12px;color:var(--text);line-height:1.7;white-space:pre-wrap;word-break:keep-all}
+/* 自由组合-回程缺省标记 */
+.cf-retflex{font-size:10px;color:var(--cyan);font-weight:600;padding:2px 6px;border-radius:4px;background:rgba(40,183,189,0.08)}
+/* 底栏：价格 + 余位 + 按钮 */
+.cf-footer{display:flex;align-items:center;justify-content:space-between;margin-top:6px;padding-top:8px;border-top:1px dashed rgba(0,0,0,0.06)}
+.cf-price{font-size:22px;font-weight:800;color:var(--red);letter-spacing:-0.5px;line-height:1}
+.cf-price-tax{font-size:11px;color:var(--text-light);font-weight:400}
+.cf-seats{display:inline-flex;align-items:center}
+.cf-btn{background:linear-gradient(135deg,#FF6B35,var(--red));color:#fff;border:none;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:700;box-shadow:0 2px 6px rgba(218,58,44,0.25);cursor:pointer;white-space:nowrap;letter-spacing:0.3px}
+.cf-btn:active{opacity:0.85;transform:scale(0.96)}
