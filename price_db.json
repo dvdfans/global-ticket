@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-07-29 12:30:20",
+  "build_time": "2026-07-29 12:33:42",
   "record_count": 2453,
   "records": [
     {
@@ -46762,10 +46762,10 @@
       "return_date": "",
       "nights": "0",
       "days": "",
-      "price": 840.0,
-      "cost_price": 840.0,
+      "price": 740.0,
+      "cost_price": 740.0,
       "wholesale": 0,
-      "retail": 920.0,
+      "retail": 820.0,
       "seats": "10",
       "remark": "",
       "airline": "HO",
@@ -46781,7 +46781,7 @@
       "return_dep_time": "",
       "return_arr_time": "",
       "erp_wholesale": 0,
-      "erp_retail": 920.0,
+      "erp_retail": 820.0,
       "erp_seats": "10",
       "match_level": "-",
       "match_status": "erp_only"
@@ -46796,10 +46796,10 @@
       "return_date": "",
       "nights": "0",
       "days": "",
-      "price": 640.0,
-      "cost_price": 640.0,
+      "price": 740.0,
+      "cost_price": 740.0,
       "wholesale": 0,
-      "retail": 720.0,
+      "retail": 820.0,
       "seats": "10",
       "remark": "",
       "airline": "HO",
@@ -46815,7 +46815,7 @@
       "return_dep_time": "",
       "return_arr_time": "",
       "erp_wholesale": 0,
-      "erp_retail": 720.0,
+      "erp_retail": 820.0,
       "erp_seats": "10",
       "match_level": "-",
       "match_status": "erp_only"

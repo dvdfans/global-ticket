@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-07-29 12:30:21",
+  "build_time": "2026-07-29 12:33:42",
   "record_count": 2415,
   "records": [
     {
@@ -35762,7 +35762,7 @@
       "return_date": "",
       "nights": "0",
       "days": "",
-      "retail": 920,
+      "retail": 820,
       "seats": "10",
       "airline": "HO",
       "airline_cn": "吉祥",
@@ -35788,7 +35788,7 @@
       "return_date": "",
       "nights": "0",
       "days": "",
-      "retail": 720,
+      "retail": 820,
       "seats": "10",
       "airline": "HO",
       "airline_cn": "吉祥",
