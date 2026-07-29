@@ -33,9 +33,9 @@ const CONFIG = { ADMIN_KEY: 'globe_admin_2026', statsAPI: null };
 
 let DB = { records: [] };
 let currentTab = 'home';
-let isAdmin = false;
-let _sortModes = ['route_asc', 'days_asc', 'date_asc'];
+let _sortModes = ['date_asc'];
 let _groupMode = true;
+let isAdmin = false;
 
 // 初始化主题 + 游客ID
 (function() {
@@ -139,9 +139,9 @@ const TAB_CITIES = {
   hot: null,
   japan: ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台'],
   korea: ['首尔','济州岛','釜山'],
-  seasia: ['清迈','新加坡','富国岛','沙巴','普吉','曼谷','巴厘岛'],
+  seasia: ['曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内'],
   ganga: ['香港','澳门'],
-  domestic: ['上海','北京','广州','深圳','杭州','南京','无锡','成都','重庆','西安','武汉','长沙','厦门','三亚','海口','青岛','大连','沈阳','天津','郑州','济南','福州','贵阳','南宁','兰州','哈尔滨','乌鲁木齐','南通','宁波','昆明','西宁','阿勒泰','宁波栎社'],
+  domestic: ['上海','北京','广州','深圳','杭州','南京','无锡','成都','重庆','西安','武汉','长沙','厦门','三亚','海口','青岛','大连','沈阳','天津','郑州','济南','福州','贵阳','南宁','兰州','哈尔滨','乌鲁木齐','南通','宁波','昆明'],
 };
 
 function gradeLevel(r) {
@@ -291,28 +291,12 @@ function render() {
   renderTab();
 }
 
-// 滑动区固定顶栏：标签名 + 筛选按钮
-function _stickyBar() {
-  var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳'};
-  var name = label[currentTab] || currentTab;
-  return '<div class="sticky-bar"><span class="sticky-label">' + name + '</span><span class="sticky-filter" onclick="openFilter()">▦ 筛选</span></div>';
-}
-
-function toggleTheme() {
-  document.body.classList.toggle('dark');
-  var dark = document.body.classList.contains('dark');
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-  var el = document.getElementById('headerTheme');
-  if (el) el.textContent = dark ? '🌙' : '☀️';
-  render();
-}
-
-// ── 排序工具函数 ──
+// 滑动区固定顶栏：标签名 + 排序 + 筛选按钮
 function _seatNum(r) {
   var s = (r.seats||'').trim().toLowerCase();
   var m = s.match(/\d+/);
   if (m) return parseInt(m[0]);
-  if (s === '\u5145\u8db3') return 999;
+  if (s === '充足') return 999;
   return 0;
 }
 function _compareByMode(a, b, mode) {
@@ -322,8 +306,7 @@ function _compareByMode(a, b, mode) {
   if (mode === 'seats_desc') return (_seatNum(b)||0) - (_seatNum(a)||0);
   if (mode === 'route_asc') return ((a.dep||'')+(a.arr||'')) < ((b.dep||'')+(b.arr||'')) ? -1 : 1;
   if (mode === 'route_desc') return ((a.dep||'')+(a.arr||'')) > ((b.dep||'')+(b.arr||'')) ? -1 : 1;
-  if (mode === 'days_asc') return (parseInt(getDays(a)||'99')||99) - (parseInt(getDays(b)||'99')||99);
-  if (mode === 'days_desc') return (parseInt(getDays(b)||'99')||99) - (parseInt(getDays(a)||'99')||99);
+  // 日期
   var da = a.dep_date||'', db = b.dep_date||'';
   if (mode === 'date_desc') {
     var today = new Date(), y=today.getFullYear(), m=today.getMonth();
@@ -336,12 +319,12 @@ function _compareByMode(a, b, mode) {
     if (inB) return 1;
     return da < db ? -1 : 1;
   }
+  // 默认 date_asc
   return da < db ? -1 : 1;
 }
 function _sortRecords(recs) {
-  var modes = _sortModes || [];
-  if (!modes.length) return recs;
   var sorted = recs.slice(0);
+  var modes = _sortModes && _sortModes.length ? _sortModes : ['date_asc'];
   sorted.sort(function(a, b) {
     for (var i = 0; i < modes.length; i++) {
       var cmp = _compareByMode(a, b, modes[i]);
@@ -352,7 +335,78 @@ function _sortRecords(recs) {
   return sorted;
 }
 
+function _stickyBar() {
+  var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳'};
+  var name = label[currentTab] || currentTab;
+  var modes = _sortModes && _sortModes.length ? _sortModes : ['date_asc'];
+
+  function _hdr(k, title) {
+    var asc = k+'_asc', desc = k+'_desc';
+    var idx = modes.indexOf(asc);
+    if (idx < 0) idx = modes.indexOf(desc);
+    var active = idx >= 0;
+    var dir = modes[idx] === asc ? '↑' : '↓';
+    var bg = active ? (idx===0?'#F0F5FF':idx===1?'#F0FFF0':'#FFF8F0') : '';
+    var col = active ? (idx===0?'#0C6FA8':idx===1?'#389C39':'#FF7D00') : '#888';
+    return '<span class="sthdr" data-key="'+k+'" style="'+(active?'background:'+bg+';color:'+col+';font-weight:600':'color:#888')+';padding:3px 7px;border-radius:4px;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:2px;white-space:nowrap">'
+      + title + (active ? '<span>'+dir+'</span><span style="font-size:9px;margin-left:2px;background:'+col+';color:#fff;border-radius:6px;padding:0 5px">'+(idx+1)+'</span>' : '<span style="opacity:0.3;font-size:10px">↕</span>')
+      + '</span>';
+  }
+  return '<div class="sticky-bar" style="display:flex;align-items:center;justify-content:space-between;padding:6px 12px">'
+    + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
+    + '<div style="display:flex;gap:2px;align-items:center">'
+    + _hdr('date','日期') + _hdr('price','价格') + _hdr('seats','余位') + _hdr('route','航线')
+    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦</span>'
+    + '</div></div>';
+}
+
+// Excel表头点击 — 直接入口
+document.addEventListener('click', function(e) {
+  var hdr = e.target.closest('[data-key]');
+  if (!hdr) return;
+  var k = hdr.dataset.key;
+  if (!k) return;
+  var asc = k+'_asc', desc = k+'_desc';
+  var modes = _sortModes || [];
+  var existingIdx = modes.indexOf(asc);
+  if (existingIdx < 0) existingIdx = modes.indexOf(desc);
+  if (e.shiftKey || e.metaKey) {
+    // Shift / Cmd + click: 追加/移除条件
+    if (existingIdx >= 0) {
+      modes.splice(existingIdx, 1);
+    } else {
+      if (modes.length >= 3) modes.shift();
+      modes.push(asc);
+    }
+  } else {
+    // 单击：切换升降 或 替换
+    if (existingIdx === 0) {
+      // 已经是主要条件 → 切换升降
+      modes[0] = modes[0] === asc ? desc : asc;
+    } else {
+      // 替换为主要条件
+      modes = [asc];
+    }
+  }
+  if (!modes.length) modes = ['date_asc'];
+  _sortModes = modes;
+  render();
+});
+
+function toggleTheme() {
+  document.body.classList.toggle('dark');
+  var dark = document.body.classList.contains('dark');
+  localStorage.setItem('theme', dark ? 'dark' : 'light');
+  var el = document.getElementById('headerTheme');
+  if (el) el.textContent = dark ? '🌙' : '☀️';
+  render();
+}
+
 function renderTab() {
+  var today = new Date();
+  var todayStr = today.toISOString().slice(0,10);
+  var monthEnd = new Date(today.getTime() + 30 * 86400000);
+  var monthEndStr = monthEnd.toISOString().slice(0,10);
   var holidayStart = '2026-09-25', holidayEnd = '2026-10-07';
   var list = document.getElementById('cardList');
   
@@ -375,7 +429,15 @@ function renderTab() {
   records = records.filter(function(r) { return cities.some(function(c){return r.arr===c}); });
   records = records.filter(function(r) { return !(!r.flight_return && r.dep==='济州岛' && r.arr==='上海'); });
   
-  // 所有区域统一使用排序+分组模式
+  if (currentTab === 'ganga') {
+    // 港澳：直接显示所有报价卡片，按日期升序
+    records.sort(function(a,b) { return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1; });
+    list.innerHTML = _stickyBar() + records.map(function(r){return hmCard(r)}).join('');
+    list.scrollTop = 0;
+    return;
+  }
+  
+  // 其他区域：统一使用排序+分组模式
   records = _sortRecords(records);
   var html = _stickyBar();
   if (_groupMode) {
@@ -408,6 +470,7 @@ function renderTab() {
       // 日期排序
       var da = ga[0].dep_date||'', db = gb[0].dep_date||'';
       if (firstMode.indexOf('date_desc') >= 0) {
+        // 降序：取组内最远日期(当月+次月范围内)
         var today = new Date(), y=today.getFullYear(), m=today.getMonth();
         var rangeStart = y+'-'+(m+1<10?'0':'')+(m+1)+'-01';
         var nextMonthEnd = new Date(y, m+2, 0).toISOString().slice(0,10);
@@ -420,7 +483,7 @@ function renderTab() {
       return da < db ? -1 : 1;
     });
     gKeys.forEach(function(k){
-      var g=groups[k];var gid=k.replace(/[^a-z0-9一-龥]/g,'_');
+      var g=groups[k];var gid=k.replace(/[^a-z0-9\u4e00-\u9fa5]/g,'_');
       var mp=Math.min.apply(null,g.records.map(function(r){return r.retail||99999}));
       // 组内排序
       g.records = _sortRecords(g.records);
@@ -434,11 +497,12 @@ function renderTab() {
         +g.records.map(function(r){return hmCard(r)}).join('')+'</div></div>';
     });
   } else {
-    // 非分组模式：直接显示所有卡片
-    html += records.map(function(r){return hmCard(r)}).join('');
+    // 不分组：扁平卡片列表
+    html += records.slice(0, 150).map(function(r){return hmCard(r)}).join('');
   }
-  list.innerHTML=html; list.scrollTop=0;
+  list.innerHTML = html; list.scrollTop = 0;
 }
+
 // ═══════════════ 首页渲染 ═══════════════
 
 function renderHome() {
@@ -1228,6 +1292,88 @@ function closeFilter() {
 document.getElementById('filterModal').onclick = function(e) {
   if (e.target.id === 'filterModal') closeFilter();
 };
+document.getElementById('filterModal').onclick = function(e) {
+  if (e.target.id === 'filterModal') closeFilter();
+};
+
+// ═══════════════ 排序菜单（多选组合）═══════════════
+function toggleSortMenu() {
+  var overlay = document.getElementById('sortOverlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'sortOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:350;display:flex;align-items:flex-start;justify-content:center;padding-top:80px';
+    overlay.onclick = function(e) { if (e.target.id === 'sortOverlay') closeSortMenu(); };
+    document.body.appendChild(overlay);
+  }
+  var modeList = [
+    {key:'date_asc',label:'📅 日期↑'},
+    {key:'date_desc',label:'📅 日期↓'},
+    {key:'price_asc',label:'💰 价格↑'},
+    {key:'price_desc',label:'💰 价格↓'},
+    {key:'seats_asc',label:'🪑 余位↑'},
+    {key:'seats_desc',label:'🪑 余位↓'},
+    {key:'route_asc',label:'✈️ 航线↑'},
+    {key:'route_desc',label:'✈️ 航线↓'}
+  ];
+  var modes = _sortModes || [];
+  function idx(k) { var i=modes.indexOf(k); return i>=0 ? i+1 : 0; }
+  var h = '<div style="background:#fff;border-radius:12px;width:340px;max-width:90vw;box-shadow:0 4px 20px rgba(0,0,0,0.12);overflow:hidden">'
+    + '<div style="padding:14px 16px 4px;font-size:12px;color:#999">点击追加排序条件 <span style="font-size:10px;color:#C0C0C0">（优先级①②③）</span></div>'
+    + '<div style="padding:4px 0">';
+  modeList.forEach(function(m){
+    var i = idx(m.key);
+    var sel = i > 0;
+    var bg = sel ? (i===1?'#F0F5FF':i===2?'#F0FFF0':'#FFF8F0') : '';
+    var border = sel ? (i===1?'#0C6FA8':i===2?'#389C39':'#FF7D00') : '#D0D0D0';
+    var dotBg = sel ? (i===1?'#0C6FA8':i===2?'#389C39':'#FF7D00') : 'transparent';
+    h += '<div class="sort-opt" data-key="'+m.key+'" style="padding:8px 16px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;'+(bg?'background:'+bg+';':'')+'color:'+(sel?'#333':'#999')+'">'
+      + '<span style="width:20px;height:20px;border-radius:50%;border:2px solid '+border+';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#fff;background:'+dotBg+'">'
+      + (sel ? i : '')+'</span>'
+      + (sel ? '<span style="font-weight:500;color:#333">'+m.label+'</span>' : '<span style="color:#999">'+m.label+'</span>')
+      + (sel ? '<span style="margin-left:auto;font-size:10px;color:#C0C0C0;cursor:pointer" onclick="event.stopPropagation();_removeSort(\''+m.key+'\')">✕</span>' : '')
+      + '</div>';
+  });
+  h += '</div>';
+  h += '<div style="border-top:1px solid #F0F0F0"></div>'
+    + '<div class="sort-opt-group" style="padding:10px 16px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#333">'
+    + '<span style="width:18px;height:18px;border-radius:4px;border:2px solid '+(_groupMode?'#0C6FA8':'#D0D0D0')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:'+(_groupMode?'#0C6FA8':'transparent')+'">&#10003;</span>'
+    + '按路线分组</div></div>';
+  overlay.innerHTML = h;
+  overlay.style.display = 'flex';
+  // 绑定点击事件
+  overlay.querySelectorAll('.sort-opt').forEach(function(el){
+    el.onclick = function() {
+      var k = el.dataset.key;
+      if (modes.indexOf(k) >= 0) {
+        // 已有则移除
+        _removeSort(k);
+      } else {
+        // 追加
+        if (modes.length >= 3) modes.shift(); // 最多3层
+        modes.push(k);
+        _sortModes = modes;
+        closeSortMenu();
+        render();
+      }
+    };
+  });
+  overlay.querySelector('.sort-opt-group').onclick = function() {
+    _groupMode = !_groupMode;
+    closeSortMenu();
+    render();
+  };
+}
+function _removeSort(k) {
+  _sortModes = (_sortModes||[]).filter(function(x){return x!==k});
+  if (!_sortModes.length) _sortModes = ['date_asc'];
+  closeSortMenu();
+  render();
+}
+function closeSortMenu() {
+  var o = document.getElementById('sortOverlay');
+  if (o) o.style.display = 'none';
+}
 
 function _scopeCities() {
   var s = currentTab;
@@ -1295,7 +1441,23 @@ function _showFilter() {
   document.getElementById('filterCountDisplay').textContent = count;
   document.getElementById('filterBody').innerHTML = html;
   
+  // 复制按钮：四个条件全选中才可点击
   _updateCopyBtnState();
+}
+
+function _updateCopyBtnState() {
+  var btn = document.getElementById('filterCopyBtn');
+  if (!btn) return;
+  var ready = _filter.dep && _filter.arr && _filter.days && _filter.month;
+  if (ready) {
+    btn.classList.remove('disabled');
+    btn.style.opacity = '1';
+    btn.style.cursor = 'pointer';
+  } else {
+    btn.classList.add('disabled');
+    btn.style.opacity = '0.4';
+    btn.style.cursor = 'not-allowed';
+  }
 }
 
 // ── 智能搜索（IME感知，选词中不触发）──
@@ -1317,65 +1479,17 @@ function _filterSearchBox() {
 }
 
 function _filterCityPills() {
-  var depHtml = '';
+  var depHtml = '', arrHtml = '';
   _getDeps().forEach(function(c){
     var a = _filter.dep===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
     depHtml += '<div class="fit-pill" onclick="selectDep(\''+c+'\')"'+a+'>'+c+'</div>';
   });
-  var baseHtml = '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">出发城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">'+depHtml+'</div></div>';
-  // 如果已选到达城市：只显示同区域，隐藏其他区域
-  if (_filter.arr) {
-    var regionOrder = [
-      {name:'韩国', cities: TAB_CITIES.korea},
-      {name:'日本', cities: TAB_CITIES.japan},
-      {name:'东南亚', cities: TAB_CITIES.seasia},
-      {name:'港澳', cities: TAB_CITIES.ganga},
-      {name:'国内', cities: TAB_CITIES.domestic},
-    ];
-    var allArrs = _getArrs().filter(function(c){ return c !== '清迈天' && c !== '目的地'; });
-    var targetRegion = null;
-    regionOrder.forEach(function(r) {
-      if (r.cities.indexOf(_filter.arr) !== -1) targetRegion = r;
-    });
-    var arrHtml = '';
-    if (targetRegion) {
-      var matched = allArrs.filter(function(c){ return targetRegion.cities.indexOf(c) !== -1; });
-      matched.sort(function(a,b){ return targetRegion.cities.indexOf(a) - targetRegion.cities.indexOf(b); });
-      if (matched.length) {
-        arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— ' + targetRegion.name + ' ——</div>'
-          + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-        matched.forEach(function(c){
-          var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
-          arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
-        });
-        arrHtml += '</div>';
-      }
-    }
-    return baseHtml + '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div>'+arrHtml+'</div>';
-  }
-  // 未选到达城市：全区域显示
-  var regionOrder = [
-    {name:'韩国', cities: TAB_CITIES.korea},
-    {name:'日本', cities: TAB_CITIES.japan},
-    {name:'东南亚', cities: TAB_CITIES.seasia},
-    {name:'港澳', cities: TAB_CITIES.ganga},
-    {name:'国内', cities: TAB_CITIES.domestic},
-  ];
-  var allArrs = _getArrs().filter(function(c){ return c !== '清迈天' && c !== '目的地'; });
-  var arrHtml = '';
-  regionOrder.forEach(function(region) {
-    var matched = allArrs.filter(function(c){ return region.cities.indexOf(c) !== -1; });
-    matched.sort(function(a,b){ return region.cities.indexOf(a) - region.cities.indexOf(b); });
-    if (!matched.length) return;
-    arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— ' + region.name + ' ——</div>'
-      + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-    matched.forEach(function(c){
-      var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
-      arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
-    });
-    arrHtml += '</div>';
+  _getArrs().forEach(function(c){
+    var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+    arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
   });
-  return baseHtml + '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div>'+arrHtml+'</div>';
+  return '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">出发城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">'+depHtml+'</div></div>'
+    + '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">'+arrHtml+'</div></div>';
 }
 
 function _filterDayPills(inline) {
@@ -1473,27 +1587,50 @@ function _getFilteredRecs() {
 function copyFilterResults() {
   var recs = _getFilteredRecs();
   if (!recs.length) { showToast('没有可复制的报价'); return; }
+  
+  // 按 (dep+arr+days+flight+flight_return) 分组
   var groups = {};
   recs.forEach(function(r) {
     var key = (r.dep||'') + '|' + (r.arr||'') + '|' + (getDays(r)||'') + '|' + (r.flight||'') + '|' + ((r.flight_return||'').trim());
     if (!groups[key]) groups[key] = [];
     groups[key].push(r);
   });
-  Object.keys(groups).forEach(function(k){ groups[k].sort(function(a,b){return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1}) });
+  
+  // 每组内按日期排序
+  Object.keys(groups).forEach(function(k) {
+    groups[k].sort(function(a,b){return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1});
+  });
+  
   var lines = [];
   var groupKeys = Object.keys(groups);
-  var maxGroups = 15;
+  var maxGroups = 15; // 最多15组
   groupKeys.slice(0, maxGroups).forEach(function(key, gi) {
-    var recs = groups[key], r = recs[0];
+    var recs = groups[key];
+    var r = recs[0];
     var d = getDays(r) || '';
     var hasReturn = !!(r.flight_return && r.flight_return.trim());
     var routeLabel = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + (r.arr||'') + '-' + (r.dep||'') : '') + (d ? ' ' + d + '天' : '');
     var airCn = r.airline_cn || '';
+    var depAirport = _apt(r.dep_airport);
+    var arrAirport = _apt(r.arr_airport);
+    var depTime = (r.dep_time||'').trim();
+    var arrTime = (r.arr_time||'').trim();
+    
+    // 组头：航线路由+航司名 第一行
     lines.push(routeLabel + (airCn ? ' ' + airCn : ''));
-    lines.push((r.flight||'') + '  ' + (_apt(r.dep_airport)||'') + '-' + (_apt(r.arr_airport)||'') + '  ' + (r.dep_time||'') + '-' + (r.arr_time||''));
+    // 航班号+机场+时间 第二行
+    lines.push((r.flight||'') + '  ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? '  ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : ''));
+    
+    // 回程航班行
     if (hasReturn) {
-      lines.push((r.flight_return||'') + ' ' + (_apt(r.return_dep_airport)||'') + '-' + (_apt(r.return_arr_airport)||'') + '  ' + (r.return_dep_time||'') + '-' + (r.return_arr_time||''));
+      var retDep = _apt(r.return_dep_airport);
+      var retArr = _apt(r.return_arr_airport);
+      var retDepTime = (r.return_dep_time||'').trim();
+      var retArrTime = (r.return_arr_time||'').trim();
+      lines.push((r.flight_return||'') + (retDep ? ' ' + retDep : '') + (retArr ? '-'+retArr : '') + (retDepTime||retArrTime ? '  ' : '') + (retDepTime ? retDepTime : '') + (retArrTime ? '-'+retArrTime : ''));
     }
+    
+    // 日期行（缩进）
     var maxDatesPerGroup = 30;
     recs.slice(0, maxDatesPerGroup).forEach(function(rr) {
       var ds = _fmtDateShort(rr.dep_date);
@@ -1504,10 +1641,12 @@ function copyFilterResults() {
       lines.push('  ' + dateStr + ' ￥' + price + (seat ? '  余' + seat : ''));
     });
     if (recs.length > maxDatesPerGroup) lines.push('  ...共' + recs.length + '个日期');
-    if (gi < groupKeys.length - 1) lines.push('');
+    if (gi < groupKeys.length - 1) lines.push(''); // 组间空行
   });
   if (groupKeys.length > maxGroups) lines.push('...共' + groupKeys.length + '组');
+  
   var text = lines.join('\n') + '\n\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
+  
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + recs.length + ' 条报价，' + groupKeys.length + ' 组'); });
   } else { prompt('复制以下内容：', text); }
@@ -1537,20 +1676,6 @@ function _applyFilterFromUrl() {
   if (p.get('f_month')) { _filter.month = p.get('f_month'); hasFilter = true; }
   if (p.get('f_date')) { _filter.date = p.get('f_date'); hasFilter = true; }
   if (hasFilter) { currentTab = 'filter'; renderFiltered(); }
-}
-function _updateCopyBtnState() {
-  var btn = document.getElementById('filterCopyBtn');
-  if (!btn) return;
-  var ready = _filter.dep && _filter.arr && _filter.days && _filter.month;
-  if (ready) {
-    btn.classList.remove('disabled');
-    btn.style.opacity = '1';
-    btn.style.cursor = 'pointer';
-  } else {
-    btn.classList.add('disabled');
-    btn.style.opacity = '0.4';
-    btn.style.cursor = 'not-allowed';
-  }
 }
 
 // ── 选择函数 ──
