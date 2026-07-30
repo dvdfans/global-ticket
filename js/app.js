@@ -1,3 +1,289 @@
+// === H5 报价网页 v3：路线日期分组 + 深链分享 ===
+
+// 账号系统
+var ADMIN_LIST = [
+  {user:'admin',pwd:'1qaz9ol.7ujm$RFV',role:'admin',name:'管理员'},
+  {user:'adminzch',pwd:'6yhn(OL>',role:'admin',name:'管理员zch'},
+  {user:'adminxxy',pwd:'5tgb*IK<',role:'admin',name:'管理员xxy'},
+];
+
+// 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
+var STATS_API_URL = 'https://dear-cheers-reveals-retired.trycloudflare.com/track';
+
+function loadAccounts() {
+  var cs = [];
+  try { cs = JSON.parse(localStorage.getItem('cs_accounts') || '[]'); } catch(e) {}
+  // 首次使用：插入默认客服
+  if (!cs.length) {
+    var defaults = [
+      {user:'hq_zhangw',pwd:'123456'},{user:'hq_liujq',pwd:'123456'},{user:'hq_liuw',pwd:'123456'},
+      {user:'hq_baif',pwd:'123456'},{user:'hq_mifm',pwd:'123456'},{user:'hq_liurong',pwd:'123456'},{user:'hq_shenzy',pwd:'123456'}
+    ];
+    cs = defaults;
+    localStorage.setItem('cs_accounts', JSON.stringify(cs));
+  }
+  var accs = ADMIN_LIST.map(function(a){return a;});
+  cs.forEach(function(a){ accs.push({user:a.user, pwd:a.pwd, role:'cs', name:a.user}); });
+  return accs;
+}
+
+var CURRENT_USER = null; // {user, role, name}
+
+const CONFIG = { ADMIN_KEY: 'globe_admin_2026', statsAPI: null };
+
+let DB = { records: [] };
+let currentTab = 'home';
+let _sortModes = ['date_asc'];
+let _groupMode = true;
+let isAdmin = false;
+
+// 初始化主题 + 游客ID
+(function() {
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark');
+    var el = document.getElementById('headerTheme');
+    if (el) el.textContent = '🌙';
+  }
+  // 复活登录
+  var saved = localStorage.getItem('current_user');
+  if (saved) {
+    try { CURRENT_USER = JSON.parse(saved); } catch(e) {}
+  }
+  // 分配游客ID
+  if (!localStorage.getItem('visitor_id')) {
+    var count = parseInt(localStorage.getItem('visitor_count') || '0') + 1;
+    localStorage.setItem('visitor_count', '' + count);
+    localStorage.setItem('visitor_id', '游客' + count);
+  }
+})();
+let currentDetailRec = null;
+let _lastSharedRec = null;
+
+// ═══════════════ 基础加载 ═══════════════
+
+async function loadDB() {
+  try {
+    const r = await fetch('price_db_fe.json?_=' + Date.now());
+    DB = await r.json();
+    validateDays();  // 校验天数/回程日期一致性
+    updateStats();
+    generateFooterQR();  // 加载完数据后生成尾部二维码
+    handleDeepLink();   // 先检查URL参数
+    _applyFilterFromUrl(); // 读取筛选参数
+    render();
+    recordAction('page_view', {route:'load→'+currentTab,days:DB.records.length+''});
+  } catch(e) {
+    document.getElementById('cardList').innerHTML = '<div class="loading">数据加载失败</div>';
+  }
+}
+
+function updateStats() {
+  const routes = new Set(DB.records.map(r => (r.dep||'') + '-' + (r.arr||''))).size;
+  document.getElementById('stats-routes').textContent = routes;
+  var bt = DB.build_time || '';
+  if (bt && bt.length >= 16) {
+    var parts = bt.split(' ');
+    if (parts.length >= 2) {
+      var d = parts[0].split('-'), t = parts[1].split(':');
+      if (d.length >= 3 && t.length >= 2) {
+        var m = parseInt(d[1]), day = parseInt(d[2]), h = t[0], min = t[1];
+        var today = new Date();
+        var dateLabel = (today.getFullYear()===parseInt(d[0]) && today.getMonth()+1===m && today.getDate()===day) ? '今天' : m+'月'+day+'日';
+        document.getElementById('stats-time').textContent = dateLabel + ' ' + h + ':' + min;
+      }
+    }
+  } else {
+    document.getElementById('stats-time').textContent = '--';
+  }
+}
+
+// ── 天数/回程日期一致性校验 ──
+function validateDays() {
+  var ok = 0, mismatch = 0, withRet = 0;
+  var details = [];
+  DB.records.forEach(function(r) {
+    var rd = r.return_date, dd = r.dep_date, ds = r.days;
+    if (rd && dd && ds) {
+      withRet++;
+      var d = parseInt(ds);
+      if (!isNaN(d) && d > 0) {
+        // 从 return_date 计算天数
+        var p1 = dd.split('-'), p2 = rd.split('-');
+        var depD = new Date(parseInt(p1[0]), parseInt(p1[1])-1, parseInt(p1[2]));
+        var retD = new Date(parseInt(p2[0]), parseInt(p2[1])-1, parseInt(p2[2]));
+        var diffDays = Math.round((retD - depD) / 86400000) + 1;
+        if (diffDays === d) {
+          ok++;
+        } else {
+          mismatch++;
+          if (details.length < 5) details.push(r.supplier + ' ' + r.dep + '-' + r.arr + ' ' + r.flight + ': DB days=' + d + ' 公式回推=' + diffDays + ' ret=' + rd);
+        }
+      }
+    }
+  });
+  console.log('[校验] 天数/回程日期一致性:');
+  console.log('  return_date存在: ' + withRet + '条');
+  console.log('  一致: ' + ok + '条');
+  console.log('  不一致: ' + mismatch + '条');
+  if (mismatch > 0) {
+    details.forEach(function(d) { console.warn('  ⚠️ ' + d); });
+  } else {
+    console.log('  ✅ 全部一致，公式验证通过');
+  }
+  console.log('  结论: days=' + ok + '/' + withRet + ' 可靠，后期可直接用 return_date-dep_date+1 推导');
+}
+
+// ═══════════════ Tab分类 ═══════════════
+
+const TAB_CITIES = {
+  hot: null,
+  japan: ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台'],
+  korea: ['首尔','济州岛','釜山'],
+  seasia: ['曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内'],
+  ganga: ['香港','澳门'],
+  domestic: ['上海','北京','广州','深圳','杭州','南京','无锡','成都','重庆','西安','武汉','长沙','厦门','三亚','海口','青岛','大连','沈阳','天津','郑州','济南','福州','贵阳','南宁','兰州','哈尔滨','乌鲁木齐','南通','宁波','昆明'],
+};
+
+function gradeLevel(r) {
+  const price = r.retail || 0;
+  const seats = parseInt((r.seats || '0').match(/\d+/)?.[0] || 0);
+  if (price > 0 && price <= 2000 && seats >= 9) return 'hot';
+  if (price > 0 && price <= 3500 && seats >= 5) return 'featured';
+  if (price > 0) return 'special';
+  return null;
+}
+const LEVEL_LABEL = { hot: '🔥 爆款', featured: '💎 精选', special: '⚡ 特价' };
+
+// ── 余位格式化（统一处理 nan/售罄/0/10+/充足）──
+function fmtSeats(s, opts) {
+  s = (s || '').trim().toLowerCase();
+  if (!s || s === 'nan' || s === 'na') return opts && opts.empty || '';
+  if (s === '售罄' || s === '满' || s === '0') return '<span class="seat-soldout">售罄</span>';
+  if (s === '充足') return '<span class="seat-full">充足</span>';
+  var num = parseInt(s.match(/\d+/)?.[0]);
+  if (num === undefined || num === null) return '<span class="seat-unknown">' + s + '</span>';
+  if (num <= 3) return '<span class="seat-low">余' + s + '</span>';
+  return '<span class="seat-ok">余' + s + '</span>';
+}
+
+// ── 供应商底色规则（未来可扩展映射）──
+const SUPPLIER_COLORS = {
+  '美亚':   { bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
+  '奇妙':   { bg:'#FFF8E6', border:'#F9BE00', dot:'#D49A00' },
+  '纵贯':   { bg:'#EDF5FF', border:'#90C0F0', dot:'#0C6FA8' },
+  '通宏':   { bg:'#E8F5E9', border:'#90D090', dot:'#389C39' },
+  '上航':   { bg:'#F3E8FF', border:'#C090E0', dot:'#491B87' },
+  '途益':   { bg:'#E0F7FA', border:'#80D0D8', dot:'#28B7BD' },
+  '万国':   { bg:'#FFF3E0', border:'#F0B060', dot:'#E88A00' },
+  '通宏国内':{ bg:'#EEEEEE', border:'#C0C0C0', dot:'#808080' },
+  '怡行':   { bg:'#E8F5E9', border:'#A0D0A0', dot:'#389C39' },
+  '春秋国际':{ bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
+};
+function supplierColor(name) {
+  return SUPPLIER_COLORS[name] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
+}
+
+// 获取天数：优先 days 字段（纵贯等做了天数→晚数转换后回算），fallback 到 nights
+function getDays(r) {
+  var d = r.days || r.nights || '';
+  return d;
+}
+
+// 机场名→IATA码
+function _iata(name) {
+  if (!name) return '';
+  var m = {'上海浦东':'PVG','上海虹桥':'SHA','东京成田':'NRT','东京羽田':'HND','大阪关西':'KIX',
+    '首尔仁川':'ICN','首尔金浦':'GMP','釜山金海':'PUS','济州':'CJU','冲绳那霸':'OKA',
+    '札幌新千岁':'CTS','福冈':'FUK','曼谷素万那普':'BKK','普吉岛':'HKT','清迈':'CNX',
+    '巴厘岛':'DPS','沙巴亚庇':'BKI','樟宜':'SIN','吉隆坡':'KUL','马尼拉':'MNL','雅加达':'CGK','河内':'HAN','胡志明':'SGN','岘港':'DAD','富国岛':'PQC',
+    '香港':'HKG','澳门':'MFM','台北':'TPE','南京禄口':'NKG','杭州萧山':'HGH','宁波栎社':'NGB','南通兴东':'NTG','苏南硕放':'WUX','三亚凤凰':'SYX',
+    '北京首都':'PEK','北京大兴':'PKX','广州白云':'CAN','深圳':'SZX','成都天府':'TFU','成都双流':'CTU','重庆':'CKG',
+    '西安':'XIY','武汉':'WUH','长沙':'CSX','昆明':'KMG','厦门':'XMN','青岛':'TAO','大连':'DLC','沈阳':'SHE','天津':'TSN',
+    '郑州':'CGO','济南':'TNA','福州':'FOC','贵阳':'KWE','南宁':'NNG','兰州':'LHW','哈尔滨':'HRB','乌鲁木齐':'URC','西宁':'XNN','阿勒泰':'AAT'};
+  return m[name] || name;
+}
+
+// 机场名显示：樟宜→新加坡樟宜，普吉岛→普吉岛等
+function _apt(name) {
+  var m = {'樟宜':'新加坡樟宜','济州':'济州','沙巴亚庇':'沙巴亚庇','普吉岛':'普吉岛','曼谷素万那普':'曼谷素万那普','冲绳那霸':'冲绳那霸','札幌新千岁':'札幌新千岁'};
+  return m[name] || name;
+}
+
+// 航站楼：按 航司+机场 查询
+function _term(airline, airport) {
+  if (!airline || !airport) return '';
+  // 常见航站楼映射
+  var m = {
+    'PVG':{MU:'T1',FM:'T1',CA:'T2',CZ:'T1',HO:'T2','9C':'T2',CX:'T2'},
+    'NRT':{CA:'T1',MU:'T1',CZ:'T1',GK:'T2',JL:'T2',NH:'T1'},
+    'HND':{NH:'T2',JL:'T1',MM:'T1'},
+    'KIX':{CA:'T1',MU:'T1',CZ:'T1',JL:'T1'},
+    'ICN':{CA:'T1',MU:'T1',CZ:'T1',KE:'T2'},
+    'HKG':{CX:'T1',MU:'T1',CA:'T1'},
+    'MFM':{NX:'T1'},
+    'BKK':{TG:'T1',MU:'T1',CA:'T1'},
+    'SIN':{CA:'T1',MU:'T1',SQ:'T2'},
+    'NGB':{MU:'T2',FM:'T2'},
+    'HGH':{CA:'T2',MU:'T3',MF:'T3'},
+    'NKG':{MU:'T2',CA:'T2',HO:'T2'},
+  };
+  var code = _iata(airport);
+  if (!code) return '';
+  var termMap = m[code];
+  if (termMap && termMap[airline]) return '<span class="t-term">' + termMap[airline] + '</span>';
+  if (code === 'PVG' || code === 'SHA') return '<span class="t-term">T2</span>';
+  return '';
+}
+
+// 余位有效判断
+function _hasSeats(r) {
+  var s = (r.seats || '').trim().toLowerCase();
+  if (!s || s === 'nan' || s === 'na' || s === '0' || s === '售罄' || s === '满' || s === '候补' || s === '/' || s === '预留') return false;
+  return true;
+}
+
+// 记录完整性判断（排除dep/arr为空的不完整数据）
+function _validRecord(r) {
+  return (r.dep||'').trim() && (r.arr||'').trim();
+}
+
+// ═══════════════ 深链处理 ═══════════════
+
+function handleDeepLink() {
+  var p = new URLSearchParams(location.search);
+  var dep = p.get('dep'), arr = p.get('arr'), nights = p.get('nights');
+  var date = p.get('date'), flight = p.get('flight');
+  var retFlight = p.get('ret_flight'), retDate = p.get('ret_date');
+  
+  if (dep && arr && date && flight) {
+    // 精确到某一航班日期
+    var rec = DB.records.find(function(r) {
+      return r.dep === dep && r.arr === arr && r.dep_date === date && r.flight === flight;
+    });
+    if (rec) {
+      setTimeout(function() {
+        openDetail(rec);
+        // 如果有回程组合参数，等详情渲染后自动选择
+        if (retFlight && retDate) {
+          setTimeout(function() {
+            var rets = getReturnOptions(rec);
+            var idx = -1;
+            for (var i = 0; i < rets.length; i++) {
+              if (rets[i].flight === retFlight && rets[i].dep_date === retDate) { idx = i; break; }
+            }
+            if (idx >= 0) selectReturn(idx);
+          }, 200);
+        }
+      }, 300);
+    }
+  } else if (dep && arr) {
+    // 按路线筛选
+    setTimeout(function() { showRouteDetail(dep, arr, nights); }, 300);
+  }
+}
+
+// ═══════════════ 渲染：通用双区布局（紧急余位 + 全部航线）═══════════════
+
 function render() {
   // 首页-尾单; 热门-中秋国庆; 其他-区域筛选
   if (currentTab === 'home') return renderHome();
@@ -37,9 +323,8 @@ function _compareByMode(a, b, mode) {
   return da < db ? -1 : 1;
 }
 function _sortRecords(recs) {
-  var modes = _sortModes || [];
-  if (!modes.length) return recs;  // 未选排序 → 原始顺序
   var sorted = recs.slice(0);
+  var modes = _sortModes && _sortModes.length ? _sortModes : ['date_asc'];
   sorted.sort(function(a, b) {
     for (var i = 0; i < modes.length; i++) {
       var cmp = _compareByMode(a, b, modes[i]);
@@ -53,11 +338,25 @@ function _sortRecords(recs) {
 function _stickyBar() {
   var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳'};
   var name = label[currentTab] || currentTab;
+  var modes = _sortModes && _sortModes.length ? _sortModes : ['date_asc'];
+
+  function _hdr(k, title) {
+    var asc = k+'_asc', desc = k+'_desc';
+    var idx = modes.indexOf(asc);
+    if (idx < 0) idx = modes.indexOf(desc);
+    var active = idx >= 0;
+    var dir = modes[idx] === asc ? '↑' : '↓';
+    var bg = active ? (idx===0?'#F0F5FF':idx===1?'#F0FFF0':'#FFF8F0') : '';
+    var col = active ? (idx===0?'#0C6FA8':idx===1?'#389C39':'#FF7D00') : '#888';
+    return '<span class="sthdr" data-key="'+k+'" style="'+(active?'background:'+bg+';color:'+col+';font-weight:600':'color:#888')+';padding:3px 7px;border-radius:4px;cursor:pointer;font-size:11px;display:flex;align-items:center;gap:2px;white-space:nowrap">'
+      + title + (active ? '<span>'+dir+'</span><span style="font-size:9px;margin-left:2px;background:'+col+';color:#fff;border-radius:6px;padding:0 5px">'+(idx+1)+'</span>' : '<span style="opacity:0.3;font-size:10px">↕</span>')
+      + '</span>';
+  }
   return '<div class="sticky-bar" style="display:flex;align-items:center;justify-content:space-between;padding:6px 12px">'
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
-    + '<div style="display:flex;gap:4px;align-items:center">'
-    + '<span class="sticky-filter" onclick="openSortModal()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888;margin-right:8px">↕ 排序</span>'
-    + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦ 筛选</span>'
+    + '<div style="display:flex;gap:2px;align-items:center">'
+    + _hdr('date','日期') + _hdr('price','价格') + _hdr('seats','余位') + _hdr('route','航线')
+    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦</span>'
     + '</div></div>';
 }
 
@@ -130,7 +429,15 @@ function renderTab() {
   records = records.filter(function(r) { return cities.some(function(c){return r.arr===c}); });
   records = records.filter(function(r) { return !(!r.flight_return && r.dep==='济州岛' && r.arr==='上海'); });
   
-  // 所有区域统一使用排序+分组模式
+  if (currentTab === 'ganga') {
+    // 港澳：直接显示所有报价卡片，按日期升序
+    records.sort(function(a,b) { return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1; });
+    list.innerHTML = _stickyBar() + records.map(function(r){return hmCard(r)}).join('');
+    list.scrollTop = 0;
+    return;
+  }
+  
+  // 其他区域：统一使用排序+分组模式
   records = _sortRecords(records);
   var html = _stickyBar();
   if (_groupMode) {
@@ -249,14 +556,9 @@ function renderCard(r) {
   }
   
   // 航线头：支持多口岸（如上海-首尔/济州-上海）
-  // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名）
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
   if (retDepAirport && retDepAirport !== r.arr) {
-    if (IATA_CITY[retDepAirport]) {
-      retCity = IATA_CITY[retDepAirport];
-    } else {
     // 从机场名提取城市名
     var knownCities = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<knownCities.length; ci++) {
@@ -266,7 +568,6 @@ function renderCard(r) {
     if (retCity === r.arr) {
       var airportCityMap = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = airportCityMap[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
-    }
     }
   }
   var routeHeader;
@@ -413,26 +714,19 @@ function renderCardSimple(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
   var daysVal = getDays(r);
   var durationStr = daysVal ? ' ' + daysVal + '天' : '';
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
   if (retDepAirport && retDepAirport !== r.arr) {
-    if (IATA_CITY[retDepAirport]) { retCity = IATA_CITY[retDepAirport]; }
-    else {
     var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<kc.length; ci++) { if (retDepAirport.indexOf(kc[ci])!==-1) { retCity=kc[ci]; break; } }
     if (retCity===r.arr) {
       var acm={'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = acm[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
     }
-    }
   }
   var routeStr = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + retCity + '-' + (r.dep||'') : '');
   var seatStr = (r.seats||'').trim().toLowerCase();
-  var seatDisp;
-  if (!seatStr || seatStr==='nan' || seatStr==='na') seatDisp = '';
-  else if (seatStr==='占' || seatStr==='候补' || seatStr==='询' || seatStr==='暂停' || seatStr==='售罄' || seatStr==='满' || seatStr==='充足') seatDisp = ' ' + r.seats;
-  else seatDisp = ' 余' + r.seats;
+  var seatDisp = (!seatStr||seatStr==='nan'||seatStr==='na') ? '' : ' 余' + r.seats;
   var outDate = _fmtDateShort(r.dep_date);
   var outDur = _fds(r.dep_time, r.arr_time, r.dep, r.arr);
   var outRow = '<div class="cfs-row"><span class="cfs-icon">去</span>' + outDate + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + _term(r.airline,r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport) + _term(r.airline,r.arr_airport) + '</div>';
@@ -474,7 +768,6 @@ function fmtSeatsBadge(s) {
   if (!s || s === 'nan' || s === 'na') return '';
   if (s === '售罄' || s === '满' || s === '0') return '<span class="seat-badge soldout">售罄</span>';
   if (s === '充足') return '<span class="seat-badge full">充足</span>';
-  if (s === '占' || s === '候补' || s === '询' || s === '暂停') return '<span class="seat-badge info">' + s + '</span>';
   var num = parseInt(s.match(/\d+/)?.[0]);
   if (num === undefined || num === null) return '<span class="seat-badge unknown">' + s + '</span>';
   if (num <= 3) return '<span class="seat-badge low">余' + s + '</span>';
@@ -1003,6 +1296,85 @@ document.getElementById('filterModal').onclick = function(e) {
   if (e.target.id === 'filterModal') closeFilter();
 };
 
+// ═══════════════ 排序菜单（多选组合）═══════════════
+function toggleSortMenu() {
+  var overlay = document.getElementById('sortOverlay');
+  if (!overlay) {
+    overlay = document.createElement('div');
+    overlay.id = 'sortOverlay';
+    overlay.style.cssText = 'position:fixed;inset:0;z-index:350;display:flex;align-items:flex-start;justify-content:center;padding-top:80px';
+    overlay.onclick = function(e) { if (e.target.id === 'sortOverlay') closeSortMenu(); };
+    document.body.appendChild(overlay);
+  }
+  var modeList = [
+    {key:'date_asc',label:'📅 日期↑'},
+    {key:'date_desc',label:'📅 日期↓'},
+    {key:'price_asc',label:'💰 价格↑'},
+    {key:'price_desc',label:'💰 价格↓'},
+    {key:'seats_asc',label:'🪑 余位↑'},
+    {key:'seats_desc',label:'🪑 余位↓'},
+    {key:'route_asc',label:'✈️ 航线↑'},
+    {key:'route_desc',label:'✈️ 航线↓'}
+  ];
+  var modes = _sortModes || [];
+  function idx(k) { var i=modes.indexOf(k); return i>=0 ? i+1 : 0; }
+  var h = '<div style="background:#fff;border-radius:12px;width:340px;max-width:90vw;box-shadow:0 4px 20px rgba(0,0,0,0.12);overflow:hidden">'
+    + '<div style="padding:14px 16px 4px;font-size:12px;color:#999">点击追加排序条件 <span style="font-size:10px;color:#C0C0C0">（优先级①②③）</span></div>'
+    + '<div style="padding:4px 0">';
+  modeList.forEach(function(m){
+    var i = idx(m.key);
+    var sel = i > 0;
+    var bg = sel ? (i===1?'#F0F5FF':i===2?'#F0FFF0':'#FFF8F0') : '';
+    var border = sel ? (i===1?'#0C6FA8':i===2?'#389C39':'#FF7D00') : '#D0D0D0';
+    var dotBg = sel ? (i===1?'#0C6FA8':i===2?'#389C39':'#FF7D00') : 'transparent';
+    h += '<div class="sort-opt" data-key="'+m.key+'" style="padding:8px 16px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;'+(bg?'background:'+bg+';':'')+'color:'+(sel?'#333':'#999')+'">'
+      + '<span style="width:20px;height:20px;border-radius:50%;border:2px solid '+border+';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#fff;background:'+dotBg+'">'
+      + (sel ? i : '')+'</span>'
+      + (sel ? '<span style="font-weight:500;color:#333">'+m.label+'</span>' : '<span style="color:#999">'+m.label+'</span>')
+      + (sel ? '<span style="margin-left:auto;font-size:10px;color:#C0C0C0;cursor:pointer" onclick="event.stopPropagation();_removeSort(\''+m.key+'\')">✕</span>' : '')
+      + '</div>';
+  });
+  h += '</div>';
+  h += '<div style="border-top:1px solid #F0F0F0"></div>'
+    + '<div class="sort-opt-group" style="padding:10px 16px 12px;display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:#333">'
+    + '<span style="width:18px;height:18px;border-radius:4px;border:2px solid '+(_groupMode?'#0C6FA8':'#D0D0D0')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:'+(_groupMode?'#0C6FA8':'transparent')+'">&#10003;</span>'
+    + '按路线分组</div></div>';
+  overlay.innerHTML = h;
+  overlay.style.display = 'flex';
+  // 绑定点击事件
+  overlay.querySelectorAll('.sort-opt').forEach(function(el){
+    el.onclick = function() {
+      var k = el.dataset.key;
+      if (modes.indexOf(k) >= 0) {
+        // 已有则移除
+        _removeSort(k);
+      } else {
+        // 追加
+        if (modes.length >= 3) modes.shift(); // 最多3层
+        modes.push(k);
+        _sortModes = modes;
+        closeSortMenu();
+        render();
+      }
+    };
+  });
+  overlay.querySelector('.sort-opt-group').onclick = function() {
+    _groupMode = !_groupMode;
+    closeSortMenu();
+    render();
+  };
+}
+function _removeSort(k) {
+  _sortModes = (_sortModes||[]).filter(function(x){return x!==k});
+  if (!_sortModes.length) _sortModes = ['date_asc'];
+  closeSortMenu();
+  render();
+}
+function closeSortMenu() {
+  var o = document.getElementById('sortOverlay');
+  if (o) o.style.display = 'none';
+}
+
 function _scopeCities() {
   var s = currentTab;
   if (s === 'home' || s === 'hot' || s === 'filter') return null;
@@ -1024,15 +1396,7 @@ function _getDeps() {
   var recs = _recordsInScope();
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
   recs.forEach(function(r){if(!(!r.flight_return&&r.dep==='济州岛'&&r.arr==='上海')) s.add(r.dep)});
-  // 按优先级排序：上海优先，华东次之
-  var priority = ['上海','杭州','南京','宁波','无锡','嘉兴','南通兴东','三亚','济州岛'];
-  return Array.from(s).sort(function(a,b){
-    var ia = priority.indexOf(a), ib = priority.indexOf(b);
-    if (ia !== -1 && ib !== -1) return ia - ib;
-    if (ia !== -1) return -1;
-    if (ib !== -1) return 1;
-    return a < b ? -1 : 1;
-  });
+  return Array.from(s).sort();
 }
 
 function _getArrs() {
@@ -1040,7 +1404,7 @@ function _getArrs() {
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   recs.forEach(function(r){if(!(!r.flight_return&&r.dep==='济州岛'&&r.arr==='上海')) s.add(r.arr)});
-  return Array.from(s);
+  return Array.from(s).sort();
 }
 
 function _getDays() {
@@ -1115,85 +1479,17 @@ function _filterSearchBox() {
 }
 
 function _filterCityPills() {
-  var depHtml = '';
+  var depHtml = '', arrHtml = '';
   _getDeps().forEach(function(c){
     var a = _filter.dep===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
     depHtml += '<div class="fit-pill" onclick="selectDep(\''+c+'\')"'+a+'>'+c+'</div>';
   });
-  
-  var baseHtml = '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">出发城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">'+depHtml+'</div></div>';
-  
-  // 如果已经选了到达城市：隐藏其他区域，保留同区域的城市
-  if (_filter.arr) {
-    var allArrs = _getArrs().filter(function(c){ return c !== '清迈天' && c !== '目的地'; });
-    var regionOrder = [
-      {name:'韩国', cities: TAB_CITIES.korea},
-      {name:'日本', cities: TAB_CITIES.japan},
-      {name:'东南亚', cities: TAB_CITIES.seasia},
-      {name:'港澳', cities: TAB_CITIES.ganga},
-      {name:'国内', cities: TAB_CITIES.domestic},
-    ];
-    // 找到已选城市属于哪个区域
-    var targetRegion = null;
-    regionOrder.forEach(function(r) {
-      if (r.cities.indexOf(_filter.arr) !== -1) targetRegion = r;
-    });
-    // 只显示该区域的城市
-    var arrHtml = '';
-    if (targetRegion) {
-      var matched = allArrs.filter(function(c){ return targetRegion.cities.indexOf(c) !== -1; });
-      matched.sort(function(a,b){ return targetRegion.cities.indexOf(a) - targetRegion.cities.indexOf(b); });
-      if (matched.length) {
-        arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— ' + targetRegion.name + ' ——</div>'
-          + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-        matched.forEach(function(c){
-          var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
-          arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
-        });
-        arrHtml += '</div>';
-      }
-    }
-    return baseHtml + '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div>'+arrHtml+'</div>';
-  }
-  
-  // 到达城市按区域分组（完整显示）
-  var regionOrder = [
-    {name:'韩国', cities: TAB_CITIES.korea},
-    {name:'日本', cities: TAB_CITIES.japan},
-    {name:'东南亚', cities: TAB_CITIES.seasia},
-    {name:'港澳', cities: TAB_CITIES.ganga},
-    {name:'国内', cities: TAB_CITIES.domestic},
-  ];
-  var allArrs = _getArrs().filter(function(c){ return c !== '清迈天' && c !== '目的地'; });
-  var arrHtml = '';
-  regionOrder.forEach(function(region) {
-    var matched = allArrs.filter(function(c){ return region.cities.indexOf(c) !== -1; });
-    // 按 region.cities 的顺序排序
-    matched.sort(function(a,b){ return region.cities.indexOf(a) - region.cities.indexOf(b); });
-    if (!matched.length) return;
-    arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— ' + region.name + ' ——</div>'
-      + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-    matched.forEach(function(c){
-      var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
-      arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
-    });
-    arrHtml += '</div>';
+  _getArrs().forEach(function(c){
+    var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+    arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
   });
-  // 未归类的城市
-  var allRegionCities = [];
-  regionOrder.forEach(function(r){ allRegionCities = allRegionCities.concat(r.cities); });
-  var others = allArrs.filter(function(c){ return allRegionCities.indexOf(c) === -1; });
-  if (others.length) {
-    arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— 其他 ——</div>'
-      + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
-    others.forEach(function(c){
-      var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
-      arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
-    });
-    arrHtml += '</div>';
-  }
   return '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">出发城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">'+depHtml+'</div></div>'
-    + '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div>'+arrHtml+'</div>';
+    + '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">'+arrHtml+'</div></div>';
 }
 
 function _filterDayPills(inline) {

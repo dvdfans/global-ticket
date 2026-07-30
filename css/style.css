@@ -416,6 +416,7 @@ body {
 .seat-badge.soldout{background:#F5F5F5;color:#999}
 .seat-badge.full{background:#E3F2FD;color:#1565C0}
 .seat-badge.unknown{background:#F5F5F5;color:#999}
+.seat-badge.info{background:#ECEFF1;color:#607D8B}
 /* 供应商色条 */
 .hmcard-sup-bar{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
 
