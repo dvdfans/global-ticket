@@ -116,7 +116,7 @@ function renderTab() {
     var all = DB.records.filter(function(r) {
       if (!_hasSeats(r) || !_validRecord(r)) return false;
       var d = r.dep_date || '';
-      return d >= holidayStart && d <= holidayEnd && !(!r.flight_return && r.dep === '济州岛' && r.arr === '上海');
+      return d >= holidayStart && d <= holidayEnd && !(!r.flight_return && (r.dep === '济州岛' || r.dep === '济州') && r.arr === '上海');
     });
     all.sort(function(a,b) { return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1; });
     list.innerHTML = _stickyBar() + all.map(function(r){return hmCard(r)}).join('');
@@ -128,7 +128,7 @@ function renderTab() {
   var records = DB.records.filter(function(r) { return _hasSeats(r); });
   var cities = TAB_CITIES[currentTab] || [];
   records = records.filter(function(r) { return cities.some(function(c){return r.arr===c}); });
-  records = records.filter(function(r) { return !(!r.flight_return && r.dep==='济州岛' && r.arr==='上海'); });
+  records = records.filter(function(r) { return !(!r.flight_return && (r.dep==='济州岛'||r.dep==='济州') && r.arr==='上海'); });
   
   // 所有区域统一使用排序+分组模式
   records = _sortRecords(records);
@@ -211,7 +211,7 @@ function renderHome() {
     var d = r.dep_date || '';
     if (d < todayStr || d > weekEndStr) return false;
     var s = parseInt((r.seats||'0').match(/\d+/)?.[0] || '999');
-    return s <= 3 && !(!r.flight_return && r.dep === '济州岛' && r.arr === '上海');
+    return s <= 3 && !(!r.flight_return && (r.dep === '济州岛' || r.dep === '济州') && r.arr === '上海');
   });
   records.sort(function(a,b) { return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1; });
   
@@ -1029,7 +1029,7 @@ function _getDeps() {
   var s = new Set();
   var recs = _recordsInScope();
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
-  recs.forEach(function(r){if(!(!r.flight_return&&r.dep==='济州岛'&&r.arr==='上海')) s.add(r.dep)});
+  recs.forEach(function(r){if(!(!r.flight_return&&(r.dep==='济州岛'||r.dep==='济州')&&r.arr==='上海')) s.add(r.dep)});
   // 按优先级排序：上海优先，华东次之
   var priority = ['上海','杭州','南京','宁波','无锡','嘉兴','南通兴东','三亚','济州岛'];
   return Array.from(s).sort(function(a,b){
@@ -1045,7 +1045,7 @@ function _getArrs() {
   var s = new Set();
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
-  recs.forEach(function(r){if(!(!r.flight_return&&r.dep==='济州岛'&&r.arr==='上海')) s.add(r.arr)});
+  recs.forEach(function(r){if(!(!r.flight_return&&(r.dep==='济州岛'||r.dep==='济州')&&r.arr==='上海')) s.add(r.arr)});
   return Array.from(s);
 }
 
