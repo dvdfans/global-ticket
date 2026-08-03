@@ -139,9 +139,9 @@ const TAB_CITIES = {
   hot: null,
   japan: ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台'],
   korea: ['首尔','济州岛','釜山'],
-  seasia: ['曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内'],
+  seasia: ['曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛'],
   ganga: ['香港','澳门'],
-  domestic: ['上海','北京','广州','深圳','杭州','南京','无锡','成都','重庆','西安','武汉','长沙','厦门','三亚','海口','青岛','大连','沈阳','天津','郑州','济南','福州','贵阳','南宁','兰州','哈尔滨','乌鲁木齐','南通','宁波','昆明'],
+  domestic: ['上海','北京','广州','深圳','杭州','南京','无锡','成都','重庆','西安','武汉','长沙','厦门','三亚','海口','青岛','大连','沈阳','天津','郑州','济南','福州','贵阳','南宁','兰州','哈尔滨','乌鲁木齐','南通','宁波','桂林','张家界','西宁','阿勒泰','昆明'],
 };
 
 function gradeLevel(r) {
@@ -336,7 +336,7 @@ function _sortRecords(recs) {
 }
 
 function _stickyBar() {
-  var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳'};
+  var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳','domestic':'国内'};
   var name = label[currentTab] || currentTab;
   var modes = _sortModes && _sortModes.length ? _sortModes : ['date_asc'];
 
@@ -558,7 +558,12 @@ function renderCard(r) {
   // 航线头：支持多口岸（如上海-首尔/济州-上海）
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
+  // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   if (retDepAirport && retDepAirport !== r.arr) {
+    if (IATA_CITY[retDepAirport]) {
+      retCity = IATA_CITY[retDepAirport];
+    } else {
     // 从机场名提取城市名
     var knownCities = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<knownCities.length; ci++) {
@@ -568,6 +573,7 @@ function renderCard(r) {
     if (retCity === r.arr) {
       var airportCityMap = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = airportCityMap[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
+    }
     }
   }
   var routeHeader;
@@ -716,12 +722,18 @@ function renderCardSimple(r) {
   var durationStr = daysVal ? ' ' + daysVal + '天' : '';
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
+  // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   if (retDepAirport && retDepAirport !== r.arr) {
+    if (IATA_CITY[retDepAirport]) {
+      retCity = IATA_CITY[retDepAirport];
+    } else {
     var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<kc.length; ci++) { if (retDepAirport.indexOf(kc[ci])!==-1) { retCity=kc[ci]; break; } }
     if (retCity===r.arr) {
       var acm={'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = acm[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
+    }
     }
   }
   var routeStr = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + retCity + '-' + (r.dep||'') : '');
@@ -945,12 +957,18 @@ function openDetail(rec) {
   // 多口岸回程城市
   var retCity = rec.arr;
   var retDepAirport = (rec.return_dep_airport||'').trim();
+  // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   if (retDepAirport && retDepAirport !== rec.arr) {
+    if (IATA_CITY[retDepAirport]) {
+      retCity = IATA_CITY[retDepAirport];
+    } else {
     var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<kc.length; ci++) { if (retDepAirport.indexOf(kc[ci]) !== -1) { retCity = kc[ci]; break; } }
     if (retCity === rec.arr) {
       var acm = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = acm[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
+    }
     }
   }
 

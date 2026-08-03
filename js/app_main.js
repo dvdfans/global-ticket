@@ -51,7 +51,7 @@ function _sortRecords(recs) {
 }
 
 function _stickyBar() {
-  var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳'};
+  var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳','domestic':'国内'};
   var name = label[currentTab] || currentTab;
   return '<div class="sticky-bar" style="display:flex;align-items:center;justify-content:space-between;padding:6px 12px">'
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
@@ -652,12 +652,18 @@ function openDetail(rec) {
   // 多口岸回程城市
   var retCity = rec.arr;
   var retDepAirport = (rec.return_dep_airport||'').trim();
+  // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   if (retDepAirport && retDepAirport !== rec.arr) {
-    var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
-    for (var ci=0; ci<kc.length; ci++) { if (retDepAirport.indexOf(kc[ci]) !== -1) { retCity = kc[ci]; break; } }
-    if (retCity === rec.arr) {
-      var acm = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
-      retCity = acm[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
+    if (IATA_CITY[retDepAirport]) {
+      retCity = IATA_CITY[retDepAirport];
+    } else {
+      var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
+      for (var ci=0; ci<kc.length; ci++) { if (retDepAirport.indexOf(kc[ci]) !== -1) { retCity = kc[ci]; break; } }
+      if (retCity === rec.arr) {
+        var acm = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
+        retCity = acm[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
+      }
     }
   }
 
@@ -1043,14 +1049,23 @@ function _getArrs() {
   return Array.from(s);
 }
 
+// 天数筛选匹配：'自由' 视为无天数（单程自由组合，如上海-济州岛 HO 单程）
+function daysMatch(r, sel) {
+  if (sel === '自由') return !getDays(r);
+  return getDays(r) === sel;
+}
+
 function _getDays() {
   var s = new Set();
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
   if (_filter.month) recs = recs.filter(function(r){return (r.dep_date||'').slice(0,7)===_filter.month});
-  recs.forEach(function(r){var d=getDays(r);if(d && d!=='0')s.add(d)});
-  return Array.from(s).sort(function(a,b){return parseInt(a)-parseInt(b)});
+  var hasFree = false;
+  recs.forEach(function(r){var d=getDays(r); if(d && d!=='0'){s.add(d);} else {hasFree=true;}});
+  var arr = Array.from(s).sort(function(a,b){return parseInt(a)-parseInt(b)});
+  if (hasFree) arr.push('自由');
+  return arr;
 }
 
 function _getMonths() {
@@ -1058,7 +1073,7 @@ function _getMonths() {
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
-  if (_filter.days) recs = recs.filter(function(r){return getDays(r)===_filter.days});
+  if (_filter.days) recs = recs.filter(function(r){return daysMatch(r,_filter.days)});
   recs.forEach(function(r){var d=r.dep_date||'';if(d.length>=7)s.add(d.slice(0,7))});
   return Array.from(s).sort();
 }
@@ -1206,7 +1221,8 @@ function _filterDayPills(inline) {
   (days.length ? days : ['']).forEach(function(d){
     if (!d || d === '0') { h += '<span style="font-size:11px;color:var(--text-light);padding:6px 0">请先选择出发或到达城市</span>'; return; }
     var a = _filter.days===d?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
-    h += '<div class="fit-pill" onclick="selectDay(\''+d+'\')"'+a+'>'+d+'天</div>';
+    var lbl = (d === '自由') ? '自由' : (d + '天');
+    h += '<div class="fit-pill" onclick="selectDay(\''+d+'\')"'+a+'>'+lbl+'</div>';
   });
   return h+'</div></div>';
 }
@@ -1237,7 +1253,7 @@ function _filterCalendar() {
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
-  if (_filter.days) recs = recs.filter(function(r){return getDays(r)===_filter.days});
+  if (_filter.days) recs = recs.filter(function(r){return daysMatch(r,_filter.days)});
   recs = recs.filter(function(r){var d=r.dep_date||'';return d.slice(0,7)===_filter.month});
   
   var dateMap = {};
@@ -1282,7 +1298,7 @@ function _getFilteredRecs() {
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
-  if (_filter.days) recs = recs.filter(function(r){return getDays(r)===_filter.days});
+  if (_filter.days) recs = recs.filter(function(r){return daysMatch(r,_filter.days)});
   if (_filter.month) recs = recs.filter(function(r){return (r.dep_date||'').slice(0,7)===_filter.month});
   if (_filter.date) recs = recs.filter(function(r){return r.dep_date===_filter.date});
   return recs;
@@ -1584,7 +1600,7 @@ function renderFiltered() {
   var recs = _recordsInScope().filter(function(r) { return _hasSeats(r); });
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
-  if (_filter.days) recs = recs.filter(function(r){return getDays(r)===_filter.days});
+  if (_filter.days) recs = recs.filter(function(r){return daysMatch(r,_filter.days)});
   if (_filter.month) recs = recs.filter(function(r){return (r.dep_date||'').slice(0,7)===_filter.month});
   if (_filter.date) recs = recs.filter(function(r){return r.dep_date===_filter.date});
   recs.sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
