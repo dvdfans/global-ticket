@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-03 12:59:58",
+  "build_time": "2026-08-03 13:30:03",
   "record_count": 2313,
   "records": [
     {
@@ -9962,7 +9962,7 @@
     },
     {
       "supplier": "纵贯",
-      "dep": "上海",
+      "dep": "杭州",
       "arr": "新加坡",
       "flight": "MU897",
       "flight_return": "MU898",
@@ -9988,7 +9988,7 @@
     },
     {
       "supplier": "纵贯",
-      "dep": "上海",
+      "dep": "杭州",
       "arr": "新加坡",
       "flight": "MU897",
       "flight_return": "MU5096",
