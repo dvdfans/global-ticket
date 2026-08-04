@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-04 06:57:18",
+  "build_time": "2026-08-04 08:53:10",
   "record_count": 2285,
   "records": [
     {
@@ -24505,7 +24505,7 @@
       "nights": "5",
       "days": "6",
       "retail": 3500,
-      "seats": "6",
+      "seats": "3",
       "airline": "FM",
       "airline_cn": "上航",
       "dep_airport": "PVG",
