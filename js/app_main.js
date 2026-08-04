@@ -403,7 +403,6 @@ function renderCard(r) {
     + retHtml
     + '<div class="cf-footer">'
     + '<span class="cf-price">¥' + (r.retail||0) + '<span class="cf-price-tax">（含税）</span></span>'
-    + (r.jj ? '<span style="font-size:12px;font-weight:600;color:var(--red);margin-left:8px">机+酒 ¥' + r.jj + '/人起</span>' : '')
     + '<span class="cf-seats">' + seatsHtml + '</span>'
     + '<button class="cf-btn">咨询客服锁单</button>'
     + '</div></div>';
@@ -450,7 +449,6 @@ function renderCardSimple(r) {
   return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + supplierColor(r.supplier).dot + '">'
     + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>' + durationStr
     + ' <span class="cfs-price">¥' + (r.retail||0) + '</span>' + seatDisp
-    + (r.jj ? ' <span style="font-size:12px;font-weight:600;color:var(--red)">机+酒¥' + r.jj + '/人起</span>' : '')
     + ' <span class="cfs-airline">' + (r.airline_cn||'') + '</span>'
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '') + '</div>'
     + '<div class="cfs-body">'
@@ -705,7 +703,6 @@ function openDetail(rec) {
     + '<div class="detail-body">'
     // 价格行：一行排列 ¥3749（含税）/人    余位1
     + '<div class="dp-row"><span class="dp-price">¥' + (rec.retail||0) + '</span><span class="dp-tax">（含税）/人</span><span class="dp-seat">' + seatsBadge + '</span></div>'
-    + (rec.jj ? '<div class="dp-row" style="padding-top:0"><span style="font-size:12px;color:var(--text-light)">机+酒套餐 </span><span style="font-size:15px;font-weight:700;color:var(--red)">¥' + rec.jj + '</span><span style="font-size:11px;color:var(--text-light)">/人起</span></div>' : '')
     + '<div class="detail-section"><h4>航班信息 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + typeStr + '</span></h4>'
     + '<div class="detail-row"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
     + '<div class="detail-row" style="border-bottom:none"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _apt(rec.dep_airport) + _term(rec.airline, rec.dep_airport) + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _apt(rec.arr_airport) + _term(rec.airline, rec.arr_airport) + '</span></div>'
