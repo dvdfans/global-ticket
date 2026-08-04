@@ -903,7 +903,7 @@ function recordAction(action, data) {
     quote: data.quote || '',
     page: location.pathname,
     tab: currentTab || '',
-    filter: 'dep=' + (_filter.dep||'') + '&arr=' + (_filter.arr||'') + '&days=' + (_filter.days||'') + '&month=' + (_filter.month||'') + '&date=' + (_filter.date||''),
+    filter: 'dep=' + (_filter.dep||'') + '&arr=' + (_filter.arr||'') + '&days=' + (_filter.days||'') + '&month=' + (_filter.month||'') + '&date=' + ((_filter.dates||[]).join(',')),
     ua: (navigator.userAgent || '').substring(0, 80)
   };
   // 发到 stats_server
@@ -987,13 +987,13 @@ function generateFooterQR() {
 
 // ═══════════════ 筛选（新：出发+到达并列 + 天数+月份+日历）═══════════════
 
-var _filter = { dep: '', arr: '', days: '', month: '', date: '' };
+var _filter = { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
 var _fstep = 0;
 
 document.getElementById('filterBtn').onclick = function() { openFilter(); };
 
 function openFilter() {
-  _filter = { dep: '', arr: '', days: '', month: '', date: '' };
+  _filter = { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
   _fstep = 0;
   _showFilter();
   document.getElementById('filterModal').classList.add('active');
@@ -1279,7 +1279,7 @@ function _filterCalendar() {
     var pad = day<10?'0'+day:''+day;
     var dateStr = _filter.month + '-' + pad;
     var info = dateMap[dateStr];
-    var sel = _filter.date===dateStr ? ' style="border:1.5px solid var(--red);background:var(--red-light)"' : ' style="cursor:pointer"';
+    var sel = _filter.dates.indexOf(dateStr) >= 0 ? ' style="border:1.5px solid var(--red);background:var(--red-light)"' : ' style="cursor:pointer"';
     h += '<div class="cal-cell" onclick="selectDate(\''+dateStr+'\')"'+sel+'>'
       + '<div style="font-size:11px;font-weight:500;color:var(--text)">'+day+'</div>';
     if (info) h += '<div style="font-size:10px;color:var(--red);font-weight:500">¥'+Math.round(info.min)+'</div>';
@@ -1294,13 +1294,20 @@ function _filteredCount() {
   return _getFilteredRecs().length;
 }
 
+// 2026-08-04 用户需求：复制/渲染按「日历所选多个去程日期（多选，任意命中）」过滤
+function _isDateOnOrAfter(r) {
+  var ds = _filter.dates || [];
+  if (!ds.length) return true;              // 未选日期 → 不过滤
+  return ds.indexOf(r.dep_date) >= 0;       // dep_date 命中任一选中日期
+}
+
 function _getFilteredRecs() {
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
   if (_filter.days) recs = recs.filter(function(r){return daysMatch(r,_filter.days)});
   if (_filter.month) recs = recs.filter(function(r){return (r.dep_date||'').slice(0,7)===_filter.month});
-  if (_filter.date) recs = recs.filter(function(r){return r.dep_date===_filter.date});
+  if ((_filter.dates || []).length) recs = recs.filter(_isDateOnOrAfter);
   return recs;
 }
 
@@ -1380,7 +1387,7 @@ function _filterUrlQuery() {
   if (_filter.arr) p.set('f_arr', _filter.arr);
   if (_filter.days) p.set('f_days', _filter.days);
   if (_filter.month) p.set('f_month', _filter.month);
-  if (_filter.date) p.set('f_date', _filter.date);
+  if ((_filter.dates || []).length) p.set('f_date', _filter.dates.join(','));  // 多选：逗号分隔
   var qs = p.toString();
   return qs ? '?' + qs : '';
 }
@@ -1394,41 +1401,49 @@ function _applyFilterFromUrl() {
   if (p.get('f_arr')) { _filter.arr = p.get('f_arr'); hasFilter = true; }
   if (p.get('f_days')) { _filter.days = p.get('f_days'); hasFilter = true; }
   if (p.get('f_month')) { _filter.month = p.get('f_month'); hasFilter = true; }
-  if (p.get('f_date')) { _filter.date = p.get('f_date'); hasFilter = true; }
+  if (p.get('f_date')) {
+    _filter.dates = p.get('f_date').split(',').filter(function(x){return !!x});
+    _filter.date = _filter.dates.length === 1 ? _filter.dates[0] : '';
+    hasFilter = true;
+  }
   if (hasFilter) { currentTab = 'filter'; renderFiltered(); }
 }
 
 // ── 选择函数 ──
 function selectDep(d) {
   _filter.dep = _filter.dep===d ? '' : d;
-  _filter.days='';_filter.month='';_filter.date='';
+  _filter.days='';_filter.month='';_filter.date='';_filter.dates=[];
   recordAction('filter_dep', {route:_filter.dep+'→'+(d||'')});
   _updateFilterUrl(); _showFilter();
 }
 function selectArr(a) {
   _filter.arr = _filter.arr===a ? '' : a;
-  _filter.days='';_filter.month='';_filter.date='';
+  _filter.days='';_filter.month='';_filter.date='';_filter.dates=[];
   recordAction('filter_arr', {route:(_filter.dep||'')+'→'+a});
   _updateFilterUrl(); _showFilter();
 }
 function selectDay(d) {
   _filter.days = _filter.days===d ? '' : d;
-  _filter.date='';
+  _filter.date='';_filter.dates=[];
   recordAction('filter_day', {days:d});
   _updateFilterUrl(); _showFilter();
 }
 function selectMonth(m) {
   _filter.month = _filter.month===m ? '' : m;
-  _filter.date='';
+  _filter.date='';_filter.dates=[];
   recordAction('filter_month', {date:_filter.month});
   _updateFilterUrl(); _showFilter();
 }
 function selectDate(d) {
-  _filter.date = d;
+  // 2026-08-04 用户需求：日历日期多选——点击一次选中、再点取消；选多个日期共存
+  var idx = _filter.dates.indexOf(d);
+  if (idx >= 0) _filter.dates.splice(idx, 1);
+  else _filter.dates.push(d);
+  _filter.date = _filter.dates.length === 1 ? _filter.dates[0] : '';  // 兼容旧字段（单选1个时赋值）
   _updateFilterUrl();
-  closeFilter();
-  currentTab = 'filter';
-  renderFiltered();
+  // 选日期后不直接渲染滑动区，保持筛选框打开、只刷新「查看 N 条结果」条数；
+  // 用户点击 filterApplyBtn（查看 N 条结果）后才 closeFilter + renderFiltered
+  _showFilter();
   recordAction('filter_date', {route:(_filter.dep||'')+'→'+(_filter.arr||''),date:d,days:_filter.days});
 }
 
@@ -1584,7 +1599,7 @@ function searchFilterAndShow(q) {
 
 // ── 重置 ──
 function resetFilter() {
-  _filter = { dep: '', arr: '', days: '', month: '', date: '' };
+  _filter = { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
   recordAction('filter_reset', {});
   _showFilter();
 }
@@ -1602,7 +1617,7 @@ function renderFiltered() {
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
   if (_filter.days) recs = recs.filter(function(r){return daysMatch(r,_filter.days)});
   if (_filter.month) recs = recs.filter(function(r){return (r.dep_date||'').slice(0,7)===_filter.month});
-  if (_filter.date) recs = recs.filter(function(r){return r.dep_date===_filter.date});
+  if ((_filter.dates || []).length) recs = recs.filter(_isDateOnOrAfter);  // 2026-08-04：多选日期任意命中（与复制口径一致）
   recs.sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   var list=document.getElementById('cardList');

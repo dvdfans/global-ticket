@@ -1592,13 +1592,19 @@ function _filteredCount() {
   return _getFilteredRecs().length;
 }
 
+// 2026-08-04 用户需求：复制/渲染按「日历所选去程日期之后（含当天）」过滤，而非仅精确日
+function _isDateOnOrAfter(r) {
+  if (!_filter.date) return true;
+  return (r.dep_date || '') >= _filter.date;  // ISO 日期字符串可直接比较
+}
+
 function _getFilteredRecs() {
   var recs = _recordsInScope();
   if (_filter.dep) recs = recs.filter(function(r){return r.dep===_filter.dep});
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
   if (_filter.days) recs = recs.filter(function(r){return getDays(r)===_filter.days});
   if (_filter.month) recs = recs.filter(function(r){return (r.dep_date||'').slice(0,7)===_filter.month});
-  if (_filter.date) recs = recs.filter(function(r){return r.dep_date===_filter.date});
+  if (_filter.date) recs = recs.filter(_isDateOnOrAfter);
   return recs;
 }
 
@@ -1724,9 +1730,9 @@ function selectMonth(m) {
 function selectDate(d) {
   _filter.date = d;
   _updateFilterUrl();
-  closeFilter();
-  currentTab = 'filter';
-  renderFiltered();
+  // 2026-08-04 用户需求：选日期后不直接渲染滑动区，保持筛选框打开、只刷新「查看 N 条结果」条数；
+  // 用户点击 filterApplyBtn（查看 N 条结果）后才 closeFilter + renderFiltered
+  _showFilter();
   recordAction('filter_date', {route:(_filter.dep||'')+'→'+(_filter.arr||''),date:d,days:_filter.days});
 }
 
@@ -1900,7 +1906,7 @@ function renderFiltered() {
   if (_filter.arr) recs = recs.filter(function(r){return r.arr===_filter.arr});
   if (_filter.days) recs = recs.filter(function(r){return getDays(r)===_filter.days});
   if (_filter.month) recs = recs.filter(function(r){return (r.dep_date||'').slice(0,7)===_filter.month});
-  if (_filter.date) recs = recs.filter(function(r){return r.dep_date===_filter.date});
+  if (_filter.date) recs = recs.filter(_isDateOnOrAfter);  // 2026-08-04：所选日之后（与复制口径一致）
   recs.sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   var list=document.getElementById('cardList');
