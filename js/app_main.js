@@ -452,24 +452,8 @@ function renderCard(r) {
     var retArrAirport = _apt(r.return_arr_airport||'');
     var retDuration = _actualFlight(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
     
-    // 红眼航班检测：起飞时间 > 落地时间 → 跨天 → 显示的出发日期减1天
-    var retDisplayDate = retDate;
-    var rdt = r.return_dep_time || '';
-    var rat = r.return_arr_time || '';
-    if (rdt && rat && retDate) {
-      var rdp = rdt.split(':'), rap = rat.split(':');
-      if (rdp.length >= 2 && rap.length >= 2) {
-        var depMin = parseInt(rdp[0])*60 + parseInt(rdp[1]);
-        var arrMin = parseInt(rap[0])*60 + parseInt(rap[1]);
-        if (depMin > arrMin) {
-          // 红眼航班：出发日 = 回程日 - 1
-          var dt = new Date(retDate);
-          dt.setDate(dt.getDate() - 1);
-          retDisplayDate = dt.toISOString().slice(0,10);
-        }
-      }
-    }
-    var retDateLong = _fmtDateLong(retDisplayDate);
+    // 回程出发日 = return_date 本身。红眼航班仅到达日为次日，出发日不变（2026-08-05 修复：移除错误的"减1天"逻辑）
+    var retDateLong = _fmtDateLong(retDate);
     
     retHtml = '<div class="cf-row">'
       + '<span class="cf-label" style="background:#E8F5E9;color:#2E7D32">回程</span>'
@@ -810,7 +794,7 @@ function openDetail(rec) {
     + (!hasReturn ? renderReturnOptions(rec) : '')
     + '<div class="detail-actions">'
     + '<button class="detail-share" onclick="copyAll()">📋 复制全部</button>'
-    + '<button class="detail-consult" onclick="consultCS(\'' + (rec.dep||'') + '-' + (rec.arr||'') + ' ' + (rec.dep_date||'') + ' ¥' + (rec.retail||0) + '\')">💬 咨询客服</button>'
+    + '<button class="detail-consult" onclick="consultCSwithCopyAll(\'' + (rec.dep||'') + '-' + (rec.arr||'') + ' ' + (rec.dep_date||'') + ' ¥' + (rec.retail||0) + '\')">💬 咨询客服</button>'
     + '</div>';
 
   document.getElementById('modalContent').innerHTML = html;
@@ -868,6 +852,11 @@ function consultCSwithCopy(text, label) {
     prompt('复制以下内容：', text);
     consultCS(label);
   }
+}
+
+// 详情页「咨询客服」= 复制完整信息（含深链）+ 弹客服（2026-08-05 用户需求：咨询同时复制）
+function consultCSwithCopyAll(quote) {
+  consultCSwithCopy(_shareText + '\n\n🔗 ' + _deepUrl, quote);
 }
 
 function closeDetail() {
