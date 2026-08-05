@@ -103,6 +103,48 @@ function toggleTheme() {
   render();
 }
 
+// ═══════════════ 颜色主题（环球红焰 / 紫金 / 深海蓝 / 翡翠绿）═══════════════
+// 与现有 dark/light 并存：使用独立 localStorage 键 pq_theme，不覆盖原有 'theme'（深色模式）
+var PQ_THEMES = {
+  red:    { name: '环球红焰' },
+  purple: { name: '紫金' },
+  blue:   { name: '深海蓝' },
+  green:  { name: '翡翠绿' }
+};
+function pqThemeGet() {
+  var t = '';
+  try { t = localStorage.getItem('pq_theme') || ''; } catch(e) {}
+  return PQ_THEMES[t] ? t : 'red';
+}
+function applyTheme(t) {
+  if (!PQ_THEMES[t]) t = 'red';
+  document.body.setAttribute('data-theme', t);
+  try { localStorage.setItem('pq_theme', t); } catch(e) {}
+  var opts = document.querySelectorAll('.theme-opt');
+  for (var i = 0; i < opts.length; i++) {
+    opts[i].classList.toggle('active', opts[i].getAttribute('data-theme') === t);
+  }
+  var pop = document.getElementById('themePop');
+  if (pop) pop.style.display = 'none';
+}
+function openThemeSwitcher() {
+  var pop = document.getElementById('themePop');
+  if (!pop) return;
+  pop.style.display = pop.style.display === 'none' ? 'block' : 'none';
+}
+function setTheme(t) { applyTheme(t); }
+
+// 2026-08-05 用户：主题切换用「点击 logo」实现——循环切换 4 主题 + toast 提示 + localStorage 记忆
+function cycleTheme() {
+  var order = ['red', 'purple', 'blue', 'green'];
+  var cur = pqThemeGet();
+  var idx = order.indexOf(cur);
+  var next = order[(idx + 1) % order.length];
+  applyTheme(next);
+  showToast('🎨 主题：' + PQ_THEMES[next].name);
+  try { recordAction('theme_cycle', {theme: next}); } catch(e) {}
+}
+
 function renderTab() {
   var today = new Date();
   var todayStr = today.toISOString().slice(0,10);
@@ -231,6 +273,57 @@ function toggleGroup(gid) {
   if (arrow) arrow.textContent = isOpen ? '▾' : '▴';
 }
 
+// ═══════════════ 真实字段渲染助手（机场名 / 航站楼 / 行李额）═══════════════
+// 约定俗成机场名（2026-08-05 用户：统一成 城市+机场 简称，如 上海浦东/东京成田/首尔仁川）
+var AIRPORT_CN = {
+  // IATA → 规范名（name 为空时的兜底）
+  'PVG':'上海浦东','SHA':'上海虹桥','HGH':'杭州萧山','NGB':'宁波栎社','NKG':'南京禄口','WUX':'无锡硕放','NTG':'南通兴东','SYX':'三亚凤凰',
+  'ICN':'首尔仁川','GMP':'首尔金浦','PUS':'釜山金海','CJU':'济州岛',
+  'NRT':'东京成田','HND':'东京羽田','KIX':'大阪关西','FUK':'福冈','OKA':'冲绳那霸','CTS':'札幌新千岁','NGO':'名古屋中部',
+  'BKK':'曼谷素万那普','DMK':'曼谷廊曼','HKT':'普吉岛','CNX':'清迈','DPS':'巴厘岛',
+  'SIN':'新加坡樟宜','BKI':'沙巴亚庇','KUL':'吉隆坡','MFM':'澳门','HKG':'香港','KHH':'高雄','TPE':'台北桃园'
+};
+var AIRPORT_ALIAS = {
+  // 源表别名 → 规范名
+  '浦东':'上海浦东','虹桥':'上海虹桥','萧山':'杭州萧山','禄口':'南京禄口','栎社':'宁波栎社','兴东':'南通兴东','硕放':'无锡硕放','凤凰':'三亚凤凰',
+  '成田':'东京成田','羽田':'东京羽田','仁川':'首尔仁川','金浦':'首尔金浦','金海':'釜山金海',
+  '关西':'大阪关西','那霸':'冲绳那霸','新千岁':'札幌新千岁','中部':'名古屋中部',
+  '素万那普':'曼谷素万那普','廊曼':'曼谷廊曼','樟宜':'新加坡樟宜','亚庇':'沙巴亚庇',
+  '济州':'济州岛','普吉':'普吉岛'
+};
+// 机场名规范化：源表原文（上海浦东/上海浦东机场/成田）→ 约定俗成名（上海浦东/东京成田）
+function _airportCN(name, code) {
+  var n = String(name || '').trim();
+  if (n) {
+    n = n.replace(/T\d+$/, '').replace(/机场$/, '').trim();   // 去航站楼残留 + 去"机场"后缀
+    if (AIRPORT_ALIAS[n]) return AIRPORT_ALIAS[n];
+    return n;
+  }
+  return AIRPORT_CN[code] || _apt(code) || code;
+}
+// 机场信息块：真实机场名优先（dep_airport_name 规范化），无则降级 IATA 完整名
+// showCode=true（详情页）输出 机场名 [PVG] T2；showCode=false（报价卡片）输出 机场名 T2（简洁，不显示代码）
+function _aptBlock(r, prefix, showCode) {
+  var code = ((r[prefix + '_airport'] || '')).trim();
+  var name = _airportCN(r[prefix + '_airport_name'], code);
+  var iata = (showCode !== false && /^[A-Z]{3}$/.test(code)) ? ' [' + code + ']' : '';
+  var term = ((r[prefix + '_terminal'] || '')).trim();
+  var termHtml = term ? '<span class="t-term">' + term + '</span>' : _term(r.airline, code);
+  return name + iata + termHtml;
+}
+// 航站楼块：真实字段优先，无则降级 _term()
+function _termBlock(r, prefix) {
+  var term = ((r[prefix + '_terminal'] || '')).trim();
+  if (term) return '<span class="t-term">' + term + '</span>';
+  return _term(r.airline, r[prefix + '_airport']);
+}
+// 详情页行李行：有值才输出（2026-08-05 用户：行李额只渲染在详情页，不渲染在卡片）
+function _bagDetailRow(r) {
+  var b = ((r.baggage || '')).trim();
+  if (!b) return '';
+  return '<div class="detail-row"><span class="label">行李</span><span class="value">🧳 ' + b + '</span></div>';
+}
+
 // 统一报价卡片渲染（v4格式 — 直客价）
 function renderCard(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
@@ -317,9 +410,9 @@ function renderCard(r) {
     var diff = arrUTC - depUTC;
     if (diff < 0) diff += 1440;
     var h = Math.floor(diff/60), min = diff % 60;
-    if (h > 0 && min > 0) return '飞行' + h + '小时' + min + '分钟';
-    if (h > 0) return '飞行' + h + '小时';
-    if (min > 0) return '飞行' + min + '分钟';
+    if (h > 0 && min > 0) return h + 'h' + min + 'm';
+    if (h > 0) return h + 'h';
+    if (min > 0) return min + 'm';
     return '';
   }
   
@@ -344,11 +437,11 @@ function renderCard(r) {
     + '<span class="cf-info-text">'
     + outDateLong + ' '
     + (r.flight||'') + ' '
-    + outboundAirport + _term(r.airline, r.dep_airport) + ' '
+    + _aptBlock(r, 'dep', false) + ' '
     + (r.dep_time||'') + ' '
     + outDuration + '&nbsp;&nbsp;'
     + (r.arr_time||'') + ' '
-    + arrivalAirport + _term(r.airline, r.arr_airport)
+    + _aptBlock(r, 'arr', false)
     + '</span>';
   
   // ─── 回程行（与去程同格式）───
@@ -383,16 +476,16 @@ function renderCard(r) {
       + '<span class="cf-info-text">'
       + retDateLong + ' '
       + (r.flight_return||'') + ' '
-      + retDepAirport + _term(r.airline, r.return_dep_airport) + ' '
+      + _aptBlock(r, 'return_dep', false) + ' '
       + (r.return_dep_time||'') + ' '
       + retDuration + '&nbsp;&nbsp;'
       + (r.return_arr_time||'') + ' '
-      + retArrAirport + _term(r.airline, r.return_arr_airport)
+      + _aptBlock(r, 'return_arr', false)
       + '</span>'
       + '</div>';
   }
   
-  return '<div class="card cf-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + sc.dot + '">'
+  return '<div class="card cf-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + sc.dot + ';--card-glow:' + (sc.glow||'rgba(0,0,0,0.05)') + '">'
     + '<div class="cf-header">'
     + '<span class="cf-route">' + routeHeader + '</span>'
     + (durationHtml ? '<span class="cf-duration-badge">' + durationHtml + '</span>' : '')
@@ -403,7 +496,7 @@ function renderCard(r) {
     + retHtml
     + '<div class="cf-footer">'
     + '<span class="cf-price">¥' + (r.retail||0) + '<span class="cf-price-tax">（含税）</span></span>'
-    + '<span class="cf-seats">' + seatsHtml + '</span>'
+    + '<span class="cf-meta-group">' + seatsHtml + '</span>'
     + '<button class="cf-btn">咨询客服锁单</button>'
     + '</div></div>';
 }
@@ -435,18 +528,19 @@ function renderCardSimple(r) {
   else seatDisp = ' 余' + r.seats;
   var outDate = _fmtDateShort(r.dep_date);
   var outDur = _fds(r.dep_time, r.arr_time, r.dep, r.arr);
-  var outRow = '<div class="cfs-row"><span class="cfs-icon">去</span>' + outDate + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + _term(r.airline,r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport) + _term(r.airline,r.arr_airport) + '</div>';
+  var outRow = '<div class="cfs-row"><span class="cfs-icon">去</span>' + outDate + ' ' + (r.flight||'') + ' ' + _aptBlock(r,'dep',false) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _aptBlock(r,'arr',false) + '</div>';
   var retHtml = '';
   if (hasReturn) {
     var retDur = _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
-    retHtml = '<div class="cfs-row"><span class="cfs-icon cfs-icon-ret">回</span>' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + _term(r.airline,r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDur + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) + _term(r.airline,r.return_arr_airport) + '</div>';
+    retHtml = '<div class="cfs-row"><span class="cfs-icon cfs-icon-ret">回</span>' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _aptBlock(r,'return_dep',false) + ' ' + (r.return_dep_time||'') + ' ' + retDur + ' ' + (r.return_arr_time||'') + ' ' + _aptBlock(r,'return_arr',false) + '</div>';
   }
   // 生成咨询时复制的文本
   var retDurConsult = hasReturn ? _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep) : '';
   var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + ' 余' + (r.seats||'—') + ' ' + (r.airline_cn||'')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
     + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) : '');
-  return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + supplierColor(r.supplier).dot + '">'
+  var _sc2 = supplierColor(r.supplier);
+  return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + _sc2.dot + ';--card-glow:' + (_sc2.glow||'rgba(0,0,0,0.05)') + '">'
     + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>' + durationStr
     + ' <span class="cfs-price">¥' + (r.retail||0) + '</span>' + seatDisp
     + ' <span class="cfs-airline">' + (r.airline_cn||'') + '</span>'
@@ -642,11 +736,11 @@ function openDetail(rec) {
   
   // ─── 格式化日期（复用renderCard中的命名空间，实际是全局同名函数）
   var outDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.dep_date);
-  var outDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return'飞行'+h+'小时'+mi+'分钟';if(h>0)return'飞行'+h+'小时';if(mi>0)return'飞行'+mi+'分钟';return'';})(rec.dep_time,rec.arr_time,rec.dep,rec.arr);
+  var outDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return h+'h'+mi+'m';if(h>0)return h+'h';if(mi>0)return mi+'m';return'';})(rec.dep_time,rec.arr_time,rec.dep,rec.arr);
   var retDateLong = '', retDuration = '';
   if (hasReturn) {
     retDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.return_date);
-    retDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return'飞行'+h+'小时'+mi+'分钟';if(h>0)return'飞行'+h+'小时';if(mi>0)return'飞行'+mi+'分钟';return'';})(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep);
+    retDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return h+'h'+mi+'m';if(h>0)return h+'h';if(mi>0)return mi+'m';return'';})(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep);
   }
 
   // 多口岸回程城市
@@ -697,7 +791,7 @@ function openDetail(rec) {
   var html = '<div class="detail-header" style="position:relative">'
     + '<div class="dh-top"><span class="detail-close" onclick="closeDetail()">← 返回</span><span class="detail-x" onclick="closeDetail()">✕</span></div>'
     + '<div class="dh-route">' + (rec.dep||'—') + '-' + (rec.arr||'—') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + '</div>'
-    + '<div class="dh-flight"><span class="dh-time">' + (rec.dep_time||'') + '</span> <span class="dh-dur">' + outDuration + '</span> <span class="dh-time">' + (rec.arr_time||'') + '</span> ' + _apt(rec.dep_airport) + ' <span class="dh-code">' + _iata(rec.dep_airport) + '</span>' + _term(rec.airline, rec.dep_airport) + '→<span class="dh-code">' + _iata(rec.arr_airport) + '</span>' + _term(rec.airline, rec.arr_airport) + ' ' + _apt(rec.arr_airport) + '</div>'
+    + '<div class="dh-flight"><span class="dh-time">' + (rec.dep_time||'') + '</span> <span class="dh-dur">' + outDuration + '</span> <span class="dh-time">' + (rec.arr_time||'') + '</span> ' + _aptBlock(rec, 'dep') + '→' + _aptBlock(rec, 'arr') + '</div>'
     + '<div class="dh-dates">' + (rec.dep_date||'') + (rec.return_date ? ' → ' + rec.return_date : '') + '  •  ' + (getDays(rec)||'') + '天</div>'
     + '</div>'
     + '<div class="detail-body">'
@@ -705,9 +799,10 @@ function openDetail(rec) {
     + '<div class="dp-row"><span class="dp-price">¥' + (rec.retail||0) + '</span><span class="dp-tax">（含税）/人</span><span class="dp-seat">' + seatsBadge + '</span></div>'
     + '<div class="detail-section"><h4>航班信息 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + typeStr + '</span></h4>'
     + '<div class="detail-row"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
-    + '<div class="detail-row" style="border-bottom:none"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _apt(rec.dep_airport) + _term(rec.airline, rec.dep_airport) + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _apt(rec.arr_airport) + _term(rec.airline, rec.arr_airport) + '</span></div>'
+    + _bagDetailRow(rec)
+    + '<div class="detail-row" style="border-bottom:none"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _aptBlock(rec, 'dep') + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _aptBlock(rec, 'arr') + '</span></div>'
     + (hasReturn
-      ? '<div class="detail-row" style="border-bottom:none"><span class="label">回程</span><span class="value">' + retDateLong + ' ' + f2 + ' ' + _apt(rec.return_dep_airport) + _term(rec.airline, rec.return_dep_airport) + ' ' + (rec.return_dep_time||'') + ' ' + retDuration + ' ' + (rec.return_arr_time||'') + ' ' + _apt(rec.return_arr_airport) + _term(rec.airline, rec.return_arr_airport) + '</span></div>'
+      ? '<div class="detail-row" style="border-bottom:none"><span class="label">回程</span><span class="value">' + retDateLong + ' ' + f2 + ' ' + _aptBlock(rec, 'return_dep') + ' ' + (rec.return_dep_time||'') + ' ' + retDuration + ' ' + (rec.return_arr_time||'') + ' ' + _aptBlock(rec, 'return_arr') + '</span></div>'
       : '')
     // 其他去程日期（默认折叠）— 与当前天数、回程航班一致
     + '<div class="dd-toggle" onclick="toggleDates()">📅 其他去程日期 <span id="darrow">▸</span></div>'
@@ -745,7 +840,7 @@ var _shareText = '', _shareTextSingle = '', _shareTextAll = '', _deepUrl = '', _
 function copyAll() {
   var text = _shareText + '\n\n🔗 ' + _deepUrl;
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { showToast('✅ 全部信息已复制，可分享给客户'); });
+    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制全部信息，可直接粘贴'); });
   } else {
     prompt('复制以下内容：', text);
   }
@@ -814,7 +909,7 @@ function openShareModal() {
     + '<p style="font-size:15px;font-weight:700;color:var(--text)">分享报价</p>'
     + '<div style="margin:14px 0;background:var(--tag-bg);border-radius:8px;padding:12px;font-size:12px;color:var(--text-secondary);word-break:break-all;line-height:1.5;text-align:left">' + text + '</div>'
     + '<div style="display:flex;gap:8px">'
-    + '<button class="share-copy" onclick="copyShareText()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-weight:700;font-size:13px">📋 复制文字</button>'
+    + '<button class="share-copy" onclick="copyShareText()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--brand,var(--red));color:#fff;font-weight:700;font-size:13px">📋 复制文字</button>'
     + '<button class="share-wx" onclick="wechatShare()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--green);color:#fff;font-weight:700;font-size:13px">💚 微信分享</button>'
     + '</div>'
     + '<div id="qrCanvasWrap" style="width:200px;height:200px;margin:12px auto;border-radius:8px;overflow:hidden;background:#fff;padding:8px"></div>'
@@ -840,7 +935,7 @@ function copyShareText() {
   var text = (_shareText || '🌍 环球度假 · 特价机票每日更新\n' + location.href);
   recordAction('share_copy', {quote:text});
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制，可粘贴发送给客户'); });
+    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制，可直接粘贴'); });
   } else { prompt('复制：', text); }
 }
 
@@ -939,6 +1034,9 @@ function recordAction(action, data) {
     } catch(e) {}
   }
 })();
+
+// 应用已保存的颜色主题（默认环球红焰）
+applyTheme(pqThemeGet());
 
 loadDB();
 
@@ -1122,7 +1220,7 @@ function _mkSearchInput(val) {
     + ' value="' + v.replace(/"/g,'&quot;') + '"'
     + ' style="flex:1;min-width:0;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box">'
     + '<button onclick="searchFilter(document.getElementById(\'' + _searchInputId + '\').value)"'
-    + ' style="flex-shrink:0;padding:8px 14px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:600;cursor:pointer">搜索</button>'
+    + ' style="flex-shrink:0;padding:8px 14px;border:none;border-radius:8px;background:var(--brand,var(--red));color:#fff;font-size:13px;font-weight:600;cursor:pointer">搜索</button>'
     + '</div>';
 }
 
@@ -1133,7 +1231,7 @@ function _filterSearchBox() {
 function _filterCityPills() {
   var depHtml = '';
   _getDeps().forEach(function(c){
-    var a = _filter.dep===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+    var a = _filter.dep===c?' style="background:var(--brand,var(--red));color:#fff;border-color:var(--brand,var(--red))"':'';
     depHtml += '<div class="fit-pill" onclick="selectDep(\''+c+'\')"'+a+'>'+c+'</div>';
   });
   
@@ -1163,7 +1261,7 @@ function _filterCityPills() {
         arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— ' + targetRegion.name + ' ——</div>'
           + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
         matched.forEach(function(c){
-          var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+          var a = _filter.arr===c?' style="background:var(--brand,var(--red));color:#fff;border-color:var(--brand,var(--red))"':'';
           arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
         });
         arrHtml += '</div>';
@@ -1190,7 +1288,7 @@ function _filterCityPills() {
     arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— ' + region.name + ' ——</div>'
       + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
     matched.forEach(function(c){
-      var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+      var a = _filter.arr===c?' style="background:var(--brand,var(--red));color:#fff;border-color:var(--brand,var(--red))"':'';
       arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
     });
     arrHtml += '</div>';
@@ -1203,7 +1301,7 @@ function _filterCityPills() {
     arrHtml += '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— 其他 ——</div>'
       + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
     others.forEach(function(c){
-      var a = _filter.arr===c?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+      var a = _filter.arr===c?' style="background:var(--brand,var(--red));color:#fff;border-color:var(--brand,var(--red))"':'';
       arrHtml += '<div class="fit-pill" onclick="selectArr(\''+c+'\')"'+a+'>'+c+'</div>';
     });
     arrHtml += '</div>';
@@ -1221,7 +1319,7 @@ function _filterDayPills(inline) {
   var h = '<div style="margin-bottom:' + mb + '"' + disabledCls + '><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">天数 <span style="font-size:11px;color:var(--text-light)">' + hint + '</span></div><div style="display:flex;flex-wrap:wrap;gap:6px">';
   (days.length ? days : ['']).forEach(function(d){
     if (!d || d === '0') { h += '<span style="font-size:11px;color:var(--text-light);padding:6px 0">请先选择出发或到达城市</span>'; return; }
-    var a = _filter.days===d?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+    var a = _filter.days===d?' style="background:var(--brand,var(--red));color:#fff;border-color:var(--brand,var(--red))"':'';
     var lbl = (d === '自由') ? '自由' : (d + '天');
     h += '<div class="fit-pill" onclick="selectDay(\''+d+'\')"'+a+'>'+lbl+'</div>';
   });
@@ -1238,7 +1336,7 @@ function _filterMonthPills(inline) {
   (months.length ? months : ['']).forEach(function(m){
     if (!m) { h += '<span style="font-size:11px;color:var(--text-light);padding:6px 0">' + hint + '</span>'; return; }
     var lbl = parseInt(m.slice(5,7))+'月';
-    var a = _filter.month===m?' style="background:var(--red);color:#fff;border-color:var(--red)"':'';
+    var a = _filter.month===m?' style="background:var(--brand,var(--red));color:#fff;border-color:var(--brand,var(--red))"':'';
     h += '<div class="fit-pill" onclick="selectMonth(\''+m+'\')"'+a+'>'+lbl+'</div>';
   });
   return h+'</div></div>';
@@ -1472,6 +1570,14 @@ function searchFilter(q) {
       var dt = new Date(y, m-1, d);
       targetDate = dt.toISOString().slice(0,10);
     }
+    // 2.5 提取月份（"8月"这种无具体日的 → 按去程月份过滤，避免返回全库含他月）
+    var monthVal = '';
+    if (!targetDate) {
+      var mm = q.match(/(\d{1,2})月/);
+      if (mm && !isNaN(parseInt(mm[1])) && parseInt(mm[1]) >= 1 && parseInt(mm[1]) <= 12) {
+        monthVal = ('0' + parseInt(mm[1])).slice(-2);
+      }
+    }
     
     // 3. 提取天数
     var daysMatch = q.match(/(\d+)天|五(?=天)|四(?=天)|六(?=天)|七(?=天)|八(?=天)|九(?=天)|十(?=天)/);
@@ -1482,18 +1588,23 @@ function searchFilter(q) {
       daysVal = cnNum[raw] ? ''+cnNum[raw] : raw;
     }
     
-    // 4. 结构化搜索
-    var recs = DB.records.filter(function(r) {
-      if (!_validRecord(r)) return false;
-      if (arrCity && r.arr !== arrCity && r.dep !== arrCity) return false;
-      if (targetDate) {
-        var rd = new Date(r.dep_date);
-        var td = new Date(targetDate);
-        if (Math.abs(rd-td) > 86400000) return false;
-      }
-      if (daysVal && getDays(r) !== daysVal) return false;
-      return true;
-    });
+    // 4. 结构化搜索（2026-08-05 修复：无条件时禁止返回全库——"8月"识别为月份条件）
+    var hasCond = !!(arrCity || targetDate || daysVal || monthVal);
+    var recs = [];
+    if (hasCond) {
+      recs = DB.records.filter(function(r) {
+        if (!_validRecord(r)) return false;
+        if (arrCity && r.arr !== arrCity && r.dep !== arrCity) return false;
+        if (targetDate) {
+          var rd = new Date(r.dep_date);
+          var td = new Date(targetDate);
+          if (Math.abs(rd-td) > 86400000) return false;
+        }
+        if (monthVal && (r.dep_date||'').slice(5,7) !== monthVal) return false;
+        if (daysVal && getDays(r) !== daysVal) return false;
+        return true;
+      });
+    }
     
     // 5. 模糊兜底
     if (!recs.length) {

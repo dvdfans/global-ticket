@@ -255,7 +255,7 @@ body {
 /* 单程机票需搭配标签 */
 .cf-oneway-tag{font-size:10px;color:#FF7D00;background:rgba(255,125,0,0.1);padding:1px 6px;border-radius:4px;margin-left:4px;font-weight:500;white-space:nowrap}
 /* 简化版卡片（首页尾单） */
-.cfs-card{padding:10px 12px;margin-bottom:6px;border-radius:10px;background:var(--card-bg);border:1px solid var(--border);cursor:pointer;font-size:12px;line-height:1.6}.cfs-card:active{opacity:.8}
+.cfs-card{padding:10px 12px;margin-bottom:6px;border-radius:10px;background:var(--card-bg);border:1px solid var(--border);cursor:pointer;font-size:12px;line-height:1.6;box-shadow:0 1px 5px var(--card-glow, transparent)}.cfs-card:active{opacity:.8}
 .cfs-top{display:flex;align-items:center;flex-wrap:wrap;gap:4px;margin-bottom:2px;font-weight:500;color:var(--text-primary)}
 .cfs-route{font-weight:700;font-size:13px;color:var(--text)}
 .cfs-price{font-weight:800;color:var(--red);font-size:14px}
@@ -355,8 +355,8 @@ body {
 .dp-row{display:flex;align-items:center;padding:10px 14px;background:linear-gradient(135deg,var(--red-light),#FFF5F5);border-bottom:1px solid var(--border);gap:6px}.dp-price{font-size:22px;font-weight:800;color:var(--red)}.dp-tax{font-size:12px;color:var(--text-light)}.dp-seat{margin-left:auto;font-size:13px}
 /* 其他日期折叠切换 */
 .dd-toggle{font-size:13px;font-weight:600;color:var(--red);padding:10px 14px;cursor:pointer;border-top:1px solid var(--border)}.dd-toggle:active{opacity:.7}
-/* 航站楼标签 */
-.t-term{font-size:9px;color:var(--text-light);margin-left:1px;font-weight:400;background:var(--tag-bg);border-radius:2px;padding:0 2px}.detail-row .t-term{color:var(--text-light);background:var(--tag-bg)}
+/* 航站楼标签（2026-08-05 用户：改用正常字体显示，原 9px 小字浅灰看不清） */
+.t-term{font-size:inherit;color:var(--text);margin-left:2px;font-weight:500}.detail-row .t-term{color:var(--text)}
 
 .detail-actions { display: flex; gap: 8px; padding: 0 16px 16px; }
 .detail-actions button { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; }
@@ -408,7 +408,7 @@ body {
 /* 日历单元格 */
 .cal-cell{min-height:44px;padding:3px;background:var(--tag-bg);border-radius:6px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center}.cal-cell:active{opacity:.7}
 /* 筛选底部按钮 */
-.fit-footer{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--border);margin-top:10px}.fit-reset{flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text-secondary);font-size:13px;font-weight:500;cursor:pointer}.fit-apply{flex:2;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer}.fit-apply:active,.fit-reset:active{opacity:.8}
+.fit-footer{display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--border);margin-top:10px}.fit-reset{flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text-secondary);font-size:13px;font-weight:500;cursor:pointer}.fit-apply{flex:2;padding:10px;border:none;border-radius:8px;background:var(--brand,var(--red));color:#fff;font-size:13px;font-weight:700;cursor:pointer}.fit-apply:active,.fit-reset:active{opacity:.8}
 /* 余位徽章 */
 .seat-badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:10px;font-size:11px;font-weight:600;line-height:1.3}
 .seat-badge.low{background:#FFF3E0;color:#E65100}
@@ -421,7 +421,7 @@ body {
 .hmcard-sup-bar{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px}
 
 /* ── cf-card 新格式报价卡片 ── */
-.cf-card{padding:14px!important;border-radius:14px!important;box-shadow:0 1px 6px rgba(0,0,0,0.05)!important;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
+.cf-card{padding:14px!important;border-radius:14px!important;box-shadow:0 1px 8px var(--card-glow, rgba(0,0,0,0.05))!important;cursor:pointer;transition:all .15s;position:relative;overflow:hidden}
 .cf-card:active{transform:scale(0.985)}
 .cf-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:4px 0 0 4px;background:var(--card-stripe,#DA3A2C)}
 /* 头行：航线 / 反向航线 + 天数晚数 + 航司 */
@@ -447,5 +447,5 @@ body {
 .cf-price{font-size:22px;font-weight:800;color:var(--red);letter-spacing:-0.5px;line-height:1}
 .cf-price-tax{font-size:11px;color:var(--text-light);font-weight:400}
 .cf-seats{display:inline-flex;align-items:center}
-.cf-btn{background:linear-gradient(135deg,#FF6B35,var(--red));color:#fff;border:none;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:700;box-shadow:0 2px 6px rgba(218,58,44,0.25);cursor:pointer;white-space:nowrap;letter-spacing:0.3px}
+.cf-btn{background:var(--brand-grad, linear-gradient(135deg,#FF6B35,var(--red)));color:#fff;border:none;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:700;box-shadow:0 2px 6px rgba(218,58,44,0.25);cursor:pointer;white-space:nowrap;letter-spacing:0.3px}
 .cf-btn:active{opacity:0.85;transform:scale(0.96)}

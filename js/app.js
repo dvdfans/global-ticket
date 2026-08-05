@@ -624,9 +624,9 @@ function renderCard(r) {
     var diff = arrUTC - depUTC;
     if (diff < 0) diff += 1440;
     var h = Math.floor(diff/60), min = diff % 60;
-    if (h > 0 && min > 0) return '飞行' + h + '小时' + min + '分钟';
-    if (h > 0) return '飞行' + h + '小时';
-    if (min > 0) return '飞行' + min + '分钟';
+    if (h > 0 && min > 0) return h + 'h' + min + 'm';
+    if (h > 0) return h + 'h';
+    if (min > 0) return min + 'm';
     return '';
   }
   
@@ -947,11 +947,11 @@ function openDetail(rec) {
   
   // ─── 格式化日期（复用renderCard中的命名空间，实际是全局同名函数）
   var outDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.dep_date);
-  var outDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return'飞行'+h+'小时'+mi+'分钟';if(h>0)return'飞行'+h+'小时';if(mi>0)return'飞行'+mi+'分钟';return'';})(rec.dep_time,rec.arr_time,rec.dep,rec.arr);
+  var outDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return h+'h'+mi+'m';if(h>0)return h+'h';if(mi>0)return mi+'m';return'';})(rec.dep_time,rec.arr_time,rec.dep,rec.arr);
   var retDateLong = '', retDuration = '';
   if (hasReturn) {
     retDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.return_date);
-    retDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return'飞行'+h+'小时'+mi+'分钟';if(h>0)return'飞行'+h+'小时';if(mi>0)return'飞行'+mi+'分钟';return'';})(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep);
+    retDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return h+'h'+mi+'m';if(h>0)return h+'h';if(mi>0)return mi+'m';return'';})(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep);
   }
 
   // 多口岸回程城市
@@ -1763,6 +1763,14 @@ function searchFilter(q) {
       var dt = new Date(y, m-1, d);
       targetDate = dt.toISOString().slice(0,10);
     }
+    // 2.5 提取月份（"8月"这种无具体日的 → 按去程月份过滤，避免返回全库含他月）
+    var monthVal = '';
+    if (!targetDate) {
+      var mm = q.match(/(\d{1,2})月/);
+      if (mm && !isNaN(parseInt(mm[1])) && parseInt(mm[1]) >= 1 && parseInt(mm[1]) <= 12) {
+        monthVal = ('0' + parseInt(mm[1])).slice(-2);
+      }
+    }
     
     // 3. 提取天数
     var daysMatch = q.match(/(\d+)天|五(?=天)|四(?=天)|六(?=天)|七(?=天)|八(?=天)|九(?=天)|十(?=天)/);
@@ -1773,8 +1781,11 @@ function searchFilter(q) {
       daysVal = cnNum[raw] ? ''+cnNum[raw] : raw;
     }
     
-    // 4. 结构化搜索
-    var recs = DB.records.filter(function(r) {
+    // 4. 结构化搜索（2026-08-05 修复：无条件时禁止返回全库——"8月"识别为月份条件）
+    var hasCond = !!(arrCity || targetDate || daysVal || monthVal);
+    var recs = [];
+    if (hasCond) {
+      recs = DB.records.filter(function(r) {
       if (!_validRecord(r)) return false;
       if (arrCity && r.arr !== arrCity && r.dep !== arrCity) return false;
       if (targetDate) {
@@ -1782,9 +1793,11 @@ function searchFilter(q) {
         var td = new Date(targetDate);
         if (Math.abs(rd-td) > 86400000) return false;
       }
+      if (monthVal && (r.dep_date||'').slice(5,7) !== monthVal) return false;
       if (daysVal && getDays(r) !== daysVal) return false;
       return true;
-    });
+      });
+    }
     
     // 5. 模糊兜底
     if (!recs.length) {

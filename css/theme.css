@@ -1,0 +1,109 @@
+/* ═══════════════════════════════════════════════════════════════
+   环球度假 H5 — 颜色主题系统（theme.css）
+   4 主题：环球红焰(默认) / 紫金 / 深海蓝 / 翡翠绿
+   原则：不改动 style.css 语义色，仅通过 body[data-theme] 覆盖主题关键元素
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── 主题变量集 ── */
+/* 默认 = 环球红焰（不设 data-theme 时 :root 生效，保证既有用户看到升级版红渐变） */
+:root, body[data-theme="red"] {
+  --brand: #DA3A2C;
+  --brand-2: #B82E1F;
+  --brand-grad: linear-gradient(135deg, #DA3A2C 0%, #B82E1F 50%, #5C1A10 100%);
+  --brand-light: #FEF0EF;
+  --brand-text: #FFFFFF;
+  --brand-accent: #F9BE00;   /* LOGO 金色点缀 */
+}
+body[data-theme="purple"] {
+  --brand: #491B87;
+  --brand-2: #6B27A8;
+  --brand-grad: linear-gradient(135deg, #491B87 0%, #6B27A8 55%, #2E0E55 100%);
+  --brand-light: #F3E8FF;
+  --brand-text: #FFFFFF;
+  --brand-accent: #F9BE00;
+}
+body[data-theme="blue"] {
+  --brand: #0C6FA8;
+  --brand-2: #004286;
+  --brand-grad: linear-gradient(135deg, #0C6FA8 0%, #004286 55%, #002B5C 100%);
+  --brand-light: #E8F2FB;
+  --brand-text: #FFFFFF;
+  --brand-accent: #F9BE00;
+}
+body[data-theme="green"] {
+  --brand: #389C39;
+  --brand-2: #2E7D32;
+  --brand-grad: linear-gradient(135deg, #389C39 0%, #2E7D32 55%, #1F5C24 100%);
+  --brand-light: #E8F5E9;
+  --brand-text: #FFFFFF;
+  --brand-accent: #F9BE00;
+}
+
+/* ── 主题关键元素应用点（最小侵入，优先级高于 style.css）── */
+/* 页面 header 背景 */
+body[data-theme] .header-bg { background: var(--brand-grad); }
+/* 详情弹层头部 */
+body[data-theme] .detail-header { background: var(--brand-grad); }
+/* 价格强调色 */
+body[data-theme] .cf-price,
+body[data-theme] .dp-price,
+body[data-theme] .card-price,
+body[data-theme] .card-price-num,
+body[data-theme] .cfs-price,
+body[data-theme] .hmcard-price,
+body[data-theme] .hm-minprice,
+body[data-theme] .ro-price,
+body[data-theme] .odate-price,
+body[data-theme] .fit-price { color: var(--brand); }
+/* Tab 激活态 */
+body[data-theme] .tab.active { color: var(--brand); border-bottom-color: var(--brand); }
+/* 主按钮（咨询 / 锁单 / 搜索 / 筛选应用） */
+body[data-theme] .cf-btn,
+body[data-theme] .detail-consult,
+body[data-theme] .card-btn,
+body[data-theme] .card-btn-v2,
+body[data-theme] .fit-apply { background: var(--brand-grad); }
+body[data-theme] #filterApplyBtn { background: var(--brand-grad) !important; }
+/* 滑动顶栏筛选/排序按钮 */
+body[data-theme] .sticky-filter { color: var(--brand); background: var(--brand-light); }
+/* 筛选弹层标题条 */
+body[data-theme] .filter-modal-hd { background: var(--brand-grad); }
+body[data-theme] .filter-modal-hd .fml-title { color: #fff; }
+body[data-theme] .filter-modal-hd .fml-close { background: rgba(255,255,255,0.22) !important; color: #fff !important; }
+
+/* ── 主题切换按钮（header 右侧，与深色模式 ☀️ 并列）── */
+.theme-switch {
+  font-size: 15px; cursor: pointer; margin-left: 8px;
+  padding: 3px 6px; line-height: 1; user-select: none;
+  align-self: flex-start; margin-top: 4px; opacity: .9;
+  background: rgba(255,255,255,0.18); border-radius: 8px;
+  transition: all .2s;
+}
+.theme-switch:active { transform: scale(0.92); }
+
+/* ── 主题选择弹层（header 内绝对定位）── */
+.theme-pop {
+  position: absolute; right: 10px; top: 46px; z-index: 210;
+  background: var(--card-bg); border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.15);
+  border: 1px solid var(--border);
+  padding: 10px 8px; width: 176px;
+}
+.theme-pop-title { font-size: 11px; color: var(--text-light); padding: 0 6px 6px; font-weight: 500; }
+.theme-grid { display: flex; flex-direction: column; gap: 2px; }
+.theme-opt {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 6px; border-radius: 8px; cursor: pointer;
+  font-size: 13px; color: var(--text); transition: background .15s;
+}
+.theme-opt:active { background: var(--tag-bg); }
+.theme-opt.active { background: var(--tag-bg); font-weight: 700; }
+.theme-opt .sw {
+  width: 20px; height: 20px; border-radius: 6px; flex-shrink: 0;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
+}
+.theme-opt .sw-check { margin-left: auto; font-size: 11px; color: var(--brand); display: none; }
+.theme-opt.active .sw-check { display: inline; }
+
+/* ── 新组件样式（元信息组）── */
+.cf-meta-group { display: inline-flex; align-items: center; gap: 6px; }

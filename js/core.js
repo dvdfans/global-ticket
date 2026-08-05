@@ -166,18 +166,36 @@ function fmtSeats(s, opts) {
   return '<span class="seat-ok">余' + s + '</span>';
 }
 
-// ── 供应商底色规则（未来可扩展映射）──
+// ── 供应商底色规则（2026-08-05 重设计 v2：26 家全覆盖——price_db 11 家 + ERP 资源标题检索出的 15 家，避开 logo 红 #DA3A2C / logo 金 #F9BE00）──
+// dot=卡片左边条/阴影主色；glow=卡片阴影 rgba（供应商色 tint）；bg/border=浅色底
 const SUPPLIER_COLORS = {
-  '美亚':   { bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
-  '奇妙':   { bg:'#FFF8E6', border:'#F9BE00', dot:'#D49A00' },
-  '纵贯':   { bg:'#EDF5FF', border:'#90C0F0', dot:'#0C6FA8' },
-  '通宏':   { bg:'#E8F5E9', border:'#90D090', dot:'#389C39' },
-  '上航':   { bg:'#F3E8FF', border:'#C090E0', dot:'#491B87' },
-  '途益':   { bg:'#E0F7FA', border:'#80D0D8', dot:'#28B7BD' },
-  '万国':   { bg:'#FFF3E0', border:'#F0B060', dot:'#E88A00' },
-  '通宏国内':{ bg:'#EEEEEE', border:'#C0C0C0', dot:'#808080' },
-  '怡行':   { bg:'#E8F5E9', border:'#A0D0A0', dot:'#389C39' },
-  '春秋国际':{ bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
+  '美亚':    { bg:'#EAF2FA', border:'#A8C8E8', dot:'#0C6FA8', glow:'rgba(12,111,168,0.18)' },
+  '奇妙':    { bg:'#E6F7F8', border:'#8FD8DC', dot:'#28B7BD', glow:'rgba(40,183,189,0.18)' },
+  '纵贯':    { bg:'#E8EEF7', border:'#93A8CC', dot:'#004286', glow:'rgba(0,66,134,0.18)' },
+  '通宏':    { bg:'#E8F5E9', border:'#8FC890', dot:'#389C39', glow:'rgba(56,156,57,0.18)' },
+  '上航':    { bg:'#F3EAFB', border:'#BFA8DC', dot:'#491B87', glow:'rgba(73,27,135,0.18)' },
+  '途益':    { bg:'#E4F5F3', border:'#86CFC8', dot:'#008B8B', glow:'rgba(0,139,139,0.18)' },
+  '万国':    { bg:'#FFF3E2', border:'#F0B060', dot:'#E88A00', glow:'rgba(232,138,0,0.18)' },
+  '通宏国内': { bg:'#EBEFF4', border:'#A8BCCE', dot:'#5A7D9A', glow:'rgba(90,125,154,0.18)' },
+  '怡行':    { bg:'#E9F4EA', border:'#98CBA0', dot:'#2E7D32', glow:'rgba(46,125,50,0.18)' },
+  '春秋国际': { bg:'#F5EEE4', border:'#D0B090', dot:'#8B5A2B', glow:'rgba(139,90,43,0.18)' },
+  'ERP':     { bg:'#EAECF2', border:'#98A2B8', dot:'#1F3A5F', glow:'rgba(31,58,95,0.18)' },
+  // ── ERP 数据（iVision 资源标题）检索出的供应商（2026-08-05）──
+  '浙江中青旅': { bg:'#E7F2FA', border:'#90BFDF', dot:'#0072A3', glow:'rgba(0,114,163,0.18)' },
+  '浙江新世界': { bg:'#F3EAF9', border:'#C2A8DA', dot:'#7B1FA2', glow:'rgba(123,31,162,0.18)' },
+  '上海宝臻': { bg:'#EDF7ED', border:'#A5D6A7', dot:'#4CAF50', glow:'rgba(76,175,80,0.18)' },
+  '浙江海峡': { bg:'#E8F2FE', border:'#90CAF9', dot:'#2196F3', glow:'rgba(33,150,243,0.18)' },
+  '宏游':    { bg:'#E4F5F2', border:'#88CFC4', dot:'#009688', glow:'rgba(0,150,136,0.18)' },
+  '芒果汇':  { bg:'#FCEFE3', border:'#F0A87A', dot:'#E65100', glow:'rgba(230,81,0,0.18)' },
+  '信旅飞跃': { bg:'#F2ECE7', border:'#C4AFA0', dot:'#795548', glow:'rgba(121,85,72,0.18)' },
+  '杭州宝臻': { bg:'#E3F4F2', border:'#7FC9BE', dot:'#00695C', glow:'rgba(0,105,92,0.18)' },
+  '江苏欣辰': { bg:'#EBEDFA', border:'#A9B4E8', dot:'#3949AB', glow:'rgba(57,73,171,0.18)' },
+  '走遍全球': { bg:'#E5F8FB', border:'#8FE0EA', dot:'#00ACC1', glow:'rgba(0,172,193,0.18)' },
+  '锦江':   { bg:'#E7F0FB', border:'#9EC7EA', dot:'#1565C0', glow:'rgba(21,101,192,0.18)' },
+  '苏州和平': { bg:'#F0F7E8', border:'#C0DC9E', dot:'#7CB342', glow:'rgba(124,179,66,0.18)' },
+  '江苏苏宁国际旅游': { bg:'#EFEAFB', border:'#BDA8E8', dot:'#5E35B1', glow:'rgba(94,53,177,0.18)' },
+  '无锡国旅汤青': { bg:'#E4F4F1', border:'#8AD0C4', dot:'#00897B', glow:'rgba(0,137,123,0.18)' },
+  '千巡':   { bg:'#EBEEF2', border:'#AEBAC8', dot:'#546E7A', glow:'rgba(84,110,122,0.18)' },
 };
 function supplierColor(name) {
   return SUPPLIER_COLORS[name] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
