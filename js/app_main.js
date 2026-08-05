@@ -1111,18 +1111,19 @@ function _updateCopyBtnState() {
   }
 }
 
-// ── 智能搜索（IME感知，选词中不触发）──
-var _searchTimer = null;
-var _isComposing = false;
+// ── 智能搜索（2026-08-05 改为：输入不搜索，点「搜索」按钮/回车才搜）──
 var _searchInputId = 'fitSearch';
 
 function _mkSearchInput(val) {
   var v = val || '';
-  return '<input class="fit-search" id="' + _searchInputId + '" placeholder="🔍 搜航线、航班号、目的地..."'
-    + ' oninput="searchFilter(this.value)" oncompositionstart="_isComposing=true" oncompositionend="_isComposing=false;searchFilter(this.value)"'
-    + ' onkeydown="if(event.key===\'Enter\'){clearTimeout(_searchTimer);_isComposing=false;searchFilter(this.value)}"'
+  return '<div style="display:flex;gap:6px;align-items:center">'
+    + '<input class="fit-search" id="' + _searchInputId + '" placeholder="🔍 搜航线、航班号、目的地..."'
+    + ' onkeydown="if(event.key===\'Enter\'){searchFilter(this.value)}"'
     + ' value="' + v.replace(/"/g,'&quot;') + '"'
-    + ' style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box' + (val?';margin-bottom:8px':'') + '">';
+    + ' style="flex:1;min-width:0;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box">'
+    + '<button onclick="searchFilter(document.getElementById(\'' + _searchInputId + '\').value)"'
+    + ' style="flex-shrink:0;padding:8px 14px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:600;cursor:pointer">搜索</button>'
+    + '</div>';
 }
 
 function _filterSearchBox() {
@@ -1447,15 +1448,12 @@ function selectDate(d) {
   recordAction('filter_date', {route:(_filter.dep||'')+'→'+(_filter.arr||''),date:d,days:_filter.days});
 }
 
-// ── 智能搜索（结果展示在筛选框内，不关闭）──
-var _searchTimer = null;
+// ── 智能搜索（2026-08-05 改为：输入不搜索，点「搜索」按钮/回车才搜）──
 function searchFilter(q) {
-  if (_searchTimer) clearTimeout(_searchTimer);
-  _searchTimer = setTimeout(function() {
-    if (_isComposing) return;
-    q = q.trim();
-    if (!q) { _showFilter(); return; }
-    
+  // 显式触发：不再 IME 防抖，点击搜索按钮/回车才执行
+  q = (q || '').trim();
+  if (!q) { _showFilter(); return; }
+  
     // 1. 提取城市名
     var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
       '曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
@@ -1509,6 +1507,9 @@ function searchFilter(q) {
       });
     }
     
+    // 5.5 保存搜索结果供复制（copySearchResults 用）
+    _lastSearchRecs = recs;
+    
     // 6. 在筛选框内展示结果
     var body = document.getElementById('filterBody');
     if (body) {
@@ -1522,11 +1523,73 @@ function searchFilter(q) {
           + '</div>';
       });
       if (recs.length > 10) {
-        html += '<div class="fit-apply" style="margin-top:6px;text-align:center" onclick="closeFilter();showAllSearchResults()">查看全部 ' + recs.length + ' 条结果</div>';
+        html += '<div style="display:flex;gap:6px;margin-top:6px">'
+          + '<div class="fit-apply" style="flex:1;text-align:center" onclick="closeFilter();showAllSearchResults()">查看全部 ' + recs.length + ' 条结果</div>'
+          + '<div class="fit-apply" style="flex:1;text-align:center" onclick="copySearchResults()">📋 复制 ' + recs.length + ' 条</div>'
+          + '</div>';
+      } else if (recs.length) {
+        html += '<div style="display:flex;gap:6px;margin-top:6px">'
+          + '<div class="fit-apply" style="flex:1;text-align:center" onclick="copySearchResults()">📋 复制 ' + recs.length + ' 条</div>'
+          + '</div>';
       }
       body.innerHTML = html;
     }
-  }, 300);
+}
+
+// 复制搜索结果（2026-08-05 用户需求：格式与搜索结果相同 + 附带链接）
+function copySearchResults() {
+  var recs = _lastSearchRecs || [];
+  if (!recs.length) { showToast('没有可复制的报价'); return; }
+  var groups = {};
+  recs.forEach(function(r) {
+    var key = (r.dep||'') + '|' + (r.arr||'') + '|' + (getDays(r)||'') + '|' + (r.flight||'') + '|' + ((r.flight_return||'').trim());
+    if (!groups[key]) groups[key] = [];
+    groups[key].push(r);
+  });
+  Object.keys(groups).forEach(function(k) { groups[k].sort(function(a,b){return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1;}); });
+  var lines = [];
+  var groupKeys = Object.keys(groups);
+  var maxGroups = 15;
+  groupKeys.slice(0, maxGroups).forEach(function(key, gi) {
+    var gRecs = groups[key];
+    var r = gRecs[0];
+    var d = getDays(r) || '';
+    var hasReturn = !!(r.flight_return && r.flight_return.trim());
+    var routeLabel = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + (r.arr||'') + '-' + (r.dep||'') : '') + (d ? ' ' + d + '天' : '');
+    var airCn = r.airline_cn || '';
+    var depAirport = _apt(r.dep_airport);
+    var arrAirport = _apt(r.arr_airport);
+    var depTime = (r.dep_time||'').trim();
+    var arrTime = (r.arr_time||'').trim();
+    lines.push(routeLabel + (airCn ? ' ' + airCn : ''));
+    lines.push((r.flight||'') + '  ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? '  ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : ''));
+    if (hasReturn) {
+      var retDep = _apt(r.return_dep_airport);
+      var retArr = _apt(r.return_arr_airport);
+      var retDepTime = (r.return_dep_time||'').trim();
+      var retArrTime = (r.return_arr_time||'').trim();
+      lines.push((r.flight_return||'') + (retDep ? ' ' + retDep : '') + (retArr ? '-'+retArr : '') + (retDepTime||retArrTime ? '  ' : '') + (retDepTime ? retDepTime : '') + (retArrTime ? '-'+retArrTime : ''));
+    }
+    var maxDatesPerGroup = 30;
+    gRecs.slice(0, maxDatesPerGroup).forEach(function(rr) {
+      var ds = _fmtDateShort(rr.dep_date);
+      var rs = rr.return_date ? _fmtDateShort(rr.return_date) : '';
+      var dateStr = ds + (rs ? '-' + rs : '');
+      var price = rr.retail || 0;
+      var seat = (rr.seats||'').trim();
+      lines.push('  ' + dateStr + ' ￥' + price + (seat ? '  余' + seat : ''));
+    });
+    if (gRecs.length > maxDatesPerGroup) lines.push('  ...共' + gRecs.length + '个日期');
+    if (gi < groupKeys.length - 1) lines.push('');
+  });
+  if (groupKeys.length > maxGroups) lines.push('...共' + groupKeys.length + '组');
+  var kw = (document.getElementById('fitSearch')||{}).value || '';
+  var link = location.origin + location.pathname + (kw ? ('?q=' + encodeURIComponent(kw)) : '');
+  var text = lines.join('\n') + '\n\n🔗 ' + link;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + recs.length + ' 条报价，' + groupKeys.length + ' 组'); });
+  } else { prompt('复制以下内容：', text); }
+  recordAction('copy_search', {count:recs.length, quote:text.slice(0,200)});
 }
 
 // 显示单条搜索结果
