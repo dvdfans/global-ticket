@@ -65,6 +65,9 @@ async function loadDB() {
   try {
     const r = await fetch('price_db_fe.json?_=' + Date.now());
     DB = await r.json();
+    // 2026-08-06: 售罄记录（0/售罄/满/(空)/候补/暂停/0805上调/停售）加载后一次性过滤——
+    // 环球度假 H5 只渲染在售数据条，售罄不渲染也不显示到结果（数据仍一比一保留在 price_db.json 全量库/对比表）
+    DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
     validateDays();  // 校验天数/回程日期一致性
     updateStats();
     generateFooterQR();  // 加载完数据后生成尾部二维码
@@ -256,9 +259,11 @@ function _term(airline, airport) {
 }
 
 // 余位有效判断
+// 2026-08-06 用户规则：余位0 = 售罄 = 满 = (空) = 候补 = 暂停 = 0805上调 = 停售 → 一律视为售罄，H5 不渲染
+// （数据仍一比一保留在库/对比表；此处仅控制环球度假 H5 卡片渲染）
 function _hasSeats(r) {
   var s = (r.seats || '').trim().toLowerCase();
-  if (!s || s === 'nan' || s === 'na' || s === '0' || s === '售罄' || s === '满' || s === '候补' || s === '/' || s === '预留') return false;
+  if (!s || s === 'nan' || s === 'na' || s === '0' || s === '售罄' || s === '满' || s === '候补' || s === '暂停' || s === '0805上调' || s === '停售' || s === '/' || s === '预留') return false;
   return true;
 }
 
