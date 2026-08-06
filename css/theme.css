@@ -52,6 +52,7 @@ body[data-theme] .card-price-num,
 body[data-theme] .cfs-price,
 body[data-theme] .hmcard-price,
 body[data-theme] .hm-minprice,
+body[data-theme] .hm-nights,
 body[data-theme] .ro-price,
 body[data-theme] .odate-price,
 body[data-theme] .fit-price { color: var(--brand); }
