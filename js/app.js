@@ -360,7 +360,7 @@ function _stickyBar() {
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
     + '<div style="display:flex;gap:2px;align-items:center">'
     + _hdr('date','日期') + _hdr('price','价格') + _hdr('seats','余位') + _hdr('route','航线')
-    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦</span>'
+    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦ 比价</span>'
     + '</div></div>';
 }
 

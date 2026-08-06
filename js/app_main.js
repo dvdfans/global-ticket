@@ -57,7 +57,7 @@ function _stickyBar() {
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
     + '<div style="display:flex;gap:4px;align-items:center">'
     + '<span class="sticky-filter" onclick="openSortModal()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888;margin-right:8px">↕ 排序</span>'
-    + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦ 筛选</span>'
+    + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦ 比价</span>'
     + '</div></div>';
 }
 
@@ -1785,5 +1785,5 @@ function renderFiltered() {
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   var list=document.getElementById('cardList');
   if (!recs.length) { list.innerHTML='<div class="loading">无符合条件数据</div>'; return; }
-  list.innerHTML = recs.slice(0,50).map(cardHTML).join('');
+  list.innerHTML = recs.map(cardHTML).join('');  // 2026-08-06: 筛选报价默认显示全部数据（不再 slice 前50条，不用上下滑动看更多）
 }
