@@ -831,13 +831,21 @@ function copyAll() {
   recordAction('copy_all', {route:_shareText,quote:_shareText + '\n🔗 ' + _deepUrl});
 }
 
-function showToast(msg) {
+function showToast(msg, persistent) {
   var t = document.getElementById('toast');
   if (!t) { t = document.createElement('div'); t.id = 'toast';
-    t.style.cssText = 'position:fixed;bottom:120px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.8);color:#fff;padding:10px 20px;border-radius:8px;font-size:13px;z-index:500;transition:opacity .3s;white-space:nowrap';
+    t.style.cssText = 'position:fixed;bottom:120px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.85);color:#fff;padding:12px 22px;border-radius:10px;font-size:13px;z-index:500;transition:opacity .3s;white-space:nowrap;box-shadow:0 4px 16px rgba(0,0,0,.3);cursor:pointer';
+    t.title = '点击关闭';
+    t.addEventListener('click', function(){ t.style.opacity = '0'; });
     document.body.appendChild(t); }
   t.textContent = msg; t.style.opacity = '1';
-  setTimeout(function(){ t.style.opacity = '0'; }, 2500);
+  // 2026-08-06: persistent=true 不自动消失（一直显示，点击关闭）；默认 2500ms 消失
+  if (persistent) {
+    clearTimeout(t._timer);
+  } else {
+    clearTimeout(t._timer);
+    t._timer = setTimeout(function(){ t.style.opacity = '0'; }, 2500);
+  }
 }
 
 // 简化卡「咨询」= 复制文本 + 弹客服
@@ -845,7 +853,8 @@ function consultCSwithCopy(text, label) {
   recordAction('copy_card', {route:text,quote:text});
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() {
-      showToast('✅ 已复制航班信息，可直接粘贴');
+      // 2026-08-06: 一直显示（点击关闭）+ 新文案
+      showToast('✅ 已复制航班信息，可直接粘贴咨询', true);
       consultCS(label);
     });
   } else {
