@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-06 08:55:00",
+  "build_time": "2026-08-06 10:11:06",
   "record_count": 2291,
   "records": [
     {
@@ -2357,7 +2357,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "0805上调",
+      "seats": "",
       "airline": "CA",
       "airline_cn": "国航",
       "dep_airport": "PVG",
@@ -6335,7 +6335,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "暂停",
+      "seats": "",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
@@ -6356,7 +6356,7 @@
       "return_dep_time": "21:30",
       "return_arr_time": "22:45",
       "baggage": "行李托运1件23KG",
-      "remark": "",
+      "remark": "暂停",
       "sub_sheet": "首尔（南航）"
     },
     {
@@ -7037,7 +7037,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "暂停",
+      "seats": "",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "PVG",
@@ -7058,7 +7058,7 @@
       "return_dep_time": "16:20",
       "return_arr_time": "17:30",
       "baggage": "行李托运1件23KG",
-      "remark": "",
+      "remark": "暂停",
       "sub_sheet": "首尔(东航)"
     },
     {
@@ -14096,7 +14096,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "停售",
+      "seats": "",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "PVG",
@@ -14117,7 +14117,7 @@
       "return_dep_time": "14:30",
       "return_arr_time": "16:00",
       "baggage": "行李额23KG*2",
-      "remark": "",
+      "remark": "停售",
       "sub_sheet": "冲绳&福冈"
     },
     {
@@ -24392,7 +24392,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "暂停",
+      "seats": "",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
@@ -24413,7 +24413,7 @@
       "return_dep_time": "21:30",
       "return_arr_time": "22:45",
       "baggage": "",
-      "remark": "",
+      "remark": "暂停",
       "sub_sheet": "韩国 首尔 釜山"
     },
     {
