@@ -268,6 +268,17 @@ function _hasSeats(r) {
 }
 
 // 记录完整性判断（排除dep/arr为空的不完整数据）
+// 2026-08-07 18:0x: 增加航班号完整性校验 —— 航段1/航段2 非标准航班号
+// （含中文/特殊字符/候选格式如「FM看WPS报价」「FM831/832/876」）→ 数据不完整，
+// H5 报价卡片不渲染（对比表独立数据流不受影响，供人工检查参考源）
 function _validRecord(r) {
-  return (r.dep||'').trim() && (r.arr||'').trim();
+  if (!(r.dep||'').trim() || !(r.arr||'').trim()) return false;
+  // 航班号标准格式：2-3字母+3-4位数字（如 FM831 / 9C8521 / HO1321）
+  var FLT = /^[A-Z0-9]{2,3}\d{3,4}$/;
+  var f1 = String(r.flight || '').trim().toUpperCase();
+  var f2 = String(r.flight_return || '').trim().toUpperCase();
+  // 单程（无航段2）且航段1标准 → 有效（HO 上海↔济州岛等豁免）；有航段2则两者都须标准
+  if (!FLT.test(f1)) return false;
+  if (f2 && !FLT.test(f2)) return false;
+  return true;
 }

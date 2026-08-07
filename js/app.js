@@ -428,7 +428,8 @@ function renderTab() {
   }
   
   // 区域：日本/韩国/东南亚/港澳
-  var records = DB.records.filter(function(r) { return _hasSeats(r); });
+  // 2026-08-07 18:0x: 加 _validRecord —— 航班号非标准（FM看WPS报价等）不渲染报价卡片
+  var records = DB.records.filter(function(r) { return _hasSeats(r) && _validRecord(r); });
   var cities = TAB_CITIES[currentTab] || [];
   records = records.filter(function(r) { return cities.some(function(c){return r.arr===c}); });
   records = records.filter(function(r) { return !(!r.flight_return && r.dep==='济州岛' && r.arr==='上海'); });
