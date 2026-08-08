@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-08 06:57:01",
+  "build_time": "2026-08-08 08:52:16",
   "record_count": 2501,
   "records": [
     {
@@ -15691,7 +15691,7 @@
       "cost_price": 2999.0,
       "wholesale": 2999.0,
       "retail": 2999.0,
-      "seats": "2",
+      "seats": "售罄",
       "remark": "",
       "jj": "",
       "jj_hotel_stars": "",
@@ -18166,8 +18166,8 @@
       "cost_price": 2599.0,
       "wholesale": 2599.0,
       "retail": 2599.0,
-      "seats": "0",
-      "remark": "占🈵",
+      "seats": "4",
+      "remark": "",
       "jj": "3799",
       "jj_hotel_stars": "",
       "jj_includes": "接机|免税金卡",
