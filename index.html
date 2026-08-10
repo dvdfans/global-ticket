@@ -111,7 +111,7 @@
   <div class="modal" id="filterModal">
     <div class="modal-content" style="height:97vh;max-height:97vh;display:flex;flex-direction:column;overflow:hidden">
       <div class="filter-modal-hd" style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
-        <span class="fml-title" style="font-size:16px;font-weight:700">筛选报价</span>
+        <span class="fml-title" style="font-size:16px;font-weight:700;cursor:pointer" onclick="location.href='login.html?goto='+encodeURIComponent(location.pathname+location.search)">筛选报价</span>
         <span class="fml-close" onclick="closeFilter()" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--tag-bg);cursor:pointer;font-size:14px">×</span>
       </div>
       <div id="filterBody" style="flex:1 1 0;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px 16px"></div>
