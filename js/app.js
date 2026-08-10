@@ -10,6 +10,108 @@ var ADMIN_LIST = [
 // 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
 var STATS_API_URL = 'https://dear-cheers-reveals-retired.trycloudflare.com/track';
 
+// ── 埋点维度辅助 STATS-DIM v1（2026-08-10）──────────────────
+// 应急切换上报地址（无需重新部署）：localStorage.setItem('stats_api_override','https://xxx/track')
+try { var _sOv = localStorage.getItem('stats_api_override'); if (_sOv) STATS_API_URL = _sOv; } catch(e) {}
+
+// 来源版本：按域名判断，避免各通道写死常量后被同步脚本覆盖而误判
+function _statsSrc() {
+  var h = (location.hostname || '').toLowerCase();
+  if (h.indexOf('github.io') >= 0) return 'GitHub Pages';
+  if (h.indexOf('7116b6b0') >= 0) return '正式版';
+  if (h.indexOf('6677549d') >= 0) return '自由行测试版';
+  if (h.indexOf('a52b3dc0') >= 0) return '客服版';
+  if (h.indexOf('c3fcd2b5') >= 0) return '交付对比页';
+  if (h.indexOf('402d431c') >= 0) return '新报价站';
+  if (h.indexOf('2975ec0c') >= 0 || h.indexOf('de91a58') >= 0) return '镜像版';
+  if (h === 'localhost' || h === '127.0.0.1' || h === '') return '本地';
+  return h;
+}
+// 设备大类：iOS / 安卓 / 电脑 / iPad
+function _statsDev() {
+  var u = navigator.userAgent || '';
+  if (/iPad/i.test(u) || (/Macintosh/i.test(u) && (navigator.maxTouchPoints || 0) > 1)) return 'iPad';
+  if (/iPhone|iPod/i.test(u)) return 'iOS';
+  if (/Android/i.test(u)) return '安卓';
+  if (/Windows NT|Macintosh|X11|Linux x86/i.test(u)) return '电脑';
+  return '其他';
+}
+// 操作系统（含版本）
+function _statsOS() {
+  var u = navigator.userAgent || '', m;
+  if (/iPhone|iPad|iPod/i.test(u) && (m = u.match(/OS (\d+)[_.](\d+)/))) return 'iOS ' + m[1] + '.' + m[2];
+  if ((m = u.match(/Android (\d+(?:\.\d+)?)/))) return 'Android ' + m[1];
+  if (/Windows NT 10/.test(u)) return 'Windows 10/11';
+  if (/Windows NT/.test(u)) return 'Windows';
+  if (/Mac OS X/.test(u)) return 'macOS';
+  if (/Linux/.test(u)) return 'Linux';
+  return '未知';
+}
+// 浏览器 / 容器（微信内置浏览器占大头）
+function _statsBr() {
+  var u = navigator.userAgent || '';
+  if (/MicroMessenger/i.test(u)) return '微信';
+  if (/QQBrowser/i.test(u) || /\bQQ\//i.test(u)) return 'QQ';
+  if (/AlipayClient/i.test(u)) return '支付宝';
+  if (/DingTalk/i.test(u)) return '钉钉';
+  if (/Weibo/i.test(u)) return '微博';
+  if (/UCBrowser/i.test(u)) return 'UC';
+  if (/Edg\//i.test(u)) return 'Edge';
+  if (/Firefox/i.test(u)) return 'Firefox';
+  if (/Chrome|CriOS/i.test(u)) return 'Chrome';
+  if (/Safari/i.test(u)) return 'Safari';
+  return '其他';
+}
+// 入口来源：二维码 / 分享链接 / 微信内打开 / 搜索引擎 / 外链 / 直接访问
+function _statsEntry() {
+  try {
+    var q = location.search || '';
+    if (/[?&](qr|from_qr)=/i.test(q)) return '二维码';
+    if (/[?&](f|share|s)=/i.test(q)) return '分享链接';
+    var rf = document.referrer || '';
+    if (/MicroMessenger/i.test(navigator.userAgent || '')) return '微信内打开';
+    if (!rf) return '直接访问';
+    var h = (rf.split('/')[2] || '').toLowerCase();
+    if (h && location.hostname && h.indexOf(location.hostname) >= 0) return '站内跳转';
+    if (/baidu|google|bing|sogou|so\.com|sm\.cn|yandex|duckduckgo/i.test(h)) return '搜索引擎';
+    return '外链:' + h;
+  } catch (e) { return '未知'; }
+}
+// 会话 ID：一次浏览会话内不变，用于算会话数/人均深度
+function _statsSid() {
+  try {
+    var s = sessionStorage.getItem('stats_sid');
+    if (!s) {
+      s = 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      sessionStorage.setItem('stats_sid', s);
+    }
+    return s;
+  } catch (e) { return ''; }
+}
+// 报价卡片指纹：航班 | 航线 | 日期 | N天 | ¥价格
+function _statsCard(d) {
+  d = d || {};
+  if (!d.flight && !d.date) return '';
+  var g = _statsGroup(d);
+  return [d.flight || '', g, d.date || '', (d.days ? d.days + '天' : ''), (d.price ? '\u00a5' + d.price : '')]
+    .filter(function (x) { return !!x; }).join(' | ');
+}
+// 干净的航线分组：部分埋点把整段复制文本塞进了 route，需剔除
+function _statsGroup(d) {
+  var r = (d && d.route) || '';
+  if (!r || r.length > 40 || r.indexOf('\n') >= 0) return '';
+  return r;
+}
+// 主题偏好
+function _statsTheme() {
+  try {
+    return (localStorage.getItem('theme') || 'light') + '/' +
+           (localStorage.getItem('theme_color') || localStorage.getItem('themeColor') || 'default');
+  } catch (e) { return ''; }
+}
+// ── /STATS-DIM v1 ────────────────────────────────────────────
+
+
 function loadAccounts() {
   var cs = [];
   try { cs = JSON.parse(localStorage.getItem('cs_accounts') || '[]'); } catch(e) {}
@@ -1199,7 +1301,21 @@ function recordAction(action, data) {
     page: location.pathname,
     tab: currentTab || '',
     filter: 'dep=' + (_filter.dep||'') + '&arr=' + (_filter.arr||'') + '&days=' + (_filter.days||'') + '&month=' + (_filter.month||'') + '&date=' + (_filter.date||''),
-    ua: (navigator.userAgent || '').substring(0, 80)
+    ua: (navigator.userAgent || '').substring(0, 80),
+    // ── STATS-DIM v1 多维度 ──
+    src: _statsSrc(),
+    device: _statsDev(),
+    os: _statsOS(),
+    browser: _statsBr(),
+    entry: _statsEntry(),
+    referrer: (document.referrer || '').substring(0, 120),
+    session: _statsSid(),
+    screen: (window.screen ? (screen.width + 'x' + screen.height) : ''),
+    theme: _statsTheme(),
+    lang: (navigator.language || ''),
+    group: _statsGroup(data),
+    card: _statsCard(data),
+    copy_len: (data.quote || '').length
   };
   // 发到 stats_server
   if (STATS_API_URL) {

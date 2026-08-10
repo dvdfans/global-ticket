@@ -1036,7 +1036,21 @@ function recordAction(action, data) {
     page: location.pathname,
     tab: currentTab || '',
     filter: 'dep=' + (_filter.dep||'') + '&arr=' + (_filter.arr||'') + '&days=' + (_filter.days||'') + '&month=' + (_filter.month||'') + '&date=' + ((_filter.dates||[]).join(',')),
-    ua: (navigator.userAgent || '').substring(0, 80)
+    ua: (navigator.userAgent || '').substring(0, 80),
+    // ── STATS-DIM v1 多维度 ──
+    src: _statsSrc(),
+    device: _statsDev(),
+    os: _statsOS(),
+    browser: _statsBr(),
+    entry: _statsEntry(),
+    referrer: (document.referrer || '').substring(0, 120),
+    session: _statsSid(),
+    screen: (window.screen ? (screen.width + 'x' + screen.height) : ''),
+    theme: _statsTheme(),
+    lang: (navigator.language || ''),
+    group: _statsGroup(data),
+    card: _statsCard(data),
+    copy_len: (data.quote || '').length
   };
   // 发到 stats_server
   if (STATS_API_URL) {
