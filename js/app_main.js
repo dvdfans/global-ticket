@@ -289,7 +289,8 @@ function _normCity(c) {
 // 返回记录的回程出发城市名（已归一化）；无法判断返回 ''。
 function _retDepCity(r) {
   if (!r || !r.flight_return) return '';
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','NGO':'名古屋','BKK':'曼谷','DMK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','NGO':'名古屋','BKK':'曼谷','DMK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港', 'PQC':'富国岛'
+  };
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport || '').trim();
   if (retDepAirport && retDepAirport !== r.arr) {
@@ -302,7 +303,7 @@ function _retDepCity(r) {
       }
       if (retCity === r.arr) {
         var airportCityMap = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
-        retCity = airportCityMap[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi, '').trim();
+        retCity = airportCityMap[retDepAirport] || (r.return_dep_airport_name||'') || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi, '').trim();
       }
     }
   }
@@ -317,8 +318,8 @@ var AIRPORT_CN = {
   'ICN':'首尔仁川','GMP':'首尔金浦','PUS':'釜山金海','CJU':'济州岛','CJJ':'清州',
   'NRT':'东京成田','HND':'东京羽田','KIX':'大阪关西','FUK':'福冈','OKA':'冲绳那霸','CTS':'札幌新千岁','NGO':'名古屋中部',
   'BKK':'曼谷素万那普','DMK':'曼谷廊曼','HKT':'普吉岛','CNX':'清迈','DPS':'巴厘岛',
-  'SIN':'新加坡樟宜','BKI':'沙巴亚庇','KUL':'吉隆坡','MFM':'澳门','HKG':'香港','KHH':'高雄','TPE':'台北桃园'
-};
+  'SIN':'新加坡樟宜','BKI':'沙巴亚庇','KUL':'吉隆坡','MFM':'澳门','HKG':'香港','KHH':'高雄','TPE':'台北桃园', 'PQC':'富国岛'
+  };
 var AIRPORT_ALIAS = {
   // 源表别名 → 规范名
   '浦东':'上海浦东','虹桥':'上海虹桥','萧山':'杭州萧山','禄口':'南京禄口','栎社':'宁波栎社','兴东':'南通兴东','硕放':'无锡硕放','凤凰':'三亚凤凰',
