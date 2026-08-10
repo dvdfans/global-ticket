@@ -861,7 +861,7 @@ var _shareText = '', _shareTextSingle = '', _shareTextAll = '', _deepUrl = '', _
 var _PROMO = '———————————————\n更多特价机票（日韩港澳东南亚等）\n请详见小程序，实时更新，\n更多惊喜，戳这里查👇';
 
 function copyAll() {
-  var text = _shareText + '\n\n' + _PROMO + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
+  var text = _shareText + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制全部信息，可直接粘贴'); });
   } else {
@@ -904,7 +904,7 @@ function consultCSwithCopy(text, label) {
 
 // 详情页「咨询客服」= 复制完整信息（含深链）+ 弹客服（2026-08-05 用户需求：咨询同时复制）
 function consultCSwithCopyAll(quote) {
-  consultCSwithCopy(_shareText + '\n\n' + _PROMO + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl, quote);
+  consultCSwithCopy(_shareText + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl, quote);
 }
 
 function closeDetail() {

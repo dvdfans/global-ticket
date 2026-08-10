@@ -1038,7 +1038,7 @@ var _shareText = '', _shareTextSingle = '', _shareTextAll = '', _deepUrl = '', _
 var _PROMO = '———————————————\n更多特价机票（日韩港澳东南亚等）\n请详见小程序，实时更新，\n更多惊喜，戳这里查👇';
 
 function copyAll() {
-  var text = _shareText + '\n\n' + _PROMO + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
+  var text = _shareText + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 全部信息已复制，可分享给客户'); });
   } else {
