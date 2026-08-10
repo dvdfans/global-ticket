@@ -1474,11 +1474,11 @@ var _searchInputId = 'fitSearch';
 
 function _mkSearchInput(val) {
   var v = val || '';
-  return '<input class="fit-search" id="' + _searchInputId + '" placeholder="🔍 搜航线、航班号、目的地..."'
+  return '<div style="position:relative;width:100%">' + '<svg viewBox="0 0 24 24" width="14" height="14" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-secondary)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>' + '<input class="fit-search" id="' + _searchInputId + '" placeholder="搜航线、航班号、目的地..."'
     + ' oninput="searchFilter(this.value)" oncompositionstart="_isComposing=true" oncompositionend="_isComposing=false;searchFilter(this.value)"'
     + ' onkeydown="if(event.key===\'Enter\'){clearTimeout(_searchTimer);_isComposing=false;searchFilter(this.value)}"'
     + ' value="' + v.replace(/"/g,'&quot;') + '"'
-    + ' style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box' + (val?';margin-bottom:8px':'') + '">';
+    + ' style="width:100%;padding:8px 12px 8px 32px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box' + (val?';margin-bottom:8px':'') + '">' + '</div>';
 }
 
 function _filterSearchBox() {
