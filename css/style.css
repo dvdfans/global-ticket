@@ -449,3 +449,9 @@ body {
 .cf-seats{display:inline-flex;align-items:center}
 .cf-btn{background:var(--brand-grad, linear-gradient(135deg,#FF6B35,var(--red)));color:#fff;border:none;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:700;box-shadow:0 2px 6px rgba(218,58,44,0.25);cursor:pointer;white-space:nowrap;letter-spacing:0.3px}
 .cf-btn:active{opacity:0.85;transform:scale(0.96)}
+
+/* 供应商标签（分权限：仅员工可见） */
+.cf-supplier-tag,.cfs-supplier-tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);color:#E65100;border:1px solid #FFCC80;margin-left:6px;white-space:nowrap}
+.staff-hint-pill{position:fixed;bottom:72px;left:50%;transform:translateX(-50%);z-index:400;background:rgba(0,0,0,0.78);color:#fff;font-size:12px;padding:8px 14px;border-radius:20px;box-shadow:0 2px 10px rgba(0,0,0,.25);display:flex;align-items:center;gap:8px;white-space:nowrap}
+.staff-hint-pill a{color:#FFD54F;text-decoration:none;font-weight:600}
+.staff-hint-pill .x{cursor:pointer;opacity:.7;margin-left:2px;font-weight:700}

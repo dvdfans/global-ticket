@@ -363,7 +363,7 @@ function _bagDetailRow(r) {
 // 统一报价卡片渲染（v4格式 — 直客价）
 function renderCard(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
-  var sc = supplierColor(r.supplier);
+  var sc = isStaff() ? supplierColor(r.supplier) : {dot:'#BDBDBD', glow:'rgba(0,0,0,0.04)'};
   var seatsHtml = fmtSeatsBadge(r.seats);
   
   // 天数晚数显示
@@ -510,6 +510,7 @@ function renderCard(r) {
     + '<span class="cf-route">' + routeHeader + '</span>'
     + (durationHtml ? '<span class="cf-duration-badge">' + durationHtml + '</span>' : '')
     + '<span class="cf-airline-tag">' + (r.airline_cn||'') + '</span>'
+    + (isStaff() && r.supplier ? '<span class="cf-supplier-tag">' + esc(r.supplier) + '</span>' : '')
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '')
     + '</div>'
     + '<div class="cf-row">' + outRow + '</div>'
@@ -556,14 +557,14 @@ function renderCardSimple(r) {
   }
   // 生成咨询时复制的文本
   var retDurConsult = hasReturn ? _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep) : '';
-  var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + ' 余' + (r.seats||'—') + ' ' + (r.airline_cn||'')
+  var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + ' 余' + (r.seats||'—') + ' ' + (r.airline_cn||'') + (isStaff() && r.supplier ? ' 【'+esc(r.supplier)+'】' : '')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
     + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) : '');
-  var _sc2 = supplierColor(r.supplier);
+  var _sc2 = isStaff() ? supplierColor(r.supplier) : {dot:'#BDBDBD', glow:'rgba(0,0,0,0.04)'};
   return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + _sc2.dot + ';--card-glow:' + (_sc2.glow||'rgba(0,0,0,0.05)') + '">'
     + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>' + durationStr
     + ' <span class="cfs-price">¥' + (r.retail||0) + '</span>' + seatDisp
-    + ' <span class="cfs-airline">' + (r.airline_cn||'') + '</span>'
+    + ' <span class="cfs-airline">' + (r.airline_cn||'') + '</span>' + (isStaff() && r.supplier ? ' <span class="cfs-supplier-tag">' + esc(r.supplier) + '</span>' : '')
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '') + '</div>'
     + '<div class="cfs-body">'
     + '<div class="cfs-flights">' + outRow + retHtml + '</div>'
@@ -784,7 +785,7 @@ function openDetail(rec) {
   var seatsBadge = (function(s){s=(s||'').trim().toLowerCase();if(!s||s==='nan'||s==='na')return'';var n=parseInt(s.match(/\d+/)?.[0]);if(n===undefined||n===null)return s;if(n>=10)return'充足';if(n<=3)return'<span style="color:#FF7D00;font-weight:600">余'+s+'</span>';return'<span style="color:var(--green)">余'+s+'</span>';})(rec.seats);
 
   // ─── 复制文本（单日期 / 全日期）───
-  var routeLabel = (rec.dep||'') + '-' + (rec.arr||'') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + ' ' + (getDays(rec)||'') + '天';
+  var routeLabel = (rec.dep||'') + '-' + (rec.arr||'') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + ' ' + (getDays(rec)||'') + '天' + (isStaff() && rec.supplier ? ' 【'+esc(rec.supplier)+'】' : '');
   var flightLine = f1 + ' ' + _apt(rec.dep_airport) + '-' + _apt(rec.arr_airport) + '  ' + (rec.dep_time||'') + '-' + (rec.arr_time||'');
   var retFlightLine = hasReturn ? f2 + ' ' + _apt(rec.return_dep_airport) + '-' + _apt(rec.return_arr_airport) + '  ' + (rec.return_dep_time||'') + '-' + (rec.return_arr_time||'') : '';
   var dateRange = (rec.dep_date||'') + (rec.return_date ? '-' + rec.return_date : '');
@@ -819,6 +820,7 @@ function openDetail(rec) {
     + '<div class="dp-row"><span class="dp-price">¥' + (rec.retail||0) + '</span><span class="dp-tax">（含税）/人</span><span class="dp-seat">' + seatsBadge + '</span></div>'
     + '<div class="detail-section"><h4>航班信息 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + typeStr + '</span></h4>'
     + '<div class="detail-row"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
+    + (isStaff() && rec.supplier ? '<div class="detail-row"><span class="label">供应商</span><span class="value">'+esc(rec.supplier)+'</span></div>' : '')
     + _bagDetailRow(rec)
     + '<div class="detail-row" style="border-bottom:none"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _aptBlock(rec, 'dep') + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _aptBlock(rec, 'arr') + '</span></div>'
     + (hasReturn
@@ -1055,6 +1057,21 @@ function recordAction(action, data) {
 }
 
 // ═══════════════ 启动 ═══════════════
+
+// ── 分权限：员工/游客 ──
+function esc(s){ return (s==null?'':''+s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function isStaff() {
+  try { var u = JSON.parse(localStorage.getItem('current_user') || 'null'); return !!(u && (u.role === 'cs' || u.role === 'admin')); }
+  catch (e) { return false; }
+}
+(function(){
+  if (!isStaff()) {
+    var b = document.createElement('div');
+    b.className = 'staff-hint-pill';
+    b.innerHTML = '🔒 供应商标签已对游客隐藏 · <a href="login.html?goto=' + encodeURIComponent(location.pathname + location.search) + '">员工登录</a> <span class="x" onclick="this.parentNode.remove()">✕</span>';
+    document.body.appendChild(b);
+  }
+})();
 
 // 确保登录状态恢复（兼容不同浏览器）
 (function() {
@@ -1477,7 +1494,7 @@ function copyFilterResults() {
     var arrTime = (r.arr_time||'').trim();
     
     // 组头：航线路由+航司名 第一行
-    lines.push(routeLabel + (airCn ? ' ' + airCn : ''));
+    lines.push(routeLabel + (airCn ? ' ' + airCn : '') + (isStaff() && r.supplier ? ' 【'+esc(r.supplier)+'】' : ''));
     // 航班号+机场+时间 第二行
     lines.push((r.flight||'') + '  ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? '  ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : ''));
     
@@ -1706,7 +1723,7 @@ function copySearchResults() {
     var arrAirport = _apt(r.arr_airport);
     var depTime = (r.dep_time||'').trim();
     var arrTime = (r.arr_time||'').trim();
-    lines.push(routeLabel + (airCn ? ' ' + airCn : ''));
+    lines.push(routeLabel + (airCn ? ' ' + airCn : '') + (isStaff() && r.supplier ? ' 【'+esc(r.supplier)+'】' : ''));
     lines.push((r.flight||'') + '  ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? '  ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : ''));
     if (hasReturn) {
       var retDep = _apt(r.return_dep_airport);
