@@ -289,8 +289,7 @@ function _normCity(c) {
 // 返回记录的回程出发城市名（已归一化）；无法判断返回 ''。
 function _retDepCity(r) {
   if (!r || !r.flight_return) return '';
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','NGO':'名古屋','BKK':'曼谷','DMK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港', 'PQC':'富国岛'
-  };
+  var IATA_CITY = {'AAT':'阿勒泰', 'BKI':'沙巴', 'BKK':'曼谷', 'CAN':'广州', 'CGK':'雅加达', 'CGO':'郑州', 'CJJ':'清州', 'CJU':'济州岛', 'CKG':'重庆', 'CNX':'清迈', 'CSX':'长沙', 'CTS':'札幌', 'CTU':'成都', 'DAD':'岘港', 'DLC':'大连', 'DMK':'曼谷', 'DPS':'巴厘岛', 'DYG':'张家界', 'FOC':'福州', 'FUK':'福冈', 'GMP':'首尔', 'HAK':'海口', 'HAN':'河内', 'HGH':'杭州', 'HKG':'香港', 'HKT':'普吉', 'HND':'东京', 'HRB':'哈尔滨', 'ICN':'首尔', 'JXU':'嘉兴', 'KHH':'高雄', 'KIX':'大阪', 'KMG':'昆明', 'KUL':'吉隆坡', 'KWE':'贵阳', 'KWL':'桂林', 'LHW':'兰州', 'MFM':'澳门', 'MNL':'马尼拉', 'NGB':'宁波', 'NGO':'名古屋', 'NKG':'南京', 'NNG':'南宁', 'NRT':'东京', 'NTG':'南通', 'OKA':'冲绳', 'PEK':'北京', 'PKX':'北京', 'PQC':'富国岛', 'PUS':'釜山', 'PVG':'上海', 'SGN':'胡志明', 'SHA':'上海', 'SHE':'沈阳', 'SIN':'新加坡', 'SYX':'三亚', 'SZX':'深圳', 'TAO':'青岛', 'TFU':'成都', 'TNA':'济南', 'TPE':'台北', 'TSN':'天津', 'URC':'乌鲁木齐', 'WUH':'武汉', 'WUX':'无锡', 'XIY':'西安', 'XMN':'厦门', 'XNN':'西宁'};
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport || '').trim();
   if (retDepAirport && retDepAirport !== r.arr) {
@@ -343,7 +342,7 @@ function _airportCN(name, code) {
 function _aptBlock(r, prefix, showCode) {
   var code = ((r[prefix + '_airport'] || '')).trim();
   var name = _airportCN(r[prefix + '_airport_name'], code);
-  var iata = (showCode !== false && /^[A-Z]{3}$/.test(code)) ? ' [' + code + ']' : '';
+  var iata = (showCode !== false && !name && /^[A-Z]{3}$/.test(code)) ? ' [' + code + ']' : '';
   var term = ((r[prefix + '_terminal'] || '')).trim();
   var termHtml = term ? '<span class="t-term">' + term + '</span>' : _term(r.airline, code);
   return name + iata + termHtml;
@@ -380,7 +379,7 @@ function renderCard(r) {
   
   // 航线头：支持多口岸（如上海-首尔/济州-上海）
   // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名）
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
+  var IATA_CITY = {'AAT':'阿勒泰', 'BKI':'沙巴', 'BKK':'曼谷', 'CAN':'广州', 'CGK':'雅加达', 'CGO':'郑州', 'CJJ':'清州', 'CJU':'济州岛', 'CKG':'重庆', 'CNX':'清迈', 'CSX':'长沙', 'CTS':'札幌', 'CTU':'成都', 'DAD':'岘港', 'DLC':'大连', 'DMK':'曼谷', 'DPS':'巴厘岛', 'DYG':'张家界', 'FOC':'福州', 'FUK':'福冈', 'GMP':'首尔', 'HAK':'海口', 'HAN':'河内', 'HGH':'杭州', 'HKG':'香港', 'HKT':'普吉', 'HND':'东京', 'HRB':'哈尔滨', 'ICN':'首尔', 'JXU':'嘉兴', 'KHH':'高雄', 'KIX':'大阪', 'KMG':'昆明', 'KUL':'吉隆坡', 'KWE':'贵阳', 'KWL':'桂林', 'LHW':'兰州', 'MFM':'澳门', 'MNL':'马尼拉', 'NGB':'宁波', 'NGO':'名古屋', 'NKG':'南京', 'NNG':'南宁', 'NRT':'东京', 'NTG':'南通', 'OKA':'冲绳', 'PEK':'北京', 'PKX':'北京', 'PQC':'富国岛', 'PUS':'釜山', 'PVG':'上海', 'SGN':'胡志明', 'SHA':'上海', 'SHE':'沈阳', 'SIN':'新加坡', 'SYX':'三亚', 'SZX':'深圳', 'TAO':'青岛', 'TFU':'成都', 'TNA':'济南', 'TPE':'台北', 'TSN':'天津', 'URC':'乌鲁木齐', 'WUH':'武汉', 'WUX':'无锡', 'XIY':'西安', 'XMN':'厦门', 'XNN':'西宁'};
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
   if (retDepAirport && retDepAirport !== r.arr) {
@@ -527,7 +526,7 @@ function renderCardSimple(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
   var daysVal = getDays(r);
   var durationStr = daysVal ? ' ' + daysVal + '天' : '';
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
+  var IATA_CITY = {'AAT':'阿勒泰', 'BKI':'沙巴', 'BKK':'曼谷', 'CAN':'广州', 'CGK':'雅加达', 'CGO':'郑州', 'CJJ':'清州', 'CJU':'济州岛', 'CKG':'重庆', 'CNX':'清迈', 'CSX':'长沙', 'CTS':'札幌', 'CTU':'成都', 'DAD':'岘港', 'DLC':'大连', 'DMK':'曼谷', 'DPS':'巴厘岛', 'DYG':'张家界', 'FOC':'福州', 'FUK':'福冈', 'GMP':'首尔', 'HAK':'海口', 'HAN':'河内', 'HGH':'杭州', 'HKG':'香港', 'HKT':'普吉', 'HND':'东京', 'HRB':'哈尔滨', 'ICN':'首尔', 'JXU':'嘉兴', 'KHH':'高雄', 'KIX':'大阪', 'KMG':'昆明', 'KUL':'吉隆坡', 'KWE':'贵阳', 'KWL':'桂林', 'LHW':'兰州', 'MFM':'澳门', 'MNL':'马尼拉', 'NGB':'宁波', 'NGO':'名古屋', 'NKG':'南京', 'NNG':'南宁', 'NRT':'东京', 'NTG':'南通', 'OKA':'冲绳', 'PEK':'北京', 'PKX':'北京', 'PQC':'富国岛', 'PUS':'釜山', 'PVG':'上海', 'SGN':'胡志明', 'SHA':'上海', 'SHE':'沈阳', 'SIN':'新加坡', 'SYX':'三亚', 'SZX':'深圳', 'TAO':'青岛', 'TFU':'成都', 'TNA':'济南', 'TPE':'台北', 'TSN':'天津', 'URC':'乌鲁木齐', 'WUH':'武汉', 'WUX':'无锡', 'XIY':'西安', 'XMN':'厦门', 'XNN':'西宁'};
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
   if (retDepAirport && retDepAirport !== r.arr) {
@@ -768,7 +767,7 @@ function openDetail(rec) {
   var retCity = rec.arr;
   var retDepAirport = (rec.return_dep_airport||'').trim();
   // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
+  var IATA_CITY = {'AAT':'阿勒泰', 'BKI':'沙巴', 'BKK':'曼谷', 'CAN':'广州', 'CGK':'雅加达', 'CGO':'郑州', 'CJJ':'清州', 'CJU':'济州岛', 'CKG':'重庆', 'CNX':'清迈', 'CSX':'长沙', 'CTS':'札幌', 'CTU':'成都', 'DAD':'岘港', 'DLC':'大连', 'DMK':'曼谷', 'DPS':'巴厘岛', 'DYG':'张家界', 'FOC':'福州', 'FUK':'福冈', 'GMP':'首尔', 'HAK':'海口', 'HAN':'河内', 'HGH':'杭州', 'HKG':'香港', 'HKT':'普吉', 'HND':'东京', 'HRB':'哈尔滨', 'ICN':'首尔', 'JXU':'嘉兴', 'KHH':'高雄', 'KIX':'大阪', 'KMG':'昆明', 'KUL':'吉隆坡', 'KWE':'贵阳', 'KWL':'桂林', 'LHW':'兰州', 'MFM':'澳门', 'MNL':'马尼拉', 'NGB':'宁波', 'NGO':'名古屋', 'NKG':'南京', 'NNG':'南宁', 'NRT':'东京', 'NTG':'南通', 'OKA':'冲绳', 'PEK':'北京', 'PKX':'北京', 'PQC':'富国岛', 'PUS':'釜山', 'PVG':'上海', 'SGN':'胡志明', 'SHA':'上海', 'SHE':'沈阳', 'SIN':'新加坡', 'SYX':'三亚', 'SZX':'深圳', 'TAO':'青岛', 'TFU':'成都', 'TNA':'济南', 'TPE':'台北', 'TSN':'天津', 'URC':'乌鲁木齐', 'WUH':'武汉', 'WUX':'无锡', 'XIY':'西安', 'XMN':'厦门', 'XNN':'西宁'};
   if (retDepAirport && retDepAirport !== rec.arr) {
     if (IATA_CITY[retDepAirport]) {
       retCity = IATA_CITY[retDepAirport];
