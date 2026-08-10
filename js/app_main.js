@@ -57,7 +57,7 @@ function _stickyBar() {
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
     + '<div style="display:flex;gap:4px;align-items:center">'
     + '<span class="sticky-filter" onclick="openSortModal()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888;margin-right:8px">↕ 排序</span>'
-    + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">🔍 搜索</span>'
+    + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:var(--text-secondary)"><svg viewBox="0 0 24 24" width="13" height="13" style="vertical-align:-2px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg> 搜索</span>'
     + '</div></div>';
 }
 
@@ -1064,14 +1064,62 @@ function isStaff() {
   try { var u = JSON.parse(localStorage.getItem('current_user') || 'null'); return !!(u && (u.role === 'cs' || u.role === 'admin')); }
   catch (e) { return false; }
 }
+// ── 游客：低调登录入口（不暴露隐藏内容），点击弹窗登录 ──
 (function(){
-  if (!isStaff()) {
-    var b = document.createElement('div');
-    b.className = 'staff-hint-pill';
-    b.innerHTML = '🔒 供应商标签已对游客隐藏 · <a href="login.html?goto=' + encodeURIComponent(location.pathname + location.search) + '">员工登录</a> <span class="x" onclick="this.parentNode.remove()">✕</span>';
-    document.body.appendChild(b);
-  }
+  if (isStaff()) return;
+  var btn = document.createElement('div');
+  btn.className = 'staff-lock-btn';
+  btn.setAttribute('title', '员工登录');
+  btn.setAttribute('aria-label', '员工登录');
+  btn.innerHTML = '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V7a4 4 0 0 1 8 0v4"></path></svg>';
+  btn.onclick = openStaffLogin;
+  document.body.appendChild(btn);
+
+  var overlay = document.createElement('div');
+  overlay.className = 'login-modal-overlay';
+  overlay.id = 'staffLoginOverlay';
+  overlay.style.display = 'none';
+  overlay.innerHTML =
+    '<div class="login-modal">' +
+      '<div class="lm-head"><span>员工登录</span><span class="lm-x" onclick="closeStaffLogin()">✕</span></div>' +
+      '<div class="lm-field"><label>用户名</label><input id="lmUser" placeholder="请输入用户名" autocomplete="username" onkeydown="if(event.key===\'Enter\')doStaffLogin()"></div>' +
+      '<div class="lm-field"><label>密码</label><input id="lmPwd" type="password" placeholder="请输入密码" autocomplete="current-password" onkeydown="if(event.key===\'Enter\')doStaffLogin()"></div>' +
+      '<button class="lm-btn" onclick="doStaffLogin()">登 录</button>' +
+      '<div class="lm-msg" id="lmMsg"></div>' +
+    '</div>';
+  document.body.appendChild(overlay);
+  overlay.addEventListener('click', function(e){ if (e.target === overlay) closeStaffLogin(); });
 })();
+
+function openStaffLogin(){ var o=document.getElementById('staffLoginOverlay'); if(o){o.style.display='flex'; var u=document.getElementById('lmUser'); if(u)setTimeout(function(){u.focus();},50);} }
+function closeStaffLogin(){ var o=document.getElementById('staffLoginOverlay'); if(o){o.style.display='none'; var m=document.getElementById('lmMsg'); if(m){m.textContent='';m.className='lm-msg';}} }
+
+// 凭证校验（与 login.html 保持一致；静态站凭证本就公开）
+var STAFF_ADMIN = [
+  {user:'admin',pwd:'1qaz9ol.7ujm$RFV',role:'admin',name:'管理员'},
+  {user:'adminzch',pwd:'6yhn(OL>',role:'admin',name:'管理员zch'},
+  {user:'adminxxy',pwd:'5tgb*IK<',role:'admin',name:'管理员xxy'}
+];
+function doStaffLogin(){
+  var user=(document.getElementById('lmUser').value||'').trim();
+  var pwd=(document.getElementById('lmPwd').value||'').trim();
+  var accs=STAFF_ADMIN.map(function(a){return {user:a.user,pwd:a.pwd,role:a.role,name:a.name};});
+  try {
+    var cs=JSON.parse(localStorage.getItem('cs_accounts')||'[]');
+    if(!cs.length){ cs=[{user:'hq_zhangw',pwd:'123456'},{user:'hq_liujq',pwd:'123456'},{user:'hq_liuw',pwd:'123456'},{user:'hq_baif',pwd:'123456'},{user:'hq_mifm',pwd:'123456'},{user:'hq_liurong',pwd:'123456'},{user:'hq_shenzy',pwd:'123456'}]; localStorage.setItem('cs_accounts',JSON.stringify(cs)); }
+    cs.forEach(function(a){ accs.push({user:a.user,pwd:a.pwd,role:'cs',name:a.user}); });
+  } catch(e){}
+  var found=null;
+  for(var i=0;i<accs.length;i++){ if(accs[i].user===user && accs[i].pwd===pwd){ found=accs[i]; break; } }
+  var m=document.getElementById('lmMsg');
+  if(found){
+    localStorage.setItem('current_user', JSON.stringify({user:found.user,role:found.role,name:found.name}));
+    if(m){ m.className='lm-msg ok'; m.textContent='✅ 登录成功'; }
+    setTimeout(function(){ location.reload(); }, 450);
+  } else {
+    if(m){ m.className='lm-msg err'; m.textContent='❌ 用户名或密码错误'; }
+  }
+}
 
 // 确保登录状态恢复（兼容不同浏览器）
 (function() {

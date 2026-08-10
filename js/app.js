@@ -360,7 +360,7 @@ function _stickyBar() {
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
     + '<div style="display:flex;gap:2px;align-items:center">'
     + _hdr('date','日期') + _hdr('price','价格') + _hdr('seats','余位') + _hdr('route','航线')
-    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">🔍 搜索</span>'
+    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:var(--text-secondary)"><svg viewBox="0 0 24 24" width="13" height="13" style="vertical-align:-2px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg> 搜索</span>'
     + '</div></div>';
 }
 
