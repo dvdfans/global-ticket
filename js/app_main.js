@@ -858,15 +858,16 @@ function toggleDates() {
 // ═══════════════ 复制全部信息 ═══════════════
 
 var _shareText = '', _shareTextSingle = '', _shareTextAll = '', _deepUrl = '', _sameRoute = [], _curReturnOptions = [];
+var _PROMO = '———————————————\n更多特价机票（日韩港澳东南亚等）\n请详见小程序，实时更新，\n更多惊喜，戳这里查👇';
 
 function copyAll() {
-  var text = _shareText + '\n\n🔗 ' + _deepUrl;
+  var text = _shareText + '\n\n' + _PROMO + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制全部信息，可直接粘贴'); });
   } else {
     prompt('复制以下内容：', text);
   }
-  recordAction('copy_all', {route:_shareText,quote:_shareText + '\n🔗 ' + _deepUrl});
+  recordAction('copy_all', {route:_shareText,quote:_shareText + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl});
 }
 
 function showToast(msg, persistent) {
@@ -903,7 +904,7 @@ function consultCSwithCopy(text, label) {
 
 // 详情页「咨询客服」= 复制完整信息（含深链）+ 弹客服（2026-08-05 用户需求：咨询同时复制）
 function consultCSwithCopyAll(quote) {
-  consultCSwithCopy(_shareText + '\n\n🔗 ' + _deepUrl, quote);
+  consultCSwithCopy(_shareText + '\n\n' + _PROMO + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl, quote);
 }
 
 function closeDetail() {
@@ -1511,7 +1512,7 @@ function copyFilterResults() {
   });
   if (groupKeys.length > maxGroups) lines.push('...共' + groupKeys.length + '组');
   
-  var text = lines.join('\n') + '\n\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
+  var text = lines.join('\n') + '\n\n' + _PROMO + '\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
   
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + recs.length + ' 条报价，' + groupKeys.length + ' 组'); });
@@ -1736,7 +1737,7 @@ function copySearchResults() {
   if (groupKeys.length > maxGroups) lines.push('...共' + groupKeys.length + '组');
   var kw = (document.getElementById('fitSearch')||{}).value || '';
   var link = location.origin + location.pathname + (kw ? ('?q=' + encodeURIComponent(kw)) : '');
-  var text = lines.join('\n') + '\n\n🔗 ' + link;
+  var text = lines.join('\n') + '\n\n' + _PROMO + '\n🔗 ' + link;
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + recs.length + ' 条报价，' + groupKeys.length + ' 组'); });
   } else { prompt('复制以下内容：', text); }
