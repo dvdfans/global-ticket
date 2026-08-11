@@ -8,7 +8,7 @@ var ADMIN_LIST = [
 ];
 
 // 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
-var STATS_API_URL = 'https://dear-cheers-reveals-retired.trycloudflare.com/track';
+var STATS_API_URL = 'https://sodium-data-logical-saturn.trycloudflare.com/track';
 
 // ── 埋点维度辅助 STATS-DIM v1（2026-08-10）──────────────────
 // 应急切换上报地址（无需重新部署）：localStorage.setItem('stats_api_override','https://xxx/track')
