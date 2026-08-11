@@ -8,7 +8,13 @@ var ADMIN_LIST = [
 ];
 
 // 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
-var STATS_API_URL = 'https://sodium-data-logical-saturn.trycloudflare.com/track';
+// 2026-08-11 ★铁律：游客行为看板只统计正式版(7116b6b0 沙箱)，其他版本一概不统计
+var STATS_API_URL = '';
+try {
+  if ((location.hostname || '').indexOf('7116b6b0') >= 0) {
+    STATS_API_URL = 'https://sodium-data-logical-saturn.trycloudflare.com/track';
+  }
+} catch(e) {}
 
 // ── 埋点维度辅助 STATS-DIM v1（2026-08-10）──────────────────
 // 应急切换上报地址（无需重新部署）：localStorage.setItem('stats_api_override','https://xxx/track')
