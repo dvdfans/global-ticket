@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-11 06:57:53",
+  "build_time": "2026-08-11 08:32:03",
   "record_count": 2496,
   "records": [
     {
@@ -12721,7 +12721,7 @@
       "cost_price": 2599.0,
       "wholesale": 2599.0,
       "retail": 2599.0,
-      "seats": "暂停",
+      "seats": "1",
       "remark": "",
       "jj": "",
       "jj_hotel_stars": "",
