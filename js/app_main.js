@@ -188,11 +188,72 @@ function renderTab() {
       if (!groups[k]) groups[k] = {dep: r.dep, arr: r.arr, retCity: retC, isOpenJaw: isOpenJaw, nights: getDays(r) || '', records: []};
       groups[k].records.push(r);
     });
-    // 组间排序 — 按排序条件的第1个关键值排序
+    // 组间排序 — 2026-08-07 16:5x: 城市层级(上海→省会→其他, 不同城市按城市总条数降序) → 同出发地按TAB_CITIES目的地顺序 → 天数升序 → 原排序模式兜底
+    // 省会城市集合（当前涉及 杭州/南京；后续可扩展）
+    var SHENG_HUI = {'杭州':1,'南京':1,'广州':1,'成都':1,'武汉':1,'西安':1,'郑州':1,'长沙':1,'沈阳':1,'济南':1,'昆明':1,'石家庄':1,'太原':1,'合肥':1,'福州':1,'南昌':1,'南宁':1,'贵阳':1,'兰州':1,'西宁':1,'银川':1,'拉萨':1,'乌鲁木齐':1,'呼和浩特':1,'哈尔滨':1,'长春':1,'海口':1};
     var gKeys = Object.keys(groups);
+    // 2026-08-07 16:5x: 预聚合每个出发城市的总条数（城市间按总条数排序，保证同城市所有分组连排）
+    var depCount = {};
+    gKeys.forEach(function (_k) {
+      var _d = groups[_k].dep;
+      depCount[_d] = (depCount[_d] || 0) + groups[_k].records.length;
+    });
     var firstMode = (_sortModes && _sortModes.length) ? _sortModes[0] : 'date_asc';
+    // 当前分类的目的地城市顺序（TAB_CITIES[currentTab]；港澳/国内也有）
+    var TAB_ARR_ORDER = TAB_CITIES[currentTab] || [];
+    function _arrIdx(g) { var i = TAB_ARR_ORDER.indexOf(g.arr); return i < 0 ? 999 : i; }
+    // 2026-08-07 17:1x: 分组排序模式（组间）——'smart'=智能规则；其余=航线/天数/条数/价格 升降序
+    var GS = typeof _groupSort !== 'undefined' ? _groupSort : 'smart';
+    function _gMinPrice(g) { return Math.min.apply(null, g.records.map(function(r){return r.retail||99999})); }
     gKeys.sort(function(ka, kb) {
       var ga = groups[ka].records, gb = groups[kb].records;
+      // ── 非智能分组排序：按所选维度全局排（不套城市层级）──
+      if (GS !== 'smart') {
+        var gk = GS.split('_')[0], gd = GS.indexOf('_desc') >= 0 ? -1 : 1;
+        if (gk === 'route') {
+          // 航线：按 TAB_CITIES 目的地顺序（desc=反向）
+          var rA = _arrIdx(groups[ka]), rB = _arrIdx(groups[kb]);
+          if (rA !== rB) return gd > 0 ? rA - rB : rB - rA;
+        } else if (gk === 'nights') {
+          var dA = parseInt(groups[ka].nights || '0', 10) || 0;
+          var dB = parseInt(groups[kb].nights || '0', 10) || 0;
+          if (dA !== dB) return gd > 0 ? dA - dB : dB - dA;
+        } else if (gk === 'count') {
+          var cA = groups[ka].records.length, cB = groups[kb].records.length;
+          if (cA !== cB) return gd > 0 ? cA - cB : cB - cA;
+        } else if (gk === 'price') {
+          var pA = _gMinPrice(groups[ka]), pB = _gMinPrice(groups[kb]);
+          if (pA !== pB) return gd > 0 ? pA - pB : pB - pA;
+        }
+        // 同值兜底：天数升序 → 原排序
+        var ddA = parseInt(groups[ka].nights || '0', 10) || 0;
+        var ddB = parseInt(groups[kb].nights || '0', 10) || 0;
+        if (ddA !== ddB) return ddA - ddB;
+        return 0;
+      }
+      // ── 智能排序：城市层级 + 城市总条数 + 航线顺序 + 纯/缺口 + 天数升序 ──
+      // ① 城市层级：上海(0) → 省会(1) → 其他(2)
+      function _lv(g) { return (g.dep === '上海') ? 0 : (SHENG_HUI[g.dep] ? 1 : 2); }
+      var lvA = _lv(groups[ka]), lvB = _lv(groups[kb]);
+      if (lvA !== lvB) return lvA - lvB;
+      // ② 不同出发城市（同层级）：按城市总条数由多到少（同城市所有组连排）
+      if (groups[ka].dep !== groups[kb].dep) {
+        var cA = depCount[groups[ka].dep] || 0, cB = depCount[groups[kb].dep] || 0;
+        if (cA !== cB) return cB - cA;
+      }
+      // ③ 同出发地：按 TAB_CITIES 目的地顺序（东京→大阪→冲绳→福冈）
+      var iA = _arrIdx(groups[ka]), iB = _arrIdx(groups[kb]);
+      if (iA !== iB) return iA - iB;
+      // ③b 2026-08-07 17:1x: 同目的地内：纯航线在前、缺口程在后（相同航线上下排列）
+      //    港澳线实测：上海→香港(纯) 与 上海→香港/澳门→上海(缺口程) 原交错排，应各自连排
+      var oA = groups[ka].isOpenJaw ? 1 : 0;
+      var oB = groups[kb].isOpenJaw ? 1 : 0;
+      if (oA !== oB) return oA - oB;
+      // ④ 天数升序（同航线）
+      var dA = parseInt(groups[ka].nights || '0', 10) || 0;
+      var dB = parseInt(groups[kb].nights || '0', 10) || 0;
+      if (dA !== dB) return dA - dB;
+      // ⑤ 原排序模式兜底（价格/日期/航线）
       if (firstMode.indexOf('price') >= 0) {
         var ma = Math.min.apply(null, ga.map(function(r){return r.retail||99999}));
         var mb = Math.min.apply(null, gb.map(function(r){return r.retail||99999}));
@@ -469,12 +530,16 @@ function renderCard(r) {
   var outboundAirport = _apt(r.dep_airport||'');
   var arrivalAirport = _apt(r.arr_airport||'');
   
-  // 2026-08-12 用户：去程/回程 = 合并单元格(去程+短日期航班) + 右侧两行(机场对 / 时间 时长 时间)
-  var outRow = '<div class="cf-leg">'
-    + '<div class="cf-leg-cell"><span class="cf-leg-tag">去程</span><span class="cf-leg-dateflight">' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + '</span></div>'
-    + '<div class="cf-leg-detail"><span class="cf-routepair">' + _aptBlock(r,'dep',false) + '-' + _aptBlock(r,'arr',false) + '</span>'
-    + '<span class="cf-times">' + (r.dep_time||'') + ' ' + outDuration + ' ' + (r.arr_time||'') + '</span></div>'
-    + '</div>';
+  var outRow = '<span class="cf-label">去程</span>'
+    + '<span class="cf-info-text">'
+    + outDateLong + ' '
+    + (r.flight||'') + ' '
+    + _aptBlock(r, 'dep', false) + ' '
+    + (r.dep_time||'') + ' '
+    + outDuration + '&nbsp;&nbsp;'
+    + (r.arr_time||'') + ' '
+    + _aptBlock(r, 'arr', false)
+    + '</span>';
   
   // ─── 回程行（与去程同格式）───
   var retHtml = '';
@@ -487,10 +552,17 @@ function renderCard(r) {
     // 回程出发日 = return_date 本身。红眼航班仅到达日为次日，出发日不变（2026-08-05 修复：移除错误的"减1天"逻辑）
     var retDateLong = _fmtDateLong(retDate);
     
-    retHtml = '<div class="cf-leg">'
-      + '<div class="cf-leg-cell"><span class="cf-leg-tag" style="background:#E8F5E9;color:#2E7D32">回程</span><span class="cf-leg-dateflight">' + _fmtDateShort(retDate) + ' ' + (r.flight_return||'') + '</span></div>'
-      + '<div class="cf-leg-detail"><span class="cf-routepair">' + _aptBlock(r,'return_dep',false) + '-' + _aptBlock(r,'return_arr',false) + '</span>'
-      + '<span class="cf-times">' + (r.return_dep_time||'') + ' ' + retDuration + ' ' + (r.return_arr_time||'') + '</span></div>'
+    retHtml = '<div class="cf-row">'
+      + '<span class="cf-label" style="background:#E8F5E9;color:#2E7D32">回程</span>'
+      + '<span class="cf-info-text">'
+      + retDateLong + ' '
+      + (r.flight_return||'') + ' '
+      + _aptBlock(r, 'return_dep', false) + ' '
+      + (r.return_dep_time||'') + ' '
+      + retDuration + '&nbsp;&nbsp;'
+      + (r.return_arr_time||'') + ' '
+      + _aptBlock(r, 'return_arr', false)
+      + '</span>'
       + '</div>';
   }
   
@@ -502,7 +574,7 @@ function renderCard(r) {
     + '<span class="cf-airline-tag">' + (r.airline_cn||'') + '</span>'
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '')
     + '</div>'
-    + outRow
+    + '<div class="cf-row">' + outRow + '</div>'
     + retHtml
     + '<div class="cf-footer">'
     + '<span class="cf-price">¥' + (r.retail||0) + '<span class="cf-price-tax">（含税）</span></span>'
@@ -531,8 +603,12 @@ function renderCardSimple(r) {
     }
   }
   var routeStr = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + retCity + '-' + (r.dep||'') : '');
-  var seatDisp = _seatDisp(r.seats);
-  if (seatDisp) seatDisp = ' ' + seatDisp;
+  // 显示用余位：员工→实际余位；游客→仅1-4
+  var seatDispRender = _seatDispRender(r.seats);
+  if (seatDispRender) seatDispRender = ' ' + seatDispRender;
+  // 复制用余位：一律仅 1-4（铁律：复制文本与游客逐字节一致）
+  var seatDispCopy = _seatDisp(r.seats);
+  if (seatDispCopy) seatDispCopy = ' ' + seatDispCopy;
   var outDate = _fmtDateShort(r.dep_date);
   var outDur = _fds(r.dep_time, r.arr_time, r.dep, r.arr);
   var outRow = '<div class="cfs-row"><span class="cfs-icon">去</span>' + outDate + ' ' + (r.flight||'') + ' ' + _aptBlock(r,'dep',false) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _aptBlock(r,'arr',false) + '</div>';
@@ -544,14 +620,14 @@ function renderCardSimple(r) {
   // 生成咨询时复制的文本
   var retDurConsult = hasReturn ? _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep) : '';
   // 铁律（REFERENCE §8）：复制信息严禁含供应商标签——任何登录态复制文本必须与游客逐字节一致
-  var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + (seatDisp || '') + ' ' + (r.airline_cn||'')
+  var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + (seatDispCopy || '') + ' ' + (r.airline_cn||'')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
     + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) : '');
   var _sc2 = supplierColor(r.supplier);
   return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + _sc2.dot + ';--card-glow:' + (_sc2.glow||'rgba(0,0,0,0.05)') + '">'
     + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>'
     + durationStr + ' ' + supTagHtml(r.supplier, 'cfs-sup-tag')
-    + ' <span class="cfs-price">¥' + (r.retail||0) + '</span>' + seatDisp
+    + ' <span class="cfs-price">¥' + (r.retail||0) + '</span>' + seatDispRender
     + ' <span class="cfs-airline">' + (r.airline_cn||'') + '</span>'
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '') + '</div>'
     + '<div class="cfs-body">'
@@ -571,9 +647,9 @@ function _fds(dt, at, dc, ac) {
 // hmCard 别名 → 统一用 renderCard
 function hmCard(r) { return renderCard(r); }
 
-// ── 余位徽章（hmCard用）──
-// ── 余位显示规则（2026-08-12 用户）：仅数字 1-4 显示「余N」；
-//    >4 / 0 / 字面(充足/少量/满/售罄/未标注…) / 空 一律不显示余位，产品其他信息照常渲染 ──
+// ── 余位显示规则（2026-08-12 用户）：复制信息仅保留余位 1-4（>4/字面不显示）；
+//    页面渲染：游客仅 1-4 显示；员工登录后（CURRENT_USER 非空）显示实际余位数（数字→余N、字面→原样） ──
+// 复制/游客视图：仅数字 1-4 → '余N'，其余不显示
 function _seatDisp(seats) {
   var s = String(seats == null ? '' : seats).trim();
   if (!s) return '';
@@ -583,12 +659,30 @@ function _seatDisp(seats) {
   if (n >= 1 && n <= 4) return '余' + n;
   return '';
 }
+// 员工判定：所有登录用户（admin + 客服）均为员工，可见实际余位
+function _isStaffUser() {
+  try { return !!(CURRENT_USER && CURRENT_USER.user); } catch(e) { return false; }
+}
+// 员工视图：实际余位原样显示（含数字→余N；字面如充足/询/预留→原样；空→''）
+function _seatDispAll(seats) {
+  var s = String(seats == null ? '' : seats).trim();
+  if (!s) return '';
+  var l = s.toLowerCase();
+  if (l === 'nan' || l === 'na') return '';
+  var m = s.match(/\d+/);
+  if (m) return '余' + s;
+  return s;
+}
+// 页面渲染统一入口：员工→实际余位；游客→仅 1-4
+function _seatDispRender(seats) {
+  return _isStaffUser() ? _seatDispAll(seats) : _seatDisp(seats);
+}
 
 function fmtSeatsBadge(s) {
-  var t = _seatDisp(s);
+  var t = _seatDispRender(s);
   if (!t) return '';
-  var n = parseInt(t.slice(1), 10);
-  if (n <= 3) return '<span class="seat-badge low">' + t + '</span>';
+  var n = parseInt(t.replace(/^余/, ''), 10);
+  if (!isNaN(n) && n <= 3) return '<span class="seat-badge low">' + t + '</span>';
   return '<span class="seat-badge ok">' + t + '</span>';
 }
 
@@ -630,7 +724,7 @@ function renderReturnOptions(rec) {
       + '<span class="ro-date">' + (r.dep_date||'') + '</span>'
       + '<span class="ro-time">' + (r.dep_time||'') + '</span>'
       + '<span class="ro-price">¥' + (r.retail||0) + '</span>'
-      + '<span class="ro-seats">' + _seatDisp(r.seats) + '</span>'
+      + '<span class="ro-seats">' + _seatDispRender(r.seats) + '</span>'
       + '</div>';
   });
   // 默认选第一个
@@ -743,7 +837,7 @@ function openDetail(rec) {
       + '<span>' + (r.dep_date||'') + '</span>'
       + (r.return_date ? '<span style="margin:0 4px;color:var(--text-light);font-size:11px">→' + r.return_date + '</span>' : '')
       + '<span class="odate-price">¥' + (r.retail||0) + '</span>'
-      + '<span class="odate-seats">' + _seatDisp(r.seats) + '</span>'
+      + '<span class="odate-seats">' + _seatDispRender(r.seats) + '</span>'
       + (r.dep_time ? '<span class="odate-time">' + r.dep_time + (r.duration?' · '+r.duration:'') + '</span>' : '')
       + '</div>';
   }).join('');
@@ -778,7 +872,7 @@ function openDetail(rec) {
     }
   }
 
-  var seatsBadge = (function(s){var t=_seatDisp(s);if(!t)return'';var n=parseInt(t.slice(1),10);return n<=3?'<span style="color:#FF7D00;font-weight:600">'+t+'</span>':'<span style="color:var(--green)">'+t+'</span>';})(rec.seats);
+  var seatsBadge = (function(s){var t=_seatDispRender(s);if(!t)return'';var n=parseInt(t.replace(/^余/,''),10);if(!isNaN(n)&&n<=3)return'<span style="color:#FF7D00;font-weight:600">'+t+'</span>';return'<span style="color:var(--green)">'+t+'</span>';})(rec.seats);
 
   // ─── 复制文本（单日期 / 全日期）───
   // 铁律（REFERENCE §8）：复制信息严禁含供应商标签——任何登录态复制文本必须与游客逐字节一致

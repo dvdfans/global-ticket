@@ -440,15 +440,6 @@ body {
 .cf-duration{color:var(--text-light);font-size:10px;background:var(--tag-bg);padding:0 4px;border-radius:3px}
 /* 文本流航班信息（v4新格式） */
 .cf-info-text{flex:1;min-width:0;font-size:12px;color:var(--text);line-height:1.7;white-space:pre-wrap;word-break:keep-all}
-/* 2026-08-12 用户：去程/回程 合并单元格 + 右侧两行（机场对/时间）；两段连体、底色一致、不分段 */
-.cf-leg{display:grid;grid-template-columns:auto 1fr;margin:0;overflow:hidden}
-.cf-leg + .cf-leg{border-top:1px dashed rgba(0,0,0,0.09)}
-.cf-leg-cell{display:flex;flex-direction:row;align-items:center;gap:6px;padding:6px 10px;background:transparent;border-right:1px solid var(--border);flex-shrink:0;white-space:nowrap}
-.cf-leg-tag{font-size:10px;font-weight:700;color:var(--red);background:var(--red-light);border-radius:4px;padding:1px 6px}
-.cf-leg-dateflight{font-size:11px;font-weight:600;color:var(--text);white-space:nowrap}
-.cf-leg-detail{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:3px;padding:6px 10px;min-width:0;text-align:center}
-.cf-routepair{font-size:11px;color:var(--text-secondary);white-space:nowrap;word-break:keep-all}
-.cf-times{font-size:11px;font-weight:500;color:var(--text);white-space:nowrap}
 /* 自由组合-回程缺省标记 */
 .cf-retflex{font-size:10px;color:var(--cyan);font-weight:600;padding:2px 6px;border-radius:4px;background:rgba(40,183,189,0.08)}
 /* 底栏：价格 + 余位 + 按钮 */
