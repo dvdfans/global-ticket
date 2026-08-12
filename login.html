@@ -71,41 +71,54 @@
   </div>
 
   <script>
+    // 2026-08-11: 账号密码哈希化（sha256(用户名+密码)），源码不再存明文。
+    // 密码规则：Ivision@ + 6位数字 + 姓名末字拼音首字母（手机可输，用户定稿）。
     var ADMIN_LIST = [
-      {user:'admin',pwd:'1qaz9ol.7ujm$RFV',role:'admin',name:'管理员'},
-      {user:'adminzch',pwd:'6yhn(OL>',role:'admin',name:'管理员zch'},
-      {user:'adminxxy',pwd:'5tgb*IK<',role:'admin',name:'管理员xxy'},
+      {user:'admin',hash:'f401b6220bf559896ff87696e85652b942f03d91e5f00df37f9d63b9b2a4a421',role:'admin',name:'陈浩'},
+      {user:'adminzch',hash:'306bf2625096fd9d5236b5adee65f7893448b9deec73fc6dcf1bf954872e580f',role:'admin',name:'朱诚宏'},
+      {user:'adminxxy',hash:'0eb500ed664d459b1e09022564043af360861429f1c61e18f4a4569dd3307a5e',role:'admin',name:'徐晓贇'},
+    ];
+    // 默认客服账号（哈希）
+    var CS_DEFAULTS = [
+      {user:'hq_zhangw',hash:'b07784cd7f14be5dbb14f0b9d32ad3f91e2418d66a2aef4679947928031d9a35',name:'张雯'},
+      {user:'hq_liujq',hash:'b1bfa19d70ebd0d6f8d8329eae08925e0e55ce95ace4e40ba4244785561c3c19',name:'刘珏琼'},
+      {user:'hq_liuw',hash:'2d8f15180e03ef581eba8a43efb90dfdb60dcffd7cbb962761c54863e39f3778',name:'刘薇'},
+      {user:'hq_baif',hash:'d9077d895e9587b5c05403eb457bf52f133c64fc9eef12ed859d6469ab1eb5ac',name:'百芳'},
+      {user:'hq_mifm',hash:'8e1e05e2a79a1ce5e8e7765739fa6d4c14562cf223c2db7e026e3c57b5b921bf',name:'宓方明'},
+      {user:'hq_liurong',hash:'fdf23a5d42fd0243dc75d2831cccc643110d44a39aa110fa9ec5650375c9ee7b',name:'刘蓉'},
+      {user:'hq_shenzy',hash:'7dcf939fc212d3e92225ee7bd8db5062ab13b03edb65fa283c4485ac9761e65f',name:'沈子元'},
+      {user:'hq_sunyw',hash:'93accf1c2729889430e282fc6b9b900fefdff60242b52bc5d754571d4c572737',name:'孙奕雯'}
     ];
 
+    // 2026-08-11: 账号静态化（不再依赖 localStorage cs_accounts，杜绝旧明文残留）；
+    // 顺带清理历史明文缓存。
     function loadAccounts() {
-      var cs = [];
-      try { cs = JSON.parse(localStorage.getItem('cs_accounts') || '[]'); } catch(e) {}
-      // 首次使用：插入默认客服
-      if (!cs.length) {
-        var defaults = [
-          {user:'hq_zhangw',pwd:'123456'},{user:'hq_liujq',pwd:'123456'},{user:'hq_liuw',pwd:'123456'},
-          {user:'hq_baif',pwd:'123456'},{user:'hq_mifm',pwd:'123456'},{user:'hq_liurong',pwd:'123456'},{user:'hq_shenzy',pwd:'123456'}
-        ];
-        cs = defaults;
-        localStorage.setItem('cs_accounts', JSON.stringify(cs));
-      }
-      var accs = ADMIN_LIST.map(function(a){return {user:a.user,pwd:a.pwd,role:a.role,name:a.name};});
-      cs.forEach(function(a){ accs.push({user:a.user,pwd:a.pwd,role:'cs',name:a.user}); });
+      try { localStorage.removeItem('cs_accounts'); } catch(e) {}
+      var accs = ADMIN_LIST.map(function(a){ return {user:a.user, hash:a.hash, role:a.role, name:a.name}; });
+      CS_DEFAULTS.forEach(function(a){ accs.push({user:a.user, hash:a.hash, role:'cs', name:a.name}); });
       return accs;
     }
 
-    function doLogin() {
+    // SHA-256 hex（crypto.subtle，https 环境可用）
+    async function _sha256hex(str) {
+      var buf = new TextEncoder().encode(str);
+      var h = await crypto.subtle.digest('SHA-256', buf);
+      return Array.from(new Uint8Array(h)).map(function(b){ return ('0' + b.toString(16)).slice(-2); }).join('');
+    }
+
+    async function doLogin() {
       var user = document.getElementById('loginUser').value.trim();
       var pwd = document.getElementById('loginPwd').value.trim();
       var accounts = loadAccounts();
+      var h = await _sha256hex(user + pwd);
       var found = null;
       for (var i=0; i<accounts.length; i++) {
-        if (accounts[i].user === user && accounts[i].pwd === pwd) { found = accounts[i]; break; }
+        if (accounts[i].user === user && accounts[i].hash === h) { found = accounts[i]; break; }
       }
       var msg = document.getElementById('loginMsg');
       if (found) {
         localStorage.setItem('current_user', JSON.stringify({user:found.user,role:found.role,name:found.name}));
-        // 记录登录事件（用 Image beacon 避免跨域）
+        // 记录登录事件（正式版统计；客服版不统计，见 customer_h5/login.html）
         try { new Image().src = 'https://dear-cheers-reveals-retired.trycloudflare.com/track?data=' + encodeURIComponent(JSON.stringify({action:'admin_login',user:found.user,role:found.role,timestamp:new Date().toISOString()})); } catch(e) {}
         msg.className = 'msg ok';
         msg.textContent = '✅ 登录成功，正在跳转...';
@@ -142,6 +155,7 @@
       window.location.href = goto;
     }
     function doLogout() {
+      // 记录登出事件（正式版统计；客服版不统计，见 customer_h5/login.html）
       try { new Image().src = 'https://dear-cheers-reveals-retired.trycloudflare.com/track?data=' + encodeURIComponent(JSON.stringify({action:'admin_logout',user:(JSON.parse(localStorage.getItem('current_user')||'{}')).user||'',timestamp:new Date().toISOString()})); } catch(e) {}
       localStorage.removeItem('current_user');
       document.getElementById('loginForm').style.display = 'block';
