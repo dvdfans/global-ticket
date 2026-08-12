@@ -143,6 +143,8 @@ let DB = { records: [] };
 let currentTab = 'home';
 let _sortModes = [];  // 空数组=不排序（保持原始顺序）
 let _groupMode = true;
+// 2026-08-07 17:1x: 分组排序模式（组间）——'smart'=智能(城市→省会→航线→天数升序)；其余=航线/天数/条数/价格 升降序
+let _groupSort = 'smart';
 let isAdmin = false;
 
 // 初始化主题 + 游客ID
