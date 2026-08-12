@@ -12,7 +12,7 @@ var ADMIN_LIST = [
 var STATS_API_URL = '';
 try {
   if ((location.hostname || '').indexOf('7116b6b0') >= 0) {
-    STATS_API_URL = 'https://sodium-data-logical-saturn.trycloudflare.com/track';
+    STATS_API_URL = 'https://debut-biggest-oaks-delete.trycloudflare.com/track';
   }
 } catch(e) {}
 
