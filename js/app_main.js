@@ -469,16 +469,12 @@ function renderCard(r) {
   var outboundAirport = _apt(r.dep_airport||'');
   var arrivalAirport = _apt(r.arr_airport||'');
   
-  var outRow = '<span class="cf-label">去程</span>'
-    + '<span class="cf-info-text">'
-    + outDateLong + ' '
-    + (r.flight||'') + ' '
-    + _aptBlock(r, 'dep', false) + ' '
-    + (r.dep_time||'') + ' '
-    + outDuration + '&nbsp;&nbsp;'
-    + (r.arr_time||'') + ' '
-    + _aptBlock(r, 'arr', false)
-    + '</span>';
+  // 2026-08-12 用户：去程/回程 = 合并单元格(去程+短日期航班) + 右侧两行(机场对 / 时间 时长 时间)
+  var outRow = '<div class="cf-leg">'
+    + '<div class="cf-leg-cell"><span class="cf-leg-tag">去程</span><span class="cf-leg-dateflight">' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + '</span></div>'
+    + '<div class="cf-leg-detail"><span class="cf-routepair">' + _aptBlock(r,'dep',false) + '-' + _aptBlock(r,'arr',false) + '</span>'
+    + '<span class="cf-times">' + (r.dep_time||'') + ' ' + outDuration + ' ' + (r.arr_time||'') + '</span></div>'
+    + '</div>';
   
   // ─── 回程行（与去程同格式）───
   var retHtml = '';
@@ -491,17 +487,10 @@ function renderCard(r) {
     // 回程出发日 = return_date 本身。红眼航班仅到达日为次日，出发日不变（2026-08-05 修复：移除错误的"减1天"逻辑）
     var retDateLong = _fmtDateLong(retDate);
     
-    retHtml = '<div class="cf-row">'
-      + '<span class="cf-label" style="background:#E8F5E9;color:#2E7D32">回程</span>'
-      + '<span class="cf-info-text">'
-      + retDateLong + ' '
-      + (r.flight_return||'') + ' '
-      + _aptBlock(r, 'return_dep', false) + ' '
-      + (r.return_dep_time||'') + ' '
-      + retDuration + '&nbsp;&nbsp;'
-      + (r.return_arr_time||'') + ' '
-      + _aptBlock(r, 'return_arr', false)
-      + '</span>'
+    retHtml = '<div class="cf-leg">'
+      + '<div class="cf-leg-cell"><span class="cf-leg-tag" style="background:#E8F5E9;color:#2E7D32">回程</span><span class="cf-leg-dateflight">' + _fmtDateShort(retDate) + ' ' + (r.flight_return||'') + '</span></div>'
+      + '<div class="cf-leg-detail"><span class="cf-routepair">' + _aptBlock(r,'return_dep',false) + '-' + _aptBlock(r,'return_arr',false) + '</span>'
+      + '<span class="cf-times">' + (r.return_dep_time||'') + ' ' + retDuration + ' ' + (r.return_arr_time||'') + '</span></div>'
       + '</div>';
   }
   
@@ -513,7 +502,7 @@ function renderCard(r) {
     + '<span class="cf-airline-tag">' + (r.airline_cn||'') + '</span>'
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '')
     + '</div>'
-    + '<div class="cf-row">' + outRow + '</div>'
+    + outRow
     + retHtml
     + '<div class="cf-footer">'
     + '<span class="cf-price">¥' + (r.retail||0) + '<span class="cf-price-tax">（含税）</span></span>'
