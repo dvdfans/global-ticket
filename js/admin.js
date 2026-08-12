@@ -1,13 +1,17 @@
 // === 后台管理 ===
 
-const ADMIN_KEY = 'globe_admin_2026';
+// 2026-08-11: 哈希化（后台管理密码），源码不存明文
+const ADMIN_KEY = '8447744107795a7a89b411c83c3def917ff9b9a373a4e9ec8593d0f47392bad0';
 let FULL_DB = null;
 let filteredData = [];
 
 // ── 登录 ──
-function doLogin() {
+async function doLogin() {
   const pwd = document.getElementById('pwdInput').value;
-  if (pwd === ADMIN_KEY) {
+  const buf = new TextEncoder().encode(pwd);
+  const h = await crypto.subtle.digest('SHA-256', buf);
+  const hex = Array.from(new Uint8Array(h)).map(b => ('0' + b.toString(16)).slice(-2)).join('');
+  if (hex === ADMIN_KEY) {
     document.getElementById('loginScreen').style.display = 'none';
     document.getElementById('adminMain').style.display = 'block';
     // 设置 admin 标记到 localStorage 供前台使用
