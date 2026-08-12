@@ -450,5 +450,10 @@ body {
 .cf-btn{background:var(--brand-grad, linear-gradient(135deg,#FF6B35,var(--red)));color:#fff;border:none;padding:6px 14px;border-radius:16px;font-size:11px;font-weight:700;box-shadow:0 2px 6px rgba(218,58,44,0.25);cursor:pointer;white-space:nowrap;letter-spacing:0.3px}
 .cf-btn:active{opacity:0.85;transform:scale(0.96)}
 
-/* 供应商标签（分权限：仅员工可见） */
-.cf-supplier-tag,.cfs-supplier-tag{display:inline-flex;align-items:center;padding:2px 8px;border-radius:10px;font-size:11px;font-weight:700;background:linear-gradient(135deg,#FFF3E0,#FFE0B2);color:#E65100;border:1px solid #FFCC80;margin-left:6px;white-space:nowrap}
+/* 供应商标签（2026-08-12：排版对齐客服版 cf-sup-tag/cfs-sup-tag/dh-sup-tag；内容=供应商代码） */
+.cf-sup-tag,.cfs-sup-tag,.dh-sup-tag{
+  display:inline-block;font-size:10px;font-weight:700;line-height:1;
+  padding:2px 6px;border-radius:4px;border:1px solid;margin-left:4px;
+  vertical-align:middle;flex-shrink:0;
+}
+.dh-sup-tag{font-size:12px;padding:3px 8px;border-radius:6px;vertical-align:2px;}

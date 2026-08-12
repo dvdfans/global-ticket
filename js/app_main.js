@@ -363,7 +363,7 @@ function _bagDetailRow(r) {
 // 统一报价卡片渲染（v4格式 — 直客价）
 function renderCard(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
-  var sc = isStaff() ? supplierColor(r.supplier) : {dot:'#BDBDBD', glow:'rgba(0,0,0,0.04)'};
+  var sc = supplierColor(r.supplier);
   var seatsHtml = fmtSeatsBadge(r.seats);
   
   // 天数晚数显示
@@ -509,8 +509,8 @@ function renderCard(r) {
     + '<div class="cf-header">'
     + '<span class="cf-route">' + routeHeader + '</span>'
     + (durationHtml ? '<span class="cf-duration-badge">' + durationHtml + '</span>' : '')
+    + supTagHtml(r.supplier, 'cf-sup-tag')
     + '<span class="cf-airline-tag">' + (r.airline_cn||'') + '</span>'
-    + (isStaff() && r.supplier ? '<span class="cf-supplier-tag">' + esc(r.supplier) + '</span>' : '')
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '')
     + '</div>'
     + '<div class="cf-row">' + outRow + '</div>'
@@ -558,11 +558,12 @@ function renderCardSimple(r) {
   var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + (seatDisp || '') + ' ' + (r.airline_cn||'')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
     + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) : '');
-  var _sc2 = isStaff() ? supplierColor(r.supplier) : {dot:'#BDBDBD', glow:'rgba(0,0,0,0.04)'};
+  var _sc2 = supplierColor(r.supplier);
   return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + _sc2.dot + ';--card-glow:' + (_sc2.glow||'rgba(0,0,0,0.05)') + '">'
-    + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>' + durationStr
+    + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>'
+    + durationStr + ' ' + supTagHtml(r.supplier, 'cfs-sup-tag')
     + ' <span class="cfs-price">¥' + (r.retail||0) + '</span>' + seatDisp
-    + ' <span class="cfs-airline">' + (r.airline_cn||'') + '</span>' + (isStaff() && r.supplier ? ' <span class="cfs-supplier-tag">' + esc(r.supplier) + '</span>' : '')
+    + ' <span class="cfs-airline">' + (r.airline_cn||'') + '</span>'
     + (!hasReturn ? '<span class="cf-oneway-tag">需搭配回程</span>' : '') + '</div>'
     + '<div class="cfs-body">'
     + '<div class="cfs-flights">' + outRow + retHtml + '</div>'
@@ -818,7 +819,7 @@ function openDetail(rec) {
 
   var html = '<div class="detail-header" style="position:relative">'
     + '<div class="dh-top"><span class="detail-close" onclick="closeDetail()">← 返回</span><span class="detail-x" onclick="closeDetail()">✕</span></div>'
-    + '<div class="dh-route">' + (rec.dep||'—') + '-' + (rec.arr||'—') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + '</div>'
+    + '<div class="dh-route">' + (rec.dep||'—') + '-' + (rec.arr||'—') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + ' ' + supTagHtml(rec.supplier, 'dh-sup-tag') + '</div>'
     + '<div class="dh-flight"><span class="dh-time">' + (rec.dep_time||'') + '</span> <span class="dh-dur">' + outDuration + '</span> <span class="dh-time">' + (rec.arr_time||'') + '</span> ' + _aptBlock(rec, 'dep') + '→' + _aptBlock(rec, 'arr') + '</div>'
     + '<div class="dh-dates">' + (rec.dep_date||'') + (rec.return_date ? ' → ' + rec.return_date : '') + '  •  ' + (getDays(rec)||'') + '天</div>'
     + '</div>'
@@ -827,7 +828,7 @@ function openDetail(rec) {
     + '<div class="dp-row"><span class="dp-price">¥' + (rec.retail||0) + '</span><span class="dp-tax">（含税）/人</span><span class="dp-seat">' + seatsBadge + '</span></div>'
     + '<div class="detail-section"><h4>航班信息 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + typeStr + '</span></h4>'
     + '<div class="detail-row"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
-    + (isStaff() && rec.supplier ? '<div class="detail-row"><span class="label">供应商</span><span class="value">'+esc(rec.supplier)+'</span></div>' : '')
+    + ''
     + _bagDetailRow(rec)
     + '<div class="detail-row" style="border-bottom:none"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _aptBlock(rec, 'dep') + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _aptBlock(rec, 'arr') + '</span></div>'
     + (hasReturn
@@ -1083,6 +1084,9 @@ function recordAction(action, data) {
 // ── 分权限：员工/游客 ──
 function esc(s){ return (s==null?'':''+s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 function isStaff(){ return false; }
+
+// 供应商标签框/权限：统一在 core.js（照搬客服版 canSeeSupplier/supTagHtml/supStripe，逐字一致；
+// 内容=供应商代码由子库数据天然决定），此处不再另写，避免覆盖。
 
 // 确保登录状态恢复（兼容不同浏览器）
 (function() {

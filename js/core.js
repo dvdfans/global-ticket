@@ -308,8 +308,78 @@ const SUPPLIER_COLORS = {
   '无锡国旅汤青': { bg:'#E4F4F1', border:'#8AD0C4', dot:'#00897B', glow:'rgba(0,137,123,0.18)' },
   '千巡':   { bg:'#EBEEF2', border:'#AEBAC8', dot:'#546E7A', glow:'rgba(84,110,122,0.18)' },
 };
-function supplierColor(name) {
+// 2026-08-12: 供应商代码（46 家，与全量库 supplier_code / 子库 supplier 对应）
+const SUPPLIER_CODE = { '111':'奇妙','132':'春秋','103':'美亚','119':'万国','104':'纵贯','101':'通宏','005':'上航','133':'浙江中青旅','107':'上海宝臻','124':'浙江新世界','125':'浙江海峡','130':'千巡','108':'途益','109':'信旅','121':'飞跃','007':'芒果汇','134':'宏游','135':'江苏欣辰','126':'杭州宝臻','136':'走遍全球','120':'锦江','102':'苏州和平','137':'江苏苏宁国际旅游','001':'中信','002':'港中旅','003':'关东','004':'哈哈','006':'无锡康辉','008':'HX团网','009':'东航白屏','010':'澳航假期','105':'保晟','106':'积木','110':'今日','112':'信程','113':'康辉','114':'新康辉','115':'全景','116':'腾轩','117':'国旅王威','118':'嘉航逸途','122':'团团游','123':'江苏阳光国旅','127':'无锡泰发','128':'无锡国旅','129':'无锡中天','131':'苏州飞鱼' };
+// 代码 → 色（子库 supplier 只存代码）：先按代码反查名称再查色表；传名称也兼容
+function supplierColor(codeOrName) {
+  var name = SUPPLIER_CODE[codeOrName] || codeOrName;
   return SUPPLIER_COLORS[name] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
+}
+
+// ═══════════════ 供应商标签框（2026-08-12 照搬客服版 customer_h5/core.js，逐字一致）═══════════════
+// 仅数据差异：子库 supplier 只存供应商代码（111…），同款函数链自然显示代码——
+// _decSup(非enc:原样返回) → supDispName(无缩写映射回退原值) → esc(代码)。其他一行不改。
+const SUP_KEY = 'csk2026@PQ88';
+
+// 解密供应商名（兼容未加密明文，解密失败原样返回）
+function _decSup(cipher) {
+  if (!cipher || typeof cipher !== 'string' || cipher.indexOf('enc:') !== 0) return cipher;
+  try {
+    var bin = atob(cipher.slice(4));
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    for (var j = 0; j < bytes.length; j++) bytes[j] ^= SUP_KEY.charCodeAt(j % SUP_KEY.length);
+    return new TextDecoder('utf-8').decode(bytes);
+  } catch (e) { return cipher; }
+}
+
+// 供应商 → 拼音首字母大写缩写（显示层映射；无映射时回退原值——子库传代码时即显示代码）
+const SUPPLIER_INITIALS = {
+  '美亚':'MY', '奇妙':'QM', '纵贯':'ZG', '通宏':'TH', '上航':'SH', '途益':'TY', '万国':'WG',
+  '通宏国内':'THG', '怡行':'YX', '春秋国际':'CQ', 'ERP':'ERP',
+  '浙江中青旅':'ZJZQL', '浙江新世界':'ZJXSJ', '上海宝臻':'SHBZ', '浙江海峡':'ZJHX',
+  '宏游':'HY', '芒果汇':'MGH', '信旅飞跃':'XLFY', '杭州宝臻':'HZBZ', '江苏欣辰':'JSXC',
+  '走遍全球':'ZBQQ', '锦江':'JJ', '苏州和平':'SZHP', '江苏苏宁国际旅游':'JSSN',
+  '无锡国旅汤青':'WXGLTQ', '千巡':'QX',
+};
+
+// 供应商显示名：解密 → 拼音首字母缩写（大写）；子库传代码（非 enc:、无缩写映射）时原样返回代码
+function supDispName(cipher) {
+  var real = _decSup(cipher);
+  return SUPPLIER_INITIALS[real] || real;
+}
+
+// ═══════════════ 供应商可见性权限（照搬客服版：唯一权威，禁止业务代码另写判断）═══════════════
+//   游客（未登录）           → 无权限：完全不渲染供应商相关内容
+//   普通用户（role='cs'）     → 默认无权限；如需开通，把用户名登记进 SUPPLIER_CS_VISIBLE
+//   管理员（role='admin'）    → 始终有权限
+const SUPPLIER_CS_VISIBLE = ['hq_sunyw', 'hq_liurong'];  // ★ 机票操作员：孙奕雯/刘蓉（2026-08-11 用户定）
+
+// 权限判断唯一入口
+function canSeeSupplier() {
+  try {
+    var u = CURRENT_USER;
+    if (!u || !u.user) return false;               // 游客
+    if (u.role === 'admin') return true;           // 管理员始终可见
+    if (u.role === 'cs') return SUPPLIER_CS_VISIBLE.indexOf(u.user) >= 0;  // 客服需开通
+    return false;
+  } catch (e) { return false; }
+}
+
+// 供应商标签框 HTML（照搬客服版 supTagHtml）：无权限/无值 → 空串；内容=供应商代码（子库数据）
+function supTagHtml(name, cls) {
+  if (!canSeeSupplier() || !name) return '';
+  var real = _decSup(name);                       // 子库传代码：原样返回
+  var disp = supDispName(real);                   // 无缩写映射：回退代码
+  var sc = supplierColor(real);                   // 颜色按供应商代码匹配
+  var isDetail = (cls || '').indexOf('dh-') === 0;
+  return '<span class="' + (cls || 'cf-sup-tag') + '" style="' + (isDetail ? '' : 'color:var(--text);') + 'border-color:' + sc.dot + '">' + esc(disp) + '</span>';
+}
+
+// 卡片装饰色（左边条/阴影）：无权限 → 中性灰，避免供应商专属色泄露身份（照搬客服版）
+function supStripe(r) {
+  if (!canSeeSupplier() || !r) return { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999', glow:'rgba(0,0,0,0.05)' };
+  return supplierColor(_decSup(r.supplier));
 }
 
 // 获取天数：优先 days 字段（纵贯等做了天数→晚数转换后回算），fallback 到 nights
