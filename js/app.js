@@ -771,7 +771,7 @@ function renderCard(r) {
     var retDate = r.return_date || _calcReturnDate(r.dep_date, daysVal);
     var retDepAirport = _apt(r.return_dep_airport||'');
     var retArrAirport = _apt(r.return_arr_airport||'');
-    var retDuration = _actualFlight(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
+    var retDuration = (r.return_duration || _actualFlight(r.return_dep_time, r.return_arr_time, r.arr, r.dep));
     
     // 回程出发日 = return_date 本身。红眼航班仅到达日为次日，出发日不变（2026-08-05 修复：移除错误的"减1天"逻辑）
     var retDateLong = _fmtDateLong(retDate);
@@ -831,15 +831,15 @@ function renderCardSimple(r) {
   var seatStr = (r.seats||'').trim().toLowerCase();
   var seatDisp = (!seatStr||seatStr==='nan'||seatStr==='na') ? '' : ' 余' + r.seats;
   var outDate = _fmtDateShort(r.dep_date);
-  var outDur = _fds(r.dep_time, r.arr_time, r.dep, r.arr);
+  var outDur = (r.duration || _fds(r.dep_time, r.arr_time, r.dep, r.arr));
   var outRow = '<div class="cfs-row"><span class="cfs-icon">去</span>' + outDate + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + _term(r.airline,r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport) + _term(r.airline,r.arr_airport) + '</div>';
   var retHtml = '';
   if (hasReturn) {
-    var retDur = _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
+    var retDur = (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep));
     retHtml = '<div class="cfs-row"><span class="cfs-icon cfs-icon-ret">回</span>' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + _term(r.airline,r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDur + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) + _term(r.airline,r.return_arr_airport) + '</div>';
   }
   // 生成咨询时复制的文本
-  var retDurConsult = hasReturn ? _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep) : '';
+  var retDurConsult = hasReturn ? (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep)) : '';
   var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + ' 余' + (r.seats||'—') + ' ' + (r.airline_cn||'')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
     + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) : '');
