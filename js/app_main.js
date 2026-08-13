@@ -431,6 +431,14 @@ function _airportCN(name, code) {
   var n = String(name || '').trim();
   if (n) {
     n = n.replace(/T\d+$/, '').replace(/机场$/, '').trim();   // 去航站楼残留 + 去"机场"后缀
+    // 2026-08-13 紧急修复：机场名与机场码错位（供应商表 name/code 对调，如 return_dep_airport=CJU 但 name=上海浦东）
+    // → name 与 code 权威城市不匹配时，以 code 查 AIRPORT_CN 为准，避免回程显示「上海浦东→济州岛」
+    if (code && AIRPORT_CN[code]) {
+      var std = AIRPORT_CN[code];   // 权威名：上海浦东 / 济州岛 / 东京成田 ...
+      var city = std.replace(/浦东|虹桥|成田|羽田|关西|新千岁|那霸|仁川|金浦|樟宜|亚庇|素万那普|禄口|萧山|栎社|凤凰|国际/g, '').trim();
+      var ok = (std.indexOf(n) !== -1) || (n.indexOf(std) !== -1) || (city && n.indexOf(city) !== -1);
+      if (!ok) return std;
+    }
     if (AIRPORT_ALIAS[n]) return AIRPORT_ALIAS[n];
     return n;
   }
