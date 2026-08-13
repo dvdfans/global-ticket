@@ -800,22 +800,23 @@ function _comboDays(outRec, ret) {
   var n = Math.round((d1 - d0) / 86400000) + 1;
   return n > 0 ? n : '';
 }
-// 组合行程固定栏（详情页顶部 sticky，2026-08-13）：去程+回程+合计+天数+余位+同航司徽标
+// 组合行程头部块（方案3：并入 detail-header 深色渐变底，白字适配，2026-08-13 v3）
+// 去程+回程+合计+天数+同航司；航司并进合计行右侧；红点切换时 selectReturn 更新 comboHd* 元素
 function _comboBarHtml(outRec, ret) {
   var days = _comboDays(outRec, ret);
   var total = (outRec.retail||0) + (ret.retail||0);
   var outSeat = _seatDispRender(outRec.seats);
   var retSeat = _seatDispRender(ret.seats);
-  return '<div id="comboStickyBar" style="position:sticky;top:0;z-index:5;background:var(--card-bg);border-bottom:1px solid var(--border);padding:10px 16px;font-size:12px;line-height:1.8;box-shadow:0 1px 4px rgba(0,0,0,.05)">'
-    + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">'
-    + '<span id="comboStickyTitle" style="font-size:11px;font-weight:600;color:var(--text-secondary)">组合行程' + (days ? ' · ' + days + '天' : '') + '</span>'
-    + '<span style="font-size:11px;color:var(--green)">同航司</span>'
+  var airCn = outRec.airline_cn || outRec.airline || '';
+  return '<div id="comboHeaderBar" style="margin-top:4px;font-size:11px;line-height:1.75;color:#fff">'
+    + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1px">'
+    + '<span id="comboHdTitle" style="font-size:11px;font-weight:600;letter-spacing:.3px">组合行程' + (days ? ' · ' + days + '天' : '') + (airCn ? ' · ' + airCn : '') + '</span>'
     + '</div>'
-    + '<div><span class="label" style="font-size:11px;color:var(--text-light)">去程</span> ' + _fmtDateShort(outRec.dep_date) + ' ' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '→' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + (outSeat ? ' <span style="color:var(--green);font-size:11px">' + outSeat + '</span>' : '') + '</div>'
-    + '<div id="comboStickyRet"><span class="label" style="font-size:11px;color:var(--text-light)">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:var(--green);font-size:11px">' + retSeat + '</span>' : '') + '</div>'
-    + '<div id="comboStickyTotal" style="margin-top:4px;padding-top:4px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">'
-    + '<span style="font-weight:700;font-size:14px;color:var(--red)">合计 ¥' + total + '</span>'
-    + '<span style="font-size:11px;color:var(--text-light)">= 去¥' + (outRec.retail||0) + ' + 回¥' + (ret.retail||0) + '</span>'
+    + '<div><span style="opacity:.7">去程</span> ' + _fmtDateShort(outRec.dep_date) + ' ' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '→' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + (outSeat ? ' <span style="color:#FFE58A;font-size:10px">' + outSeat + '</span>' : '') + '</div>'
+    + '<div id="comboHdRet"><span style="opacity:.7">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:#FFE58A;font-size:10px">' + retSeat + '</span>' : '') + '</div>'
+    + '<div id="comboHdTotal" style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.3);margin-top:3px;padding-top:3px">'
+    + '<span style="font-weight:700;font-size:14px">合计 ¥' + total + '<span style="font-size:10px;font-weight:400;opacity:.8">（含税）/人</span></span>'
+    + '<span style="opacity:.85;font-size:11px">去¥' + (outRec.retail||0) + '+回¥' + (ret.retail||0) + '</span>'
     + '</div>'
     + '</div>';
 }
@@ -839,11 +840,11 @@ function renderReturnOptions(rec) {
   var rets = getReturnOptions(rec);
   if (!rets.length) return '';
   var staff = _isStaffUser();
-  var html = '<div class="detail-section" style="padding:0 16px"><h4>需搭配回程航班 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + (staff ? '同航司·可勾选多条复制' : '同航司·可选日期') + '</span></h4>'
+  var html = '<div class="detail-section" style="padding:0 8px"><h4 style="padding:0 8px">需搭配回程航班 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + (staff ? '同航司·可勾选多条复制' : '同航司·可选日期') + '</span></h4>'
     + '<div style="max-height:200px;overflow-y:auto;margin-top:6px">';
   rets.forEach(function(r, idx) {
     html += '<div class="rodate" onclick="selectReturn(' + idx + ')" id="ropt_' + idx + '">'
-      + (staff ? '<input type="checkbox" class="ro-multi" data-idx="' + idx + '" onclick="event.stopPropagation()" onchange="updateMultiBtn()" style="accent-color:var(--red);width:15px;height:15px;flex:none">' : '')
+      + (staff ? '<label class="ro-multi-wrap" onclick="event.stopPropagation()" ontouchend="event.stopPropagation()"><input type="checkbox" class="ro-multi" data-idx="' + idx + '" onchange="updateMultiBtn();toggleMultiChecked(this)"></label>' : '')
       + '<span class="ro-check" style="color:var(--red)">' + (idx === 0 ? '●' : '○') + '</span>';
     html += '<span class="ro-flight">' + (r.flight||'') + '</span>'
       + '<span class="ro-date">' + _wd(r.dep_date) + '</span>'
@@ -862,9 +863,15 @@ function renderReturnOptions(rec) {
   _curReturnOptions = rets;
   return html;
 }
-// 客服批量复制：动态刷新按钮计数（去程数×回程数的有效组合数）
-function updateMultiBtn() {
+// 客服勾选行视觉标记：勾选 → 行加 multi-checked 背景（浅绿/深绿，与红点红高亮区分）
+function toggleMultiChecked(cb) {
   try {
+    var row = cb.closest('.rodate, .odate');
+    if (row) row.classList.toggle('multi-checked', !!cb.checked);
+  } catch(e) {}
+}
+// 客服批量复制：动态刷新按钮计数（去程数×回程数的有效组合数）
+function updateMultiBtn() {  try {
     var btn = document.getElementById('multiCopyBtn');
     if (!btn) return;
     var n = _comboCount();
@@ -974,24 +981,27 @@ function selectReturn(idx) {
     if (check) check.textContent = i === idx ? '●' : '○';
     if (check) check.style.color = i === idx ? 'var(--red)' : '';
   });
-  // 更新组合行程
+  // 更新组合行程（方案A：头部内嵌，comboHd*）
   var ret = _curReturnOptions[idx];
   if (!ret) return;
   var outRec = currentDetailRec;
   var total = (outRec.retail||0) + (ret.retail||0);
   var days = _comboDays(outRec, ret);
   var retSeat = _seatDispRender(ret.seats);
-  // 顶部固定栏：回程行 + 合计行 + 标题天数
-  var stickyRet = document.getElementById('comboStickyRet');
-  if (stickyRet) {
-    stickyRet.innerHTML = '<span class="label" style="font-size:11px;color:var(--text-light)">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:var(--green);font-size:11px">' + retSeat + '</span>' : '');
+  // 头部组合行程：回程行 + 合计行 + 标题天数
+  var hdRet = document.getElementById('comboHdRet');
+  if (hdRet) {
+    hdRet.innerHTML = '<span style="opacity:.7">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:#FFE58A;font-size:10px">' + retSeat + '</span>' : '');
   }
-  var stickyTitle = document.getElementById('comboStickyTitle');
-  if (stickyTitle) stickyTitle.textContent = '组合行程' + (days ? ' · ' + days + '天' : '');
-  var stickyTotal = document.getElementById('comboStickyTotal');
-  if (stickyTotal) {
-    stickyTotal.innerHTML = '<span style="font-weight:700;font-size:14px;color:var(--red)">合计 ¥' + total + '</span>'
-      + '<span style="font-size:11px;color:var(--text-light)">= 去¥' + (outRec.retail||0) + ' + 回¥' + (ret.retail||0) + '</span>';
+  var hdTitle = document.getElementById('comboHdTitle');
+  if (hdTitle) {
+    var airCn3 = outRec.airline_cn || outRec.airline || '';
+    hdTitle.textContent = '组合行程' + (days ? ' · ' + days + '天' : '') + (airCn3 ? ' · ' + airCn3 : '');
+  }
+  var hdTotal = document.getElementById('comboHdTotal');
+  if (hdTotal) {
+    hdTotal.innerHTML = '<span style="font-weight:700;font-size:14px">合计 ¥' + total + '<span style="font-size:10px;font-weight:400;opacity:.8">（含税）/人</span></span>'
+      + '<span style="opacity:.85;font-size:11px">去¥' + (outRec.retail||0) + '+回¥' + (ret.retail||0) + '</span>';
   }
   // 更新分享文本（复用 _comboText，与客服批量复制逐字一致）
   var outDays = getDays(outRec) || _comboDays(outRec, ret);
@@ -1060,10 +1070,10 @@ function openDetail(rec) {
   var staff = _isStaffUser();
   var dateListHtml = sameRoute.map(function(r, idx) {
     var active = r.dep_date === rec.dep_date;
-    var sel = active ? ' style="background:#FFF1F0;border:1px solid var(--red)"' : '';
+    var sel = active ? ' style="background:var(--red-light);border:1px solid var(--red)"' : '';
     var dot = active ? '<span class="odate-dot" style="color:var(--red)">●</span>' : '<span class="odate-dot">○</span>';
     return '<div class="odate" onclick="openDetail(_sameRoute[' + idx + '])"' + sel + '>'
-      + (staff ? '<input type="checkbox" class="odate-multi" data-idx="' + idx + '" onclick="event.stopPropagation()" onchange="updateODateBtn();updateMultiBtn()" style="accent-color:var(--red);width:15px;height:15px;flex:none">' : '')
+      + (staff ? '<label class="odate-multi-wrap" onclick="event.stopPropagation()" ontouchend="event.stopPropagation()"><input type="checkbox" class="odate-multi" data-idx="' + idx + '" onchange="updateODateBtn();updateMultiBtn();toggleMultiChecked(this)"></label>' : '')
       + dot
       + '<span>' + _wd(r.dep_date) + '</span>'
       + (r.return_date ? '<span style="margin:0 4px;color:var(--text-light);font-size:11px">→' + _wd(r.return_date) + '</span>' : '')
@@ -1135,28 +1145,33 @@ function openDetail(rec) {
   _shareTextAll = shareTextAll;
   _shareText = shareTextSingle;
 
-  var html = '<div class="detail-header" style="position:relative">'
+  var html = '<div class="detail-header" style="position:sticky;top:0;z-index:20">'
     + '<div class="dh-top"><span class="detail-close" onclick="closeDetail()">← 返回</span><span class="detail-x" onclick="closeDetail()">✕</span></div>'
-    + '<div class="dh-route">' + (rec.dep||'—') + '-' + (rec.arr||'—') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + ' ' + supTagHtml(rec.supplier, 'dh-sup-tag') + '</div>'
-    + '<div class="dh-flight"><span class="dh-time">' + (rec.dep_time||'') + '</span> <span class="dh-dur">' + outDuration + '</span> <span class="dh-time">' + (rec.arr_time||'') + '</span> ' + _aptBlock(rec, 'dep') + '→' + _aptBlock(rec, 'arr') + '</div>'
-    + '<div class="dh-dates">' + (rec.dep_date||'') + (rec.return_date ? ' → ' + rec.return_date : '') + '  •  ' + (getDays(rec)||'') + '天</div>'
+    + '<div class="dh-route">' + (rec.dep||'—') + '-' + (rec.arr||'—') + '/' + retCity + '-' + (rec.dep||'') + ' ' + supTagHtml(rec.supplier, 'dh-sup-tag') + '</div>'
+    // 方案A（2026-08-13 v2）：单程自由组合 → 组合行程并入头部（去程+回程+合计），不再有独立固定栏；
+    // 团票 → 原 dh-flight 去程时刻行
+    + (!hasReturn
+      ? (function(){ var _rets0 = getReturnOptions(rec); _curReturnOptions = _rets0; return _rets0.length ? _comboBarHtml(rec, _rets0[0]) : '<div class="dh-flight">' + _aptBlock(rec, 'dep') + '→' + _aptBlock(rec, 'arr') + '</div>'; })()
+      : '<div class="dh-flight"><span class="dh-time">' + (rec.dep_time||'') + '</span> <span class="dh-dur">' + outDuration + '</span> <span class="dh-time">' + (rec.arr_time||'') + '</span> ' + _aptBlock(rec, 'dep') + '→' + _aptBlock(rec, 'arr') + '</div>')
+    + (hasReturn ? '<div class="dh-dates">' + (rec.dep_date||'') + (rec.return_date ? ' → ' + rec.return_date : '') + '  •  ' + (getDays(rec)||'') + '天</div>' : '')
     + '</div>'
-    // 组合行程顶部固定栏（仅单程自由组合，2026-08-13）：sticky 吸顶，滚动回程列表时始终可见
-    + (!hasReturn ? (function(){ var _rets0 = getReturnOptions(rec); _curReturnOptions = _rets0; return _rets0.length ? _comboBarHtml(rec, _rets0[0]) : ''; })() : '')
     + '<div class="detail-body">'
-    // 价格行：一行排列 ¥3749（含税）/人    余位1
-    + '<div class="dp-row"><span class="dp-price">¥' + (rec.retail||0) + '</span><span class="dp-tax">（含税）/人</span><span class="dp-seat">' + seatsBadge + '</span></div>'
-    + '<div class="detail-section"><h4>航班信息 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + typeStr + '</span></h4>'
-    + '<div class="detail-row"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
-    + ''
-    + _bagDetailRow(rec)
-    + '<div class="detail-row" style="border-bottom:none"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _aptBlock(rec, 'dep') + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _aptBlock(rec, 'arr') + '</span></div>'
+    // 方案3（2026-08-13 v3）：单程自由组合价格/航司已并入头部组合行程（合计行含 去¥+回¥·航司），body 零冗余；
+    // 团票 → 保留原价格行 + 航班信息区块
+    + (hasReturn ? '<div class="dp-row"><span class="dp-price">¥' + (rec.retail||0) + '</span><span class="dp-tax">（含税）/人</span><span class="dp-seat">' + seatsBadge + '</span></div>' : '')
     + (hasReturn
-      ? '<div class="detail-row" style="border-bottom:none"><span class="label">回程</span><span class="value">' + retDateLong + ' ' + f2 + ' ' + _aptBlock(rec, 'return_dep') + ' ' + (rec.return_dep_time||'') + ' ' + retDuration + ' ' + (rec.return_arr_time||'') + ' ' + _aptBlock(rec, 'return_arr') + '</span></div>'
+      ? '<div class="detail-section"><h4>航班信息 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + typeStr + '</span></h4>'
+        + '<div class="detail-row"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
+        + _bagDetailRow(rec)
+      : '')
+    + (hasReturn
+      ? '<div class="detail-row" style="border-bottom:none"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _aptBlock(rec, 'dep') + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _aptBlock(rec, 'arr') + '</span></div>'
+        + '<div class="detail-row" style="border-bottom:none"><span class="label">回程</span><span class="value">' + retDateLong + ' ' + f2 + ' ' + _aptBlock(rec, 'return_dep') + ' ' + (rec.return_dep_time||'') + ' ' + retDuration + ' ' + (rec.return_arr_time||'') + ' ' + _aptBlock(rec, 'return_arr') + '</span></div>'
+        + '</div>'
       : '')
     // 其他去程日期（默认折叠）— 与当前天数、回程航班一致
     + '<div class="dd-toggle" onclick="toggleDates()">📅 其他去程日期 <span id="darrow">▸</span></div>'
-    + '<div id="ddates" style="display:none;padding:0 16px 8px">' + dateListHtml
+    + '<div id="ddates" style="display:none;padding:0 8px 8px">' + dateListHtml
     + (staff ? '<div style="margin-top:8px"><button id="odateMultiBtn" onclick="copySelectedDates()" style="width:100%;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer">📋 复制选中日期</button></div>' : '')
     + '</div>'
     + (!hasReturn ? renderReturnOptions(rec) : '')
@@ -1289,7 +1304,7 @@ function openShareModal() {
     + '<div id="qrCanvasWrap" style="width:200px;height:200px;margin:12px auto;border-radius:8px;overflow:hidden;background:#fff;padding:8px"></div>'
     + '<p style="font-size:12px;color:var(--text);font-weight:600">⬆ 截图此区域发送给好友</p>'
     + '<p style="font-size:11px;color:var(--text-light);margin-top:4px">好友长按或微信扫描二维码即可查看报价</p>'
-    + '<div style="margin-top:12px;background:#FFF1F0;border-radius:8px;padding:10px;font-size:11px;color:#DA3A2C;text-align:left">💡 已自动复制链接，也可直接粘贴到微信发送</div>'
+    + '<div style="margin-top:12px;background:var(--red-light);border-radius:8px;padding:10px;font-size:11px;color:var(--red);text-align:left">💡 已自动复制链接，也可直接粘贴到微信发送</div>'
     + '<button onclick="closeShareModal()" style="margin-top:10px;padding:8px 24px;border:none;border-radius:6px;background:var(--tag-bg);color:var(--text-secondary);font-size:13px;cursor:pointer">关闭</button>'
     + '</div>';
   
