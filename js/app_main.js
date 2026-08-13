@@ -422,6 +422,76 @@ function _bagDetailRow(r) {
 }
 
 // 统一报价卡片渲染（v4格式 — 直客价）
+// 2026-08-13 紧急修复：_tz/_actualFlight 提升为全局（原定义在 renderCard 内部，
+// 导致 openDetail/_fds 调用报 "not defined"，报价详情页无法打开）
+function _tz(city) {
+  var m = {
+    '上海':8,'北京':8,'广州':8,'深圳':8,'杭州':8,'南京':8,'无锡':8,
+    '成都':8,'重庆':8,'西安':8,'武汉':8,'长沙':8,'厦门':8,
+    '三亚':8,'海口':8,'青岛':8,'大连':8,'沈阳':8,'天津':8,
+    '郑州':8,'济南':8,'福州':8,'贵阳':8,'南宁':8,'兰州':8,
+    '哈尔滨':8,'乌鲁木齐':8,'南通':8,'南通兴东':8,'宁波':8,'宁波栎社':8,
+    '昆明':8,'嘉兴':8,'西宁':8,'阿勒泰':8,
+    '香港':8,'澳门':8,'台北':8,
+    '东京':9,'大阪':9,'名古屋':9,'冲绳':9,'札幌':9,'福冈':9,
+    '首尔':9,'济州岛':9,'釜山':9,
+    '曼谷':7,'普吉':7,'清迈':7,'清迈5天':7,'胡志明':7,'岘港':7,'河内':7,'雅加达':7,'富国岛':7,
+    '沙巴':8,'巴厘岛':8,'新加坡':8,'吉隆坡':8,'马尼拉':8,
+    '目的地':8
+  };
+  return m[city] !== undefined ? m[city] : 8;
+}
+
+function _actualFlight(depTime, arrTime, depCity, arrCity) {
+  if (!depTime || !arrTime) return '';
+  var p1 = depTime.split(':'), p2 = arrTime.split(':');
+  if (p1.length<2 || p2.length<2) return '';
+  var depUTC = parseInt(p1[0])*60 + parseInt(p1[1]) - _tz(depCity)*60;
+  var arrUTC = parseInt(p2[0])*60 + parseInt(p2[1]) - _tz(arrCity)*60;
+  var diff = arrUTC - depUTC;
+  if (diff < 0) diff += 1440;
+  var h = Math.floor(diff/60), min = diff % 60;
+  if (h > 0 && min > 0) return h + 'h' + min + 'm';
+  if (h > 0) return h + 'h';
+  if (min > 0) return min + 'm';
+  return '';
+}
+
+// 2026-08-13 紧急修复：_tz/_actualFlight 提升为全局（原定义在 renderCard 内部，
+// 导致 openDetail/_fds 调用报 "not defined"，报价详情页无法打开）
+function _tz(city) {
+  var m = {
+    '上海':8,'北京':8,'广州':8,'深圳':8,'杭州':8,'南京':8,'无锡':8,
+    '成都':8,'重庆':8,'西安':8,'武汉':8,'长沙':8,'厦门':8,
+    '三亚':8,'海口':8,'青岛':8,'大连':8,'沈阳':8,'天津':8,
+    '郑州':8,'济南':8,'福州':8,'贵阳':8,'南宁':8,'兰州':8,
+    '哈尔滨':8,'乌鲁木齐':8,'南通':8,'南通兴东':8,'宁波':8,'宁波栎社':8,
+    '昆明':8,'嘉兴':8,'西宁':8,'阿勒泰':8,
+    '香港':8,'澳门':8,'台北':8,
+    '东京':9,'大阪':9,'名古屋':9,'冲绳':9,'札幌':9,'福冈':9,
+    '首尔':9,'济州岛':9,'釜山':9,
+    '曼谷':7,'普吉':7,'清迈':7,'清迈5天':7,'胡志明':7,'岘港':7,'河内':7,'雅加达':7,'富国岛':7,
+    '沙巴':8,'巴厘岛':8,'新加坡':8,'吉隆坡':8,'马尼拉':8,
+    '目的地':8
+  };
+  return m[city] !== undefined ? m[city] : 8;
+}
+
+function _actualFlight(depTime, arrTime, depCity, arrCity) {
+  if (!depTime || !arrTime) return '';
+  var p1 = depTime.split(':'), p2 = arrTime.split(':');
+  if (p1.length<2 || p2.length<2) return '';
+  var depUTC = parseInt(p1[0])*60 + parseInt(p1[1]) - _tz(depCity)*60;
+  var arrUTC = parseInt(p2[0])*60 + parseInt(p2[1]) - _tz(arrCity)*60;
+  var diff = arrUTC - depUTC;
+  if (diff < 0) diff += 1440;
+  var h = Math.floor(diff/60), min = diff % 60;
+  if (h > 0 && min > 0) return h + 'h' + min + 'm';
+  if (h > 0) return h + 'h';
+  if (min > 0) return min + 'm';
+  return '';
+}
+
 function renderCard(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
   var sc = supplierColor(r.supplier);
@@ -526,7 +596,7 @@ function renderCard(r) {
   
   // ─── 去程行：文本流格式 ───
   var outDateLong = _fmtDateLong(r.dep_date);
-  var outDuration = _actualFlight(r.dep_time, r.arr_time, r.dep, r.arr);
+  var outDuration = (r.duration || _actualFlight(r.dep_time, r.arr_time, r.dep, r.arr));
   var outboundAirport = _apt(r.dep_airport||'');
   var arrivalAirport = _apt(r.arr_airport||'');
   
@@ -542,7 +612,7 @@ function renderCard(r) {
     var retDate = r.return_date || _calcReturnDate(r.dep_date, daysVal);
     var retDepAirport = _apt(r.return_dep_airport||'');
     var retArrAirport = _apt(r.return_arr_airport||'');
-    var retDuration = _actualFlight(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
+    var retDuration = (r.return_duration || _actualFlight(r.return_dep_time, r.return_arr_time, r.arr, r.dep));
     
     // 回程出发日 = return_date 本身。红眼航班仅到达日为次日，出发日不变（2026-08-05 修复：移除错误的"减1天"逻辑）
     var retDateLong = _fmtDateLong(retDate);
@@ -598,15 +668,15 @@ function renderCardSimple(r) {
   var seatDispCopy = _seatDisp(r.seats);
   if (seatDispCopy) seatDispCopy = ' ' + seatDispCopy;
   var outDate = _fmtDateShort(r.dep_date);
-  var outDur = _fds(r.dep_time, r.arr_time, r.dep, r.arr);
+  var outDur = (r.duration || _fds(r.dep_time, r.arr_time, r.dep, r.arr));
   var outRow = '<div class="cfs-row"><span class="cfs-icon">去</span>' + outDate + ' ' + (r.flight||'') + ' ' + _aptBlock(r,'dep',false) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _aptBlock(r,'arr',false) + '</div>';
   var retHtml = '';
   if (hasReturn) {
-    var retDur = _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
+    var retDur = (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep));
     retHtml = '<div class="cfs-row"><span class="cfs-icon cfs-icon-ret">回</span>' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _aptBlock(r,'return_dep',false) + ' ' + (r.return_dep_time||'') + ' ' + retDur + ' ' + (r.return_arr_time||'') + ' ' + _aptBlock(r,'return_arr',false) + '</div>';
   }
   // 生成咨询时复制的文本
-  var retDurConsult = hasReturn ? _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep) : '';
+  var retDurConsult = hasReturn ? (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep)) : '';
   // 铁律（REFERENCE §8）：复制信息严禁含供应商标签——任何登录态复制文本必须与游客逐字节一致
   var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + (seatDispCopy || '') + ' ' + (r.airline_cn||'')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
@@ -832,11 +902,11 @@ function openDetail(rec) {
   
   // ─── 格式化日期（复用renderCard中的命名空间，实际是全局同名函数）
   var outDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.dep_date);
-  var outDuration = _actualFlight(rec.dep_time,rec.arr_time,rec.dep,rec.arr);
+  var outDuration = (rec.duration || _actualFlight(rec.dep_time,rec.arr_time,rec.dep,rec.arr));
   var retDateLong = '', retDuration = '';
   if (hasReturn) {
     retDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.return_date);
-    retDuration = _actualFlight(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep);
+    retDuration = (rec.return_duration || _actualFlight(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep));
   }
 
   // 多口岸回程城市
