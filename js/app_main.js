@@ -792,41 +792,179 @@ function getReturnOptions(rec) {
   return rets;
 }
 
-// 渲染可搭配回程航班选项（含组合行程预览）
+// 组合总天数 = 回程日期 - 去程日期 + 1（HO 单程无 days 字段，2026-08-13 组合行程预览改版）
+function _comboDays(outRec, ret) {
+  if (!outRec || !ret || !outRec.dep_date || !ret.dep_date) return '';
+  var d0 = new Date(outRec.dep_date), d1 = new Date(ret.dep_date);
+  if (isNaN(d0.getTime()) || isNaN(d1.getTime())) return '';
+  var n = Math.round((d1 - d0) / 86400000) + 1;
+  return n > 0 ? n : '';
+}
+// 组合行程固定栏（详情页顶部 sticky，2026-08-13）：去程+回程+合计+天数+余位+同航司徽标
+function _comboBarHtml(outRec, ret) {
+  var days = _comboDays(outRec, ret);
+  var total = (outRec.retail||0) + (ret.retail||0);
+  var outSeat = _seatDispRender(outRec.seats);
+  var retSeat = _seatDispRender(ret.seats);
+  return '<div id="comboStickyBar" style="position:sticky;top:0;z-index:5;background:var(--card-bg);border-bottom:1px solid var(--border);padding:10px 16px;font-size:12px;line-height:1.8;box-shadow:0 1px 4px rgba(0,0,0,.05)">'
+    + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:2px">'
+    + '<span id="comboStickyTitle" style="font-size:11px;font-weight:600;color:var(--text-secondary)">组合行程' + (days ? ' · ' + days + '天' : '') + '</span>'
+    + '<span style="font-size:11px;color:var(--green)">同航司</span>'
+    + '</div>'
+    + '<div><span class="label" style="font-size:11px;color:var(--text-light)">去程</span> ' + _fmtDateShort(outRec.dep_date) + ' ' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '→' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + (outSeat ? ' <span style="color:var(--green);font-size:11px">' + outSeat + '</span>' : '') + '</div>'
+    + '<div id="comboStickyRet"><span class="label" style="font-size:11px;color:var(--text-light)">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:var(--green);font-size:11px">' + retSeat + '</span>' : '') + '</div>'
+    + '<div id="comboStickyTotal" style="margin-top:4px;padding-top:4px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">'
+    + '<span style="font-weight:700;font-size:14px;color:var(--red)">合计 ¥' + total + '</span>'
+    + '<span style="font-size:11px;color:var(--text-light)">= 去¥' + (outRec.retail||0) + ' + 回¥' + (ret.retail||0) + '</span>'
+    + '</div>'
+    + '</div>';
+}
+// 组合行程完整复制文本（单条）：去程+回程+日期+价格+余位——selectReturn 与客服批量复制共用，保证格式逐字一致
+// 铁律（REFERENCE §2.10）：复制文本严禁含供应商标签，客服登录同样必须与游客逐字节一致
+function _comboText(outRec, ret) {
+  var days = getDays(outRec) || _comboDays(outRec, ret);
+  var outSeat = _seatDisp(outRec.seats);
+  var retSeat = _seatDisp(ret.seats);
+  var total = (outRec.retail||0) + (ret.retail||0);
+  var t = (outRec.dep||'') + '-' + (outRec.arr||'') + '/' + (ret.dep||'') + '-' + (outRec.dep||'') + (days ? ' ' + days + '天' : '')
+    + '\n' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '-' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + ' ' + _durTxt(outRec)
+    + '\n' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '-' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + ' ' + _durTxt(ret)
+    + '\n' + _fmtDateShort(outRec.dep_date) + '-' + _fmtDateShort(ret.dep_date)
+    + '\n去¥' + (outRec.retail||0) + (outSeat ? '(' + outSeat + ')' : '') + ' + 回¥' + (ret.retail||0) + (retSeat ? '(' + retSeat + ')' : '') + ' = 合计¥' + total;
+  return t;
+}
+// 渲染可搭配回程航班选项（回程列表；组合行程预览已移至详情页顶部固定栏 _comboBarHtml）
+// 2026-08-13 客服专属：登录员工可见每行勾选框 + 底部「复制选中组合」按钮；游客不显示
 function renderReturnOptions(rec) {
   var rets = getReturnOptions(rec);
   if (!rets.length) return '';
-  var html = '<div class="detail-section" style="padding:0 16px"><h4>需搭配回程航班 <span style="font-size:11px;font-weight:400;color:var(--text-light)">同航司·可选日期</span></h4>'
+  var staff = _isStaffUser();
+  var html = '<div class="detail-section" style="padding:0 16px"><h4>需搭配回程航班 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + (staff ? '同航司·可勾选多条复制' : '同航司·可选日期') + '</span></h4>'
     + '<div style="max-height:200px;overflow-y:auto;margin-top:6px">';
   rets.forEach(function(r, idx) {
-    var total = (rec.retail||0) + (r.retail||0);
-    html += '<div class="rodate" onclick="selectReturn(' + idx + ')" id="ropt_' + idx + '">';
-    if (idx === 0) html += '<span class="ro-check" style="color:var(--red)">●</span>';
-    else html += '<span class="ro-check">○</span>';
+    html += '<div class="rodate" onclick="selectReturn(' + idx + ')" id="ropt_' + idx + '">'
+      + (staff ? '<input type="checkbox" class="ro-multi" data-idx="' + idx + '" onclick="event.stopPropagation()" onchange="updateMultiBtn()" style="accent-color:var(--red);width:15px;height:15px;flex:none">' : '')
+      + '<span class="ro-check" style="color:var(--red)">' + (idx === 0 ? '●' : '○') + '</span>';
     html += '<span class="ro-flight">' + (r.flight||'') + '</span>'
-      + '<span class="ro-date">' + (r.dep_date||'') + '</span>'
+      + '<span class="ro-date">' + _wd(r.dep_date) + '</span>'
       + '<span class="ro-time">' + (r.dep_time||'') + '</span>'
       + '<span class="ro-price">¥' + (r.retail||0) + '</span>'
       + '<span class="ro-seats">' + _seatDispRender(r.seats) + '</span>'
       + '</div>';
   });
-  // 默认选第一个
-  var defaultRet = rets[0];
-  var total = (rec.retail||0) + (defaultRet.retail||0);
-  html += '</div>'
-    // 组合行程预览
-    + '<div id="comboResult" style="margin-top:8px;padding:10px 12px;background:linear-gradient(135deg,var(--tag-bg),var(--card-bg));border-radius:8px;font-size:12px;line-height:1.7">'
-    + '<div style="font-size:11px;font-weight:600;color:var(--text-secondary);margin-bottom:4px">🎯 组合行程</div>'
-    + '<div><span class="label" style="font-size:11px;color:var(--text-light)">去程</span> ' + _fmtDateShort(rec.dep_date) + ' ' + (rec.flight||'') + ' ' + _apt(rec.dep_airport) + '→' + _apt(rec.arr_airport) + ' ' + (rec.dep_time||'') + '-' + (rec.arr_time||'') + '</div>'
-    + '<div id="comboRetRow"><span class="label" style="font-size:11px;color:var(--text-light)">回程</span> ' + _fmtDateShort(defaultRet.dep_date) + ' ' + (defaultRet.flight||'') + ' ' + _apt(defaultRet.dep_airport) + '→' + _apt(defaultRet.arr_airport) + ' ' + (defaultRet.dep_time||'') + '-' + (defaultRet.arr_time||'') + '</div>'
-    + '<div style="margin-top:6px;padding-top:6px;border-top:1px solid var(--border);font-weight:700;font-size:14px;color:var(--red)">合计 ¥' + total + ' <span style="font-size:11px;color:var(--text-light);font-weight:400">= 去¥' + (rec.retail||0) + ' + 回¥' + (defaultRet.retail||0) + '</span></div>'
-    + '</div></div>';
+  html += '</div>';
+  // 客服专属：复制选中组合（仅登录员工可见；计数由 onchange 动态刷新）
+  if (staff) {
+    html += '<div style="margin-top:8px"><button id="multiCopyBtn" onclick="copySelectedCombos()" style="width:100%;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer">📋 复制选中组合</button></div>';
+  }
+  html += '</div>';
   // 保存回程列表供切换
   _curReturnOptions = rets;
   return html;
 }
+// 客服批量复制：动态刷新按钮计数（去程数×回程数的有效组合数）
+function updateMultiBtn() {
+  try {
+    var btn = document.getElementById('multiCopyBtn');
+    if (!btn) return;
+    var n = _comboCount();
+    btn.textContent = '📋 复制选中组合' + (n ? ' (' + n + ')' : '');
+  } catch(e) {}
+}
+// 客服批量复制：多去程 × 多回程 纯笛卡尔积组合复制（2026-08-13 v3）
+// 勾选的去程（其他去程日期区，_sameRoute）× 勾选的回程（回程列表，_curReturnOptions）全量逐对组合，
+// 不做日期窗口过滤（客服自行判断合理性）；去程/回程任一方未勾选时：去程默认当前记录，回程默认当前选中项。
+function _checkedOutRecs() {
+  var list = [];
+  document.querySelectorAll('.odate-multi:checked').forEach(function(cb) {
+    var idx = parseInt(cb.getAttribute('data-idx'), 10);
+    if (_sameRoute && _sameRoute[idx]) list.push(_sameRoute[idx]);
+  });
+  return list;
+}
+function _checkedRetRecs() {
+  var list = [];
+  document.querySelectorAll('.ro-multi:checked').forEach(function(cb) {
+    var idx = parseInt(cb.getAttribute('data-idx'), 10);
+    if (_curReturnOptions && _curReturnOptions[idx]) list.push(_curReturnOptions[idx]);
+  });
+  return list;
+}
+// 计算组合数 = 去程数 × 回程数（纯乘积，按钮计数用）
+function _comboCount() {
+  var outs = _checkedOutRecs();
+  if (!outs.length && currentDetailRec) outs = [currentDetailRec];
+  var rets = _checkedRetRecs();
+  if (!rets.length) rets = _curReturnOptions.length ? [_curReturnOptions[_selectedReturnIdx] || _curReturnOptions[0]] : [];
+  return outs.length * rets.length;
+}
+// 组合深链：去程+回程（带回程参数，handleDeepLink 自动选中第一条组合，2026-08-13）
+function _comboDeepLink(outRec, ret) {
+  return location.origin + location.pathname
+    + '?dep=' + encodeURIComponent(outRec.dep||'')
+    + '&arr=' + encodeURIComponent(outRec.arr||'')
+    + '&flight=' + encodeURIComponent(outRec.flight||'')
+    + '&date=' + encodeURIComponent(outRec.dep_date||'')
+    + '&ret_flight=' + encodeURIComponent(ret.flight||'')
+    + '&ret_date=' + encodeURIComponent(ret.dep_date||'');
+}
+// 客服批量复制：去程×回程全量笛卡尔积组合，多条之间空行分隔，与单条复制逐字同格式
+function copySelectedCombos() {
+  if (!currentDetailRec) return;
+  var outs = _checkedOutRecs();
+  if (!outs.length) outs = [currentDetailRec];
+  var rets = _checkedRetRecs();
+  if (!rets.length) rets = _curReturnOptions.length ? [_curReturnOptions[_selectedReturnIdx] || _curReturnOptions[0]] : [];
+  if (!outs.length || !rets.length) { showToast('⚠ 请先勾选要复制的回程航班'); return; }
+  var lines = [];
+  outs.forEach(function(out) {
+    rets.forEach(function(ret) {
+      lines.push(_comboText(out, ret));
+    });
+  });
+  if (!lines.length) { showToast('⚠ 请先勾选要复制的回程航班'); return; }
+  // 2026-08-13 深链：当前红点选中的组合（_deepUrl 由 openDetail/selectReturn 维护），客人打开所见即所得；
+  // 统一推广文案（与 copyAll 同款）
+  var text = lines.join('\n\n') + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + lines.length + ' 条组合（' + outs.length + ' 去程 × ' + rets.length + ' 回程），可直接粘贴'); });
+  } else { prompt('复制以下内容：', text); }
+  recordAction('copy_multi_return', {count:lines.length, quote:text.slice(0,200), deep:_deepUrl});
+}
+// 客服专属：动态刷新「复制选中日期」按钮计数（其他去程日期多选）
+function updateODateBtn() {
+  try {
+    var btn = document.getElementById('odateMultiBtn');
+    if (!btn) return;
+    var n = document.querySelectorAll('.odate-multi:checked').length;
+    btn.textContent = '📋 复制选中日期' + (n ? ' (' + n + ')' : '');
+  } catch(e) {}
+}
+// 客服专属：复制勾选的去程日期报价（头部航线+航班行 + 每个勾选日期一行），多条空行分隔
+function copySelectedDates() {
+  var checked = document.querySelectorAll('.odate-multi:checked');
+  if (!checked.length) { showToast('⚠ 请先勾选要复制的去程日期'); return; }
+  // 头部 = 单日期复制文本去掉日期行（航线+航班行），复用 openDetail 已生成的 _shareTextSingle
+  var head = (_shareTextSingle || '').replace(/\n\d+月\d+日.*$/, '');
+  var lines = [];
+  checked.forEach(function(cb) {
+    var idx = parseInt(cb.getAttribute('data-idx'), 10);
+    var r = _sameRoute[idx];
+    if (!r) return;
+    var shortD = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'('+wk[dt.getDay()]+')';return parseInt(p[1])+'月'+parseInt(p[2])+'日'+w;})(r.dep_date);
+    var shortRet = r.return_date ? (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'('+wk[dt.getDay()]+')';return parseInt(p[1])+'月'+parseInt(p[2])+'日'+w;})(r.return_date) : '';
+    lines.push(head + '\n' + shortD + (shortRet ? '-' + shortRet : '') + ' ¥' + (r.retail||0) + (function(){var t=_seatDisp(r.seats);return t?' '+t:'';})());
+  });
+  if (!lines.length) { showToast('⚠ 请先勾选要复制的去程日期'); return; }
+  // 2026-08-13 深链：当前红点选中的组合（_deepUrl）+ 统一推广文案（与 copyAll 同款）
+  var text = lines.join('\n\n') + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + lines.length + ' 个去程日期，可直接粘贴'); });
+  } else { prompt('复制以下内容：', text); }
+  recordAction('copy_multi_date', {count:lines.length, quote:text.slice(0,200)});
+}
 
-// 选择回程航班（更新组合行程预览）
+// 选择回程航班（更新顶部固定栏组合行程）
 var _selectedReturnIdx = 0;
 var _curReturnOptions = [];
 function selectReturn(idx) {
@@ -839,27 +977,25 @@ function selectReturn(idx) {
   // 更新组合行程
   var ret = _curReturnOptions[idx];
   if (!ret) return;
-  var comboRet = document.getElementById('comboRetRow');
-  var comboTotal = document.getElementById('comboTotal');
   var outRec = currentDetailRec;
-  if (comboRet) {
-    comboRet.innerHTML = '<span class="label" style="font-size:11px;color:var(--text-light)">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _apt(ret.dep_airport) + '→' + _apt(ret.arr_airport) + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'');
-  }
   var total = (outRec.retail||0) + (ret.retail||0);
-  var comboResult = document.getElementById('comboResult');
-  if (comboResult) {
-    var totalRow = comboResult.querySelector('div:last-child');
-    if (totalRow) totalRow.innerHTML = '合计 ¥' + total + ' <span style="font-size:11px;color:var(--text-light);font-weight:400">= 去¥' + (outRec.retail||0) + ' + 回¥' + (ret.retail||0) + '</span>';
+  var days = _comboDays(outRec, ret);
+  var retSeat = _seatDispRender(ret.seats);
+  // 顶部固定栏：回程行 + 合计行 + 标题天数
+  var stickyRet = document.getElementById('comboStickyRet');
+  if (stickyRet) {
+    stickyRet.innerHTML = '<span class="label" style="font-size:11px;color:var(--text-light)">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:var(--green);font-size:11px">' + retSeat + '</span>' : '');
   }
-  // 更新分享文本
-  var outDays = getDays(outRec);
-  var outSeat = _seatDisp(outRec.seats);
-  var retSeat = _seatDisp(ret.seats);
-  _shareText = (outRec.dep||'') + '-' + (outRec.arr||'') + '/' + (ret.dep||'') + '-' + (outRec.dep||'') + (outDays ? ' ' + outDays + '天' : '')
-    + '\n' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '-' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + ' ' + _durTxt(outRec)
-    + '\n' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '-' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + ' ' + _durTxt(ret)
-    + '\n' + _fmtDateShort(outRec.dep_date) + '-' + _fmtDateShort(ret.dep_date)
-    + '\n去¥' + (outRec.retail||0) + (outSeat ? '(' + outSeat + ')' : '') + ' + 回¥' + (ret.retail||0) + (retSeat ? '(' + retSeat + ')' : '') + ' = 合计¥' + total;
+  var stickyTitle = document.getElementById('comboStickyTitle');
+  if (stickyTitle) stickyTitle.textContent = '组合行程' + (days ? ' · ' + days + '天' : '');
+  var stickyTotal = document.getElementById('comboStickyTotal');
+  if (stickyTotal) {
+    stickyTotal.innerHTML = '<span style="font-weight:700;font-size:14px;color:var(--red)">合计 ¥' + total + '</span>'
+      + '<span style="font-size:11px;color:var(--text-light)">= 去¥' + (outRec.retail||0) + ' + 回¥' + (ret.retail||0) + '</span>';
+  }
+  // 更新分享文本（复用 _comboText，与客服批量复制逐字一致）
+  var outDays = getDays(outRec) || _comboDays(outRec, ret);
+  _shareText = _comboText(outRec, ret);
   recordAction('return_select', {route:(outRec.dep||'')+'→'+(outRec.arr||'') + '/' + (ret.dep||'')+'→'+(ret.arr||''),flight:outRec.flight,date:outRec.dep_date,days:outDays,price:total,quote:_shareText});
   // 更新深链 — 包含回程选择
   _deepUrl = location.origin + location.pathname
@@ -878,6 +1014,15 @@ function _fmtDateShort(d) {
   var dt = new Date(d);
   var w = isNaN(dt.getTime()) ? '' : '(' + wk[dt.getDay()] + ')';
   return parseInt(p[1]) + '月' + parseInt(p[2]) + '日' + w;
+}
+// 周几标注（完整日期+括号周几）：2026-08-18 → 2026-08-18(二)；空/非法原样返回（2026-08-13 列表显示增强）
+function _wd(d) {
+  if (!d) return '';
+  var p = d.split('-'); if (p.length < 3) return d;
+  var wk = ['日','一','二','三','四','五','六'];
+  var dt = new Date(d);
+  if (isNaN(dt.getTime())) return d;
+  return d + '(' + wk[dt.getDay()] + ')';
 }
 
 function openDetail(rec) {
@@ -911,14 +1056,17 @@ function openDetail(rec) {
     + '&date=' + encodeURIComponent(rec.dep_date||'');
   
   // 其他日期列表 — 内联 onclick + ●○ 红点（用索引找record）
+  // 2026-08-13 客服专属：登录员工每行加勾选框（多选复制日期报价），游客不显示
+  var staff = _isStaffUser();
   var dateListHtml = sameRoute.map(function(r, idx) {
     var active = r.dep_date === rec.dep_date;
     var sel = active ? ' style="background:#FFF1F0;border:1px solid var(--red)"' : '';
     var dot = active ? '<span class="odate-dot" style="color:var(--red)">●</span>' : '<span class="odate-dot">○</span>';
     return '<div class="odate" onclick="openDetail(_sameRoute[' + idx + '])"' + sel + '>'
+      + (staff ? '<input type="checkbox" class="odate-multi" data-idx="' + idx + '" onclick="event.stopPropagation()" onchange="updateODateBtn();updateMultiBtn()" style="accent-color:var(--red);width:15px;height:15px;flex:none">' : '')
       + dot
-      + '<span>' + (r.dep_date||'') + '</span>'
-      + (r.return_date ? '<span style="margin:0 4px;color:var(--text-light);font-size:11px">→' + r.return_date + '</span>' : '')
+      + '<span>' + _wd(r.dep_date) + '</span>'
+      + (r.return_date ? '<span style="margin:0 4px;color:var(--text-light);font-size:11px">→' + _wd(r.return_date) + '</span>' : '')
       + '<span class="odate-price">¥' + (r.retail||0) + '</span>'
       + '<span class="odate-seats">' + _seatDispRender(r.seats) + '</span>'
       + (r.dep_time ? '<span class="odate-time">' + r.dep_time + (r.duration?' · '+r.duration:'') + '</span>' : '')
@@ -959,7 +1107,9 @@ function openDetail(rec) {
 
   // ─── 复制文本（单日期 / 全日期）───
   // 铁律（REFERENCE §8）：复制信息严禁含供应商标签——任何登录态复制文本必须与游客逐字节一致
-  var routeLabel = (rec.dep||'') + '-' + (rec.arr||'') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + ' ' + (getDays(rec)||'') + '天';
+  // 2026-08-13：getDays 为空（HO 单程）时不输出孤立的"天"字
+  var _rDays = getDays(rec);
+  var routeLabel = (rec.dep||'') + '-' + (rec.arr||'') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + (_rDays ? ' ' + _rDays + '天' : '');
   // 2026-08-13：复制信息含机场全名+航站楼+飞行时长（_aptBlockTxt/_durTxt），替代原 _apt() 城市名
   // 格式：航班 机场1-机场2 时间1-时间2(时长)  如 MU5041 上海浦东T1-首尔仁川T1 09:10-11:55(1h45m)
   var flightLine = f1 + ' ' + _aptBlockTxt(rec,'dep') + '-' + _aptBlockTxt(rec,'arr') + ' ' + (rec.dep_time||'') + '-' + (rec.arr_time||'') + ' ' + _durTxt(rec);
@@ -991,6 +1141,8 @@ function openDetail(rec) {
     + '<div class="dh-flight"><span class="dh-time">' + (rec.dep_time||'') + '</span> <span class="dh-dur">' + outDuration + '</span> <span class="dh-time">' + (rec.arr_time||'') + '</span> ' + _aptBlock(rec, 'dep') + '→' + _aptBlock(rec, 'arr') + '</div>'
     + '<div class="dh-dates">' + (rec.dep_date||'') + (rec.return_date ? ' → ' + rec.return_date : '') + '  •  ' + (getDays(rec)||'') + '天</div>'
     + '</div>'
+    // 组合行程顶部固定栏（仅单程自由组合，2026-08-13）：sticky 吸顶，滚动回程列表时始终可见
+    + (!hasReturn ? (function(){ var _rets0 = getReturnOptions(rec); _curReturnOptions = _rets0; return _rets0.length ? _comboBarHtml(rec, _rets0[0]) : ''; })() : '')
     + '<div class="detail-body">'
     // 价格行：一行排列 ¥3749（含税）/人    余位1
     + '<div class="dp-row"><span class="dp-price">¥' + (rec.retail||0) + '</span><span class="dp-tax">（含税）/人</span><span class="dp-seat">' + seatsBadge + '</span></div>'
@@ -1004,7 +1156,9 @@ function openDetail(rec) {
       : '')
     // 其他去程日期（默认折叠）— 与当前天数、回程航班一致
     + '<div class="dd-toggle" onclick="toggleDates()">📅 其他去程日期 <span id="darrow">▸</span></div>'
-    + '<div id="ddates" style="display:none;padding:0 16px 8px">' + dateListHtml + '</div>'
+    + '<div id="ddates" style="display:none;padding:0 16px 8px">' + dateListHtml
+    + (staff ? '<div style="margin-top:8px"><button id="odateMultiBtn" onclick="copySelectedDates()" style="width:100%;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer">📋 复制选中日期</button></div>' : '')
+    + '</div>'
     + (!hasReturn ? renderReturnOptions(rec) : '')
     + '<div class="detail-actions">'
     + '<button class="detail-share" onclick="copyAll()">📋 复制全部</button>'
@@ -1013,9 +1167,16 @@ function openDetail(rec) {
 
   document.getElementById('modalContent').innerHTML = html;
   document.getElementById('detailModal').classList.add('active');
+  // 客服专属：初始化批量复制按钮计数（默认 1 去程 × 1 回程 = 1 条）
+  if (_isStaffUser()) { try { updateMultiBtn(); } catch(e) {} }
   
-  // 保存分享文本（已在上面设置_shareText）
-  _deepUrl = deepUrl;
+  // 深链 = 当前红点选中的组合（2026-08-13）：单程且回程列表非空 → 当前去程+默认第一个回程；
+  // 团票/无回程 → 详情页基础深链。红点移动时 selectReturn 会同步更新 _deepUrl。
+  if (!hasReturn && _curReturnOptions && _curReturnOptions.length) {
+    _deepUrl = _comboDeepLink(rec, _curReturnOptions[0]);
+  } else {
+    _deepUrl = deepUrl;
+  }
 }
 
 // 折叠/展开其他日期，同时切换复制文本

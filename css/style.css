@@ -357,6 +357,8 @@ body {
 .dd-toggle{font-size:13px;font-weight:600;color:var(--red);padding:10px 14px;cursor:pointer;border-top:1px solid var(--border)}.dd-toggle:active{opacity:.7}
 /* 航站楼标签（2026-08-05 用户：改用正常字体显示，原 9px 小字浅灰看不清） */
 .t-term{font-size:inherit;color:var(--text);margin-left:2px;font-weight:500}.detail-row .t-term{color:var(--text)}
+/* 2026-08-13 修复：详情页头部(深色渐变底+白字)里的航站楼跟随头部白色文字，不跟随全局 --text */
+.detail-header .t-term{color:#fff}
 
 .detail-actions { display: flex; gap: 8px; padding: 0 16px 16px; }
 .detail-actions button { flex: 1; padding: 12px; border: none; border-radius: 10px; font-size: 14px; font-weight: 700; cursor: pointer; }
