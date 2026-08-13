@@ -159,11 +159,13 @@ let isAdmin = false;
   if (saved) {
     try { CURRENT_USER = JSON.parse(saved); } catch(e) {}
   }
-  // 分配游客ID
+  // 分配游客ID（2026-08-13 修复：原「游客+本地计数」跨设备会撞号——两台设备首次访问都可能是游客1；
+  // 改为随机唯一码「游客+6位字符」：同设备 localStorage 持久稳定，跨设备 36^6≈21亿组合几乎不撞）
   if (!localStorage.getItem('visitor_id')) {
-    var count = parseInt(localStorage.getItem('visitor_count') || '0') + 1;
-    localStorage.setItem('visitor_count', '' + count);
-    localStorage.setItem('visitor_id', '游客' + count);
+    var _vc = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+    var _id = '';
+    for (var _i = 0; _i < 6; _i++) _id += _vc.charAt(Math.floor(Math.random() * _vc.length));
+    localStorage.setItem('visitor_id', '游客' + _id);
   }
 })();
 let currentDetailRec = null;

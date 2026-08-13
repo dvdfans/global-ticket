@@ -1344,6 +1344,24 @@ function _updateCopyBtnState() {
 }
 
 // ── 智能搜索（2026-08-05 改为：输入不搜索，点「搜索」按钮/回车才搜）──
+// 模糊匹配统一入口（2026-08-13 修复：补充机场名/机场码匹配，解决「羽田/成田/HND」搜不到）
+function _searchMatch(r, kw) {
+  if ((r.flight||'').toLowerCase().indexOf(kw)!==-1) return true;
+  if ((r.dep||'').indexOf(kw)!==-1) return true;
+  if ((r.arr||'').indexOf(kw)!==-1) return true;
+  if ((r.airline_cn||'').indexOf(kw)!==-1) return true;
+  // 机场中文名（如 东京羽田机场/东京成田机场/上海浦东机场）
+  if ((r.dep_airport_name||'').indexOf(kw)!==-1) return true;
+  if ((r.arr_airport_name||'').indexOf(kw)!==-1) return true;
+  if ((r.return_dep_airport_name||'').indexOf(kw)!==-1) return true;
+  if ((r.return_arr_airport_name||'').indexOf(kw)!==-1) return true;
+  // 机场三字码（如 HND/NRT/PVG）
+  if ((r.dep_airport||'').toLowerCase().indexOf(kw)!==-1) return true;
+  if ((r.arr_airport||'').toLowerCase().indexOf(kw)!==-1) return true;
+  if ((r.return_dep_airport||'').toLowerCase().indexOf(kw)!==-1) return true;
+  if ((r.return_arr_airport||'').toLowerCase().indexOf(kw)!==-1) return true;
+  return false;
+}
 var _searchInputId = 'fitSearch';
 
 function _mkSearchInput(val) {
@@ -1745,10 +1763,7 @@ function searchFilter(q) {
       recs = DB.records.filter(function(r) {
         if (!_validRecord(r)) return false;
         var kw = q.toLowerCase();
-        return (r.flight||'').toLowerCase().indexOf(kw)!==-1
-          || (r.dep||'').indexOf(kw)!==-1
-          || (r.arr||'').indexOf(kw)!==-1
-          || (r.airline_cn||'').indexOf(kw)!==-1;
+        return _searchMatch(r, kw);
       });
     }
     
@@ -1895,10 +1910,7 @@ function searchFilterAndShow(q) {
     recs = DB.records.filter(function(r) {
       if (!_validRecord(r)) return false;
       var kw = q.toLowerCase();
-      return (r.flight||'').toLowerCase().indexOf(kw)!==-1
-        || (r.dep||'').indexOf(kw)!==-1
-        || (r.arr||'').indexOf(kw)!==-1
-        || (r.airline_cn||'').indexOf(kw)!==-1;
+      return _searchMatch(r, kw);
     });
   }
   recs.sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
