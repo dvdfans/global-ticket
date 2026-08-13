@@ -626,10 +626,7 @@ function renderCardSimple(r) {
 
 // 简化版飞行时间：3h20m
 function _fds(dt, at, dc, ac) {
-  if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';
-  var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;
-  var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;
-  var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return h+'h'+mi+'m';if(h>0)return h+'h';if(mi>0)return mi+'m';return'';
+  return _actualFlight(dt, at, dc, ac);  // 2026-08-13 治本：统一用完整 _tz() 时区表，消除国际航线往返时长错算
 }
 
 // hmCard 别名 → 统一用 renderCard
@@ -835,11 +832,11 @@ function openDetail(rec) {
   
   // ─── 格式化日期（复用renderCard中的命名空间，实际是全局同名函数）
   var outDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.dep_date);
-  var outDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return h+'h'+mi+'m';if(h>0)return h+'h';if(mi>0)return mi+'m';return'';})(rec.dep_time,rec.arr_time,rec.dep,rec.arr);
+  var outDuration = _actualFlight(rec.dep_time,rec.arr_time,rec.dep,rec.arr);
   var retDateLong = '', retDuration = '';
   if (hasReturn) {
     retDateLong = (function(d){if(!d)return'';var p=d.split('-');if(p.length<3)return d;var m=parseInt(p[1]),day=parseInt(p[2]);var wk=['日','一','二','三','四','五','六'];var dt=new Date(d);var w=isNaN(dt.getTime())?'':'（周'+wk[dt.getDay()]+'）';return m+'月'+day+'日 '+w;})(rec.return_date);
-    retDuration = (function(dt,at,dc,ac){if(!dt||!at)return'';var p1=dt.split(':'),p2=at.split(':');if(p1.length<2||p2.length<2)return'';var m={'上海':8,'东京':9,'大阪':9,'首尔':9,'曼谷':7,'香港':8,'澳门':8};var tz1=m[dc]||8,tz2=m[ac]||8;var du=parseInt(p2[0])*60+parseInt(p2[1])-tz2*60-parseInt(p1[0])*60-parseInt(p1[1])+tz1*60;if(du<0)du+=1440;var h=Math.floor(du/60),mi=du%60;if(h>0&&mi>0)return h+'h'+mi+'m';if(h>0)return h+'h';if(mi>0)return mi+'m';return'';})(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep);
+    retDuration = _actualFlight(rec.return_dep_time,rec.return_arr_time,rec.arr,rec.dep);
   }
 
   // 多口岸回程城市
