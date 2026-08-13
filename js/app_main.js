@@ -408,6 +408,19 @@ function _aptBlock(r, prefix, showCode) {
   var termHtml = term ? '<span class="t-term">' + term + '</span>' : _term(r.airline, code);
   return name + iata + termHtml;
 }
+// 机场信息块（纯文本版，复制信息用）：机场中文名 + 航站楼，如「上海浦东T1」——2026-08-13 用户要求复制信息含机场/航站楼/时长
+function _aptBlockTxt(r, prefix) {
+  var code = ((r[prefix + '_airport'] || '')).trim();
+  var name = _airportCN(r[prefix + '_airport_name'], code);
+  var term = ((r[prefix + '_terminal'] || '')).trim();
+  if (!term) term = _term(r.airline, code);
+  return name + term;
+}
+// 飞行时长（纯文本，复制用）：seg='ret' 回程，否则去程
+function _durTxt(r, seg) {
+  if (seg === 'ret') return (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep));
+  return (r.duration || _fds(r.dep_time, r.arr_time, r.dep, r.arr));
+}
 // 航站楼块：真实字段优先，无则降级 _term()
 function _termBlock(r, prefix) {
   var term = ((r[prefix + '_terminal'] || '')).trim();
@@ -679,8 +692,8 @@ function renderCardSimple(r) {
   var retDurConsult = hasReturn ? (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep)) : '';
   // 铁律（REFERENCE §8）：复制信息严禁含供应商标签——任何登录态复制文本必须与游客逐字节一致
   var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + (seatDispCopy || '') + ' ' + (r.airline_cn||'')
-    + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
-    + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) : '');
+    + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _aptBlockTxt(r,'dep') + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _aptBlockTxt(r,'arr')
+    + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _aptBlockTxt(r,'return_dep') + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _aptBlockTxt(r,'return_arr') : '');
   var _sc2 = supplierColor(r.supplier);
   return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + _sc2.dot + ';--card-glow:' + (_sc2.glow||'rgba(0,0,0,0.05)') + '">'
     + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>'
@@ -828,8 +841,8 @@ function selectReturn(idx) {
   var outSeat = _seatDisp(outRec.seats);
   var retSeat = _seatDisp(ret.seats);
   _shareText = (outRec.dep||'') + '-' + (outRec.arr||'') + '/' + (ret.dep||'') + '-' + (outRec.dep||'') + (outDays ? ' ' + outDays + '天' : '')
-    + '\n' + (outRec.flight||'') + ' ' + _apt(outRec.dep_airport) + '-' + _apt(outRec.arr_airport) + '  ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'')
-    + '\n' + (ret.flight||'') + ' ' + _apt(ret.dep_airport) + '-' + _apt(ret.arr_airport) + '  ' + (ret.dep_time||'') + '-' + (ret.arr_time||'')
+    + '\n' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '-' + _aptBlockTxt(outRec,'arr') + '  ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + ' ' + _durTxt(outRec)
+    + '\n' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '-' + _aptBlockTxt(ret,'arr') + '  ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + ' ' + _durTxt(ret)
     + '\n' + _fmtDateShort(outRec.dep_date) + '-' + _fmtDateShort(ret.dep_date)
     + '\n去¥' + (outRec.retail||0) + (outSeat ? '(' + outSeat + ')' : '') + ' + 回¥' + (ret.retail||0) + (retSeat ? '(' + retSeat + ')' : '') + ' = 合计¥' + total;
   recordAction('return_select', {route:(outRec.dep||'')+'→'+(outRec.arr||'') + '/' + (ret.dep||'')+'→'+(ret.arr||''),flight:outRec.flight,date:outRec.dep_date,days:outDays,price:total,quote:_shareText});
@@ -932,8 +945,9 @@ function openDetail(rec) {
   // ─── 复制文本（单日期 / 全日期）───
   // 铁律（REFERENCE §8）：复制信息严禁含供应商标签——任何登录态复制文本必须与游客逐字节一致
   var routeLabel = (rec.dep||'') + '-' + (rec.arr||'') + (hasReturn ? '/' + retCity + '-' + (rec.dep||'') : '') + ' ' + (getDays(rec)||'') + '天';
-  var flightLine = f1 + ' ' + _apt(rec.dep_airport) + '-' + _apt(rec.arr_airport) + '  ' + (rec.dep_time||'') + '-' + (rec.arr_time||'');
-  var retFlightLine = hasReturn ? f2 + ' ' + _apt(rec.return_dep_airport) + '-' + _apt(rec.return_arr_airport) + '  ' + (rec.return_dep_time||'') + '-' + (rec.return_arr_time||'') : '';
+  // 2026-08-13：复制信息含机场全名+航站楼+飞行时长（_aptBlockTxt/_durTxt），替代原 _apt() 城市名
+  var flightLine = f1 + ' ' + _aptBlockTxt(rec,'dep') + '-' + _aptBlockTxt(rec,'arr') + '  ' + (rec.dep_time||'') + '-' + (rec.arr_time||'') + ' ' + _durTxt(rec);
+  var retFlightLine = hasReturn ? f2 + ' ' + _aptBlockTxt(rec,'return_dep') + '-' + _aptBlockTxt(rec,'return_arr') + '  ' + (rec.return_dep_time||'') + '-' + (rec.return_arr_time||'') + ' ' + _durTxt(rec,'ret') : '';
   var dateRange = (rec.dep_date||'') + (rec.return_date ? '-' + rec.return_date : '');
   
   var shareTextSingle = routeLabel + '\n' + flightLine
@@ -1693,23 +1707,25 @@ function copyFilterResults() {
     var hasReturn = !!(r.flight_return && r.flight_return.trim());
     var routeLabel = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + (r.arr||'') + '-' + (r.dep||'') : '') + (d ? ' ' + d + '天' : '');
     var airCn = r.airline_cn || '';
-    var depAirport = _apt(r.dep_airport);
-    var arrAirport = _apt(r.arr_airport);
+    var depAirport = _aptBlockTxt(r,'dep');
+    var arrAirport = _aptBlockTxt(r,'arr');
     var depTime = (r.dep_time||'').trim();
     var arrTime = (r.arr_time||'').trim();
+    var outDurB = _durTxt(r);
     
     // 组头：航线路由+航司名 第一行
     lines.push(routeLabel + (airCn ? ' ' + airCn : ''));
-    // 航班号+机场+时间 第二行
-    lines.push((r.flight||'') + '  ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? '  ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : ''));
+    // 航班号+机场+时间+时长 第二行
+    lines.push((r.flight||'') + '  ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? '  ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : '') + (outDurB ? ' ' + outDurB : ''));
     
     // 回程航班行
     if (hasReturn) {
-      var retDep = _apt(r.return_dep_airport);
-      var retArr = _apt(r.return_arr_airport);
+      var retDep = _aptBlockTxt(r,'return_dep');
+      var retArr = _aptBlockTxt(r,'return_arr');
       var retDepTime = (r.return_dep_time||'').trim();
       var retArrTime = (r.return_arr_time||'').trim();
-      lines.push((r.flight_return||'') + (retDep ? ' ' + retDep : '') + (retArr ? '-'+retArr : '') + (retDepTime||retArrTime ? '  ' : '') + (retDepTime ? retDepTime : '') + (retArrTime ? '-'+retArrTime : ''));
+      var retDurB = _durTxt(r,'ret');
+      lines.push((r.flight_return||'') + (retDep ? ' ' + retDep : '') + (retArr ? '-'+retArr : '') + (retDepTime||retArrTime ? '  ' : '') + (retDepTime ? retDepTime : '') + (retArrTime ? '-'+retArrTime : '') + (retDurB ? ' ' + retDurB : ''));
     }
     
     // 日期行（缩进）
