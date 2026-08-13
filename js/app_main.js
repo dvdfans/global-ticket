@@ -1,4 +1,6 @@
 function render() {
+  // 2026-08-13: 非搜索结果视图（render 是常规视图渲染入口）→ 重置搜索态标志
+  _isSearchView = false;
   // 首页-尾单; 热门-中秋国庆; 其他-区域筛选
   if (currentTab === 'home') return renderHome();
   if (currentTab === 'filter') return renderFiltered();
@@ -55,6 +57,42 @@ function _stickyBar() {
   var name = label[currentTab] || currentTab;
   return '<div class="sticky-bar" style="display:flex;align-items:center;justify-content:space-between;padding:6px 12px">'
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
+    + '<div style="display:flex;gap:4px;align-items:center">'
+    + '<span class="sticky-filter" onclick="openSortModal()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888;margin-right:8px">↕ 排序</span>'
+    + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:var(--text-secondary)"><svg viewBox="0 0 24 24" width="13" height="13" style="vertical-align:-2px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg> 搜索</span>'
+    + '</div></div>';
+}
+
+// 搜索态顶部栏（2026-08-13）：搜索结果列表也带 排序/搜索 按钮，与常规列表页一致
+// 左侧用搜索关键字组合成分组标题（🔍 搜索"xx" · N 条）；sticky 固定（-webkit-sticky 兼容 iOS）
+// _isSearchView/_lastSearchQ 由 searchFilterAndShow 维护；render() 开头重置
+var _isSearchView = false;
+var _lastSearchQ = '';
+function _searchStickyBar(n, kw) {
+  var title = '搜索结果';
+  if (kw) title = '🔍 搜索"' + kw + '"';
+  return '<div class="sticky-bar" style="display:flex;align-items:center;justify-content:space-between;padding:6px 12px">'
+    + '<span class="sticky-label" style="font-weight:500;font-size:13px">' + title + (n ? ' · ' + n + ' 条' : '') + '</span>'
+    + '<div style="display:flex;gap:4px;align-items:center">'
+    + '<span class="sticky-filter" onclick="openSortModal()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888;margin-right:8px">↕ 排序</span>'
+    + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:var(--text-secondary)"><svg viewBox="0 0 24 24" width="13" height="13" style="vertical-align:-2px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg> 搜索</span>'
+    + '</div></div>';
+}
+
+// 筛选结果页顶部栏（2026-08-13）：筛选「查看N条结果」/ f_* 深链页 也带 分组标题+排序+搜索 按钮，固定
+function _filterStickyBar(n) {
+  var f = _filter || {};
+  var parts = [];
+  if (f.dep) parts.push(f.dep + '→' + (f.arr || '目的地'));
+  else if (f.arr) parts.push('出发地→' + f.arr);
+  if (f.days) parts.push(f.days + '天');
+  if (f.month) {
+    var _m = String(f.month).split('-').pop();
+    parts.push(parseInt(_m, 10) + '月');
+  }
+  var title = parts.length ? parts.join(' ') : '筛选结果';
+  return '<div class="sticky-bar" style="display:flex;align-items:center;justify-content:space-between;padding:6px 12px">'
+    + '<span class="sticky-label" style="font-weight:500;font-size:13px">' + title + (n ? ' · ' + n + ' 条' : '') + '</span>'
     + '<div style="display:flex;gap:4px;align-items:center">'
     + '<span class="sticky-filter" onclick="openSortModal()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888;margin-right:8px">↕ 排序</span>'
     + '<span class="sticky-filter" onclick="openFilter()" style="font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:var(--text-secondary)"><svg viewBox="0 0 24 24" width="13" height="13" style="vertical-align:-2px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg> 搜索</span>'
@@ -1145,7 +1183,7 @@ function openDetail(rec) {
   _shareTextAll = shareTextAll;
   _shareText = shareTextSingle;
 
-  var html = '<div class="detail-header" style="position:sticky;top:0;z-index:20">'
+  var html = '<div class="detail-header" style="position:-webkit-sticky;position:sticky;top:0;z-index:20">'
     + '<div class="dh-top"><span class="detail-close" onclick="closeDetail()">← 返回</span><span class="detail-x" onclick="closeDetail()">✕</span></div>'
     + '<div class="dh-route">' + (rec.dep||'—') + '-' + (rec.arr||'—') + '/' + retCity + '-' + (rec.dep||'') + ' ' + supTagHtml(rec.supplier, 'dh-sup-tag') + '</div>'
     // 方案A（2026-08-13 v2）：单程自由组合 → 组合行程并入头部（去程+回程+合计），不再有独立固定栏；
@@ -1687,7 +1725,9 @@ function _mkSearchInput(val) {
 }
 
 function _filterSearchBox() {
-  return '<div style="padding:0 0 10px">' + _mkSearchInput('') + '</div>';
+  // 2026-08-13: 搜索结果态打开筛选弹窗时，预填上次搜索词方便改词
+  var pre = (_isSearchView && _lastSearchQ) ? _lastSearchQ : '';
+  return '<div style="padding:0 0 10px">' + _mkSearchInput(pre) + '</div>';
 }
 
 function _filterCityPills() {
@@ -2183,7 +2223,9 @@ function showSearchResult(dep, arr, flight, date) {
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   var list=document.getElementById('cardList');
   var recs = DB.records.filter(function(r){return _validRecord(r) && r.dep===dep && r.arr===arr && r.flight===flight && r.dep_date===date});
-  list.innerHTML = recs.map(cardHTML).join('');
+  // 2026-08-13: 搜索态顶部栏（排序/搜索按钮 + 关键字分组标题）
+  _isSearchView = true;
+  list.innerHTML = _searchStickyBar(recs.length, _lastSearchQ) + recs.map(cardHTML).join('');
 }
 
 // 显示全部搜索结果
@@ -2198,6 +2240,9 @@ function showAllSearchResults() {
 }
 
 function searchFilterAndShow(q) {
+  // 2026-08-13: 标记搜索态（结果列表顶部显示 排序/搜索 按钮 + 关键字分组标题）
+  _isSearchView = true;
+  _lastSearchQ = q;
   // 同上逻辑，但直接显示到cardList
   var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
     '曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
@@ -2239,8 +2284,10 @@ function searchFilterAndShow(q) {
       return _searchMatch(r, kw);
     });
   }
-  recs.sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
-  document.getElementById('cardList').innerHTML = (recs.length>50?recs.slice(0,50):recs).map(cardHTML).join('');
+  // 2026-08-13: 排序——用户设了排序条件按 _sortModes，否则默认价格升序；列表顶部带 排序/搜索 按钮
+  var sorted = (_sortModes && _sortModes.length) ? _sortRecords(recs) : recs.slice().sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
+  var shown = sorted.length > 50 ? sorted.slice(0,50) : sorted;
+  document.getElementById('cardList').innerHTML = _searchStickyBar(recs.length, q) + shown.map(cardHTML).join('');
 }
 
 // ── 重置 ──
@@ -2274,9 +2321,10 @@ function renderFiltered() {
       });
     }
   }
-  recs.sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
+  // 2026-08-13: 排序——设了排序条件按 _sortModes，否则默认价格升序；顶部带 分组+排序+搜索 固定栏
+  var sorted = (_sortModes && _sortModes.length) ? _sortRecords(recs) : recs.slice().sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
   document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
   var list=document.getElementById('cardList');
-  if (!recs.length) { list.innerHTML='<div class="loading">无符合条件数据</div>'; return; }
-  list.innerHTML = recs.map(cardHTML).join('');  // 2026-08-06: 筛选报价默认显示全部数据（不再 slice 前50条，不用上下滑动看更多）
+  if (!sorted.length) { list.innerHTML='<div class="loading">无符合条件数据</div>'; return; }
+  list.innerHTML = _filterStickyBar(sorted.length) + sorted.map(cardHTML).join('');  // 2026-08-06: 筛选报价默认显示全部数据（不再 slice 前50条，不用上下滑动看更多）
 }

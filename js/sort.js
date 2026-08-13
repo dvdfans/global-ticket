@@ -175,7 +175,12 @@ function resetSort() {
 
 function applySort() {
   closeSortModal();
-  render();
+  // 2026-08-13: 搜索结果态下排序 → 重跑搜索视图（按新排序展示结果）；常规视图走 render()
+  if (typeof _isSearchView !== 'undefined' && _isSearchView && _lastSearchQ) {
+    searchFilterAndShow(_lastSearchQ);
+  } else {
+    render();
+  }
 }
 
 // 2026-08-07 20:4x: 排序按钮状态文本（两层：分组排序 + 卡片排序）
