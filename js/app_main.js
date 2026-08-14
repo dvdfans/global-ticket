@@ -822,16 +822,16 @@ function cardHTML(r) { return renderCard(r); }
 // 获取同航司同路线的可搭配回程航班
 function getReturnOptions(rec) {
   var air = (rec.flight || '').substring(0, 2).toUpperCase();  // HO
-  // 同航司 + 反向路线 + 日期在去程+1天 到 去程+15天
-  var maxDate = new Date(rec.dep_date);
-  maxDate.setDate(maxDate.getDate() + 15);
-  var maxDateStr = maxDate.toISOString().slice(0,10);
+  // 同航司 + 反向路线 + 回程日期 ≥ 去程+1天
+  // 2026-08-14 修正：取消原 +15 天上限。两段单程各自独立售卖，不存在「最长停留」耦合，
+  // 该上限会把 53% 的合理配对（>15晚）误过滤掉；与报价库 combo.js 口径统一为「+1天及之后全部」。
   var minDate = new Date(rec.dep_date);
   minDate.setDate(minDate.getDate() + 1);
   var minDateStr = minDate.toISOString().slice(0,10);
   var rets = DB.records.filter(function(r) {
     return r.dep === rec.arr && r.arr === rec.dep
-      && r.dep_date >= minDateStr && r.dep_date <= maxDateStr
+      && r.dep_date >= minDateStr
+      && !((r.flight_return || '').trim())   // 仅「纯单程腿」可作回程；排除团票往返记录（当前 0 条，防未来误用其含双程的价格）
       && (r.flight || '').substring(0, 2).toUpperCase() === air;
   });
   rets.sort(function(a,b) { return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1; });
@@ -949,10 +949,9 @@ function _pairRetsForOut(out) {
   var checked = _checkedRetRecs();
   var outRets = getReturnOptions(out); // 该去程自己的合法回程窗口（同 DB.records 引用）
   if (checked.length) {
-    var valid = checked.filter(function(r) { return outRets.indexOf(r) !== -1; });
-    if (valid.length) return valid;
-    // 已勾选回程均不在该去程窗口内 → 退回该去程窗口首条，保证至少 1 组合可行
-    return outRets.length ? [outRets[0]] : [];
+    // 仅保留落在该去程合法窗口内的已勾选回程；一条都不落 → 该去程无可行组合，直接跳过。
+    // 2026-08-14 修正：原先退回 outRets[0] 会凭空造出用户没勾选的组合（错报价风险）。
+    return checked.filter(function(r) { return outRets.indexOf(r) !== -1; });
   }
   // 未勾选任何回程：默认取该去程窗口首条；对当前详情则尊重红点选中项（保持原行为）
   if (out === currentDetailRec && _curReturnOptions.length) {
@@ -983,20 +982,25 @@ function copySelectedCombos() {
   if (!currentDetailRec) return;
   var outs = _checkedOutRecs();
   if (!outs.length) outs = [currentDetailRec];
-  // 2026-08-14 修复：每条去程重算各自合法回程窗口，再与已勾选回程取交集，避免回程早于去程的倒挂组合
-  var lines = [];
+  // 2026-08-14 修复：每条去程重算各自合法回程窗口，再与已勾选回程取交集，避免回程早于去程的倒挂组合；
+  // 透明记录「无可配回程」的去程，避免静默丢失（Fix③ 2026-08-14）。
+  var lines = [], skipped = [];
   outs.forEach(function(out) {
-    _pairRetsForOut(out).forEach(function(ret) {
+    var prs = _pairRetsForOut(out);
+    if (!prs.length) { skipped.push(out.dep_date || ''); return; }  // 该去程无可配回程 → 记录并跳过，不静默消失
+    prs.forEach(function(ret) {
       lines.push(_comboText(out, ret));
     });
   });
-  if (!lines.length) { showToast('⚠ 所选去程均无可用的合法回程组合，请调整勾选'); return; }
+  if (!lines.length) { showToast('⚠ 所选去程均无可用的合法回程组合，请调整勾选', true); return; }
   // 2026-08-13 深链：当前红点选中的组合（_deepUrl 由 openDetail/selectReturn 维护），客人打开所见即所得；
   // 统一推广文案（与 copyAll 同款）
   var text = lines.join('\n\n') + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() {
-      showToast('✅ 已复制 ' + lines.length + ' 条组合（' + outs.length + ' 个去程），可直接粘贴', true);
+      showToast('✅ 已复制 ' + lines.length + ' 条组合（' + (outs.length - skipped.length) + ' 个去程）'
+        + (skipped.length ? '；' + skipped.length + ' 个去程无可配回程已跳过：' + skipped.join('、') : '')
+        + '，可直接粘贴', true);
     }).catch(function(e) {
       showToast('⚠ 复制失败，请手动复制（' + (e && e.message ? e.message : e) + '）', true);
     });
