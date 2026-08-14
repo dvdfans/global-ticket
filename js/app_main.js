@@ -873,7 +873,7 @@ function _comboText(outRec, ret) {
   var outSeat = _seatDisp(outRec.seats);
   var retSeat = _seatDisp(ret.seats);
   var total = (outRec.retail||0) + (ret.retail||0);
-  var t = (outRec.dep||'') + '-' + (outRec.arr||'') + '/' + (ret.dep||'') + '-' + (outRec.dep||'') + (days ? ' ' + days + '天' : '')
+  var t = (outRec.dep||'') + '-' + (outRec.arr||'') + '/' + (ret.dep||'') + '-' + (ret.arr||'') + (days ? ' ' + days + '天' : '')
     + '\n' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '-' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + ' ' + _durTxt(outRec)
     + '\n' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '-' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + ' ' + _durTxt(ret)
     + '\n' + _fmtDateShort(outRec.dep_date) + '-' + _fmtDateShort(ret.dep_date)
@@ -943,13 +943,30 @@ function _checkedRetRecs() {
   });
   return list;
 }
-// 计算组合数 = 去程数 × 回程数（纯乘积，按钮计数用）
+// 2026-08-14 修复多选组合倒挂：每条去程日期重算各自合法回程窗口（getReturnOptions(out)），
+// 再与"已勾选回程集合"取交集——仅保留落在该去程窗口内的配对，杜绝回程早于去程的非法组合。
+function _pairRetsForOut(out) {
+  var checked = _checkedRetRecs();
+  var outRets = getReturnOptions(out); // 该去程自己的合法回程窗口（同 DB.records 引用）
+  if (checked.length) {
+    var valid = checked.filter(function(r) { return outRets.indexOf(r) !== -1; });
+    if (valid.length) return valid;
+    // 已勾选回程均不在该去程窗口内 → 退回该去程窗口首条，保证至少 1 组合可行
+    return outRets.length ? [outRets[0]] : [];
+  }
+  // 未勾选任何回程：默认取该去程窗口首条；对当前详情则尊重红点选中项（保持原行为）
+  if (out === currentDetailRec && _curReturnOptions.length) {
+    return [_curReturnOptions[_selectedReturnIdx] || _curReturnOptions[0]];
+  }
+  return outRets.length ? [outRets[0]] : [];
+}
+// 计算组合数 = Σ(每条去程的可行回程数)（2026-08-14 改为按各自窗口计，按钮计数用）
 function _comboCount() {
   var outs = _checkedOutRecs();
   if (!outs.length && currentDetailRec) outs = [currentDetailRec];
-  var rets = _checkedRetRecs();
-  if (!rets.length) rets = _curReturnOptions.length ? [_curReturnOptions[_selectedReturnIdx] || _curReturnOptions[0]] : [];
-  return outs.length * rets.length;
+  var total = 0;
+  outs.forEach(function(out) { total += _pairRetsForOut(out).length; });
+  return total;
 }
 // 组合深链：去程+回程（带回程参数，handleDeepLink 自动选中第一条组合，2026-08-13）
 function _comboDeepLink(outRec, ret) {
@@ -966,21 +983,23 @@ function copySelectedCombos() {
   if (!currentDetailRec) return;
   var outs = _checkedOutRecs();
   if (!outs.length) outs = [currentDetailRec];
-  var rets = _checkedRetRecs();
-  if (!rets.length) rets = _curReturnOptions.length ? [_curReturnOptions[_selectedReturnIdx] || _curReturnOptions[0]] : [];
-  if (!outs.length || !rets.length) { showToast('⚠ 请先勾选要复制的回程航班'); return; }
+  // 2026-08-14 修复：每条去程重算各自合法回程窗口，再与已勾选回程取交集，避免回程早于去程的倒挂组合
   var lines = [];
   outs.forEach(function(out) {
-    rets.forEach(function(ret) {
+    _pairRetsForOut(out).forEach(function(ret) {
       lines.push(_comboText(out, ret));
     });
   });
-  if (!lines.length) { showToast('⚠ 请先勾选要复制的回程航班'); return; }
+  if (!lines.length) { showToast('⚠ 所选去程均无可用的合法回程组合，请调整勾选'); return; }
   // 2026-08-13 深链：当前红点选中的组合（_deepUrl 由 openDetail/selectReturn 维护），客人打开所见即所得；
   // 统一推广文案（与 copyAll 同款）
   var text = lines.join('\n\n') + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + lines.length + ' 条组合（' + outs.length + ' 去程 × ' + rets.length + ' 回程），可直接粘贴'); });
+    navigator.clipboard.writeText(text).then(function() {
+      showToast('✅ 已复制 ' + lines.length + ' 条组合（' + outs.length + ' 个去程），可直接粘贴', true);
+    }).catch(function(e) {
+      showToast('⚠ 复制失败，请手动复制（' + (e && e.message ? e.message : e) + '）', true);
+    });
   } else { prompt('复制以下内容：', text); }
   recordAction('copy_multi_return', {count:lines.length, quote:text.slice(0,200), deep:_deepUrl});
 }
@@ -1101,6 +1120,8 @@ function openDetail(rec) {
   var f1 = rec.flight || '';
   var f2 = rec.flight_return || '';
   var hasReturn = !!(f2 && f2.trim());
+  // 单程自由组合：打开新详情时重置回程红点索引，避免沿用上一条详情的残留选中（与头部默认 return[0] 保持一致）
+  if (!hasReturn) _selectedReturnIdx = 0;
   var typeStr = hasReturn ? '团票组合' : '自由组合';
   var flightStr = hasReturn ? f1 + '/' + f2 : f1;
   
@@ -1201,6 +1222,9 @@ function openDetail(rec) {
       : '<div class="dh-flight"><span class="dh-time">' + (rec.dep_time||'') + '</span> <span class="dh-dur">' + outDuration + '</span> <span class="dh-time">' + (rec.arr_time||'') + '</span> ' + _aptBlock(rec, 'dep') + '→' + _aptBlock(rec, 'arr') + '</div>')
     + (hasReturn ? '<div class="dh-dates">' + (rec.dep_date||'') + (rec.return_date ? ' → ' + rec.return_date : '') + '  •  ' + (getDays(rec)||'') + '天</div>' : '')
     + '</div>'
+    // 单程自由组合：默认复制文本 = 当前头部显示的默认组合（去程+第一个回程），与可见组合行程/深链一致
+    // 修复（2026-08-14）：原默认 _shareText 仅为去程单腿，与头部组合行程+深链(return[0])不一致 → 所见非所得
+    + (function(){ if (!hasReturn && _curReturnOptions.length) { _shareText = _comboText(rec, _curReturnOptions[_selectedReturnIdx] || _curReturnOptions[0]); } return ''; })()
     + '<div class="detail-body">'
     // 方案3（2026-08-13 v3）：单程自由组合价格/航司已并入头部组合行程（合计行含 去¥+回¥·航司），body 零冗余；
     // 团票 → 保留原价格行 + 航班信息区块
@@ -1249,8 +1273,14 @@ function toggleDates() {
   el.style.display = isOpen ? 'none' : 'block';
   if (arrow) arrow.textContent = isOpen ? '▸' : '▾';
   recordAction('detail_date_toggle', {action:isOpen?'close':'open'});
-  // 折叠=单日期复制文本，展开=全日期复制文本
-  _shareText = isOpen ? _shareTextSingle : _shareTextAll;
+  // 单程自由组合：折叠=当前选中组合（去程+回程）与头部一致；展开=全部去程日期（不含回程，与"其他去程日期"语义一致）
+  // 团票：沿用原 折叠=单日期 / 展开=全日期
+  var _tdRec = currentDetailRec;
+  if (_tdRec && !(_tdRec.flight_return && _tdRec.flight_return.trim()) && _curReturnOptions.length) {
+    _shareText = isOpen ? _shareTextAll : _comboText(_tdRec, _curReturnOptions[_selectedReturnIdx] || _curReturnOptions[0]);
+  } else {
+    _shareText = isOpen ? _shareTextSingle : _shareTextAll;
+  }
 }
 
 // ═══════════════ 复制全部信息 ═══════════════
