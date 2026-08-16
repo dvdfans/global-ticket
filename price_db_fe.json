@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-16 16:56:58",
+  "build_time": "2026-08-16 18:37:57",
   "record_count": 2423,
   "records": [
     {
@@ -12,7 +12,7 @@
       "return_date": "2026-08-30",
       "nights": "5",
       "days": "6",
-      "retail": 2999,
+      "retail": 3399,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -40,7 +40,7 @@
       "return_dep_time": "22:25",
       "return_arr_time": "00:50",
       "baggage": "行李托运1件20KG",
-      "remark": "0815上调",
+      "remark": "0816上调",
       "sub_sheet": "上海东京GK"
     },
     {
@@ -6536,7 +6536,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "5",
+      "seats": "占位",
       "erp_seats": "10",
       "airline": "MU",
       "airline_cn": "东航",
@@ -43477,7 +43477,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "28",
+      "seats": "26",
       "erp_seats": "",
       "airline": "MH",
       "airline_cn": "马航",
@@ -83247,8 +83247,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "4",
-      "erp_seats": "4",
+      "seats": "3",
+      "erp_seats": "3",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "SHA",
