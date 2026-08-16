@@ -2287,10 +2287,16 @@ function searchFilterAndShow(q) {
   _lastSearchQ = q;
   // 同上逻辑，但直接显示到cardList
   var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
-    '曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
+    '曼谷','普吉','普吉岛','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
     '香港','澳门','台北','三亚','海口','厦门'];
+  // 2026-08-16 修复：普吉=普吉岛 城市同义词归一（库内两种写法并存：HO1369=普吉岛 / FM857=普吉）
+  // ① knownCities 匹配取「最长优先」：搜「普吉岛」应归到 普吉岛 而非 普吉
+  // ② arrCity 过滤用同义词归一比较，避免 arr=普吉 与 arr=普吉岛 互相排除
+  var CITY_SYN = {'普吉':'普吉岛', '济州':'济州岛'};
+  function _normCity(c) { return CITY_SYN[c] || c; }
   var foundCities = knownCities.filter(function(c){return q.indexOf(c)!==-1});
-  var arrCity = foundCities.length ? foundCities[0] : '';
+  foundCities.sort(function(a,b){ return b.length - a.length; });
+  var arrCity = foundCities.length ? _normCity(foundCities[0]) : '';
   var dateMatch = q.match(/(\d{1,2})[\/\.月](\d{1,2})[日号]?/);
   var targetDate = '';
   if (dateMatch) {
@@ -2310,7 +2316,13 @@ function searchFilterAndShow(q) {
   }
   var recs = DB.records.filter(function(r) {
     if (!_validRecord(r)) return false;
-    if (arrCity && r.arr !== arrCity && r.dep !== arrCity) return false;
+    // 2026-08-16：arr/dep 用同义词归一后与 arrCity 比较（普吉=普吉岛）
+    if (arrCity) {
+      if (_normCity(r.arr) !== arrCity && _normCity(r.dep) !== arrCity) return false;
+    } else if (!_searchMatch(r, q.toLowerCase())) {
+      // 2026-08-16 修复：无城市命中（如只搜航班号/机场码）→ 用通用子串匹配，避免误显示全库
+      return false;
+    }
     if (targetDate) {
       var rd = new Date(r.dep_date);
       var td = new Date(targetDate);
