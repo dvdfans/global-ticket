@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-16 15:17:37",
+  "build_time": "2026-08-16 16:56:58",
   "record_count": 2423,
   "records": [
     {
@@ -14286,7 +14286,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "10+",
-      "erp_seats": "10",
+      "erp_seats": "8",
       "airline": "FM",
       "airline_cn": "上航",
       "dep_airport": "PVG",
