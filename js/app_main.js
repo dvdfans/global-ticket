@@ -504,6 +504,7 @@ function _bagRowsHtml(t, isStd) {
 //       · 供应商无行李额 → 显示 baggage_std（权威/产品定义，同样单行「行李」标签）
 //     + 机型(aircraft)/餐食(meal)（补全信息，仅内部）
 //   - 补全信息（aircraft/baggage_std/meal）绝不渲染给游客、绝不进游客侧复制文本
+// 2026-08-17 联运分别标注：去程/回程不同航司（flight vs flight_return）→ 权威行李额分两行（去程行李/回程行李）
 function _bagDetailRow(r) {
   var html = '';
   var b = ((r.baggage || '')).trim();
@@ -514,7 +515,17 @@ function _bagDetailRow(r) {
     var m = ((r.meal || '')).trim();
     if (a) html += '<div class="detail-row" style="font-size:12px"><span class="label">机型</span><span class="value">✈️ ' + a + '</span></div>';
     // 行李参考值：仅当供应商无值时才显示（打包产品以供应商为准，权威不误导）；补全数据内容前加「*」
-    if (bs && !b) html += _bagRowsHtml(bs, true);
+    var isInterline = !!(r.flight && r.flight_return && (r.flight||'').slice(0,2) !== (r.flight_return||'').slice(0,2));
+    if (isInterline) {
+      // 联运：去程/回程 分别标注权威行李额（供应商无值时）
+      if (!b) {
+        if (bs) html += _bagRowsHtml('去程 ' + bs, true);
+        var bsr = ((r.baggage_std_ret || '')).trim();
+        if (bsr) html += _bagRowsHtml('回程 ' + bsr, true);
+      }
+    } else if (bs && !b) {
+      html += _bagRowsHtml(bs, true);
+    }
     if (m) html += '<div class="detail-row" style="font-size:12px"><span class="label">餐食</span><span class="value">🍽️ ' + m + '</span></div>';
   }
   return html;
