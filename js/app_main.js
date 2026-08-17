@@ -1321,7 +1321,7 @@ function openDetail(rec) {
     + (staff ? '<div style="margin-top:8px"><button id="odateMultiBtn" onclick="copySelectedDates()" style="width:100%;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer">📋 复制选中日期</button></div>' : '')
     + '</div>'
     + (!hasReturn ? renderReturnOptions(rec) : '')
-    + (staff ? '<div style="padding:0 12px 8px"><button onclick="copyStaffInfo()" style="width:100%;padding:10px;border:1px dashed #c0392b;border-radius:8px;background:#fff7f5;color:#c0392b;font-size:13px;font-weight:700;cursor:pointer">📋 复制给客服（含内部参考信息）</button></div>' : '')
+    + (staff ? '<div style="padding:0 12px 8px"><button onclick="copyStaffInfo()" style="width:100%;padding:10px;border:1px dashed #c0392b;border-radius:8px;background:#fff7f5;color:#c0392b;font-size:13px;font-weight:700;cursor:pointer">📋 复制（含行李、机型、餐食信息）</button></div>' : '')
     + '<div class="detail-actions">'
     + '<button class="detail-share" onclick="copyAll()">📋 复制全部</button>'
     + '<button class="detail-consult" onclick="consultCSwithCopyAll(\'' + (rec.dep||'') + '-' + (rec.arr||'') + ' ' + (rec.dep_date||'') + ' ¥' + (rec.retail||0) + '\')">💬 咨询客服</button>'
