@@ -1297,7 +1297,7 @@ function openDetail(rec) {
     + _bagDetailRow(rec)  // 机型/行李/餐食 三行（单程自由组合 + 团票 均显示；游客=仅供应商行李额，内部=+机型+餐食）
     + (hasReturn
       ? '<div class="detail-section"><h4>航班信息 <span style="font-size:11px;font-weight:400;color:var(--text-light)">' + typeStr + (hasReturn ? ' · 大人小孩同价' : '') + '</span></h4>'
-        + '<div class="detail-row"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
+        + '<div class="detail-row" style="font-size:12px"><span class="label">航司</span><span class="value">' + (rec.airline_cn||rec.airline||'—') + '</span></div>'
       : '')
     + (hasReturn
       ? '<div class="detail-row" style="border-bottom:none;font-size:12px"><span class="label">去程</span><span class="value">' + outDateLong + ' ' + f1 + ' ' + _aptBlock(rec, 'dep') + ' ' + (rec.dep_time||'') + ' ' + outDuration + ' ' + (rec.arr_time||'') + ' ' + _aptBlock(rec, 'arr') + '</span></div>'
