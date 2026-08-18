@@ -188,7 +188,7 @@ function renderTab() {
   var todayStr = today.toISOString().slice(0,10);
   var monthEnd = new Date(today.getTime() + 30 * 86400000);
   var monthEndStr = monthEnd.toISOString().slice(0,10);
-  var holidayStart = '2026-09-25', holidayEnd = '2026-10-07';
+  var holidayStart = '2026-09-23', holidayEnd = '2026-10-07'; // 中秋提前2天(拼假) + 国庆连休 9/23~10/7
   var list = document.getElementById('cardList');
   
   if (currentTab === 'hot') {
@@ -1862,13 +1862,24 @@ function _feAirlineVocab() {
   return _FE_AIRLINE_VOCAB;
 }
 
+// 供应商代码集合（从库实时构建：supplier 字段只有代码 101/103/108/005…，无中文名）
+var _FE_SUPPLIER_CODES = null;
+function _feSupplierCodes() {
+  if (_FE_SUPPLIER_CODES) return _FE_SUPPLIER_CODES;
+  var set = {};
+  var recs = (typeof DB !== 'undefined' && DB && DB.records) ? DB.records : [];
+  recs.forEach(function(r) { var k = String(r.supplier || ''); if (k) set[k] = true; });
+  _FE_SUPPLIER_CODES = Object.keys(set);
+  return _FE_SUPPLIER_CODES;
+}
+
 // 从任意输入抽取关键字：航司(中文名/IATA码，大小写无关)、航班号、供应商名(不支持维度)
 // 返回 {airlines:[中文名或IATA码], flights:[航班号], unsupported:[供应商名]}
 function _extractSearchKw(q) {
   var raw = String(q || '');
   var lower = raw.toLowerCase();
   var vocab = _feAirlineVocab();
-  var out = { airlines: [], flights: [], unsupported: [] };
+  var out = { airlines: [], flights: [], unsupported: [], suppliers: [] };
 
   // 1) 供应商名 → 不支持维度（H5 库无此字段）
   _FE_SUPPLIER_WORDS.forEach(function(w) {
@@ -1879,6 +1890,14 @@ function _extractSearchKw(q) {
   //    搜 GK036 是要那一班，不该放大成「所有 GK 航班」
   var fm = lower.match(/[a-z0-9]{2}\d{3,4}/g) || [];
   fm.forEach(function(f) { if (out.flights.indexOf(f) === -1) out.flights.push(f); });
+
+  // 2.5 供应商代码（数据字段，非中文名）：纯数字段精确命中库内已知 supplier 代码才采纳，
+  //     避免把航班号/日期里的数字误当供应商。如「103」→ 供应商103；「103GK」→ 供应商103 + 航司GK。
+  var _supCodes = _feSupplierCodes();
+  var _numRuns = raw.match(/\d{2,3}/g) || [];
+  _numRuns.forEach(function(nr) {
+    if (_supCodes.indexOf(nr) !== -1 && out.suppliers.indexOf(nr) === -1) out.suppliers.push(nr);
+  });
 
   // 3) 航司中文名：逐个 indexOf，天然支持连写「东航国航南航日航」
   vocab.cn.forEach(function(n) {
@@ -1910,6 +1929,26 @@ function _extractSearchKw(q) {
     }
     if (picked && picked.length) {
       picked.forEach(function(c) { if (out.airlines.indexOf(c) === -1) out.airlines.push(c); });
+      return;
+    }
+    // 4c. 含数字前缀的粘连（如 103GK / 103GKMU / 103 GK）：数字作分隔，
+    //    对纯字母段做代码拆解；供应商代码 103 被当分隔丢弃（H5 不检索供应商，符合铁律）。
+    //    hongkong 等「纯字母且 4b 失败」的 token 不会进入此分支，HO 仍不误命中。
+    if (/\d/.test(tok)) {
+      var _alphaRuns = tok.split(/[0-9]+/).filter(Boolean);
+      _alphaRuns.forEach(function(run) {
+        var ru = run.toUpperCase();
+        var j = 0, pk = [];
+        while (j < ru.length) {
+          var h = '';
+          for (var L = 3; L >= 2; L--) {
+            if (j + L <= ru.length && vocab.code.indexOf(ru.substr(j, L)) !== -1) { h = ru.substr(j, L); break; }
+          }
+          if (!h) { pk = null; break; }
+          pk.push(h); j += h.length;
+        }
+        if (pk) pk.forEach(function(c) { if (out.airlines.indexOf(c) === -1) out.airlines.push(c); });
+      });
     }
   });
   return out;
@@ -2169,32 +2208,23 @@ function _getFilteredRecs() {
   return recs;
 }
 
-function copyFilterResults() {
-  var recs = _getFilteredRecs();
-  if (!recs.length) { showToast('没有可复制的报价'); return; }
-  
-  // 按 (dep+arr+days+flight+flight_return) 分组
+// ── 复制分组 / 分批（2026-08-18 升级：超 100 条自动分批，溢出在告警框二次渲染供续复制）──
+function _escHtml(s){ return (''+s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+// 把记录按 (dep|arr|days|flight|flight_return) 分组，返回 [{header:[行], dates:[行], size}]
+function _buildCopyGroups(recs) {
   var groups = {};
   recs.forEach(function(r) {
     var key = (r.dep||'') + '|' + (r.arr||'') + '|' + (getDays(r)||'') + '|' + (r.flight||'') + '|' + ((r.flight_return||'').trim());
     if (!groups[key]) groups[key] = [];
     groups[key].push(r);
   });
-  
-  // 每组内按日期排序
   Object.keys(groups).forEach(function(k) {
     groups[k].sort(function(a,b){return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1});
   });
-  
-  var lines = [];
-  var groupKeys = Object.keys(groups);
-  var MAX_COPY = 100; // 2026-08-17 用户定案：复制上限100条日期报价（替换旧 maxGroups=15/maxDatesPerGroup=30 隐性截断）
-  var copied = 0;     // 已输出日期报价行数
-  var truncated = false;
-  groupKeys.forEach(function(key, gi) {
-    if (copied >= MAX_COPY) { truncated = true; return; }
-    var recs = groups[key];
-    var r = recs[0];
+  return Object.keys(groups).map(function(key){
+    var gRecs = groups[key];
+    var r = gRecs[0];
     var d = getDays(r) || '';
     var hasReturn = !!(r.flight_return && r.flight_return.trim());
     var routeLabel = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + (r.arr||'') + '-' + (r.dep||'') : '') + (d ? ' ' + d + '天' : '');
@@ -2203,49 +2233,114 @@ function copyFilterResults() {
     var arrAirport = _aptBlockTxt(r,'arr');
     var depTime = (r.dep_time||'').trim();
     var arrTime = (r.arr_time||'').trim();
-    var outDurB = _durTxt(r);
-    
-    // 组头：航线路由+航司名 第一行
-    lines.push(routeLabel + (airCn ? ' ' + airCn : ''));
-    // 航班号+机场+时间+时长 第二行
-    lines.push((r.flight||'') + ' ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? ' ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : '') + (outDurB ? ' ' + outDurB : ''));
-    
-    // 回程航班行
+    var outDur = _durTxt(r);
+    var header = [ routeLabel + (airCn ? ' ' + airCn : '') ];
+    header.push((r.flight||'') + ' ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? ' ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : '') + (outDur ? ' ' + outDur : ''));
     if (hasReturn) {
       var retDep = _aptBlockTxt(r,'return_dep');
       var retArr = _aptBlockTxt(r,'return_arr');
       var retDepTime = (r.return_dep_time||'').trim();
       var retArrTime = (r.return_arr_time||'').trim();
-      var retDurB = _durTxt(r,'ret');
-      lines.push((r.flight_return||'') + (retDep ? ' ' + retDep : '') + (retArr ? '-'+retArr : '') + (retDepTime||retArrTime ? ' ' : '') + (retDepTime ? retDepTime : '') + (retArrTime ? '-'+retArrTime : '') + (retDurB ? ' ' + retDurB : ''));
+      var retDur = _durTxt(r,'ret');
+      header.push((r.flight_return||'') + (retDep ? ' ' + retDep : '') + (retArr ? '-'+retArr : '') + (retDepTime||retArrTime ? ' ' : '') + (retDepTime ? retDepTime : '') + (retArrTime ? '-'+retArrTime : '') + (retDur ? ' ' + retDur : ''));
     }
     // 供应商行李额行（2026-08-17 用户定案：复制只含供应商在线表采集到的行李额统一格式，不含补全信息）
     var bg = ((r.baggage || '')).trim();
-    if (bg) lines.push('行李：' + bg);
-    
-    // 日期行（受 MAX_COPY 上限约束）
-    var need = MAX_COPY - copied;
-    var slice = recs.slice(0, need);
-    slice.forEach(function(rr) {
+    if (bg) header.push('行李：' + bg);
+    var dates = gRecs.map(function(rr){
       var ds = _fmtDateShort(rr.dep_date);
       var rs = rr.return_date ? _fmtDateShort(rr.return_date) : '';
       var dateStr = ds + (rs ? '-' + rs : '');
       var price = rr.retail || 0;
       var seat = _seatDisp(rr.seats);
-      lines.push(dateStr + ' ￥' + price + (seat ? ' ' + seat : ''));
+      return dateStr + ' ￥' + price + (seat ? ' ' + seat : '');
     });
-    copied += slice.length;
-    if (recs.length > need) truncated = true;
-    if (gi < groupKeys.length - 1 && copied < MAX_COPY) lines.push(''); // 组间空行
+    return { header: header, dates: dates, size: gRecs.length };
   });
-  if (truncated) lines.push('...共' + recs.length + '条，已复制前' + MAX_COPY + '条');
-  
-  var text = lines.join('\n') + '\n\n' + _PROMO + '\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
-  
+}
+
+// 按 MAX_COPY(每条日期行) 切批；跨批重复组头保证每批独立可粘贴
+function _buildCopyBatchTexts(groups, MAX_COPY, trailer) {
+  var batches = [];
+  var cur = { lines: [], n: 0 };
+  function flush() {
+    if (cur.lines.length) batches.push({ text: cur.lines.join('\n') + '\n\n' + trailer, n: cur.n });
+    cur = { lines: [], n: 0 };
+  }
+  groups.forEach(function(g) {
+    var L = g.dates.length, gi = 0;
+    while (gi < L) {
+      if (cur.n >= MAX_COPY) flush();          // 当前批满 → 新批
+      if (cur.n > 0) cur.lines.push('');        // 同批内组间空行
+      Array.prototype.push.apply(cur.lines, g.header);  // 组头（跨批重复）
+      var room = MAX_COPY - cur.n;
+      var take = Math.min(room, L - gi);
+      for (var k = 0; k < take; k++) cur.lines.push(g.dates[gi + k]);
+      cur.n += take; gi += take;
+    }
+  });
+  flush();
+  return batches;
+}
+
+// 复制溢出告警框：首批准入剪贴板后，剩余批次在框内渲染全文 + 「📋 复制」按钮可续复制
+function _showCopyOverflowAlert(msg, batches) {
+  _closeCopyOverflowAlert();
+  var mask = document.createElement('div');
+  mask.id = 'copyOverflowMask';
+  mask.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);z-index:910;display:flex;align-items:flex-start;justify-content:center;padding:24px;overflow:auto';
+  var html = '<div style="background:var(--bg-card,#fff);border-radius:14px;max-width:340px;width:100%;padding:18px;box-shadow:0 8px 32px rgba(0,0,0,.25);margin:auto">'
+    + '<div style="font-size:15px;font-weight:700;color:var(--text,#222);margin-bottom:4px">📋 复制已分批</div>'
+    + '<div style="font-size:12px;color:var(--text-secondary,#666);line-height:1.6;margin-bottom:10px">' + msg + '</div>'
+    + '<div style="max-height:52vh;overflow:auto;margin-bottom:10px">';
+  batches.forEach(function(b, i){
+    html += '<div style="border:1px solid var(--border,#eee);border-radius:10px;padding:8px;margin-bottom:8px">'
+      + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">'
+      + '<span style="font-size:12px;font-weight:600;color:var(--text,#222)">' + b.label + '</span>'
+      + '<span onclick="_copyBatchText(this)" data-idx="'+i+'" style="padding:4px 10px;border-radius:8px;background:var(--brand,var(--red,#e64340));color:#fff;font-size:12px;font-weight:600;cursor:pointer">📋 复制</span>'
+      + '</div>'
+      + '<textarea readonly onclick="this.select()" style="width:100%;height:96px;font-size:11px;line-height:1.4;box-sizing:border-box;border:1px solid var(--border,#eee);border-radius:8px;padding:6px;resize:vertical;font-family:monospace;color:var(--text,#222)">' + _escHtml(b.text) + '</textarea>'
+      + '</div>';
+  });
+  html += '</div>'
+    + '<div onclick="_closeCopyOverflowAlert()" style="padding:10px;border-radius:10px;background:var(--text-light,#bbb);color:#fff;font-size:14px;font-weight:600;text-align:center;cursor:pointer">关闭</div>'
+    + '</div>';
+  mask.innerHTML = html;
+  mask._batchTexts = batches.map(function(b){return b.text;});
+  mask.addEventListener('click', function(e){ if(e.target===mask) _closeCopyOverflowAlert(); });
+  document.body.appendChild(mask);
+}
+function _copyBatchText(el) {
+  var mask = document.getElementById('copyOverflowMask');
+  if (!mask || !mask._batchTexts) return;
+  var idx = parseInt(el.getAttribute('data-idx'),10);
+  var txt = mask._batchTexts[idx];
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + copied + ' 条报价，' + groupKeys.length + ' 组' + (truncated ? '（前' + MAX_COPY + '条）' : '')); });
-  } else { prompt('复制以下内容：', text); }
-  recordAction('copy_filter', {count:copied,quote:text.slice(0,200)});
+    navigator.clipboard.writeText(txt).then(function(){ showToast('✅ 已复制第 ' + (idx+2) + ' 批'); });
+  } else { prompt('复制以下内容：', txt); }
+}
+function _closeCopyOverflowAlert() {
+  var m = document.getElementById('copyOverflowMask');
+  if (m && m.parentNode) m.parentNode.removeChild(m);
+}
+
+function copyFilterResults() {
+  var recs = _getFilteredRecs();
+  if (!recs.length) { showToast('没有可复制的报价'); return; }
+  var MAX_COPY = 100; // 2026-08-17 用户定案：单批复制上限100条日期报价
+  var groups = _buildCopyGroups(recs);
+  var trailer = _PROMO + '\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
+  var batches = _buildCopyBatchTexts(groups, MAX_COPY, trailer);
+  var first = batches.shift();
+  var total = groups.reduce(function(s,g){return s+g.size;},0);
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(first.text).then(function(){ showToast('✅ 已复制第 1 批（共 ' + (batches.length+1) + ' 批，' + MAX_COPY + ' 条/批）'); });
+  } else { prompt('复制以下内容（第 1 批）：', first.text); }
+  recordAction('copy_filter', {count:total, batches:batches.length+1, quote:first.text.slice(0,200)});
+  if (batches.length) {
+    var overflow = batches.map(function(b,i){ return { label:'第 '+(i+2)+' 批（'+b.n+' 条）', text:b.text }; });
+    _showCopyOverflowAlert('已复制第 1 批（'+first.n+' 条，共 '+(batches.length+1)+' 批）。剩余批次可在下方文本框长按手动复制，或点「📋 复制」继续复制。', overflow);
+  }
 }
 
 // ── 筛选链接参数 ──
@@ -2316,6 +2411,116 @@ function selectDate(d) {
 }
 
 // ── 智能搜索（2026-08-05 改为：输入不搜索，点「搜索」按钮/回车才搜）──
+
+// ── 日期解析（2026-08-18 升级：区间 + 多格式单日）──
+// 消歧规则（铁律级，写死不可改）：
+//   区间定界符 = 连字符/波浪号 [-~～—]；月日分隔符 = [./月]（不含裸连字符）
+//   ① 区间判定：左端必须自带月日分隔符(./月)或为8位无分隔(YYYYMMDD)，才视为区间
+//      → 9.23-10.5 / 9月23日-10月5日 / 20260923-20261005 / 9.23-27 均为区间
+//      → 9-20 左端无月日分隔符 → 不是区间 → 降级为「单日(月-日)」
+//   ② 单日格式：9/20、9.20、9月20日、2026-09-20、20260920、9-20（裸连字符作月日分隔）
+//   ③ 仅月份：9月（无具体日）→ 按去程月份过滤
+//   ④ 区间一律解释为「去程日期区间」（非 去程-回程 组合）
+function _iso(y,m,d){ return ('0000'+y).slice(-4)+'-'+('0'+m).slice(-2)+'-'+('0'+d).slice(-2); }
+function _md(m,d){
+  var mm=parseInt(m,10), dd=parseInt(d,10);
+  var now=new Date(); var y=now.getFullYear();
+  if (mm < now.getMonth()+1) y++;          // 已过月份 → 推到下一年
+  return _iso(y,mm,dd);
+}
+function _shiftYear(iso){ return _iso(parseInt(iso.slice(0,4),10)+1, iso.slice(5,7), iso.slice(8,10)); }
+// ── 节假日 → 去程日期区间（2026-08-18 新增）──
+// 官方：国务院办公厅《关于2026年部分节假日安排的通知》(2025-11-04)
+// 年份取“即将到来”的一档：有 start>=今天 则选最早 upcoming；否则该节假日无未来档 → 不参与筛选（不误导）
+// 表内联在函数内（非顶层 var）：避免源码加载期早期语句崩溃导致顶层 var 未赋值，函数调用时再建表即可用
+function _matchHoliday(q) {
+  // 官方：国务院办公厅《关于2026年部分节假日安排的通知》(2025-11-04)
+  // preLeave：节前请假缓冲（很多人节前调休拼假）→ start 前推 N 天（中秋提前2天 → 9/23 起）
+  // 联动(merge)：相邻节假日间隔 <= MERGE_GAP 天时合并为一个连休窗口（中秋→国庆 间隔3天 → 合并 9/23~10/7）
+  var _HOLIDAY_DEFS = [
+    { name:'中秋',   kw:['中秋','中秋节'],  preLeave:2, ranges:[{s:'2026-09-25',e:'2026-09-27'},{s:'2027-09-25',e:'2027-09-27'}] },
+    { name:'国庆',   kw:['国庆','国庆节'],  preLeave:0, ranges:[{s:'2026-10-01',e:'2026-10-07'}] },
+    { name:'元旦',   kw:['元旦'],           preLeave:0, ranges:[{s:'2026-01-01',e:'2026-01-03'},{s:'2027-01-01',e:'2027-01-03'}] },
+    { name:'春节',   kw:['春节','过年'],    preLeave:0, ranges:[{s:'2026-02-15',e:'2026-02-23'}] },
+    { name:'劳动节', kw:['五一','劳动节'],  preLeave:0, ranges:[{s:'2026-05-01',e:'2026-05-05'}] },
+    { name:'清明',   kw:['清明','清明节'],  preLeave:0, ranges:[{s:'2026-04-04',e:'2026-04-06'}] },
+    { name:'端午',   kw:['端午','端午节'],  preLeave:0, ranges:[{s:'2026-06-19',e:'2026-06-21'}] }
+  ];
+  var MERGE_GAP = 4; // 连休合并阈值（天）：间隔在此内视为同一拼假窗口
+  var now = new Date();
+  var today = _iso(now.getFullYear(), now.getMonth()+1, now.getDate());
+  function _effStart(d, leave){ var x=new Date(d.slice(0,4), parseInt(d.slice(5,7),10)-1, parseInt(d.slice(8,10),10)); if(leave) x.setDate(x.getDate()-leave); return _iso(x.getFullYear(), x.getMonth()+1, x.getDate()); }
+  function _effEnd(d){ var x=new Date(d.slice(0,4), parseInt(d.slice(5,7),10)-1, parseInt(d.slice(8,10),10)); return _iso(x.getFullYear(), x.getMonth()+1, x.getDate()); }
+  // 1) 选“即将到来”档 + 应用 preLeave → effective 区间
+  var eff = [];
+  for (var i=0;i<_HOLIDAY_DEFS.length;i++){
+    var h=_HOLIDAY_DEFS[i], chosen=null;
+    for (var j=0;j<h.ranges.length;j++){ if (h.ranges[j].s>=today && (!chosen||h.ranges[j].s<chosen.s)) chosen=h.ranges[j]; }
+    if(!chosen) continue;   // 无未来档（如8月搜“春节”2026已过、2027未定）→ 不参与筛选
+    eff.push({ name:h.name, kw:h.kw, start:_effStart(chosen.s, h.preLeave), end:_effEnd(chosen.e) });
+  }
+  // 2) 按 start 排序，贪心合并相邻（间隔 <= MERGE_GAP 天）
+  eff.sort(function(a,b){ return a.start<b.start?-1:(a.start>b.start?1:0); });
+  var clusters=[];
+  for (var x=0;x<eff.length;x++){
+    var cur=eff[x];
+    if (clusters.length){
+      var last=clusters[clusters.length-1];
+      var ld=new Date(last.end.slice(0,4), parseInt(last.end.slice(5,7),10)-1, parseInt(last.end.slice(8,10),10));
+      var cs=new Date(cur.start.slice(0,4), parseInt(cur.start.slice(5,7),10)-1, parseInt(cur.start.slice(8,10),10));
+      var gap=Math.round((cs-ld)/86400000);
+      if (gap>=0 && gap<=MERGE_GAP){ if(cur.end>last.end) last.end=cur.end; last.names.push(cur.name); continue; }
+    }
+    clusters.push({ start:cur.start, end:cur.end, names:[cur.name] });
+  }
+  // 3) 关键词命中 → 返回所属 cluster（中秋/国庆 同窗 → 都返回 9/23~10/7）
+  for (var c=0;c<clusters.length;c++){
+    for (var n=0;n<clusters[c].names.length;n++){
+      var nm=clusters[c].names[n], def=null;
+      for (var d=0;d<_HOLIDAY_DEFS.length;d++){ if(_HOLIDAY_DEFS[d].name===nm){def=_HOLIDAY_DEFS[d];break;} }
+      if(!def) continue;
+      for (var k=0;k<def.kw.length;k++){ if (q.indexOf(def.kw[k])!==-1){
+        var label = clusters[c].names.length>1 ? clusters[c].names.join('·')+'连休' : clusters[c].names[0];
+        return {name:label, start:clusters[c].start, end:clusters[c].end};
+      } }
+    }
+  }
+  return null;
+}
+function _parseDateQuery(q){
+  if(!q) return {mode:'none'};
+  var r;
+  // —— 区间 ——（左端须带月日分隔符或8位）
+  if ((r=q.match(/(\d{4})(\d{2})(\d{2})\s*[-~～—]\s*(\d{4})(\d{2})(\d{2})/))) {
+    var s=_iso(r[1],r[2],r[3]), e=_iso(r[4],r[5],r[6]); if(e<s) e=_shiftYear(e);
+    return {mode:'range',start:s,end:e};
+  }
+  if ((r=q.match(/(\d{4})-(\d{1,2})-(\d{1,2})\s*[-~～—]\s*(\d{4})-(\d{1,2})-(\d{1,2})/))) {
+    var s2=_iso(r[1],r[2],r[3]), e2=_iso(r[4],r[5],r[6]); if(e2<s2) e2=_shiftYear(e2);
+    return {mode:'range',start:s2,end:e2};
+  }
+  if ((r=q.match(/(\d{1,2})[.\/月](\d{1,2})日?\s*[-~～—]\s*(\d{1,2})[.\/月](\d{1,2})日?/))) {
+    var s3=_md(r[1],r[2]), e3=_md(r[3],r[4]); if(e3<s3) e3=_shiftYear(e3);
+    return {mode:'range',start:s3,end:e3};
+  }
+  if ((r=q.match(/(\d{1,2})[.\/月](\d{1,2})日?\s*[-~～—]\s*(\d{1,2})日?/))) {
+    var s4=_md(r[1],r[2]), e4=_md(r[1],r[3]); if(e4<s4) e4=_shiftYear(e4);
+    return {mode:'range',start:s4,end:e4};
+  }
+  // —— 单日 ——
+  if ((r=q.match(/(\d{4})(\d{2})(\d{2})(?!\d)/))) return {mode:'single',date:_iso(r[1],r[2],r[3])};   // 20260920
+  if ((r=q.match(/(\d{4})-(\d{1,2})-(\d{1,2})/))) return {mode:'single',date:_iso(r[1],r[2],r[3])};   // 2026-09-20
+  if ((r=q.match(/(\d{1,2})[.\/月](\d{1,2})日?/))) return {mode:'single',date:_md(r[1],r[2])};         // 9/20 9.20 9月20日
+  if ((r=q.match(/(\d{1,2})-(\d{1,2})(?![\d.\/月])/))) return {mode:'single',date:_md(r[1],r[2])};     // 9-20
+  // —— 仅月份 —— 9月（后面不跟数字/分隔符）
+  var mo=q.match(/(\d{1,2})月(?![\d.\/-])/);
+  if (mo && parseInt(mo[1],10)>=1 && parseInt(mo[1],10)<=12) return {mode:'month',month:('0'+parseInt(mo[1],10)).slice(-2)};
+  // —— 节假日（2026-08-18 新增）：国庆/中秋/元旦… → 去程日期区间，年份取即将到来的一档
+  var _hol = _matchHoliday(q);
+  if (_hol) return {mode:'range', start:_hol.start, end:_hol.end, holiday:_hol.name};
+  return {mode:'none'};
+}
+
 function searchFilter(q) {
   // 显式触发：不再 IME 防抖，点击搜索按钮/回车才执行
   q = (q || '').trim();
@@ -2324,6 +2529,7 @@ function searchFilter(q) {
     // 0. 关键字抽取（2026-08-18）：航司(中文名/IATA码，大小写无关) + 剔除供应商名
     var _kw = _extractSearchKw(q);
     var airlineHits = _kw.airlines;
+    var supplierHits = _kw.suppliers;
 
     // 1. 提取城市名
     var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
@@ -2332,25 +2538,12 @@ function searchFilter(q) {
     var foundCities = knownCities.filter(function(c){return q.indexOf(c)!==-1});
     var arrCity = foundCities.length ? foundCities[0] : '';
     
-    // 2. 提取日期
-    var dateMatch = q.match(/(\d{1,2})[\/\.月](\d{1,2})[日号]?/);
-    var targetDate = '';
-    if (dateMatch) {
-      var m = parseInt(dateMatch[1]), d = parseInt(dateMatch[2]);
-      var now = new Date();
-      var y = now.getFullYear();
-      if (m < now.getMonth()+1 && m <= 12) y++;
-      var dt = new Date(y, m-1, d);
-      targetDate = dt.toISOString().slice(0,10);
-    }
-    // 2.5 提取月份（"8月"这种无具体日的 → 按去程月份过滤，避免返回全库含他月）
-    var monthVal = '';
-    if (!targetDate) {
-      var mm = q.match(/(\d{1,2})月/);
-      if (mm && !isNaN(parseInt(mm[1])) && parseInt(mm[1]) >= 1 && parseInt(mm[1]) <= 12) {
-        monthVal = ('0' + parseInt(mm[1])).slice(-2);
-      }
-    }
+    // 2. 提取日期（2026-08-18 升级：区间 + 多格式单日，详见 _parseDateQuery）
+    var _dq = _parseDateQuery(q);
+    var targetDate = (_dq.mode === 'single') ? _dq.date : '';
+    var monthVal = (_dq.mode === 'month') ? _dq.month : '';
+    var _holidayNote = (_dq.holiday) ? '（已按 <b>' + _dq.holiday + '</b> ' + _dq.start.slice(5) + '~' + _dq.end.slice(5) + ' 筛选，去程或回程日期在窗口内即出）' : '';
+    var _supNote = (supplierHits.length) ? '（供应商 <b>' + supplierHits.join(' / ') + '</b>）' : '';
     
     // 3. 提取天数
     var daysMatch = q.match(/(\d+)天|五(?=天)|四(?=天)|六(?=天)|七(?=天)|八(?=天)|九(?=天)|十(?=天)/);
@@ -2362,27 +2555,43 @@ function searchFilter(q) {
     }
     
     // 3.5 整单拒绝（2026-08-18）：只有供应商名、无任何可用关键字 → 不出结果，弹告警
-    var _hasUsableKw = !!(airlineHits.length || arrCity || targetDate || daysVal || monthVal || _kw.flights.length);
+    var _hasUsableKw = !!(airlineHits.length || arrCity || (_dq.mode !== 'none') || _kw.flights.length || supplierHits.length);
     if (_kw.unsupported.length && !_hasUsableKw) {
-      _showSearchAlert('不支持本次关键字搜索，请重新输入。<br><br>不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商维度不参与前端检索）');
+      _showSearchAlert('不支持本次关键字搜索，请重新输入。<br><br>不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商名称不参与检索，可按供应商代码如 103 搜索）');
       return;
     }
 
-    // 4. 结构化搜索（2026-08-05 修复：无条件时禁止返回全库——"8月"识别为月份条件）
-    var hasCond = !!(arrCity || targetDate || daysVal || monthVal || airlineHits.length);
+    // 4. 结构化搜索（2026-08-05 修复：无条件时禁止返回全库——"8月"识别为月份条件；区间=去程日期区间）
+    var hasCond = !!(arrCity || _dq.mode !== 'none' || daysVal || airlineHits.length || supplierHits.length);
     var recs = [];
     if (hasCond) {
       recs = DB.records.filter(function(r) {
         if (!_validRecord(r)) return false;
         // 多航司 = 并集(OR)：一条航班只有一个航司，AND 必然 0 条
         if (airlineHits.length && !_matchAnyAirline(r, airlineHits)) return false;
+        // 供应商代码维度（与航司/城市/日期为 AND 交集，使「103GK」=供应商103的GK航班）
+        if (supplierHits.length && supplierHits.indexOf(String(r.supplier || '')) === -1) return false;
         if (arrCity && r.arr !== arrCity && r.dep !== arrCity) return false;
-        if (targetDate) {
-          var rd = new Date(r.dep_date);
-          var td = new Date(targetDate);
-          if (Math.abs(rd-td) > 86400000) return false;
+        if (_dq.mode === 'single') {
+          // 2026-08-18：去程日期 或 回程日期 任一命中即出结果
+          var _ok = false;
+          var _td = new Date(_dq.date);
+          if (Math.abs(new Date(r.dep_date)-_td) <= 86400000) _ok = true;
+          if (!_ok && r.return_date && Math.abs(new Date(r.return_date)-_td) <= 86400000) _ok = true;
+          if (!_ok) return false;
+        } else if (_dq.mode === 'range') {
+          // 2026-08-18：去程日期 或 回程日期 落在区间即可（闭区间）
+          var _ok2 = false;
+          var _dStart = new Date(_dq.start), _dEnd = new Date(_dq.end);
+          if (!(new Date(r.dep_date) < _dStart || new Date(r.dep_date) > _dEnd)) _ok2 = true;
+          if (!_ok2 && r.return_date && !(new Date(r.return_date) < _dStart || new Date(r.return_date) > _dEnd)) _ok2 = true;
+          if (!_ok2) return false;
+        } else if (_dq.mode === 'month') {
+          // 2026-08-18：去程月份 或 回程月份 任一命中即出结果
+          var _ok3 = (r.dep_date||'').slice(5,7) === _dq.month;
+          if (!_ok3 && r.return_date && (r.return_date||'').slice(5,7) === _dq.month) _ok3 = true;
+          if (!_ok3) return false;
         }
-        if (monthVal && (r.dep_date||'').slice(5,7) !== monthVal) return false;
         if (daysVal && getDays(r) !== daysVal) return false;
         return true;
       });
@@ -2390,7 +2599,9 @@ function searchFilter(q) {
     
     // 5. 模糊兜底（2026-08-18：已抽到航司关键字时不走整串兜底，
     //    否则「帮我将…列出来」整句必然 0 条，再被拼音兜底乱命中）
-    if (!recs.length && !airlineHits.length) {
+    //    2026-08-18 修复：已带日期/节假日条件(_dq.mode!=='none')时不再兜底，
+    //    否则「0 条」会被回退成城市全量、静默吞掉日期约束
+    if (!recs.length && !airlineHits.length && _dq.mode === 'none') {
       recs = DB.records.filter(function(r) {
         if (!_validRecord(r)) return false;
         var kw = q.toLowerCase();
@@ -2400,7 +2611,7 @@ function searchFilter(q) {
     
 
     // 5.1 拼音同音兜底（2026-08-13：精确/子串无结果时，同音字转拼音匹配机场名）
-    if (!recs.length && !airlineHits.length) {
+    if (!recs.length && !airlineHits.length && _dq.mode === 'none') {
       var _pyHits = _pyMatchAirports(q);
       if (_pyHits.length) {
         recs = DB.records.filter(function(r) {
@@ -2413,34 +2624,38 @@ function searchFilter(q) {
     // 5.5 保存搜索结果供复制（copySearchResults 用）
     _lastSearchRecs = recs;
     
-    // 6. 在筛选框内展示结果
+    // 6. 在筛选框内（原搜索输入框下方）直接排布结果，可滚动查看，不进弹窗
     var body = document.getElementById('filterBody');
     if (body) {
-      var html = _mkSearchInput(q) + '<div style="font-size:11px;color:var(--text-secondary);margin-bottom:6px">🔍 找到 ' + recs.length + ' 条结果</div>';
-      recs.slice(0,10).forEach(function(r){
-        html += '<div class="fit-sr" onclick="closeFilter();showSearchResult(\'' + r.dep + '\',\'' + r.arr + '\',\'' + (r.flight||'') + '\',\'' + (r.dep_date||'') + '\')">'
-          + '<span style="font-weight:600;font-size:13px">' + r.dep + '-' + r.arr + '</span>'
-          + ' <span style="font-size:11px;color:var(--text-light)">' + (r.flight||'') + (r.flight_return?'/'+r.flight_return:'') + '</span>'
-          + '<br><span style="font-size:11px;color:var(--text-secondary)">' + (r.dep_date||'') + (r.return_date?' → '+r.return_date:'') + ' · ' + (getDays(r)||'') + '天</span>'
-          + ' <span style="font-size:12px;font-weight:700;color:var(--red)">¥' + (r.retail||0) + '</span>'
-          + '</div>';
-      });
-      if (recs.length > 10) {
-        html += '<div style="display:flex;gap:6px;margin-top:6px">'
-          + '<div class="fit-apply" style="flex:1;text-align:center" onclick="closeFilter();showAllSearchResults()">查看全部 ' + recs.length + ' 条结果</div>'
-          + '<div class="fit-apply" style="flex:1;text-align:center" onclick="copySearchResults()">📋 复制 ' + recs.length + ' 条</div>'
-          + '</div>';
-      } else if (recs.length) {
-        html += '<div style="display:flex;gap:6px;margin-top:6px">'
-          + '<div class="fit-apply" style="flex:1;text-align:center" onclick="copySearchResults()">📋 复制 ' + recs.length + ' 条</div>'
-          + '</div>';
+      var INLINE_CAP = 30;
+      var html = _mkSearchInput(q)
+        + '<div style="font-size:11px;color:var(--text-secondary);margin:6px 0">🔍 找到 ' + recs.length + ' 条结果' + _holidayNote + _supNote + '</div>';
+      if (!recs.length) {
+        html += '<div style="font-size:12px;color:var(--text-light);padding:8px 0">未找到匹配结果，请调整关键词</div>';
+      } else {
+        html += '<div style="max-height:56vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;margin-bottom:8px">';
+        recs.slice(0, INLINE_CAP).forEach(function(r){
+          html += '<div class="fit-sr" onclick="closeFilter();showSearchResult(\'' + r.dep + '\',\'' + r.arr + '\',\'' + (r.flight||'') + '\',\'' + (r.dep_date||'') + '\')">'
+            + '<span style="font-weight:600;font-size:13px">' + r.dep + '-' + r.arr + '</span>'
+            + ' <span style="font-size:11px;color:var(--text-light)">' + (r.flight||'') + (r.flight_return?'/'+r.flight_return:'') + '</span>'
+            + '<br><span style="font-size:11px;color:var(--text-secondary)">' + (r.dep_date||'') + (r.return_date?' → '+r.return_date:'') + ' · ' + (getDays(r)||'') + '天</span>'
+            + ' <span style="font-size:12px;font-weight:700;color:var(--red)">¥' + (r.retail||0) + '</span>'
+            + '</div>';
+        });
+        html += '</div>';
+        html += '<div style="display:flex;gap:6px;margin-top:6px">';
+        if (recs.length > INLINE_CAP) {
+          html += '<div class="fit-apply" style="flex:1;text-align:center" onclick="closeFilter();showAllSearchResults()">查看全部 ' + recs.length + ' 条结果</div>';
+        }
+        html += '<div class="fit-apply" style="flex:1;text-align:center" onclick="copySearchResults()">📋 复制 ' + recs.length + ' 条</div>';
+        html += '</div>';
       }
       body.innerHTML = html;
     }
 
     // 7. 不支持关键字告警（2026-08-18）：匹配的关键字照常出结果 + 弹窗告知被忽略的供应商维度
     if (_kw.unsupported.length) {
-      _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商维度不参与前端检索）<br><br>本次按'
+      _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商名称不参与检索，可按供应商代码如 103 搜索）<br><br>本次按'
         + (airlineHits.length ? '航司 <b>' + airlineHits.join(' / ') + '</b> ' : '其余关键字 ')
         + '显示 <b>' + recs.length + '</b> 条结果');
     }
@@ -2450,66 +2665,22 @@ function searchFilter(q) {
 function copySearchResults() {
   var recs = _lastSearchRecs || [];
   if (!recs.length) { showToast('没有可复制的报价'); return; }
-  var groups = {};
-  recs.forEach(function(r) {
-    var key = (r.dep||'') + '|' + (r.arr||'') + '|' + (getDays(r)||'') + '|' + (r.flight||'') + '|' + ((r.flight_return||'').trim());
-    if (!groups[key]) groups[key] = [];
-    groups[key].push(r);
-  });
-  Object.keys(groups).forEach(function(k) { groups[k].sort(function(a,b){return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1;}); });
-  var lines = [];
-  var groupKeys = Object.keys(groups);
-  var MAX_COPY = 100; // 2026-08-17 用户定案：复制上限100条日期报价（替换旧 maxGroups=15/maxDatesPerGroup=30 隐性截断）
-  var copied = 0;
-  var truncated = false;
-  groupKeys.forEach(function(key, gi) {
-    if (copied >= MAX_COPY) { truncated = true; return; }
-    var gRecs = groups[key];
-    var r = gRecs[0];
-    var d = getDays(r) || '';
-    var hasReturn = !!(r.flight_return && r.flight_return.trim());
-    var routeLabel = (r.dep||'') + '-' + (r.arr||'') + (hasReturn ? '/' + (r.arr||'') + '-' + (r.dep||'') : '') + (d ? ' ' + d + '天' : '');
-    var airCn = r.airline_cn || '';
-    var depAirport = _aptBlockTxt(r,'dep');
-    var arrAirport = _aptBlockTxt(r,'arr');
-    var depTime = (r.dep_time||'').trim();
-    var arrTime = (r.arr_time||'').trim();
-    var outDurS = _durTxt(r);
-    lines.push(routeLabel + (airCn ? ' ' + airCn : ''));
-    lines.push((r.flight||'') + ' ' + (depAirport ? depAirport+'-' : '') + (arrAirport||'') + (depTime||arrTime ? ' ' : '') + (depTime ? depTime : '') + (arrTime ? '-'+arrTime : '') + (outDurS ? ' ' + outDurS : ''));
-    if (hasReturn) {
-      var retDep = _aptBlockTxt(r,'return_dep');
-      var retArr = _aptBlockTxt(r,'return_arr');
-      var retDepTime = (r.return_dep_time||'').trim();
-      var retArrTime = (r.return_arr_time||'').trim();
-      var retDurS = _durTxt(r,'ret');
-      lines.push((r.flight_return||'') + (retDep ? ' ' + retDep : '') + (retArr ? '-'+retArr : '') + (retDepTime||retArrTime ? ' ' : '') + (retDepTime ? retDepTime : '') + (retArrTime ? '-'+retArrTime : '') + (retDurS ? ' ' + retDurS : ''));
-    }
-    // 供应商行李额行（2026-08-17 用户定案：复制只含供应商在线表采集到的行李额统一格式，不含补全信息）
-    var bg = ((r.baggage || '')).trim();
-    if (bg) lines.push('行李：' + bg);
-    var need = MAX_COPY - copied;
-    var slice = gRecs.slice(0, need);
-    slice.forEach(function(rr) {
-      var ds = _fmtDateShort(rr.dep_date);
-      var rs = rr.return_date ? _fmtDateShort(rr.return_date) : '';
-      var dateStr = ds + (rs ? '-' + rs : '');
-      var price = rr.retail || 0;
-      var seat = _seatDisp(rr.seats);
-      lines.push(dateStr + ' ￥' + price + (seat ? ' ' + seat : ''));
-    });
-    copied += slice.length;
-    if (gRecs.length > need) truncated = true;
-    if (gi < groupKeys.length - 1 && copied < MAX_COPY) lines.push('');
-  });
-  if (truncated) lines.push('...共' + recs.length + '条，已复制前' + MAX_COPY + '条');
+  var MAX_COPY = 100; // 2026-08-17 用户定案：单批复制上限100条日期报价
+  var groups = _buildCopyGroups(recs);
   var kw = (document.getElementById('fitSearch')||{}).value || '';
   var link = location.origin + location.pathname + (kw ? ('?q=' + encodeURIComponent(kw)) : '');
-  var text = lines.join('\n') + '\n\n' + _PROMO + '\n🔗 ' + link;
+  var trailer = _PROMO + '\n🔗 ' + link;
+  var batches = _buildCopyBatchTexts(groups, MAX_COPY, trailer);
+  var first = batches.shift();
+  var total = groups.reduce(function(s,g){return s+g.size;},0);
   if (navigator.clipboard) {
-    navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + copied + ' 条报价，' + groupKeys.length + ' 组' + (truncated ? '（前' + MAX_COPY + '条）' : '')); });
-  } else { prompt('复制以下内容：', text); }
-  recordAction('copy_search', {count:copied, quote:text.slice(0,200)});
+    navigator.clipboard.writeText(first.text).then(function(){ showToast('✅ 已复制第 1 批（共 ' + (batches.length+1) + ' 批，' + MAX_COPY + ' 条/批）'); });
+  } else { prompt('复制以下内容（第 1 批）：', first.text); }
+  recordAction('copy_search', {count:total, batches:batches.length+1, quote:first.text.slice(0,200)});
+  if (batches.length) {
+    var overflow = batches.map(function(b,i){ return { label:'第 '+(i+2)+' 批（'+b.n+' 条）', text:b.text }; });
+    _showCopyOverflowAlert('已复制第 1 批（'+first.n+' 条，共 '+(batches.length+1)+' 批）。剩余批次可在下方文本框长按手动复制，或点「📋 复制」继续复制。', overflow);
+  }
 }
 
 // 显示单条搜索结果
@@ -2552,16 +2723,8 @@ function searchFilterAndShow(q) {
   var foundCities = knownCities.filter(function(c){return q.indexOf(c)!==-1});
   foundCities.sort(function(a,b){ return b.length - a.length; });
   var arrCity = foundCities.length ? _normCity(foundCities[0]) : '';
-  var dateMatch = q.match(/(\d{1,2})[\/\.月](\d{1,2})[日号]?/);
-  var targetDate = '';
-  if (dateMatch) {
-    var m = parseInt(dateMatch[1]), d = parseInt(dateMatch[2]);
-    var now = new Date();
-    var y = now.getFullYear();
-    if (m < now.getMonth()+1 && m <= 12) y++;
-    var dt = new Date(y, m-1, d);
-    targetDate = dt.toISOString().slice(0,10);
-  }
+  // 2. 提取日期（2026-08-18 升级：区间 + 多格式单日，与 searchFilter 同一套 _parseDateQuery）
+  var _dq = _parseDateQuery(q);
   var daysMatch = q.match(/(\d+)天|五(?=天)|四(?=天)|六(?=天)|七(?=天)|八(?=天)|九(?=天)|十(?=天)/);
   var cnNum = {'一':1,'二':2,'三':3,'四':4,'五':5,'六':6,'七':7,'八':8,'九':9,'十':10};
   var daysVal = '';
@@ -2581,15 +2744,30 @@ function searchFilterAndShow(q) {
       // 2026-08-18：已抽到航司关键字时跳过整串匹配（整句永远匹配不到）
       return false;
     }
-    if (targetDate) {
-      var rd = new Date(r.dep_date);
-      var td = new Date(targetDate);
-      if (Math.abs(rd-td) > 86400000) return false;
+    if (_dq.mode === 'single') {
+      // 2026-08-18：去程日期 或 回程日期 任一命中即出结果
+      var _ok = false;
+      var _td = new Date(_dq.date);
+      if (Math.abs(new Date(r.dep_date)-_td) <= 86400000) _ok = true;
+      if (!_ok && r.return_date && Math.abs(new Date(r.return_date)-_td) <= 86400000) _ok = true;
+      if (!_ok) return false;
+    } else if (_dq.mode === 'range') {
+      // 2026-08-18：去程日期 或 回程日期 落在区间即可（闭区间）
+      var _ok2 = false;
+      var _dStart = new Date(_dq.start), _dEnd = new Date(_dq.end);
+      if (!(new Date(r.dep_date) < _dStart || new Date(r.dep_date) > _dEnd)) _ok2 = true;
+      if (!_ok2 && r.return_date && !(new Date(r.return_date) < _dStart || new Date(r.return_date) > _dEnd)) _ok2 = true;
+      if (!_ok2) return false;
+    } else if (_dq.mode === 'month') {
+      // 2026-08-18：去程月份 或 回程月份 任一命中即出结果
+      var _ok3 = (r.dep_date||'').slice(5,7) === _dq.month;
+      if (!_ok3 && r.return_date && (r.return_date||'').slice(5,7) === _dq.month) _ok3 = true;
+      if (!_ok3) return false;
     }
     if (daysVal && getDays(r) !== daysVal) return false;
     return true;
   });
-  if (!recs.length && !airlineHits.length) {
+  if (!recs.length && !airlineHits.length && _dq.mode === 'none') {
     recs = DB.records.filter(function(r) {
       if (!_validRecord(r)) return false;
       var kw = q.toLowerCase();
@@ -2603,7 +2781,7 @@ function searchFilterAndShow(q) {
 
   // 不支持关键字告警（2026-08-18）：与 searchFilter 同一套提示
   if (_kw.unsupported.length) {
-    _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商维度不参与前端检索）<br><br>本次按'
+    _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商名称不参与检索，可按供应商代码如 103 搜索）<br><br>本次按'
       + (airlineHits.length ? '航司 <b>' + airlineHits.join(' / ') + '</b> ' : '其余关键字 ')
       + '显示 <b>' + recs.length + '</b> 条结果');
   }
