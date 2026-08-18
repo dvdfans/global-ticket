@@ -187,9 +187,34 @@ async function loadDB() {
     _applyFilterFromUrl(); // 读取筛选参数
     render();
     recordAction('page_view', {route:'load→'+currentTab,days:DB.records.length+''});
+    startAutoRefresh(); // 2026-08-18: 启动5分钟轮询，自动拉取最新数据
   } catch(e) {
     document.getElementById('cardList').innerHTML = '<div class="loading">数据加载失败</div>';
   }
+}
+
+// 2026-08-18: 5分钟自动轮询——后台拉取最新 price_db_fe.json，仅当 build_time 变化才重渲染（保留当前Tab/筛选）
+let _autoRefreshTimer = null;
+async function autoRefreshOnce() {
+  try {
+    const r = await fetch('price_db_fe.json?_=' + Date.now());
+    if (!r.ok) return;
+    const nd = await r.json();
+    if (!nd || !nd.build_time) return;
+    if (DB && DB.build_time === nd.build_time) return; // 数据未变，静默跳过
+    DB = nd;
+    DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
+    validateDays();
+    updateStats();
+    render();
+    console.log('[自动刷新] 数据已更新 ->', nd.build_time);
+  } catch (e) {
+    console.warn('[自动刷新] 拉取失败', e);
+  }
+}
+function startAutoRefresh() {
+  if (_autoRefreshTimer) return;
+  _autoRefreshTimer = setInterval(autoRefreshOnce, 5 * 60 * 1000);
 }
 
 function updateStats() {
