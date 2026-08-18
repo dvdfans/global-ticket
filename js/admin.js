@@ -5,6 +5,74 @@ const ADMIN_KEY = '8447744107795a7a89b411c83c3def917ff9b9a373a4e9ec8593d0f47392b
 let FULL_DB = null;
 let filteredData = [];
 
+// 2026-08-18: 自动关键字抽取词表（从全量库构建，避免硬编码）
+let VOCAB = {
+  supCodes: new Set(),   // 供应商代码（数字）
+  supNames: new Set(),   // 供应商中文名
+  airlines: new Set(),   // 航司 IATA 代码（大写）
+  airlineCn: new Set(),  // 航司中文名
+  airports: new Set(),   // 机场 IATA 代码（大写，3 字母）
+  cities: new Set(),     // 出发/到达城市中文名
+};
+
+function buildVocab() {
+  if (!FULL_DB) return;
+  for (const r of (FULL_DB.records || [])) {
+    if (r.supplier_code) VOCAB.supCodes.add(String(r.supplier_code));
+    if (r.supplier) VOCAB.supNames.add(String(r.supplier));
+    if (r.airline) VOCAB.airlines.add(String(r.airline).toUpperCase());
+    if (r.airline_cn) VOCAB.airlineCn.add(String(r.airline_cn));
+    if (r.dep_airport) VOCAB.airports.add(String(r.dep_airport).toUpperCase());
+    if (r.arr_airport) VOCAB.airports.add(String(r.arr_airport).toUpperCase());
+    if (r.dep) VOCAB.cities.add(String(r.dep));
+    if (r.arr) VOCAB.cities.add(String(r.arr));
+  }
+}
+
+// 自动抽取关键字：供应商代码/名称、航司代码/中文名、机场 IATA、城市、航班号；
+// 忽略连词与未知片段。返回小写关键字数组（已去重）。
+function extractKeywords(q) {
+  const kw = [];
+  const s = (q || '').toLowerCase();
+  if (!s) return kw;
+  // 1) 供应商代码（数字，已知集合，子串即可命中）
+  for (const c of VOCAB.supCodes) {
+    const cs = String(c).toLowerCase();
+    if (cs && s.includes(cs)) kw.push(cs);
+  }
+  // 2) 拆成 数字段 / 字母段 / 中文段，逐段识别
+  const runs = s.match(/[0-9]+|[a-z]+|[一-鿿]+/g) || [];
+  const cjkVocab = [...VOCAB.cities, ...VOCAB.supNames, ...VOCAB.airlineCn];
+  for (const run of runs) {
+    if (/^[0-9]+$/.test(run)) {
+      if (!VOCAB.supCodes.has(run)) kw.push(run); // 非供应商代码的纯数字 → 航班号片段
+    } else if (/^[a-z]+$/.test(run)) {
+      // 字母段：贪心最长匹配已知航司(2)/机场(3)代码；一旦遇到无法识别的字符，
+      // 整段进入「乱码」不再抽码（避免从未知片段里渗出已知代码，如 uca→ca）。
+      let i = 0, garble = false;
+      while (i < run.length) {
+        if (garble) { i++; continue; }
+        let m = false;
+        for (const len of [3, 2]) {
+          if (i + len <= run.length) {
+            const seg = run.substr(i, len).toUpperCase();
+            if (VOCAB.airlines.has(seg) || VOCAB.airports.has(seg)) {
+              kw.push(seg.toLowerCase()); i += len; m = true; break;
+            }
+          }
+        }
+        if (!m) { garble = true; i++; }
+      }
+    } else {
+      // 中文段：子串匹配已知城市/供应商名/航司中文名，连词自动忽略
+      for (const name of cjkVocab) {
+        if (name && run.includes(name)) kw.push(name);
+      }
+    }
+  }
+  return [...new Set(kw)];
+}
+
 // ── 登录 ──
 async function doLogin() {
   const pwd = document.getElementById('pwdInput').value;
@@ -30,6 +98,7 @@ async function loadFullDB() {
   try {
     const r = await fetch('price_db.json?_=' + Date.now());
     FULL_DB = await r.json();
+    buildVocab();
     renderDashboard();
     doFilter();
   } catch(e) {
@@ -37,6 +106,7 @@ async function loadFullDB() {
     try {
       const r = await fetch('price_db_fe.json?_=' + Date.now());
       FULL_DB = { records: await r.json(), record_count: 0 };
+      buildVocab();
       document.querySelector('.login-hint').textContent = '⚠️ 仅加载前端版，部分字段不可用';
       renderDashboard();
       doFilter();
@@ -82,8 +152,17 @@ function doFilter() {
     if (price === 'mid' && (!r.retail || r.retail < 2001 || r.retail > 3500)) return false;
     if (price === 'high' && (!r.retail || r.retail <= 3500)) return false;
     if (q) {
-      const t = (r.dep + r.arr + r.flight + r.supplier + (r.airline_cn||'')).toLowerCase();
-      return t.includes(q);
+      // 2026-08-18: 自动关键字抽取（供应商代码/名称 + 航司代码/中文名 + 机场 + 城市 + 航班号），
+      // 忽略连词与未知片段；所有抽取到的关键字 AND 匹配 → 支持「103GK」「帮我将103下GKFMMUca列出来」等。
+      const kws = extractKeywords(q);
+      if (kws.length) {
+        const t = [
+          r.dep, r.arr, r.flight, r.flight_return, r.supplier,
+          r.supplier_code || '', r.airline || '', r.airline_cn || '',
+          r.dep_airport || '', r.arr_airport || ''
+        ].join(' ').toLowerCase();
+        if (!kws.every(k => t.includes(k))) return false;
+      }
     }
     return true;
   });

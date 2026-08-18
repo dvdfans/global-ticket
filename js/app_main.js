@@ -1841,11 +1841,120 @@ function _recHasAirport(r, names) {
   return false;
 }
 
+// ══════════════════════════════════════════════════════════════
+// 2026-08-18 H5 前端关键字抽取（多航司 OR 组合 + 供应商维度告警）
+// 铁律：H5 简化库不含供应商名称（supplier 字段只有代码 103/108），
+//       故供应商名一律不作为检索关键字 → 剔除并弹窗告警。
+// ⚠ 黑名单绝不可含「上航」「春秋」——它们是真实航司名(FM/9C)，会误杀航司检索。
+var _FE_SUPPLIER_WORDS = ['美亚','途益','纵贯','奇妙','通宏','海峡','万国','怡行'];
+var _FE_AIRLINE_VOCAB = null;
+
+// 航司词表从库实时构建（airline_cn 中文名 + airline IATA 代码），不硬编码
+function _feAirlineVocab() {
+  if (_FE_AIRLINE_VOCAB) return _FE_AIRLINE_VOCAB;
+  var cn = {}, code = {};
+  var recs = (typeof DB !== 'undefined' && DB && DB.records) ? DB.records : [];
+  recs.forEach(function(r) {
+    if (r.airline_cn) cn[String(r.airline_cn)] = true;
+    if (r.airline) code[String(r.airline).toUpperCase()] = true;
+  });
+  _FE_AIRLINE_VOCAB = { cn: Object.keys(cn), code: Object.keys(code) };
+  return _FE_AIRLINE_VOCAB;
+}
+
+// 从任意输入抽取关键字：航司(中文名/IATA码，大小写无关)、航班号、供应商名(不支持维度)
+// 返回 {airlines:[中文名或IATA码], flights:[航班号], unsupported:[供应商名]}
+function _extractSearchKw(q) {
+  var raw = String(q || '');
+  var lower = raw.toLowerCase();
+  var vocab = _feAirlineVocab();
+  var out = { airlines: [], flights: [], unsupported: [] };
+
+  // 1) 供应商名 → 不支持维度（H5 库无此字段）
+  _FE_SUPPLIER_WORDS.forEach(function(w) {
+    if (raw.indexOf(w) !== -1 && out.unsupported.indexOf(w) === -1) out.unsupported.push(w);
+  });
+
+  // 2) 航班号（2位字母/数字 + 3~4位数字），优先级高于航司代码：
+  //    搜 GK036 是要那一班，不该放大成「所有 GK 航班」
+  var fm = lower.match(/[a-z0-9]{2}\d{3,4}/g) || [];
+  fm.forEach(function(f) { if (out.flights.indexOf(f) === -1) out.flights.push(f); });
+
+  // 3) 航司中文名：逐个 indexOf，天然支持连写「东航国航南航日航」
+  vocab.cn.forEach(function(n) {
+    if (raw.indexOf(n) !== -1 && out.airlines.indexOf(n) === -1) out.airlines.push(n);
+  });
+
+  // 4) 航司 IATA 代码（大小写无关）。剔除已归为航班号的片段后再扫，
+  //    仅在「独立 token」或「整段可被已知代码完整覆盖」时采纳，
+  //    避免 hongkong 里渗出 HO 这类假阳性。
+  var scan = lower;
+  out.flights.forEach(function(f) { scan = scan.split(f).join(' '); });
+  var tokens = scan.split(/[^a-z0-9]+/).filter(Boolean);
+  tokens.forEach(function(tok) {
+    var up = tok.toUpperCase();
+    // 4a. 整个 token 就是一个已知航司代码
+    if (vocab.code.indexOf(up) !== -1) {
+      if (out.airlines.indexOf(up) === -1) out.airlines.push(up);
+      return;
+    }
+    // 4b. token 能被已知代码「完整覆盖」才拆（GKMU → GK+MU；hongkong → 拆不动，丢弃）
+    var i = 0, picked = [];
+    while (i < up.length) {
+      var hit = '';
+      for (var L = 3; L >= 2; L--) {
+        if (i + L <= up.length && vocab.code.indexOf(up.substr(i, L)) !== -1) { hit = up.substr(i, L); break; }
+      }
+      if (!hit) { picked = null; break; }
+      picked.push(hit); i += hit.length;
+    }
+    if (picked && picked.length) {
+      picked.forEach(function(c) { if (out.airlines.indexOf(c) === -1) out.airlines.push(c); });
+    }
+  });
+  return out;
+}
+
+// 单条记录是否命中「任一」航司（多航司=并集 OR：一条航班只有一个航司，AND 必然 0 条）
+function _matchAnyAirline(r, list) {
+  var cn = String(r.airline_cn || '');
+  var code = String(r.airline || '').toUpperCase();
+  for (var i = 0; i < list.length; i++) {
+    var k = list[i];
+    if (cn && cn.indexOf(k) !== -1) return true;
+    if (code && code === String(k).toUpperCase()) return true;
+  }
+  return false;
+}
+
+// 告警弹窗（不支持的关键字）
+function _showSearchAlert(msg) {
+  _closeSearchAlert();
+  var mask = document.createElement('div');
+  mask.id = 'searchAlertMask';
+  mask.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.45);z-index:900;display:flex;align-items:center;justify-content:center;padding:24px';
+  mask.innerHTML = '<div style="background:var(--bg-card,#fff);border-radius:14px;max-width:320px;width:100%;padding:20px;box-shadow:0 8px 32px rgba(0,0,0,.25);text-align:center">'
+    + '<div style="font-size:26px;line-height:1;margin-bottom:10px">⚠️</div>'
+    + '<div style="font-size:15px;font-weight:700;color:var(--text,#222);margin-bottom:8px">搜索提示</div>'
+    + '<div style="font-size:13px;color:var(--text-secondary,#666);line-height:1.65;margin-bottom:16px">' + msg + '</div>'
+    + '<div onclick="_closeSearchAlert()" style="padding:10px;border-radius:10px;background:var(--brand,var(--red,#e64340));color:#fff;font-size:14px;font-weight:600;cursor:pointer">我知道了</div>'
+    + '</div>';
+  mask.addEventListener('click', function(e) { if (e.target === mask) _closeSearchAlert(); });
+  document.body.appendChild(mask);
+}
+function _closeSearchAlert() {
+  var m = document.getElementById('searchAlertMask');
+  if (m && m.parentNode) m.parentNode.removeChild(m);
+}
+
 function _searchMatch(r, kw) {
   if ((r.flight||'').toLowerCase().indexOf(kw)!==-1) return true;
+  if ((r.flight_return||'').toLowerCase().indexOf(kw)!==-1) return true;
   if ((r.dep||'').indexOf(kw)!==-1) return true;
   if ((r.arr||'').indexOf(kw)!==-1) return true;
   if ((r.airline_cn||'').indexOf(kw)!==-1) return true;
+  // 航司 IATA 代码（2026-08-18：大小写无关，搜 gk/GK/Gk 均命中）
+  if ((r.airline||'').toLowerCase().indexOf(kw)!==-1) return true;
   // 机场中文名（如 东京羽田机场/东京成田机场/上海浦东机场）
   if ((r.dep_airport_name||'').indexOf(kw)!==-1) return true;
   if ((r.arr_airport_name||'').indexOf(kw)!==-1) return true;
@@ -2211,7 +2320,11 @@ function searchFilter(q) {
   // 显式触发：不再 IME 防抖，点击搜索按钮/回车才执行
   q = (q || '').trim();
   if (!q) { _showFilter(); return; }
-  
+
+    // 0. 关键字抽取（2026-08-18）：航司(中文名/IATA码，大小写无关) + 剔除供应商名
+    var _kw = _extractSearchKw(q);
+    var airlineHits = _kw.airlines;
+
     // 1. 提取城市名
     var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
       '曼谷','普吉岛','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
@@ -2248,12 +2361,21 @@ function searchFilter(q) {
       daysVal = cnNum[raw] ? ''+cnNum[raw] : raw;
     }
     
+    // 3.5 整单拒绝（2026-08-18）：只有供应商名、无任何可用关键字 → 不出结果，弹告警
+    var _hasUsableKw = !!(airlineHits.length || arrCity || targetDate || daysVal || monthVal || _kw.flights.length);
+    if (_kw.unsupported.length && !_hasUsableKw) {
+      _showSearchAlert('不支持本次关键字搜索，请重新输入。<br><br>不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商维度不参与前端检索）');
+      return;
+    }
+
     // 4. 结构化搜索（2026-08-05 修复：无条件时禁止返回全库——"8月"识别为月份条件）
-    var hasCond = !!(arrCity || targetDate || daysVal || monthVal);
+    var hasCond = !!(arrCity || targetDate || daysVal || monthVal || airlineHits.length);
     var recs = [];
     if (hasCond) {
       recs = DB.records.filter(function(r) {
         if (!_validRecord(r)) return false;
+        // 多航司 = 并集(OR)：一条航班只有一个航司，AND 必然 0 条
+        if (airlineHits.length && !_matchAnyAirline(r, airlineHits)) return false;
         if (arrCity && r.arr !== arrCity && r.dep !== arrCity) return false;
         if (targetDate) {
           var rd = new Date(r.dep_date);
@@ -2266,8 +2388,9 @@ function searchFilter(q) {
       });
     }
     
-    // 5. 模糊兜底
-    if (!recs.length) {
+    // 5. 模糊兜底（2026-08-18：已抽到航司关键字时不走整串兜底，
+    //    否则「帮我将…列出来」整句必然 0 条，再被拼音兜底乱命中）
+    if (!recs.length && !airlineHits.length) {
       recs = DB.records.filter(function(r) {
         if (!_validRecord(r)) return false;
         var kw = q.toLowerCase();
@@ -2277,7 +2400,7 @@ function searchFilter(q) {
     
 
     // 5.1 拼音同音兜底（2026-08-13：精确/子串无结果时，同音字转拼音匹配机场名）
-    if (!recs.length) {
+    if (!recs.length && !airlineHits.length) {
       var _pyHits = _pyMatchAirports(q);
       if (_pyHits.length) {
         recs = DB.records.filter(function(r) {
@@ -2313,6 +2436,13 @@ function searchFilter(q) {
           + '</div>';
       }
       body.innerHTML = html;
+    }
+
+    // 7. 不支持关键字告警（2026-08-18）：匹配的关键字照常出结果 + 弹窗告知被忽略的供应商维度
+    if (_kw.unsupported.length) {
+      _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商维度不参与前端检索）<br><br>本次按'
+        + (airlineHits.length ? '航司 <b>' + airlineHits.join(' / ') + '</b> ' : '其余关键字 ')
+        + '显示 <b>' + recs.length + '</b> 条结果');
     }
 }
 
@@ -2407,6 +2537,9 @@ function searchFilterAndShow(q) {
   // 2026-08-13: 标记搜索态（结果列表顶部显示 排序/搜索 按钮 + 关键字分组标题）
   _isSearchView = true;
   _lastSearchQ = q;
+  // 0. 关键字抽取（2026-08-18）：与 searchFilter 保持同一套语义，否则两处结果不一致
+  var _kw = _extractSearchKw(q);
+  var airlineHits = _kw.airlines;
   // 同上逻辑，但直接显示到cardList
   var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
     '曼谷','普吉岛','普吉岛','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
@@ -2438,11 +2571,14 @@ function searchFilterAndShow(q) {
   }
   var recs = DB.records.filter(function(r) {
     if (!_validRecord(r)) return false;
+    // 多航司 = 并集(OR)（2026-08-18）：一条航班只有一个航司，AND 必然 0 条
+    if (airlineHits.length && !_matchAnyAirline(r, airlineHits)) return false;
     // 2026-08-16：arr/dep 用同义词归一后与 arrCity 比较（普吉岛=普吉岛）
     if (arrCity) {
       if (_normCity(r.arr) !== arrCity && _normCity(r.dep) !== arrCity) return false;
-    } else if (!_searchMatch(r, q.toLowerCase())) {
+    } else if (!airlineHits.length && !_searchMatch(r, q.toLowerCase())) {
       // 2026-08-16 修复：无城市命中（如只搜航班号/机场码）→ 用通用子串匹配，避免误显示全库
+      // 2026-08-18：已抽到航司关键字时跳过整串匹配（整句永远匹配不到）
       return false;
     }
     if (targetDate) {
@@ -2453,7 +2589,7 @@ function searchFilterAndShow(q) {
     if (daysVal && getDays(r) !== daysVal) return false;
     return true;
   });
-  if (!recs.length) {
+  if (!recs.length && !airlineHits.length) {
     recs = DB.records.filter(function(r) {
       if (!_validRecord(r)) return false;
       var kw = q.toLowerCase();
@@ -2464,6 +2600,13 @@ function searchFilterAndShow(q) {
   var sorted = (_sortModes && _sortModes.length) ? _sortRecords(recs) : recs.slice().sort(function(a,b){return (a.retail||99999)-(b.retail||99999)});
   var shown = sorted.length > 50 ? sorted.slice(0,50) : sorted;
   document.getElementById('cardList').innerHTML = _searchStickyBar(recs.length, q) + shown.map(cardHTML).join('');
+
+  // 不支持关键字告警（2026-08-18）：与 searchFilter 同一套提示
+  if (_kw.unsupported.length) {
+    _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商维度不参与前端检索）<br><br>本次按'
+      + (airlineHits.length ? '航司 <b>' + airlineHits.join(' / ') + '</b> ' : '其余关键字 ')
+      + '显示 <b>' + recs.length + '</b> 条结果');
+  }
 }
 
 // ── 重置 ──
