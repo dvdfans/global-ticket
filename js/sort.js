@@ -9,6 +9,7 @@ var GROUP_SORT_DIMS = [
   {key:'g_days',  label:'🗓️ 天数',    dirs:['asc','desc']},
   {key:'g_count', label:'📊 条数',    dirs:['asc','desc']},
   {key:'g_price', label:'💰 价格',    dirs:['asc','desc']},
+  {key:'g_date',  label:'📅 去程日期', dirs:['asc','desc']},
 ];
 // 报价卡片排序（组内）：决定组内卡片顺序（去程日期/价格/余位/航司）
 var CARD_SORT_DIMS = [
@@ -167,8 +168,8 @@ function _removeSortDim(k) {
 }
 
 function resetSort() {
-  _sortModes = [];
-  _groupSort = 'smart';
+  _sortModes = ['date_asc'];   // 2026-08-20：重置回到「去程日期升序」默认
+  _groupSort = 'date_asc';
   _groupMode = true;
   _renderSortBody(_getModes());
 }
@@ -191,7 +192,7 @@ function _sortLabel() {
   if (gs !== 'smart') {
     var gk = gs.split('_')[0];
     var gd = gs.indexOf('_desc') >= 0 ? '↓' : '↑';
-    var gm = {'route':'航线','days':'天数','count':'条数','price':'价格'};
+    var gm = {'route':'航线','days':'天数','count':'条数','price':'价格','date':'日期'};
     parts.push('组:' + (gm[gk] || '排序') + gd);
   }
   var modes = _getModes();

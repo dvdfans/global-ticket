@@ -35,7 +35,11 @@ function _compareByMode(a, b, mode) {
     if (inB) return 1;
     return da < db ? -1 : 1;
   }
-  // 默认 date_asc
+  // 默认 date_asc（缺去程日期的沉底，不抢排最前；同日期按价格升序二级）
+  if (!da && !db) return (a.retail||0) - (b.retail||0);
+  if (!da) return 1;
+  if (!db) return -1;
+  if (da === db) return (a.retail||0) - (b.retail||0);
   return da < db ? -1 : 1;
 }
 function _sortRecords(recs) {
@@ -262,6 +266,10 @@ function renderTab() {
         } else if (gk === 'price') {
           var pA = _gMinPrice(groups[ka]), pB = _gMinPrice(groups[kb]);
           if (pA !== pB) return gd > 0 ? pA - pB : pB - pA;
+        } else if (gk === 'date') {
+          function _gMinDate(g){ return g.records.reduce(function(m,r){var d=r.dep_date||'';return (d && (m==='9999'||d<m))?d:m;},'9999'); }
+          var dA=_gMinDate(groups[ka]), dB=_gMinDate(groups[kb]);
+          if (dA !== dB) return gd > 0 ? (dA < dB ? -1 : 1) : (dA < dB ? 1 : -1);
         }
         // 同值兜底：天数升序 → 原排序
         var ddA = parseInt(groups[ka].nights || '0', 10) || 0;
