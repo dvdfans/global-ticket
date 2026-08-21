@@ -21,6 +21,15 @@ var CARD_SORT_DIMS = [
 
 function _getModes() { return _sortModes || []; }
 
+// 2026-08-21 BUG二修复：是否有分组处于展开状态（正在看组内卡片）→ 排序上下文联动切到「报价卡片排序」
+function _anyGroupExpanded() {
+  var els = document.querySelectorAll('.hm-group-bd');
+  for (var i = 0; i < els.length; i++) {
+    if (els[i].style.display !== 'none') return true;
+  }
+  return false;
+}
+
 function openSortModal() {
   recordAction('sort_open', {});
   var modes = _getModes();
@@ -77,7 +86,9 @@ function _renderSortBody(modes) {
   // ── 2026-08-21 排序框与显示模式联动 ──
   // 分组显示(_groupMode=true) → 排序框只显示「分组排序」；卡片平铺显示(_groupMode=false) → 只显示「报价卡片排序」。
   // 两种模式都保留「按路线分组」开关（区块3），用于切换到另一种排序上下文。
+  // 2026-08-21 BUG二修复：分组模式下若有分组展开（正在看组内卡片）→ 排序上下文切到「报价卡片排序」
   var inGroupMode = (typeof _groupMode !== 'undefined') ? _groupMode : true;
+  if (inGroupMode && _anyGroupExpanded()) inGroupMode = false;
   var h = '';
 
   // ── 区块1：分组排序（组间，单选）── 仅分组显示模式显示
@@ -114,7 +125,7 @@ function _renderSortBody(modes) {
     + '<div class="sort-group-toggle" style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text)">'
     + '<span style="width:18px;height:18px;border-radius:4px;border:2px solid '+(_groupMode?'var(--red)':'var(--border)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:'+(_groupMode?'var(--red)':'transparent')+'">✓</span>'
     + '按路线分组</div>'
-    + '<div style="font-size:11px;color:var(--text-light);margin-top:4px;padding-left:26px">' + (inGroupMode ? '关闭后按报价卡片排序平铺展示' : '开启后按分组排序（城市→航线→天数）展示') + '</div>'
+    + '<div style="font-size:11px;color:var(--text-light);margin-top:4px;padding-left:26px">' + (_groupMode ? '关闭后按报价卡片排序平铺展示' : '开启后按分组排序（城市→航线→天数）展示') + '</div>'
     + '</div>';
   
   body.innerHTML = h;
@@ -196,7 +207,9 @@ function applySort() {
 // 加「组:」/「卡:」前缀区分——分组选价格+卡片选价格时不再显示歧义的「价格↓ · 价格↑」
 function _sortLabel() {
   // 2026-08-21: 排序按钮文本与显示模式联动——分组显示只报分组排序，卡片显示只报卡片排序
+  // 2026-08-21 BUG二修复：有分组展开（正在看卡片）→ 按钮报卡片排序
   var inGroupMode = (typeof _groupMode !== 'undefined') ? _groupMode : true;
+  if (inGroupMode && _anyGroupExpanded()) inGroupMode = false;
   var parts = [];
   if (inGroupMode) {
     var gs = typeof _groupSort !== 'undefined' ? _groupSort : 'smart';

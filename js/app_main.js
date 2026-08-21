@@ -1648,6 +1648,8 @@ loadDB();
 document.getElementById('cardList').addEventListener('click', function(e) {
   var card = e.target.closest('.card[data-rec]');
   if (!card) return;
+  // 2026-08-21 BUG一修复：阻止冒泡到外层 .hm-group 的 toggleGroup，避免点开详情时分组被自动折叠
+  e.stopPropagation();
   // 如果点击的是按钮内部，让按钮自己处理
   if (e.target.closest('.card-btn-v2') || e.target.closest('.card-btn')) return;
   try {
