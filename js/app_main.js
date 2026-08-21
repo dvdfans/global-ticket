@@ -362,7 +362,7 @@ function renderHome() {
   // 首页：热销 — 渲染全部千巡(供应商码130)报价卡片，按去程日期升序（2026-08-21 撤销原尾单规则）
   var records = DB.records.filter(function(r) {
     if (!_hasSeats(r) || !_validRecord(r)) return false;
-    if (String(r.supplier) !== '130') return false;  // 仅千巡
+    if (String(r.supplier) !== '130') return false;  // 仅指定供应商代码
     return true;
   });
   records.sort(function(a,b) { return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1; });
@@ -1856,6 +1856,8 @@ function _recHasAirport(r, names) {
 // 铁律：H5 简化库不含供应商名称（supplier 字段只有代码 103/108），
 //       故供应商名一律不作为检索关键字 → 剔除并弹窗告警。
 // ⚠ 黑名单绝不可含「上航」「春秋」——它们是真实航司名(FM/9C)，会误杀航司检索。
+// 注：本数组仅用于"识别游客输入的供应商名并拦截"，不渲染供应商名到界面；
+//     拦截提示文案刻意不回显具体供应商名（见 searchFilter 的告警语），避免界面出现供应商身份。
 var _FE_SUPPLIER_WORDS = ['美亚','途益','纵贯','奇妙','通宏','海峡','万国','怡行'];
 var _FE_AIRLINE_VOCAB = null;
 
@@ -2569,7 +2571,7 @@ function searchFilter(q) {
     // 3.5 整单拒绝（2026-08-18）：只有供应商名、无任何可用关键字 → 不出结果，弹告警
     var _hasUsableKw = !!(airlineHits.length || arrCity || (_dq.mode !== 'none') || _kw.flights.length || supplierHits.length);
     if (_kw.unsupported.length && !_hasUsableKw) {
-      _showSearchAlert('不支持本次关键字搜索，请重新输入。<br><br>不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商名称不参与检索，可按供应商代码如 103 搜索）');
+      _showSearchAlert('不支持本次关键字搜索，请重新输入。<br><br>（供应商名称不参与前端检索，可按供应商代码如 103 搜索）');
       return;
     }
 
@@ -2667,7 +2669,7 @@ function searchFilter(q) {
 
     // 7. 不支持关键字告警（2026-08-18）：匹配的关键字照常出结果 + 弹窗告知被忽略的供应商维度
     if (_kw.unsupported.length) {
-      _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商名称不参与检索，可按供应商代码如 103 搜索）<br><br>本次按'
+      _showSearchAlert('已忽略不支持的关键字（供应商名称不参与检索，可按供应商代码如 103 搜索）<br><br>本次按'
         + (airlineHits.length ? '航司 <b>' + airlineHits.join(' / ') + '</b> ' : '其余关键字 ')
         + '显示 <b>' + recs.length + '</b> 条结果');
     }
@@ -2793,7 +2795,7 @@ function searchFilterAndShow(q) {
 
   // 不支持关键字告警（2026-08-18）：与 searchFilter 同一套提示
   if (_kw.unsupported.length) {
-    _showSearchAlert('已忽略不支持的关键字：<b>' + _kw.unsupported.join('、') + '</b><br>（供应商名称不参与检索，可按供应商代码如 103 搜索）<br><br>本次按'
+    _showSearchAlert('已忽略不支持的关键字（供应商名称不参与检索，可按供应商代码如 103 搜索）<br><br>本次按'
       + (airlineHits.length ? '航司 <b>' + airlineHits.join(' / ') + '</b> ' : '其余关键字 ')
       + '显示 <b>' + recs.length + '</b> 条结果');
   }

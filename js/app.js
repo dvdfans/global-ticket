@@ -271,24 +271,25 @@ function fmtSeats(s, opts) {
   return '<span class="seat-ok">余' + s + '</span>';
 }
 
-// ── 供应商底色规则（未来可扩展映射）──
+// ── 卡片装饰色条（按供应商代码区分，仅作装饰，不对应供应商身份）──
+// 注意：key 用供应商代码（见 lib/supplier_codes.py），绝不出现供应商中文名。
+// 游客看到的彩色竖条仅用于视觉区分产品，无法由此反推供应商身份。
 const SUPPLIER_COLORS = {
-  '美亚':   { bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
-  '奇妙':   { bg:'#FFF8E6', border:'#F9BE00', dot:'#D49A00' },
-  '纵贯':   { bg:'#EDF5FF', border:'#90C0F0', dot:'#0C6FA8' },
-  '通宏':   { bg:'#E8F5E9', border:'#90D090', dot:'#389C39' },
-  '上航':   { bg:'#F3E8FF', border:'#C090E0', dot:'#491B87' },
-  '途益':   { bg:'#E0F7FA', border:'#80D0D8', dot:'#28B7BD' },
-  '万国':   { bg:'#FFF3E0', border:'#F0B060', dot:'#E88A00' },
-  '通宏国内':{ bg:'#EEEEEE', border:'#C0C0C0', dot:'#808080' },
-  '怡行':   { bg:'#E8F5E9', border:'#A0D0A0', dot:'#389C39' },
-  '春秋国际':{ bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
+  '103': { bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
+  '111': { bg:'#FFF8E6', border:'#F9BE00', dot:'#D49A00' },
+  '104': { bg:'#EDF5FF', border:'#90C0F0', dot:'#0C6FA8' },
+  '101': { bg:'#E8F5E9', border:'#90D090', dot:'#389C39' },
+  '005': { bg:'#F3E8FF', border:'#C090E0', dot:'#491B87' },
+  '108': { bg:'#E0F7FA', border:'#80D0D8', dot:'#28B7BD' },
+  '119': { bg:'#FFF3E0', border:'#F0B060', dot:'#E88A00' },
+  '130': { bg:'#EEEEEE', border:'#C0C0C0', dot:'#808080' },
+  '132': { bg:'#E8F5E9', border:'#A0D0A0', dot:'#389C39' }
 };
-function supplierColor(name) {
-  return SUPPLIER_COLORS[name] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
+function supplierColor(code) {
+  return SUPPLIER_COLORS[code] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
 }
 
-// 获取天数：优先 days 字段（纵贯等做了天数→晚数转换后回算），fallback 到 nights
+// 获取天数：优先 days 字段（部分供应商做了天数→晚数转换后回算），fallback 到 nights
 function getDays(r) {
   var d = r.days || r.nights || '';
   return d;
