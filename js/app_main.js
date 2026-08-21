@@ -334,7 +334,7 @@ function renderTab() {
       var mp=Math.min.apply(null,g.records.map(function(r){return r.retail||99999}));
       // 组内排序
       g.records = _sortRecords(g.records);
-      html+='<div class="hm-group" onclick="toggleGroup(\''+gid+'\')"><div class="hm-group-hd">'
+      html+='<div class="hm-group" onclick="if(event.target.closest(\'.card\'))return;toggleGroup(\''+gid+'\')"><div class="hm-group-hd">'
         +'<span class="hm-route">'+(g.isOpenJaw ? (g.dep+' → '+g.arr+' / '+g.retCity+' → '+(g.dep||'')) : (g.dep+' → '+g.arr))+'</span>'
         +'<span class="hm-nights">'+(g.nights?g.nights+'天':'自由')+'</span>'
         +'<span class="hm-count">'+g.records.length+'条</span>'
