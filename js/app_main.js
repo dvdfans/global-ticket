@@ -1170,7 +1170,9 @@ function openDetail(rec) {
   if (!rec) return;
   // 2026-08-17 关键排序规则：同航班号+同日+不同供应商 → 自动切到最优（最低价/余位少/供应商代码前）
   var _keyRecs = DB.records.filter(function(r) {
-    return r.dep === rec.dep && r.arr === rec.arr && r.flight === rec.flight && r.dep_date === rec.dep_date;
+    return r.dep === rec.dep && r.arr === rec.arr && r.flight === rec.flight && r.dep_date === rec.dep_date
+      && getDays(r) === getDays(rec)
+      && ((r.flight_return||'').trim() === (rec.flight_return||'').trim());
   });
   if (_keyRecs.length > 1) {
     var _best = _pickBestRec(_keyRecs);
@@ -2366,12 +2368,14 @@ function _updateFilterUrl() {
 function _applyFilterFromUrl() {
   var p = new URLSearchParams(location.search);
   var hasFilter = false;
-  if (p.get('f_dep')) { _filter.dep = p.get('f_dep'); hasFilter = true; }
-  if (p.get('f_arr')) { _filter.arr = p.get('f_arr'); hasFilter = true; }
-  if (p.get('f_days')) { _filter.days = p.get('f_days'); hasFilter = true; }
-  if (p.get('f_month')) { _filter.month = p.get('f_month'); hasFilter = true; }
-  if (p.get('f_date')) {
-    _filter.dates = p.get('f_date').split(',').filter(function(x){return !!x});
+  // 向后兼容：同时识别新格式(f_*)与旧格式(dep/arr/date…)，避免历史分享链接失效
+  if (p.get('f_dep') || p.get('dep')) { _filter.dep = p.get('f_dep') || p.get('dep'); hasFilter = true; }
+  if (p.get('f_arr') || p.get('arr')) { _filter.arr = p.get('f_arr') || p.get('arr'); hasFilter = true; }
+  if (p.get('f_days') || p.get('days')) { _filter.days = p.get('f_days') || p.get('days'); hasFilter = true; }
+  if (p.get('f_month') || p.get('month')) { _filter.month = p.get('f_month') || p.get('month'); hasFilter = true; }
+  if (p.get('f_date') || p.get('date')) {
+    var _dv = p.get('f_date') || p.get('date');
+    _filter.dates = _dv.split(',').filter(function(x){return !!x});
     _filter.date = _filter.dates.length === 1 ? _filter.dates[0] : '';
     hasFilter = true;
   }
