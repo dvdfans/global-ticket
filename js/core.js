@@ -180,6 +180,8 @@ async function loadDB() {
     // 2026-08-06: 售罄记录（0/售罄/满/(空)/候补/暂停/0805上调/停售）加载后一次性过滤——
     // 环球度假 H5 只渲染在售数据条，售罄不渲染也不显示到结果（数据仍一比一保留在 price_db.json 全量库/对比表）
     DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
+    // 2026-08-21: 途益(108)/美亚(103)重叠排除——过滤 overlap_excluded=True（保留美亚、排除途益重叠；REFERENCE §5.8）
+    DB.records = DB.records.filter(function(x) { return !x.overlap_excluded; });
     validateDays();  // 校验天数/回程日期一致性
     updateStats();
     generateFooterQR();  // 加载完数据后生成尾部二维码
@@ -204,6 +206,8 @@ async function autoRefreshOnce() {
     if (DB && DB.build_time === nd.build_time) return; // 数据未变，静默跳过
     DB = nd;
     DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
+    // 2026-08-21: 途益(108)/美亚(103)重叠排除——过滤 overlap_excluded=True（保留美亚、排除途益重叠；REFERENCE §5.8）
+    DB.records = DB.records.filter(function(x) { return !x.overlap_excluded; });
     validateDays();
     updateStats();
     render();
