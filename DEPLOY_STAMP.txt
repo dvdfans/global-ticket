@@ -1,3 +1,3 @@
-deployed_at: 2026-08-21 11:52:54
-records: 2299
+deployed_at: 2026-08-21 12:17:22
+records: 2295
 source: PriceQuote/output/sandbox (7116b6b0 同源)

@@ -12,7 +12,7 @@ var ADMIN_LIST = [
 var STATS_API_URL = '';
 try {
   if ((location.hostname || '').indexOf('7116b6b0') >= 0) {
-    STATS_API_URL = 'https://alaska-smoke-six-resolution.trycloudflare.com/track';
+    STATS_API_URL = 'https://shipments-asian-dos-campbell.trycloudflare.com/track';
   }
 } catch(e) {}
 
@@ -144,7 +144,7 @@ let currentTab = 'home';
 let _sortModes = ['date_asc'];  // 2026-08-20 需求：渲染报价卡片默认按去程日期升序
 let _groupMode = true;
 // 2026-08-07 17:1x: 分组排序模式（组间）——'smart'=智能(城市→省会→航线→天数升序)；其余=航线/天数/条数/价格 升降序
-let _groupSort = 'date_asc';  // 2026-08-20：默认分组顺序改为去程日期升序（取代智能排序默认；手动仍可切回智能/价格等）
+let _groupSort = 'smart';  // 2026-08-21：分组排序默认改回智能排序（城市→省会→航线→天数升序）
 let isAdmin = false;
 
 // 初始化主题 + 游客ID

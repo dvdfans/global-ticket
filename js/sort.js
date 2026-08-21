@@ -74,39 +74,47 @@ function _renderSortBody(modes) {
       + badge + '</div>';
   }
   
-  // ── 区块1：分组排序（组间，单选）──
-  var h = '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">① 分组排序（决定分组上下顺序）</div>';
-  GROUP_SORT_DIMS.forEach(function(dim) {
-    var sel = false, dir = '', prio = 0;
-    if (dim.key === 'g_smart') {
-      sel = (gs === 'smart');
-      if (sel) { dir = '✓'; prio = 1; }
-    } else {
-      var rawKey = dim.key.slice(2);  // g_route → route
-      var asc = rawKey+'_asc', desc = rawKey+'_desc';
-      if (gs === asc) { sel = true; dir = 'asc'; prio = 1; }
-      else if (gs === desc) { sel = true; dir = 'desc'; prio = 1; }
-    }
-    h += dimCell(dim.label, dim.hint, dim.key, dir, sel, prio);
-  });
-  
-  // ── 区块2：报价卡片排序（组内，可多选组合）──
-  h += '<div style="margin-top:14px;border-top:1px solid var(--border);padding-top:10px;font-size:12px;color:var(--text-secondary);margin-bottom:8px">② 报价卡片排序（决定组内卡片顺序）</div>';
-  CARD_SORT_DIMS.forEach(function(dim) {
-    var asc = dim.key+'_asc', desc = dim.key+'_desc';
-    var ia = modes.indexOf(asc), id = modes.indexOf(desc);
-    var sel = ia >= 0 || id >= 0;
-    var dir = ia >= 0 ? 'asc' : (id >= 0 ? 'desc' : '');
-    var prio = sel ? ((ia>=0?ia:id)+1) : 0;
-    h += dimCell(dim.label, null, dim.key, dir, sel, prio);
-  });
-  
-  // ── 区块3：按路线分组开关 ──
+  // ── 2026-08-21 排序框与显示模式联动 ──
+  // 分组显示(_groupMode=true) → 排序框只显示「分组排序」；卡片平铺显示(_groupMode=false) → 只显示「报价卡片排序」。
+  // 两种模式都保留「按路线分组」开关（区块3），用于切换到另一种排序上下文。
+  var inGroupMode = (typeof _groupMode !== 'undefined') ? _groupMode : true;
+  var h = '';
+
+  // ── 区块1：分组排序（组间，单选）── 仅分组显示模式显示
+  if (inGroupMode) {
+    h += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">① 分组排序（决定分组上下顺序）</div>';
+    GROUP_SORT_DIMS.forEach(function(dim) {
+      var sel = false, dir = '', prio = 0;
+      if (dim.key === 'g_smart') {
+        sel = (gs === 'smart');
+        if (sel) { dir = '✓'; prio = 1; }
+      } else {
+        var rawKey = dim.key.slice(2);  // g_route → route
+        var asc = rawKey+'_asc', desc = rawKey+'_desc';
+        if (gs === asc) { sel = true; dir = 'asc'; prio = 1; }
+        else if (gs === desc) { sel = true; dir = 'desc'; prio = 1; }
+      }
+      h += dimCell(dim.label, dim.hint, dim.key, dir, sel, prio);
+    });
+  } else {
+    // ── 区块2：报价卡片排序（组内，可多选组合）── 仅卡片平铺显示模式显示
+    h += '<div style="font-size:12px;color:var(--text-secondary);margin-bottom:8px">② 报价卡片排序（决定卡片顺序）</div>';
+    CARD_SORT_DIMS.forEach(function(dim) {
+      var asc = dim.key+'_asc', desc = dim.key+'_desc';
+      var ia = modes.indexOf(asc), id = modes.indexOf(desc);
+      var sel = ia >= 0 || id >= 0;
+      var dir = ia >= 0 ? 'asc' : (id >= 0 ? 'desc' : '');
+      var prio = sel ? ((ia>=0?ia:id)+1) : 0;
+      h += dimCell(dim.label, null, dim.key, dir, sel, prio);
+    });
+  }
+
+  // ── 区块3：按路线分组开关（始终显示，用于切换排序上下文）──
   h += '<div style="margin-top:14px;border-top:1px solid var(--border);padding-top:12px">'
     + '<div class="sort-group-toggle" style="display:flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;color:var(--text)">'
     + '<span style="width:18px;height:18px;border-radius:4px;border:2px solid '+(_groupMode?'var(--red)':'var(--border)')+';display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;color:'+(_groupMode?'var(--red)':'transparent')+'">✓</span>'
     + '按路线分组</div>'
-    + '<div style="font-size:11px;color:var(--text-light);margin-top:4px;padding-left:26px">关闭后按报价卡片排序平铺展示</div>'
+    + '<div style="font-size:11px;color:var(--text-light);margin-top:4px;padding-left:26px">' + (inGroupMode ? '关闭后按报价卡片排序平铺展示' : '开启后按分组排序（城市→航线→天数）展示') + '</div>'
     + '</div>';
   
   body.innerHTML = h;
@@ -169,7 +177,7 @@ function _removeSortDim(k) {
 
 function resetSort() {
   _sortModes = ['date_asc'];   // 2026-08-20：重置回到「去程日期升序」默认
-  _groupSort = 'date_asc';
+  _groupSort = 'smart';        // 2026-08-21：分组排序默认改回智能排序
   _groupMode = true;
   _renderSortBody(_getModes());
 }
@@ -187,20 +195,25 @@ function applySort() {
 // 2026-08-07 20:4x: 排序按钮状态文本（两层：分组排序 + 卡片排序）
 // 加「组:」/「卡:」前缀区分——分组选价格+卡片选价格时不再显示歧义的「价格↓ · 价格↑」
 function _sortLabel() {
+  // 2026-08-21: 排序按钮文本与显示模式联动——分组显示只报分组排序，卡片显示只报卡片排序
+  var inGroupMode = (typeof _groupMode !== 'undefined') ? _groupMode : true;
   var parts = [];
-  var gs = typeof _groupSort !== 'undefined' ? _groupSort : 'smart';
-  if (gs !== 'smart') {
-    var gk = gs.split('_')[0];
-    var gd = gs.indexOf('_desc') >= 0 ? '↓' : '↑';
-    var gm = {'route':'航线','days':'天数','count':'条数','price':'价格','date':'日期'};
-    parts.push('组:' + (gm[gk] || '排序') + gd);
-  }
-  var modes = _getModes();
-  if (modes && modes.length) {
-    var m = modes[0];
-    var cd = m.indexOf('_desc') >= 0 ? '↓' : '↑';
-    var cm = {'price':'价格','date':'日期','seats':'余位','airline':'航司'};
-    parts.push('卡:' + (cm[m.split('_')[0]] || '排序') + cd);
+  if (inGroupMode) {
+    var gs = typeof _groupSort !== 'undefined' ? _groupSort : 'smart';
+    if (gs !== 'smart') {
+      var gk = gs.split('_')[0];
+      var gd = gs.indexOf('_desc') >= 0 ? '↓' : '↑';
+      var gm = {'route':'航线','days':'天数','count':'条数','price':'价格','date':'日期'};
+      parts.push('组:' + (gm[gk] || '排序') + gd);
+    }
+  } else {
+    var modes = _getModes();
+    if (modes && modes.length) {
+      var m = modes[0];
+      var cd = m.indexOf('_desc') >= 0 ? '↓' : '↑';
+      var cm = {'price':'价格','date':'日期','seats':'余位','airline':'航司'};
+      parts.push('卡:' + (cm[m.split('_')[0]] || '排序') + cd);
+    }
   }
   if (!parts.length) return '↕ ✨ 智能排序';
   return '↕ ' + parts.join(' · ');
