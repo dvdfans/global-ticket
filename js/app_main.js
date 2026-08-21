@@ -1,7 +1,7 @@
 function render() {
   // 2026-08-13: 非搜索结果视图（render 是常规视图渲染入口）→ 重置搜索态标志
   _isSearchView = false;
-  // 首页-尾单; 热门-中秋国庆; 其他-区域筛选
+  // 首页-热销(千巡); 热门-中秋国庆; 其他-区域筛选
   if (currentTab === 'home') return renderHome();
   if (currentTab === 'filter') return renderFiltered();
   renderTab();
@@ -57,7 +57,7 @@ function _sortRecords(recs) {
 }
 
 function _stickyBar() {
-  var label = {'home':'尾单','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳','domestic':'国内'};
+  var label = {'home':'热销','hot':'热门','japan':'日本','korea':'韩国','seasia':'东南亚','ganga':'港澳','domestic':'国内'};
   var name = label[currentTab] || currentTab;
   return '<div class="sticky-bar" style="display:flex;align-items:center;justify-content:space-between;padding:6px 12px">'
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
@@ -359,20 +359,18 @@ function renderHome() {
   var weekEnd = new Date(today.getTime() + 7 * 86400000);
   var weekEndStr = weekEnd.toISOString().slice(0,10);
   
-  // 首页：尾单 — 所有航线1周内余位≤3（排除售罄）
+  // 首页：热销 — 渲染全部千巡(供应商码130)报价卡片，按去程日期升序（2026-08-21 撤销原尾单规则）
   var records = DB.records.filter(function(r) {
     if (!_hasSeats(r) || !_validRecord(r)) return false;
-    var d = r.dep_date || '';
-    if (d < todayStr || d > weekEndStr) return false;
-    var s = parseInt((r.seats||'0').match(/\d+/)?.[0] || '999');
-    return s <= 3 && !(!r.flight_return && (r.dep === '济州岛' || r.dep === '济州') && r.arr === '上海');
+    if (String(r.supplier) !== '130') return false;  // 仅千巡
+    return true;
   });
   records.sort(function(a,b) { return (a.dep_date||'') < (b.dep_date||'') ? -1 : 1; });
-  
+
   var html = _stickyBar();
   var useSimple = location.pathname.indexOf('_simple') !== -1;
-  if (records.length) records.slice(0, 100).forEach(function(r) { html += useSimple ? renderCardSimple(r) : hmCard(r); });
-  else html += '<div class="loading" style="padding:20px">暂无尾单</div>';
+  if (records.length) records.forEach(function(r) { html += useSimple ? renderCardSimple(r) : hmCard(r); });
+  else html += '<div class="loading" style="padding:20px">暂无热销</div>';
   list.innerHTML = html;
 }
 
@@ -759,7 +757,7 @@ function renderCard(r) {
     + '</div></div>';
 }
 
-// ═══ 简化版卡片（用于首页尾单）═══
+// ═══ 简化版卡片（用于首页热销/千巡）═══
 function renderCardSimple(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
   var daysVal = getDays(r);
