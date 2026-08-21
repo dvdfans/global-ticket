@@ -180,7 +180,7 @@ async function loadDB() {
     // 2026-08-06: 售罄记录（0/售罄/满/(空)/候补/暂停/0805上调/停售）加载后一次性过滤——
     // 环球度假 H5 只渲染在售数据条，售罄不渲染也不显示到结果（数据仍一比一保留在 price_db.json 全量库/对比表）
     DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
-    // 2026-08-21: 途益(108)/美亚(103)重叠排除——过滤 overlap_excluded=True（保留美亚、排除途益重叠；REFERENCE §5.8）
+    // 2026-08-21: 代码108/103 重叠排除——过滤 overlap_excluded=True（保留103、排除108重叠；REFERENCE §5.8）
     DB.records = DB.records.filter(function(x) { return !x.overlap_excluded; });
     validateDays();  // 校验天数/回程日期一致性
     updateStats();
@@ -206,7 +206,7 @@ async function autoRefreshOnce() {
     if (DB && DB.build_time === nd.build_time) return; // 数据未变，静默跳过
     DB = nd;
     DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
-    // 2026-08-21: 途益(108)/美亚(103)重叠排除——过滤 overlap_excluded=True（保留美亚、排除途益重叠；REFERENCE §5.8）
+    // 2026-08-21: 代码108/103 重叠排除——过滤 overlap_excluded=True（保留103、排除108重叠；REFERENCE §5.8）
     DB.records = DB.records.filter(function(x) { return !x.overlap_excluded; });
     validateDays();
     updateStats();
@@ -313,40 +313,21 @@ function fmtSeats(s, opts) {
 // ── 供应商底色规则（2026-08-05 重设计 v2：26 家全覆盖——price_db 11 家 + ERP 资源标题检索出的 15 家，避开 logo 红 #DA3A2C / logo 金 #F9BE00）──
 // dot=卡片左边条/阴影主色；glow=卡片阴影 rgba（供应商色 tint）；bg/border=浅色底
 const SUPPLIER_COLORS = {
-  '美亚':    { bg:'#EAF2FA', border:'#A8C8E8', dot:'#0C6FA8', glow:'rgba(12,111,168,0.18)' },
-  '奇妙':    { bg:'#E6F7F8', border:'#8FD8DC', dot:'#28B7BD', glow:'rgba(40,183,189,0.18)' },
-  '纵贯':    { bg:'#E8EEF7', border:'#93A8CC', dot:'#004286', glow:'rgba(0,66,134,0.18)' },
-  '通宏':    { bg:'#E8F5E9', border:'#8FC890', dot:'#389C39', glow:'rgba(56,156,57,0.18)' },
-  '上航':    { bg:'#F3EAFB', border:'#BFA8DC', dot:'#491B87', glow:'rgba(73,27,135,0.18)' },
-  '途益':    { bg:'#E4F5F3', border:'#86CFC8', dot:'#008B8B', glow:'rgba(0,139,139,0.18)' },
-  '万国':    { bg:'#FFF3E2', border:'#F0B060', dot:'#E88A00', glow:'rgba(232,138,0,0.18)' },
-  '通宏国内': { bg:'#EBEFF4', border:'#A8BCCE', dot:'#5A7D9A', glow:'rgba(90,125,154,0.18)' },
-  '怡行':    { bg:'#E9F4EA', border:'#98CBA0', dot:'#2E7D32', glow:'rgba(46,125,50,0.18)' },
-  '春秋国际': { bg:'#F5EEE4', border:'#D0B090', dot:'#8B5A2B', glow:'rgba(139,90,43,0.18)' },
-  'ERP':     { bg:'#EAECF2', border:'#98A2B8', dot:'#1F3A5F', glow:'rgba(31,58,95,0.18)' },
-  // ── ERP 数据（iVision 资源标题）检索出的供应商（2026-08-05）──
-  '浙江中青旅': { bg:'#E7F2FA', border:'#90BFDF', dot:'#0072A3', glow:'rgba(0,114,163,0.18)' },
-  '浙江新世界': { bg:'#F3EAF9', border:'#C2A8DA', dot:'#7B1FA2', glow:'rgba(123,31,162,0.18)' },
-  '上海宝臻': { bg:'#EDF7ED', border:'#A5D6A7', dot:'#4CAF50', glow:'rgba(76,175,80,0.18)' },
-  '浙江海峡': { bg:'#E8F2FE', border:'#90CAF9', dot:'#2196F3', glow:'rgba(33,150,243,0.18)' },
-  '宏游':    { bg:'#E4F5F2', border:'#88CFC4', dot:'#009688', glow:'rgba(0,150,136,0.18)' },
-  '芒果汇':  { bg:'#FCEFE3', border:'#F0A87A', dot:'#E65100', glow:'rgba(230,81,0,0.18)' },
-  '信旅飞跃': { bg:'#F2ECE7', border:'#C4AFA0', dot:'#795548', glow:'rgba(121,85,72,0.18)' },
-  '杭州宝臻': { bg:'#E3F4F2', border:'#7FC9BE', dot:'#00695C', glow:'rgba(0,105,92,0.18)' },
-  '江苏欣辰': { bg:'#EBEDFA', border:'#A9B4E8', dot:'#3949AB', glow:'rgba(57,73,171,0.18)' },
-  '走遍全球': { bg:'#E5F8FB', border:'#8FE0EA', dot:'#00ACC1', glow:'rgba(0,172,193,0.18)' },
-  '锦江':   { bg:'#E7F0FB', border:'#9EC7EA', dot:'#1565C0', glow:'rgba(21,101,192,0.18)' },
-  '苏州和平': { bg:'#F0F7E8', border:'#C0DC9E', dot:'#7CB342', glow:'rgba(124,179,66,0.18)' },
-  '江苏苏宁国际旅游': { bg:'#EFEAFB', border:'#BDA8E8', dot:'#5E35B1', glow:'rgba(94,53,177,0.18)' },
-  '无锡国旅汤青': { bg:'#E4F4F1', border:'#8AD0C4', dot:'#00897B', glow:'rgba(0,137,123,0.18)' },
-  '千巡':   { bg:'#EBEEF2', border:'#AEBAC8', dot:'#546E7A', glow:'rgba(84,110,122,0.18)' },
+  '103': { bg:'#EAF2FA', border:'#A8C8E8', dot:'#0C6FA8', glow:'rgba(12,111,168,0.18)' },
+  '111': { bg:'#E6F7F8', border:'#8FD8DC', dot:'#28B7BD', glow:'rgba(40,183,189,0.18)' },
+  '104': { bg:'#E8EEF7', border:'#93A8CC', dot:'#004286', glow:'rgba(0,66,134,0.18)' },
+  '101': { bg:'#E8F5E9', border:'#8FC890', dot:'#389C39', glow:'rgba(56,156,57,0.18)' },
+  '005': { bg:'#F3EAFB', border:'#BFA8DC', dot:'#491B87', glow:'rgba(73,27,135,0.18)' },
+  '108': { bg:'#E4F5F3', border:'#86CFC8', dot:'#008B8B', glow:'rgba(0,139,139,0.18)' },
+  '119': { bg:'#FFF3E2', border:'#F0B060', dot:'#E88A00', glow:'rgba(232,138,0,0.18)' },
+  '132': { bg:'#F5EEE4', border:'#D0B090', dot:'#8B5A2B', glow:'rgba(139,90,43,0.18)' },
+  'ERP': { bg:'#EAECF2', border:'#98A2B8', dot:'#1F3A5F', glow:'rgba(31,58,95,0.18)' },
 };
 // 2026-08-12: 供应商代码（46 家，与全量库 supplier_code / 子库 supplier 对应）
-const SUPPLIER_CODE = { '111':'奇妙','132':'春秋','103':'美亚','119':'万国','104':'纵贯','101':'通宏','005':'上航','133':'浙江中青旅','107':'上海宝臻','124':'浙江新世界','125':'浙江海峡','130':'千巡','108':'途益','109':'信旅','121':'飞跃','007':'芒果汇','134':'宏游','135':'江苏欣辰','126':'杭州宝臻','136':'走遍全球','120':'锦江','102':'苏州和平','137':'江苏苏宁国际旅游','001':'中信','002':'港中旅','003':'关东','004':'哈哈','006':'无锡康辉','008':'HX团网','009':'东航白屏','010':'澳航假期','105':'保晟','106':'积木','110':'今日','112':'信程','113':'康辉','114':'新康辉','115':'全景','116':'腾轩','117':'国旅王威','118':'嘉航逸途','122':'团团游','123':'江苏阳光国旅','127':'无锡泰发','128':'无锡国旅','129':'无锡中天','131':'苏州飞鱼' };
-// 代码 → 色（子库 supplier 只存代码）：先按代码反查名称再查色表；传名称也兼容
-function supplierColor(codeOrName) {
-  var name = SUPPLIER_CODE[codeOrName] || codeOrName;
-  return SUPPLIER_COLORS[name] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
+
+// 颜色按供应商代码查（子库 supplier 只存代码）
+function supplierColor(code) {
+  return SUPPLIER_COLORS[code] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
 }
 
 // ═══════════════ 供应商标签框（2026-08-12 照搬客服版 customer_h5/core.js，逐字一致）═══════════════
@@ -366,20 +347,12 @@ function _decSup(cipher) {
   } catch (e) { return cipher; }
 }
 
-// 供应商 → 拼音首字母大写缩写（显示层映射；无映射时回退原值——子库传代码时即显示代码）
-const SUPPLIER_INITIALS = {
-  '美亚':'MY', '奇妙':'QM', '纵贯':'ZG', '通宏':'TH', '上航':'SH', '途益':'TY', '万国':'WG',
-  '通宏国内':'THG', '怡行':'YX', '春秋国际':'CQ', 'ERP':'ERP',
-  '浙江中青旅':'ZJZQL', '浙江新世界':'ZJXSJ', '上海宝臻':'SHBZ', '浙江海峡':'ZJHX',
-  '宏游':'HY', '芒果汇':'MGH', '信旅飞跃':'XLFY', '杭州宝臻':'HZBZ', '江苏欣辰':'JSXC',
-  '走遍全球':'ZBQQ', '锦江':'JJ', '苏州和平':'SZHP', '江苏苏宁国际旅游':'JSSN',
-  '无锡国旅汤青':'WXGLTQ', '千巡':'QX',
-};
+// 供应商显示：解密后原样返回（子库 supplier 只存代码）
+
 
 // 供应商显示名：解密 → 拼音首字母缩写（大写）；子库传代码（非 enc:、无缩写映射）时原样返回代码
 function supDispName(cipher) {
-  var real = _decSup(cipher);
-  return SUPPLIER_INITIALS[real] || real;
+  return _decSup(cipher);
 }
 
 // ═══════════════ 供应商可见性权限（照搬客服版：唯一权威，禁止业务代码另写判断）═══════════════
@@ -415,7 +388,7 @@ function supStripe(r) {
   return supplierColor(_decSup(r.supplier));
 }
 
-// 获取天数：优先 days 字段（纵贯等做了天数→晚数转换后回算），fallback 到 nights
+// 获取天数：优先 days 字段（部分供应商做了天数→晚数转换后回算），fallback 到 nights
 function getDays(r) {
   var d = r.days || r.nights || '';
   return d;
