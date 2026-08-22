@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-22 13:42:29",
+  "build_time": "2026-08-22 15:22:17",
   "record_count": 2107,
   "records": [
     {
@@ -87390,8 +87390,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "6",
-      "erp_seats": "6",
+      "seats": "2",
+      "erp_seats": "2",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "SHA",
