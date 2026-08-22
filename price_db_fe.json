@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-22 08:52:43",
+  "build_time": "2026-08-22 12:05:20",
   "record_count": 2108,
   "records": [
     {
@@ -12373,7 +12373,7 @@
       "return_date": "2026-09-13",
       "nights": "4",
       "days": "5",
-      "retail": 1599,
+      "retail": 1799,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -15240,7 +15240,7 @@
       "return_date": "2026-08-28",
       "nights": "4",
       "days": "5",
-      "retail": 2499,
+      "retail": 2199,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -15272,7 +15272,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "临退2个",
       "sub_sheet": "杭州首尔&济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
