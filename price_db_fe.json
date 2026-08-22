@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-22 20:21:56",
+  "build_time": "2026-08-22 22:03:19",
   "record_count": 2106,
   "records": [
     {
@@ -10023,7 +10023,7 @@
       "return_date": "2026-10-07",
       "nights": "3",
       "days": "4",
-      "retail": 2299,
+      "retail": 1999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -39168,7 +39168,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "5",
+      "seats": "2",
       "erp_seats": "5",
       "airline": "MU",
       "airline_cn": "东航",
