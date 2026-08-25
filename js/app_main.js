@@ -1508,7 +1508,7 @@ function openShareModal(mode) {
     + '<button class="share-copy" onclick="copyShareText()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--brand,var(--red));color:#fff;font-weight:700;font-size:13px">📋 复制文字</button>'
     + '<button class="share-wx" onclick="openCSMulti()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--green);color:#fff;font-weight:700;font-size:13px">💬 客服咨询</button>'
     + '</div>'
-    + '<div id="qrCanvasWrap" style="width:200px;height:200px;margin:12px auto;border-radius:8px;overflow:hidden;background:#fff;padding:8px;box-sizing:content-box"></div>'
+    + '<div id="qrCanvasWrap" style="width:200px;height:200px;margin:12px auto;border-radius:4px;overflow:hidden;background:#fff;padding:8px;box-sizing:content-box"></div>'
     + '<p style="font-size:12px;color:var(--text);font-weight:600">📲 长按二维码转发给好友</p>'
     + '<p style="font-size:11px;color:var(--text-light);margin-top:4px">好友长按图片即可识别，或点链接直达11条结果</p>'
     + '<div style="margin-top:12px;background:var(--red-light);border-radius:8px;padding:10px;font-size:11px;color:var(--red);text-align:left">💡 已自动复制报价，可直接粘贴到微信发送</div>'
