@@ -1494,11 +1494,13 @@ function _buildShareResultsText() {
 
 function openShareModal(mode) {
   recordAction('share_open', {});
-  var url = location.origin + location.pathname + _filterUrlQuery();
+  var url = _isSearchView ? (location.origin + location.pathname + _filterUrlQuery()) : (location.origin + location.pathname);
   // 筛选/结果页场景：优先展示全部报价（与「复制文字」、二维码一致）；单卡场景回落 _shareText
-  var isFilterCtx = (mode === 'filter') || (currentTab === 'filter' && _getFilteredRecs().length);
+  var isFilterCtx = _isSearchView && _getFilteredRecs().length;
+  var _tabLabels = {home:'首页',hot:'热门',japan:'日本',korea:'韩国',seasia:'东南亚',ganga:'港澳',domestic:'国内'};
+  var _tabLabel = _tabLabels[currentTab] || '特价';
   var resultsText = isFilterCtx ? _buildShareResultsText() : '';
-  var text = resultsText || _shareText || ('🌍 环球度假 · 特价机票每日更新\n' + url);
+  var text = resultsText || _shareText || ('🌍 环球度假 · ' + _tabLabel + '特价机票每日更新\n' + url);
   _lastShareText = text;
 
   var html = '<div style="text-align:center;padding:20px 16px">'
@@ -1707,7 +1709,7 @@ document.head.appendChild(odStyle);
 function generateFooterQR() {
   var wrap = document.getElementById('qrLinkCanvas');
   if (!wrap || typeof QRCode === 'undefined') return;
-  var shareUrl = location.origin + location.pathname + _filterUrlQuery();
+  var shareUrl = _isSearchView ? (location.origin + location.pathname + _filterUrlQuery()) : (location.origin + location.pathname);
   // 清空可能存在的占位
   wrap.innerHTML = '';
   new QRCode(wrap, { text: shareUrl, width: 56, height: 56 });
@@ -2736,6 +2738,7 @@ function showSearchResult(dep, arr, flight, date) {
   var recs = DB.records.filter(function(r){return _validRecord(r) && r.dep===dep && r.arr===arr && r.flight===flight && r.dep_date===date});
   // 2026-08-13: 搜索态顶部栏（排序/搜索按钮 + 关键字分组标题）
   _isSearchView = true;
+  if (typeof generateFooterQR === 'function') generateFooterQR();
   list.innerHTML = _searchStickyBar(recs.length, _lastSearchQ) + recs.map(cardHTML).join('');
 }
 
@@ -2753,6 +2756,7 @@ function showAllSearchResults() {
 function searchFilterAndShow(q) {
   // 2026-08-13: 标记搜索态（结果列表顶部显示 排序/搜索 按钮 + 关键字分组标题）
   _isSearchView = true;
+  if (typeof generateFooterQR === 'function') generateFooterQR();
   _lastSearchQ = q;
   // 0. 关键字抽取（2026-08-18）：与 searchFilter 保持同一套语义，否则两处结果不一致
   var _kw = _extractSearchKw(q);
