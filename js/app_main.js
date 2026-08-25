@@ -1696,7 +1696,7 @@ function generateFooterQR() {
   var shareUrl = location.origin + location.pathname + _filterUrlQuery();
   // 清空可能存在的占位
   wrap.innerHTML = '';
-  new QRCode(wrap, { text: shareUrl, width: 72, height: 72 });
+  new QRCode(wrap, { text: shareUrl, width: 56, height: 56 });
   // 点击打开分享弹层 + 自动复制链接
   document.getElementById('qrShare').onclick = function() {
     openShareModal('filter');
