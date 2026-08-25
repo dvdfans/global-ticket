@@ -2,9 +2,9 @@
 
 // 账号系统
 var ADMIN_LIST = [
-  {user:'admin',pwd:'1qaz9ol.7ujm$RFV',role:'admin',name:'管理员'},
-  {user:'adminzch',pwd:'6yhn(OL>',role:'admin',name:'管理员zch'},
-  {user:'adminxxy',pwd:'5tgb*IK<',role:'admin',name:'管理员xxy'},
+  {user:'admin',role:'admin',name:'管理员'},
+  {user:'adminzch',role:'admin',name:'管理员zch'},
+  {user:'adminxxy',role:'admin',name:'管理员xxy'},
 ];
 
 // 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
@@ -121,17 +121,12 @@ function _statsTheme() {
 function loadAccounts() {
   var cs = [];
   try { cs = JSON.parse(localStorage.getItem('cs_accounts') || '[]'); } catch(e) {}
-  // 首次使用：插入默认客服
+  // 首次使用：插入默认客服（2026-08-25 安全审查：明文 hq_* 凭证已清除，账号以 login.html 哈希体系为准）
   if (!cs.length) {
-    var defaults = [
-      {user:'hq_zhangw',pwd:'123456'},{user:'hq_liujq',pwd:'123456'},{user:'hq_liuw',pwd:'123456'},
-      {user:'hq_baif',pwd:'123456'},{user:'hq_mifm',pwd:'123456'},{user:'hq_liurong',pwd:'123456'},{user:'hq_shenzy',pwd:'123456'}
-    ];
-    cs = defaults;
-    localStorage.setItem('cs_accounts', JSON.stringify(cs));
+    cs = [];   // 明文凭证不再写入 localStorage
   }
   var accs = ADMIN_LIST.map(function(a){return a;});
-  cs.forEach(function(a){ accs.push({user:a.user, pwd:a.pwd, role:'cs', name:a.user}); });
+  cs.forEach(function(a){ accs.push({user:a.user, role:'cs', name:a.user}); });
   return accs;
 }
 

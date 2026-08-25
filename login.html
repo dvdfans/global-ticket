@@ -119,7 +119,6 @@
       if (found) {
         localStorage.setItem('current_user', JSON.stringify({user:found.user,role:found.role,name:found.name}));
         // 记录登录事件（正式版统计；客服版不统计，见 customer_h5/login.html）
-        try { new Image().src = 'https://dear-cheers-reveals-retired.trycloudflare.com/track?data=' + encodeURIComponent(JSON.stringify({action:'admin_login',user:found.user,role:found.role,timestamp:new Date().toISOString()})); } catch(e) {}
         msg.className = 'msg ok';
         msg.textContent = '✅ 登录成功，正在跳转...';
         var params = new URLSearchParams(location.search);
@@ -156,7 +155,6 @@
     }
     function doLogout() {
       // 记录登出事件（正式版统计；客服版不统计，见 customer_h5/login.html）
-      try { new Image().src = 'https://dear-cheers-reveals-retired.trycloudflare.com/track?data=' + encodeURIComponent(JSON.stringify({action:'admin_logout',user:(JSON.parse(localStorage.getItem('current_user')||'{}')).user||'',timestamp:new Date().toISOString()})); } catch(e) {}
       localStorage.removeItem('current_user');
       document.getElementById('loginForm').style.display = 'block';
       document.getElementById('userPanel').style.display = 'none';
