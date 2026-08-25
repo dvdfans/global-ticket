@@ -1370,7 +1370,7 @@ function toggleDates() {
 
 // ═══════════════ 复制全部信息 ═══════════════
 
-var _shareText = '', _shareTextSingle = '', _shareTextAll = '', _deepUrl = '', _sameRoute = [], _curReturnOptions = [];
+var _shareText = '', _shareTextSingle = '', _shareTextAll = '', _deepUrl = '', _sameRoute = [], _curReturnOptions = [], _lastShareText = '';
 var _PROMO = '———————————————\n更多特价机票（日韩港澳东南亚等）\n请详见小程序，实时更新，\n更多惊喜，戳这里查👇';
 
 function copyAll() {
@@ -1483,28 +1483,41 @@ document.getElementById('qrCs').onclick = function() {
 
 // ═══════════════ 分享（含二维码）═══════════════
 
-function openShareModal() {
+function _buildShareResultsText() {
+  var recs = _getFilteredRecs();
+  if (!recs.length) return '';
+  var groups = _buildCopyGroups(recs);
+  var trailer = _PROMO + '\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
+  var batches = _buildCopyBatchTexts(groups, 100, trailer);
+  return batches.length ? batches[0].text : '';
+}
+
+function openShareModal(mode) {
   recordAction('share_open', {});
   var url = location.origin + location.pathname + _filterUrlQuery();
-  var text = _shareText || '🌍 环球度假 · 特价机票每日更新\n' + url;
-  
+  // 筛选/结果页场景：优先展示全部报价（与「复制文字」、二维码一致）；单卡场景回落 _shareText
+  var isFilterCtx = (mode === 'filter') || (currentTab === 'filter' && _getFilteredRecs().length);
+  var resultsText = isFilterCtx ? _buildShareResultsText() : '';
+  var text = resultsText || _shareText || ('🌍 环球度假 · 特价机票每日更新\n' + url);
+  _lastShareText = text;
+
   var html = '<div style="text-align:center;padding:20px 16px">'
     + '<p style="font-size:15px;font-weight:700;color:var(--text)">分享报价</p>'
-    + '<div style="margin:14px 0;background:var(--tag-bg);border-radius:8px;padding:12px;font-size:12px;color:var(--text-secondary);word-break:break-all;line-height:1.5;text-align:left">' + text + '</div>'
+    + '<div style="margin:14px 0;background:var(--tag-bg);border-radius:8px;padding:12px;font-size:12px;color:var(--text-secondary);white-space:pre-wrap;word-break:break-all;line-height:1.7;text-align:left;max-height:300px;overflow:auto">' + _escHtml(text) + '</div>'
     + '<div style="display:flex;gap:8px">'
     + '<button class="share-copy" onclick="copyShareText()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--brand,var(--red));color:#fff;font-weight:700;font-size:13px">📋 复制文字</button>'
-    + '<button class="share-wx" onclick="wechatShare()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--green);color:#fff;font-weight:700;font-size:13px">💚 微信分享</button>'
+    + '<button class="share-wx" onclick="openCSMulti()" style="flex:1;padding:10px;border:none;border-radius:8px;background:var(--green);color:#fff;font-weight:700;font-size:13px">💬 客服咨询</button>'
     + '</div>'
     + '<div id="qrCanvasWrap" style="width:200px;height:200px;margin:12px auto;border-radius:8px;overflow:hidden;background:#fff;padding:8px"></div>'
-    + '<p style="font-size:12px;color:var(--text);font-weight:600">⬆ 截图此区域发送给好友</p>'
-    + '<p style="font-size:11px;color:var(--text-light);margin-top:4px">好友长按或微信扫描二维码即可查看报价</p>'
-    + '<div style="margin-top:12px;background:var(--red-light);border-radius:8px;padding:10px;font-size:11px;color:var(--red);text-align:left">💡 已自动复制链接，也可直接粘贴到微信发送</div>'
+    + '<p style="font-size:12px;color:var(--text);font-weight:600">📲 长按二维码转发给好友</p>'
+    + '<p style="font-size:11px;color:var(--text-light);margin-top:4px">好友长按图片即可识别，或点链接直达11条结果</p>'
+    + '<div style="margin-top:12px;background:var(--red-light);border-radius:8px;padding:10px;font-size:11px;color:var(--red);text-align:left">💡 已自动复制报价，可直接粘贴到微信发送</div>'
     + '<button onclick="closeShareModal()" style="margin-top:10px;padding:8px 24px;border:none;border-radius:6px;background:var(--tag-bg);color:var(--text-secondary);font-size:13px;cursor:pointer">关闭</button>'
     + '</div>';
-  
+
   document.getElementById('shareModalContent').innerHTML = html;
   document.getElementById('shareModal').classList.add('active');
-  
+
   setTimeout(function() {
     var wrap = document.getElementById('qrCanvasWrap');
     if (wrap && typeof QRCode !== 'undefined') {
@@ -1515,22 +1528,24 @@ function openShareModal() {
 }
 
 function copyShareText() {
-  var text = (_shareText || '🌍 环球度假 · 特价机票每日更新\n' + location.href);
+  var text = _lastShareText || _shareText || ('🌍 环球度假 · 特价机票每日更新\n' + location.href);
   recordAction('share_copy', {quote:text});
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制，可直接粘贴'); });
   } else { prompt('复制：', text); }
 }
 
-function wechatShare() {
-  // 微信内直接通过右上角分享，提示用户操作
-  if (/micromessenger/i.test(navigator.userAgent)) {
-    copyShareText();
-    showToast('💡 已复制，请点击右上角「...」发送');
-  } else {
-    copyShareText();
-    showToast('💡 已复制，可粘贴到微信发送');
-  }
+function openCSMulti() {
+  // 客服咨询：先复制当前报价文本（方便扫码后直接粘贴给客服），再弹出企业微信多人客服二维码（扫码系统自动分配在线客服）
+  copyShareText();
+  var html = '<div style="text-align:center;padding:16px">'
+    + '<p style="font-size:15px;font-weight:700;color:var(--text)">企业微信客服</p>'
+    + '<img src="img/qr_cs.png" alt="企业微信客服" style="width:180px;height:180px;border-radius:8px;margin:12px 0">'
+    + '<p style="font-size:13px;color:#4E5969">扫码后系统自动分配在线客服</p>'
+    + '<p style="font-size:11px;color:var(--text-light);margin-top:4px">已自动复制报价，添加客服后可直接粘贴</p></div>';
+  document.getElementById('csModalContent').innerHTML = html;
+  document.getElementById('csModal').classList.add('active');
+  recordAction('cs_multi_open', {});
 }
 
 function closeShareModal() {
@@ -1682,9 +1697,10 @@ function generateFooterQR() {
   new QRCode(wrap, { text: shareUrl, width: 72, height: 72 });
   // 点击打开分享弹层 + 自动复制链接
   document.getElementById('qrShare').onclick = function() {
-    openShareModal();
+    openShareModal('filter');
+    var t = (typeof _lastShareText !== 'undefined' && _lastShareText) ? _lastShareText : shareUrl;
     if (navigator.clipboard) {
-      navigator.clipboard.writeText(shareUrl).catch(function(){});
+      navigator.clipboard.writeText(t).catch(function(){});
     }
   };
 }
