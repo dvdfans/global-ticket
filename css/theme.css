@@ -108,3 +108,40 @@ body[data-theme] .filter-modal-hd .fml-close { background: rgba(255,255,255,0.22
 
 /* ── 新组件样式（元信息组）── */
 .cf-meta-group { display: inline-flex; align-items: center; gap: 6px; }
+
+/* ── 深色主题·报价卡片价格提亮
+   （2026-08-10 用户指定：仅 深海蓝/紫金 两主题深色模式，只提亮价格字体，其他元素一律不动）── */
+body.dark[data-theme="purple"] .cf-price,
+body.dark[data-theme="purple"] .dp-price,
+body.dark[data-theme="purple"] .card-price,
+body.dark[data-theme="purple"] .card-price-num,
+body.dark[data-theme="purple"] .cfs-price,
+body.dark[data-theme="purple"] .hmcard-price,
+body.dark[data-theme="purple"] .hm-minprice,
+body.dark[data-theme="purple"] .hm-nights,
+body.dark[data-theme="purple"] .ro-price,
+body.dark[data-theme="purple"] .odate-price,
+body.dark[data-theme="purple"] .fit-price { color: #b892f0; }
+body.dark[data-theme="blue"] .cf-price,
+body.dark[data-theme="blue"] .dp-price,
+body.dark[data-theme="blue"] .card-price,
+body.dark[data-theme="blue"] .card-price-num,
+body.dark[data-theme="blue"] .cfs-price,
+body.dark[data-theme="blue"] .hmcard-price,
+body.dark[data-theme="blue"] .hm-minprice,
+body.dark[data-theme="blue"] .hm-nights,
+body.dark[data-theme="blue"] .ro-price,
+body.dark[data-theme="blue"] .odate-price,
+body.dark[data-theme="blue"] .fit-price { color: #4aa8e0; }
+
+/* ── 详情页（含税）/人 深色提亮
+   （2026-08-10：.dp-tax 深色下由暗灰提亮为各主题亮色，与价格提亮协调）── */
+body.dark[data-theme="red"] .dp-tax { color: #ff6b5e; }
+body.dark[data-theme="purple"] .dp-tax { color: #b892f0; }
+body.dark[data-theme="blue"] .dp-tax { color: #4aa8e0; }
+body.dark[data-theme="green"] .dp-tax { color: #55c955; }
+
+/* ── 首页底部放大镜图标·深色跟随价格
+   （2026-08-10：深色下底部图标颜色与价格提亮色一致；红焰/翡翠绿价格保持 var(--brand)，图标已同色）── */
+body.dark[data-theme="purple"] .qr-filter-icon { color: #b892f0; }
+body.dark[data-theme="blue"] .qr-filter-icon { color: #4aa8e0; }

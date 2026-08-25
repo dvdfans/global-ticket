@@ -2,28 +2,125 @@
 
 // 账号系统
 var ADMIN_LIST = [
-  {user:'admin',pwd:'1qaz9ol.7ujm$RFV',role:'admin',name:'管理员'},
-  {user:'adminzch',pwd:'6yhn(OL>',role:'admin',name:'管理员zch'},
-  {user:'adminxxy',pwd:'5tgb*IK<',role:'admin',name:'管理员xxy'},
+  {user:'admin',role:'admin',name:'管理员'},
+  {user:'adminzch',role:'admin',name:'管理员zch'},
+  {user:'adminxxy',role:'admin',name:'管理员xxy'},
 ];
 
 // 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
-var STATS_API_URL = 'https://dear-cheers-reveals-retired.trycloudflare.com/track';
+var STATS_API_URL = 'https://sodium-data-logical-saturn.trycloudflare.com/track';
+
+// ── 埋点维度辅助 STATS-DIM v1（2026-08-10）──────────────────
+// 应急切换上报地址（无需重新部署）：localStorage.setItem('stats_api_override','https://xxx/track')
+try { var _sOv = localStorage.getItem('stats_api_override'); if (_sOv) STATS_API_URL = _sOv; } catch(e) {}
+
+// 来源版本：按域名判断，避免各通道写死常量后被同步脚本覆盖而误判
+function _statsSrc() {
+  var h = (location.hostname || '').toLowerCase();
+  if (h.indexOf('github.io') >= 0) return 'GitHub Pages';
+  if (h.indexOf('7116b6b0') >= 0) return '正式版';
+  if (h.indexOf('6677549d') >= 0) return '自由行测试版';
+  if (h.indexOf('a52b3dc0') >= 0) return '客服版';
+  if (h.indexOf('c3fcd2b5') >= 0) return '交付对比页';
+  if (h.indexOf('402d431c') >= 0) return '新报价站';
+  if (h.indexOf('2975ec0c') >= 0 || h.indexOf('de91a58') >= 0) return '镜像版';
+  if (h === 'localhost' || h === '127.0.0.1' || h === '') return '本地';
+  return h;
+}
+// 设备大类：iOS / 安卓 / 电脑 / iPad
+function _statsDev() {
+  var u = navigator.userAgent || '';
+  if (/iPad/i.test(u) || (/Macintosh/i.test(u) && (navigator.maxTouchPoints || 0) > 1)) return 'iPad';
+  if (/iPhone|iPod/i.test(u)) return 'iOS';
+  if (/Android/i.test(u)) return '安卓';
+  if (/Windows NT|Macintosh|X11|Linux x86/i.test(u)) return '电脑';
+  return '其他';
+}
+// 操作系统（含版本）
+function _statsOS() {
+  var u = navigator.userAgent || '', m;
+  if (/iPhone|iPad|iPod/i.test(u) && (m = u.match(/OS (\d+)[_.](\d+)/))) return 'iOS ' + m[1] + '.' + m[2];
+  if ((m = u.match(/Android (\d+(?:\.\d+)?)/))) return 'Android ' + m[1];
+  if (/Windows NT 10/.test(u)) return 'Windows 10/11';
+  if (/Windows NT/.test(u)) return 'Windows';
+  if (/Mac OS X/.test(u)) return 'macOS';
+  if (/Linux/.test(u)) return 'Linux';
+  return '未知';
+}
+// 浏览器 / 容器（微信内置浏览器占大头）
+function _statsBr() {
+  var u = navigator.userAgent || '';
+  if (/MicroMessenger/i.test(u)) return '微信';
+  if (/QQBrowser/i.test(u) || /\bQQ\//i.test(u)) return 'QQ';
+  if (/AlipayClient/i.test(u)) return '支付宝';
+  if (/DingTalk/i.test(u)) return '钉钉';
+  if (/Weibo/i.test(u)) return '微博';
+  if (/UCBrowser/i.test(u)) return 'UC';
+  if (/Edg\//i.test(u)) return 'Edge';
+  if (/Firefox/i.test(u)) return 'Firefox';
+  if (/Chrome|CriOS/i.test(u)) return 'Chrome';
+  if (/Safari/i.test(u)) return 'Safari';
+  return '其他';
+}
+// 入口来源：二维码 / 分享链接 / 微信内打开 / 搜索引擎 / 外链 / 直接访问
+function _statsEntry() {
+  try {
+    var q = location.search || '';
+    if (/[?&](qr|from_qr)=/i.test(q)) return '二维码';
+    if (/[?&](f|share|s)=/i.test(q)) return '分享链接';
+    var rf = document.referrer || '';
+    if (/MicroMessenger/i.test(navigator.userAgent || '')) return '微信内打开';
+    if (!rf) return '直接访问';
+    var h = (rf.split('/')[2] || '').toLowerCase();
+    if (h && location.hostname && h.indexOf(location.hostname) >= 0) return '站内跳转';
+    if (/baidu|google|bing|sogou|so\.com|sm\.cn|yandex|duckduckgo/i.test(h)) return '搜索引擎';
+    return '外链:' + h;
+  } catch (e) { return '未知'; }
+}
+// 会话 ID：一次浏览会话内不变，用于算会话数/人均深度
+function _statsSid() {
+  try {
+    var s = sessionStorage.getItem('stats_sid');
+    if (!s) {
+      s = 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      sessionStorage.setItem('stats_sid', s);
+    }
+    return s;
+  } catch (e) { return ''; }
+}
+// 报价卡片指纹：航班 | 航线 | 日期 | N天 | ¥价格
+function _statsCard(d) {
+  d = d || {};
+  if (!d.flight && !d.date) return '';
+  var g = _statsGroup(d);
+  return [d.flight || '', g, d.date || '', (d.days ? d.days + '天' : ''), (d.price ? '\u00a5' + d.price : '')]
+    .filter(function (x) { return !!x; }).join(' | ');
+}
+// 干净的航线分组：部分埋点把整段复制文本塞进了 route，需剔除
+function _statsGroup(d) {
+  var r = (d && d.route) || '';
+  if (!r || r.length > 40 || r.indexOf('\n') >= 0) return '';
+  return r;
+}
+// 主题偏好
+function _statsTheme() {
+  try {
+    return (localStorage.getItem('theme') || 'light') + '/' +
+           (localStorage.getItem('theme_color') || localStorage.getItem('themeColor') || 'default');
+  } catch (e) { return ''; }
+}
+// ── /STATS-DIM v1 ────────────────────────────────────────────
+
 
 function loadAccounts() {
   var cs = [];
   try { cs = JSON.parse(localStorage.getItem('cs_accounts') || '[]'); } catch(e) {}
-  // 首次使用：插入默认客服
+  // 首次使用：插入默认客服（2026-08-25 安全审查：明文 hq_* 凭证已清除，账号以 login.html 哈希体系为准）
   if (!cs.length) {
-    var defaults = [
-      {user:'hq_zhangw',pwd:'123456'},{user:'hq_liujq',pwd:'123456'},{user:'hq_liuw',pwd:'123456'},
-      {user:'hq_baif',pwd:'123456'},{user:'hq_mifm',pwd:'123456'},{user:'hq_liurong',pwd:'123456'},{user:'hq_shenzy',pwd:'123456'}
-    ];
-    cs = defaults;
-    localStorage.setItem('cs_accounts', JSON.stringify(cs));
+    cs = [];   // 明文凭证不再写入 localStorage
   }
   var accs = ADMIN_LIST.map(function(a){return a;});
-  cs.forEach(function(a){ accs.push({user:a.user, pwd:a.pwd, role:'cs', name:a.user}); });
+  cs.forEach(function(a){ accs.push({user:a.user, role:'cs', name:a.user}); });
   return accs;
 }
 
@@ -142,7 +239,7 @@ const TAB_CITIES = {
   hot: null,
   japan: ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台'],
   korea: ['首尔','济州岛','釜山','清州','清洲'],
-  seasia: ['曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛'],
+  seasia: ['曼谷','普吉岛','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛'],
   ganga: ['香港','澳门'],
   domestic: ['上海','北京','广州','深圳','杭州','南京','无锡','成都','重庆','西安','武汉','长沙','厦门','三亚','海口','青岛','大连','沈阳','天津','郑州','济南','福州','贵阳','南宁','兰州','哈尔滨','乌鲁木齐','南通','宁波','桂林','张家界','西宁','阿勒泰','昆明'],
 };
@@ -169,24 +266,25 @@ function fmtSeats(s, opts) {
   return '<span class="seat-ok">余' + s + '</span>';
 }
 
-// ── 供应商底色规则（未来可扩展映射）──
+// ── 卡片装饰色条（按供应商代码区分，仅作装饰，不对应供应商身份）──
+// 注意：key 用供应商代码（见 lib/supplier_codes.py），绝不出现供应商中文名。
+// 游客看到的彩色竖条仅用于视觉区分产品，无法由此反推供应商身份。
 const SUPPLIER_COLORS = {
-  '美亚':   { bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
-  '奇妙':   { bg:'#FFF8E6', border:'#F9BE00', dot:'#D49A00' },
-  '纵贯':   { bg:'#EDF5FF', border:'#90C0F0', dot:'#0C6FA8' },
-  '通宏':   { bg:'#E8F5E9', border:'#90D090', dot:'#389C39' },
-  '上航':   { bg:'#F3E8FF', border:'#C090E0', dot:'#491B87' },
-  '途益':   { bg:'#E0F7FA', border:'#80D0D8', dot:'#28B7BD' },
-  '万国':   { bg:'#FFF3E0', border:'#F0B060', dot:'#E88A00' },
-  '通宏国内':{ bg:'#EEEEEE', border:'#C0C0C0', dot:'#808080' },
-  '怡行':   { bg:'#E8F5E9', border:'#A0D0A0', dot:'#389C39' },
-  '春秋国际':{ bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
+  '103': { bg:'#FFF0F0', border:'#FFA0A0', dot:'#DA3A2C' },
+  '111': { bg:'#FFF8E6', border:'#F9BE00', dot:'#D49A00' },
+  '104': { bg:'#EDF5FF', border:'#90C0F0', dot:'#0C6FA8' },
+  '101': { bg:'#E8F5E9', border:'#90D090', dot:'#389C39' },
+  '005': { bg:'#F3E8FF', border:'#C090E0', dot:'#491B87' },
+  '108': { bg:'#E0F7FA', border:'#80D0D8', dot:'#28B7BD' },
+  '119': { bg:'#FFF3E0', border:'#F0B060', dot:'#E88A00' },
+  '130': { bg:'#EEEEEE', border:'#C0C0C0', dot:'#808080' },
+  '132': { bg:'#E8F5E9', border:'#A0D0A0', dot:'#389C39' }
 };
-function supplierColor(name) {
-  return SUPPLIER_COLORS[name] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
+function supplierColor(code) {
+  return SUPPLIER_COLORS[code] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
 }
 
-// 获取天数：优先 days 字段（纵贯等做了天数→晚数转换后回算），fallback 到 nights
+// 获取天数：优先 days 字段（部分供应商做了天数→晚数转换后回算），fallback 到 nights
 function getDays(r) {
   var d = r.days || r.nights || '';
   return d;
@@ -360,7 +458,7 @@ function _stickyBar() {
     + '<span class="sticky-label" style="font-weight:500;font-size:13px">'+name+'</span>'
     + '<div style="display:flex;gap:2px;align-items:center">'
     + _hdr('date','日期') + _hdr('price','价格') + _hdr('seats','余位') + _hdr('route','航线')
-    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:#888">▦ 比价</span>'
+    + '<span class="sticky-filter" onclick="openFilter()" style="margin-left:4px;font-size:11px;padding:3px 8px;border-radius:10px;border:0.5px solid var(--border);cursor:pointer;color:var(--text-secondary)"><svg viewBox="0 0 24 24" width="13" height="13" style="vertical-align:-2px" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg> 搜索</span>'
     + '</div></div>';
 }
 
@@ -564,19 +662,19 @@ function renderCard(r) {
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
   // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉岛','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   if (retDepAirport && retDepAirport !== r.arr) {
     if (IATA_CITY[retDepAirport]) {
       retCity = IATA_CITY[retDepAirport];
     } else {
     // 从机场名提取城市名
-    var knownCities = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
+    var knownCities = ['东京','大阪','首尔','济州','香港','澳门','普吉岛','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<knownCities.length; ci++) {
       if (retDepAirport.indexOf(knownCities[ci]) !== -1) { retCity = knownCities[ci]; break; }
     }
     // 机场名→城市名映射（已知不包含城市名的）
     if (retCity === r.arr) {
-      var airportCityMap = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
+      var airportCityMap = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉岛','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = airportCityMap[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
     }
     }
@@ -612,7 +710,7 @@ function renderCard(r) {
       '香港':8,'澳门':8,'台北':8,
       '东京':9,'大阪':9,'名古屋':9,'冲绳':9,'札幌':9,'福冈':9,
       '首尔':9,'济州岛':9,'釜山':9,
-      '曼谷':7,'普吉':7,'清迈':7,'清迈5天':7,'胡志明':7,'岘港':7,'河内':7,'雅加达':7,'富国岛':7,
+      '曼谷':7,'普吉岛':7,'清迈':7,'清迈5天':7,'胡志明':7,'岘港':7,'河内':7,'雅加达':7,'富国岛':7,
       '沙巴':8,'巴厘岛':8,'新加坡':8,'吉隆坡':8,'马尼拉':8,
       '目的地':8
     };
@@ -669,7 +767,7 @@ function renderCard(r) {
     var retDate = r.return_date || _calcReturnDate(r.dep_date, daysVal);
     var retDepAirport = _apt(r.return_dep_airport||'');
     var retArrAirport = _apt(r.return_arr_airport||'');
-    var retDuration = _actualFlight(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
+    var retDuration = (r.return_duration || _actualFlight(r.return_dep_time, r.return_arr_time, r.arr, r.dep));
     
     // 回程出发日 = return_date 本身。红眼航班仅到达日为次日，出发日不变（2026-08-05 修复：移除错误的"减1天"逻辑）
     var retDateLong = _fmtDateLong(retDate);
@@ -712,15 +810,15 @@ function renderCardSimple(r) {
   var retCity = r.arr;
   var retDepAirport = (r.return_dep_airport||'').trim();
   // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉岛','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   if (retDepAirport && retDepAirport !== r.arr) {
     if (IATA_CITY[retDepAirport]) {
       retCity = IATA_CITY[retDepAirport];
     } else {
-    var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
+    var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉岛','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<kc.length; ci++) { if (retDepAirport.indexOf(kc[ci])!==-1) { retCity=kc[ci]; break; } }
     if (retCity===r.arr) {
-      var acm={'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
+      var acm={'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉岛','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = acm[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
     }
     }
@@ -729,15 +827,15 @@ function renderCardSimple(r) {
   var seatStr = (r.seats||'').trim().toLowerCase();
   var seatDisp = (!seatStr||seatStr==='nan'||seatStr==='na') ? '' : ' 余' + r.seats;
   var outDate = _fmtDateShort(r.dep_date);
-  var outDur = _fds(r.dep_time, r.arr_time, r.dep, r.arr);
+  var outDur = (r.duration || _fds(r.dep_time, r.arr_time, r.dep, r.arr));
   var outRow = '<div class="cfs-row"><span class="cfs-icon">去</span>' + outDate + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + _term(r.airline,r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport) + _term(r.airline,r.arr_airport) + '</div>';
   var retHtml = '';
   if (hasReturn) {
-    var retDur = _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep);
+    var retDur = (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep));
     retHtml = '<div class="cfs-row"><span class="cfs-icon cfs-icon-ret">回</span>' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + _term(r.airline,r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDur + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) + _term(r.airline,r.return_arr_airport) + '</div>';
   }
   // 生成咨询时复制的文本
-  var retDurConsult = hasReturn ? _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep) : '';
+  var retDurConsult = hasReturn ? (r.return_duration || _fds(r.return_dep_time, r.return_arr_time, r.arr, r.dep)) : '';
   var consultText = routeStr + (durationStr||'') + '  ¥' + (r.retail||0) + ' 余' + (r.seats||'—') + ' ' + (r.airline_cn||'')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _apt(r.dep_airport) + ' ' + (r.dep_time||'') + ' ' + outDur + ' ' + (r.arr_time||'') + ' ' + _apt(r.arr_airport)
     + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _apt(r.return_dep_airport) + ' ' + (r.return_dep_time||'') + ' ' + retDurConsult + ' ' + (r.return_arr_time||'') + ' ' + _apt(r.return_arr_airport) : '');
@@ -947,15 +1045,15 @@ function openDetail(rec) {
   var retCity = rec.arr;
   var retDepAirport = (rec.return_dep_airport||'').trim();
   // IATA代码→城市名（数据源部分记录直接存 IATA 代码而非中文机场名，如 NRT/HND）
-  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
+  var IATA_CITY = {'PVG':'上海','SHA':'上海','HGH':'杭州','NGB':'宁波','NKG':'南京','WUX':'无锡','NTG':'南通','SYX':'三亚','URC':'乌鲁木齐','DYG':'张家界','KWL':'桂林','HAK':'海口','XNN':'西宁','AAT':'阿勒泰','JXU':'嘉兴','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','CJJ':'清州','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉岛','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港'};
   if (retDepAirport && retDepAirport !== rec.arr) {
     if (IATA_CITY[retDepAirport]) {
       retCity = IATA_CITY[retDepAirport];
     } else {
-    var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
+    var kc = ['东京','大阪','首尔','济州','香港','澳门','普吉岛','曼谷','冲绳','三亚','巴厘岛','沙巴','新加坡','福冈','釜山','清迈','名古屋','札幌','仙台'];
     for (var ci=0; ci<kc.length; ci++) { if (retDepAirport.indexOf(kc[ci]) !== -1) { retCity = kc[ci]; break; } }
     if (retCity === rec.arr) {
-      var acm = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
+      var acm = {'樟宜':'新加坡','济州':'济州岛','沙巴亚庇':'沙巴','苏南硕放':'无锡','南京禄口':'南京','杭州萧山':'杭州','宁波栎社':'宁波','南通兴东':'南通','三亚凤凰':'三亚','普吉岛':'普吉岛','曼谷素万那普':'曼谷','冲绳那霸':'冲绳','札幌新千岁':'札幌'};
       retCity = acm[retDepAirport] || retDepAirport.replace(/浦东|虹桥|仁川|金海|成田|羽田|新千岁|凤凰|栎社|素万那普|那霸|关西|国际|禄口|萧山/gi,'').trim();
     }
     }
@@ -1035,15 +1133,16 @@ function toggleDates() {
 // ═══════════════ 复制全部信息 ═══════════════
 
 var _shareText = '', _shareTextSingle = '', _shareTextAll = '', _deepUrl = '', _sameRoute = [], _curReturnOptions = [];
+var _PROMO = '———————————————\n更多特价机票（日韩港澳东南亚等）\n请详见小程序，实时更新，\n更多惊喜，戳这里查👇';
 
 function copyAll() {
-  var text = _shareText + '\n\n🔗 ' + _deepUrl;
+  var text = _shareText + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl;
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 全部信息已复制，可分享给客户'); });
   } else {
     prompt('复制以下内容：', text);
   }
-  recordAction('copy_all', {route:_shareText,quote:_shareText + '\n🔗 ' + _deepUrl});
+  recordAction('copy_all', {route:_shareText,quote:_shareText + '\n\n' + _PROMO + '\n🔗 ' + _deepUrl});
 }
 
 function showToast(msg) {
@@ -1198,7 +1297,21 @@ function recordAction(action, data) {
     page: location.pathname,
     tab: currentTab || '',
     filter: 'dep=' + (_filter.dep||'') + '&arr=' + (_filter.arr||'') + '&days=' + (_filter.days||'') + '&month=' + (_filter.month||'') + '&date=' + (_filter.date||''),
-    ua: (navigator.userAgent || '').substring(0, 80)
+    ua: (navigator.userAgent || '').substring(0, 80),
+    // ── STATS-DIM v1 多维度 ──
+    src: _statsSrc(),
+    device: _statsDev(),
+    os: _statsOS(),
+    browser: _statsBr(),
+    entry: _statsEntry(),
+    referrer: (document.referrer || '').substring(0, 120),
+    session: _statsSid(),
+    screen: (window.screen ? (screen.width + 'x' + screen.height) : ''),
+    theme: _statsTheme(),
+    lang: (navigator.language || ''),
+    group: _statsGroup(data),
+    card: _statsCard(data),
+    copy_len: (data.quote || '').length
   };
   // 发到 stats_server
   if (STATS_API_URL) {
@@ -1474,11 +1587,11 @@ var _searchInputId = 'fitSearch';
 
 function _mkSearchInput(val) {
   var v = val || '';
-  return '<input class="fit-search" id="' + _searchInputId + '" placeholder="🔍 搜航线、航班号、目的地..."'
+  return '<div style="position:relative;width:100%">' + '<svg viewBox="0 0 24 24" width="14" height="14" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);pointer-events:none;color:var(--text-secondary)" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg>' + '<input class="fit-search" id="' + _searchInputId + '" placeholder="搜航线、航班号、目的地..."'
     + ' oninput="searchFilter(this.value)" oncompositionstart="_isComposing=true" oncompositionend="_isComposing=false;searchFilter(this.value)"'
     + ' onkeydown="if(event.key===\'Enter\'){clearTimeout(_searchTimer);_isComposing=false;searchFilter(this.value)}"'
     + ' value="' + v.replace(/"/g,'&quot;') + '"'
-    + ' style="width:100%;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box' + (val?';margin-bottom:8px':'') + '">';
+    + ' style="width:100%;padding:8px 12px 8px 32px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box' + (val?';margin-bottom:8px':'') + '">' + '</div>';
 }
 
 function _filterSearchBox() {
@@ -1658,7 +1771,7 @@ function copyFilterResults() {
   });
   if (groupKeys.length > maxGroups) lines.push('...共' + groupKeys.length + '组');
   
-  var text = lines.join('\n') + '\n\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
+  var text = lines.join('\n') + '\n\n' + _PROMO + '\n🔗 ' + location.origin + location.pathname + _filterUrlQuery();
   
   if (navigator.clipboard) {
     navigator.clipboard.writeText(text).then(function() { showToast('✅ 已复制 ' + recs.length + ' 条报价，' + groupKeys.length + ' 组'); });
@@ -1736,7 +1849,7 @@ function searchFilter(q) {
     
     // 1. 提取城市名
     var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
-      '曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
+      '曼谷','普吉岛','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
       '香港','澳门','台北','三亚','海口','厦门'];
     var foundCities = knownCities.filter(function(c){return q.indexOf(c)!==-1});
     var arrCity = foundCities.length ? foundCities[0] : '';
@@ -1842,7 +1955,7 @@ function showAllSearchResults() {
 function searchFilterAndShow(q) {
   // 同上逻辑，但直接显示到cardList
   var knownCities = ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台','首尔','济州岛','釜山',
-    '曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
+    '曼谷','普吉岛','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛',
     '香港','澳门','台北','三亚','海口','厦门'];
   var foundCities = knownCities.filter(function(c){return q.indexOf(c)!==-1});
   var arrCity = foundCities.length ? foundCities[0] : '';

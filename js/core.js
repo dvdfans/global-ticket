@@ -2,28 +2,131 @@
 
 // 账号系统
 var ADMIN_LIST = [
-  {user:'admin',pwd:'1qaz9ol.7ujm$RFV',role:'admin',name:'管理员'},
-  {user:'adminzch',pwd:'6yhn(OL>',role:'admin',name:'管理员zch'},
-  {user:'adminxxy',pwd:'5tgb*IK<',role:'admin',name:'管理员xxy'},
+  {user:'admin',role:'admin',name:'管理员'},
+  {user:'adminzch',role:'admin',name:'管理员zch'},
+  {user:'adminxxy',role:'admin',name:'管理员xxy'},
 ];
 
 // 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
-var STATS_API_URL = 'https://dear-cheers-reveals-retired.trycloudflare.com/track';
+// 2026-08-11 ★铁律：游客行为看板只统计正式版(7116b6b0 沙箱)，其他版本一概不统计
+var STATS_API_URL = '';
+try {
+  if ((location.hostname || '').indexOf('7116b6b0') >= 0) {
+    STATS_API_URL = 'https://qualities-berkeley-incurred-story.trycloudflare.com/track';
+  }
+} catch(e) {}
+
+// ── 埋点维度辅助 STATS-DIM v1（2026-08-10）──────────────────
+// 应急切换上报地址（无需重新部署）：localStorage.setItem('stats_api_override','https://xxx/track')
+try { var _sOv = localStorage.getItem('stats_api_override'); if (_sOv) STATS_API_URL = _sOv; } catch(e) {}
+
+// 来源版本：按域名判断，避免各通道写死常量后被同步脚本覆盖而误判
+function _statsSrc() {
+  var h = (location.hostname || '').toLowerCase();
+  if (h.indexOf('github.io') >= 0) return 'GitHub Pages';
+  if (h.indexOf('7116b6b0') >= 0) return '正式版';
+  if (h.indexOf('6677549d') >= 0) return '自由行测试版';
+  if (h.indexOf('a52b3dc0') >= 0) return '客服版';
+  if (h.indexOf('c3fcd2b5') >= 0) return '交付对比页';
+  if (h.indexOf('402d431c') >= 0) return '新报价站';
+  if (h.indexOf('2975ec0c') >= 0 || h.indexOf('de91a58') >= 0) return '镜像版';
+  if (h === 'localhost' || h === '127.0.0.1' || h === '') return '本地';
+  return h;
+}
+// 设备大类：iOS / 安卓 / 电脑 / iPad
+function _statsDev() {
+  var u = navigator.userAgent || '';
+  if (/iPad/i.test(u) || (/Macintosh/i.test(u) && (navigator.maxTouchPoints || 0) > 1)) return 'iPad';
+  if (/iPhone|iPod/i.test(u)) return 'iOS';
+  if (/Android/i.test(u)) return '安卓';
+  if (/Windows NT|Macintosh|X11|Linux x86/i.test(u)) return '电脑';
+  return '其他';
+}
+// 操作系统（含版本）
+function _statsOS() {
+  var u = navigator.userAgent || '', m;
+  if (/iPhone|iPad|iPod/i.test(u) && (m = u.match(/OS (\d+)[_.](\d+)/))) return 'iOS ' + m[1] + '.' + m[2];
+  if ((m = u.match(/Android (\d+(?:\.\d+)?)/))) return 'Android ' + m[1];
+  if (/Windows NT 10/.test(u)) return 'Windows 10/11';
+  if (/Windows NT/.test(u)) return 'Windows';
+  if (/Mac OS X/.test(u)) return 'macOS';
+  if (/Linux/.test(u)) return 'Linux';
+  return '未知';
+}
+// 浏览器 / 容器（微信内置浏览器占大头）
+function _statsBr() {
+  var u = navigator.userAgent || '';
+  if (/MicroMessenger/i.test(u)) return '微信';
+  if (/QQBrowser/i.test(u) || /\bQQ\//i.test(u)) return 'QQ';
+  if (/AlipayClient/i.test(u)) return '支付宝';
+  if (/DingTalk/i.test(u)) return '钉钉';
+  if (/Weibo/i.test(u)) return '微博';
+  if (/UCBrowser/i.test(u)) return 'UC';
+  if (/Edg\//i.test(u)) return 'Edge';
+  if (/Firefox/i.test(u)) return 'Firefox';
+  if (/Chrome|CriOS/i.test(u)) return 'Chrome';
+  if (/Safari/i.test(u)) return 'Safari';
+  return '其他';
+}
+// 入口来源：二维码 / 分享链接 / 微信内打开 / 搜索引擎 / 外链 / 直接访问
+function _statsEntry() {
+  try {
+    var q = location.search || '';
+    if (/[?&](qr|from_qr)=/i.test(q)) return '二维码';
+    if (/[?&](f|share|s)=/i.test(q)) return '分享链接';
+    var rf = document.referrer || '';
+    if (/MicroMessenger/i.test(navigator.userAgent || '')) return '微信内打开';
+    if (!rf) return '直接访问';
+    var h = (rf.split('/')[2] || '').toLowerCase();
+    if (h && location.hostname && h.indexOf(location.hostname) >= 0) return '站内跳转';
+    if (/baidu|google|bing|sogou|so\.com|sm\.cn|yandex|duckduckgo/i.test(h)) return '搜索引擎';
+    return '外链:' + h;
+  } catch (e) { return '未知'; }
+}
+// 会话 ID：一次浏览会话内不变，用于算会话数/人均深度
+function _statsSid() {
+  try {
+    var s = sessionStorage.getItem('stats_sid');
+    if (!s) {
+      s = 's' + Date.now().toString(36) + Math.random().toString(36).slice(2, 8);
+      sessionStorage.setItem('stats_sid', s);
+    }
+    return s;
+  } catch (e) { return ''; }
+}
+// 报价卡片指纹：航班 | 航线 | 日期 | N天 | ¥价格
+function _statsCard(d) {
+  d = d || {};
+  if (!d.flight && !d.date) return '';
+  var g = _statsGroup(d);
+  return [d.flight || '', g, d.date || '', (d.days ? d.days + '天' : ''), (d.price ? '\u00a5' + d.price : '')]
+    .filter(function (x) { return !!x; }).join(' | ');
+}
+// 干净的航线分组：部分埋点把整段复制文本塞进了 route，需剔除
+function _statsGroup(d) {
+  var r = (d && d.route) || '';
+  if (!r || r.length > 40 || r.indexOf('\n') >= 0) return '';
+  return r;
+}
+// 主题偏好
+function _statsTheme() {
+  try {
+    return (localStorage.getItem('theme') || 'light') + '/' +
+           (localStorage.getItem('theme_color') || localStorage.getItem('themeColor') || 'default');
+  } catch (e) { return ''; }
+}
+// ── /STATS-DIM v1 ────────────────────────────────────────────
+
 
 function loadAccounts() {
   var cs = [];
   try { cs = JSON.parse(localStorage.getItem('cs_accounts') || '[]'); } catch(e) {}
-  // 首次使用：插入默认客服
+  // 首次使用：插入默认客服（2026-08-25 安全审查：明文 hq_* 凭证已清除，账号以 login.html 哈希体系为准）
   if (!cs.length) {
-    var defaults = [
-      {user:'hq_zhangw',pwd:'123456'},{user:'hq_liujq',pwd:'123456'},{user:'hq_liuw',pwd:'123456'},
-      {user:'hq_baif',pwd:'123456'},{user:'hq_mifm',pwd:'123456'},{user:'hq_liurong',pwd:'123456'},{user:'hq_shenzy',pwd:'123456'}
-    ];
-    cs = defaults;
-    localStorage.setItem('cs_accounts', JSON.stringify(cs));
+    cs = [];   // 明文凭证不再写入 localStorage
   }
   var accs = ADMIN_LIST.map(function(a){return a;});
-  cs.forEach(function(a){ accs.push({user:a.user, pwd:a.pwd, role:'cs', name:a.user}); });
+  cs.forEach(function(a){ accs.push({user:a.user, role:'cs', name:a.user}); });
   return accs;
 }
 
@@ -33,8 +136,10 @@ const CONFIG = { ADMIN_KEY: 'globe_admin_2026', statsAPI: null };
 
 let DB = { records: [] };
 let currentTab = 'home';
-let _sortModes = [];  // 空数组=不排序（保持原始顺序）
+let _sortModes = ['date_asc'];  // 2026-08-20 需求：渲染报价卡片默认按去程日期升序
 let _groupMode = true;
+// 2026-08-07 17:1x: 分组排序模式（组间）——'smart'=智能(城市→省会→航线→天数升序)；其余=航线/天数/条数/价格 升降序
+let _groupSort = 'smart';  // 2026-08-21：分组排序默认改回智能排序（城市→省会→航线→天数升序）
 let isAdmin = false;
 
 // 初始化主题 + 游客ID
@@ -49,11 +154,13 @@ let isAdmin = false;
   if (saved) {
     try { CURRENT_USER = JSON.parse(saved); } catch(e) {}
   }
-  // 分配游客ID
+  // 分配游客ID（2026-08-13 修复：原「游客+本地计数」跨设备会撞号——两台设备首次访问都可能是游客1；
+  // 改为随机唯一码「游客+6位字符」：同设备 localStorage 持久稳定，跨设备 36^6≈21亿组合几乎不撞）
   if (!localStorage.getItem('visitor_id')) {
-    var count = parseInt(localStorage.getItem('visitor_count') || '0') + 1;
-    localStorage.setItem('visitor_count', '' + count);
-    localStorage.setItem('visitor_id', '游客' + count);
+    var _vc = 'ABCDEFGHJKMNPQRSTUVWXYZabcdefghjkmnpqrstuvwxyz23456789';
+    var _id = '';
+    for (var _i = 0; _i < 6; _i++) _id += _vc.charAt(Math.floor(Math.random() * _vc.length));
+    localStorage.setItem('visitor_id', '游客' + _id);
   }
 })();
 let currentDetailRec = null;
@@ -68,6 +175,8 @@ async function loadDB() {
     // 2026-08-06: 售罄记录（0/售罄/满/(空)/候补/暂停/0805上调/停售）加载后一次性过滤——
     // 环球度假 H5 只渲染在售数据条，售罄不渲染也不显示到结果（数据仍一比一保留在 price_db.json 全量库/对比表）
     DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
+    // 2026-08-21: 代码108/103 重叠排除——过滤 overlap_excluded=True（保留103、排除108重叠；REFERENCE §5.8）
+    DB.records = DB.records.filter(function(x) { return !x.overlap_excluded; });
     validateDays();  // 校验天数/回程日期一致性
     updateStats();
     generateFooterQR();  // 加载完数据后生成尾部二维码
@@ -75,9 +184,36 @@ async function loadDB() {
     _applyFilterFromUrl(); // 读取筛选参数
     render();
     recordAction('page_view', {route:'load→'+currentTab,days:DB.records.length+''});
+    startAutoRefresh(); // 2026-08-18: 启动5分钟轮询，自动拉取最新数据
   } catch(e) {
     document.getElementById('cardList').innerHTML = '<div class="loading">数据加载失败</div>';
   }
+}
+
+// 2026-08-18: 5分钟自动轮询——后台拉取最新 price_db_fe.json，仅当 build_time 变化才重渲染（保留当前Tab/筛选）
+let _autoRefreshTimer = null;
+async function autoRefreshOnce() {
+  try {
+    const r = await fetch('price_db_fe.json?_=' + Date.now());
+    if (!r.ok) return;
+    const nd = await r.json();
+    if (!nd || !nd.build_time) return;
+    if (DB && DB.build_time === nd.build_time) return; // 数据未变，静默跳过
+    DB = nd;
+    DB.records = DB.records.filter(function(x) { return _hasSeats(x); });
+    // 2026-08-21: 代码108/103 重叠排除——过滤 overlap_excluded=True（保留103、排除108重叠；REFERENCE §5.8）
+    DB.records = DB.records.filter(function(x) { return !x.overlap_excluded; });
+    validateDays();
+    updateStats();
+    render();
+    console.log('[自动刷新] 数据已更新 ->', nd.build_time);
+  } catch (e) {
+    console.warn('[自动刷新] 拉取失败', e);
+  }
+}
+function startAutoRefresh() {
+  if (_autoRefreshTimer) return;
+  _autoRefreshTimer = setInterval(autoRefreshOnce, 5 * 60 * 1000);
 }
 
 function updateStats() {
@@ -142,7 +278,7 @@ const TAB_CITIES = {
   hot: null,
   japan: ['东京','大阪','名古屋','冲绳','札幌','福冈','仙台'],
   korea: ['首尔','济州岛','釜山','清州','清洲'],
-  seasia: ['曼谷','普吉','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛'],
+  seasia: ['曼谷','普吉岛','清迈','苏梅','巴厘岛','沙巴','新加坡','吉隆坡','胡志明','岘港','马尼拉','雅加达','河内','富国岛'],
   ganga: ['香港','澳门'],
   domestic: ['上海','北京','广州','深圳','杭州','南京','无锡','成都','重庆','西安','武汉','长沙','厦门','三亚','海口','青岛','大连','沈阳','天津','郑州','济南','福州','贵阳','南宁','兰州','哈尔滨','乌鲁木齐','南通','宁波','桂林','张家界','昆明','西宁','阿勒泰','宁波栎社'],
 };
@@ -172,39 +308,82 @@ function fmtSeats(s, opts) {
 // ── 供应商底色规则（2026-08-05 重设计 v2：26 家全覆盖——price_db 11 家 + ERP 资源标题检索出的 15 家，避开 logo 红 #DA3A2C / logo 金 #F9BE00）──
 // dot=卡片左边条/阴影主色；glow=卡片阴影 rgba（供应商色 tint）；bg/border=浅色底
 const SUPPLIER_COLORS = {
-  '美亚':    { bg:'#EAF2FA', border:'#A8C8E8', dot:'#0C6FA8', glow:'rgba(12,111,168,0.18)' },
-  '奇妙':    { bg:'#E6F7F8', border:'#8FD8DC', dot:'#28B7BD', glow:'rgba(40,183,189,0.18)' },
-  '纵贯':    { bg:'#E8EEF7', border:'#93A8CC', dot:'#004286', glow:'rgba(0,66,134,0.18)' },
-  '通宏':    { bg:'#E8F5E9', border:'#8FC890', dot:'#389C39', glow:'rgba(56,156,57,0.18)' },
-  '上航':    { bg:'#F3EAFB', border:'#BFA8DC', dot:'#491B87', glow:'rgba(73,27,135,0.18)' },
-  '途益':    { bg:'#E4F5F3', border:'#86CFC8', dot:'#008B8B', glow:'rgba(0,139,139,0.18)' },
-  '万国':    { bg:'#FFF3E2', border:'#F0B060', dot:'#E88A00', glow:'rgba(232,138,0,0.18)' },
-  '通宏国内': { bg:'#EBEFF4', border:'#A8BCCE', dot:'#5A7D9A', glow:'rgba(90,125,154,0.18)' },
-  '怡行':    { bg:'#E9F4EA', border:'#98CBA0', dot:'#2E7D32', glow:'rgba(46,125,50,0.18)' },
-  '春秋国际': { bg:'#F5EEE4', border:'#D0B090', dot:'#8B5A2B', glow:'rgba(139,90,43,0.18)' },
-  'ERP':     { bg:'#EAECF2', border:'#98A2B8', dot:'#1F3A5F', glow:'rgba(31,58,95,0.18)' },
-  // ── ERP 数据（iVision 资源标题）检索出的供应商（2026-08-05）──
-  '浙江中青旅': { bg:'#E7F2FA', border:'#90BFDF', dot:'#0072A3', glow:'rgba(0,114,163,0.18)' },
-  '浙江新世界': { bg:'#F3EAF9', border:'#C2A8DA', dot:'#7B1FA2', glow:'rgba(123,31,162,0.18)' },
-  '上海宝臻': { bg:'#EDF7ED', border:'#A5D6A7', dot:'#4CAF50', glow:'rgba(76,175,80,0.18)' },
-  '浙江海峡': { bg:'#E8F2FE', border:'#90CAF9', dot:'#2196F3', glow:'rgba(33,150,243,0.18)' },
-  '宏游':    { bg:'#E4F5F2', border:'#88CFC4', dot:'#009688', glow:'rgba(0,150,136,0.18)' },
-  '芒果汇':  { bg:'#FCEFE3', border:'#F0A87A', dot:'#E65100', glow:'rgba(230,81,0,0.18)' },
-  '信旅飞跃': { bg:'#F2ECE7', border:'#C4AFA0', dot:'#795548', glow:'rgba(121,85,72,0.18)' },
-  '杭州宝臻': { bg:'#E3F4F2', border:'#7FC9BE', dot:'#00695C', glow:'rgba(0,105,92,0.18)' },
-  '江苏欣辰': { bg:'#EBEDFA', border:'#A9B4E8', dot:'#3949AB', glow:'rgba(57,73,171,0.18)' },
-  '走遍全球': { bg:'#E5F8FB', border:'#8FE0EA', dot:'#00ACC1', glow:'rgba(0,172,193,0.18)' },
-  '锦江':   { bg:'#E7F0FB', border:'#9EC7EA', dot:'#1565C0', glow:'rgba(21,101,192,0.18)' },
-  '苏州和平': { bg:'#F0F7E8', border:'#C0DC9E', dot:'#7CB342', glow:'rgba(124,179,66,0.18)' },
-  '江苏苏宁国际旅游': { bg:'#EFEAFB', border:'#BDA8E8', dot:'#5E35B1', glow:'rgba(94,53,177,0.18)' },
-  '无锡国旅汤青': { bg:'#E4F4F1', border:'#8AD0C4', dot:'#00897B', glow:'rgba(0,137,123,0.18)' },
-  '千巡':   { bg:'#EBEEF2', border:'#AEBAC8', dot:'#546E7A', glow:'rgba(84,110,122,0.18)' },
+  '103': { bg:'#EAF2FA', border:'#A8C8E8', dot:'#0C6FA8', glow:'rgba(12,111,168,0.18)' },
+  '111': { bg:'#E6F7F8', border:'#8FD8DC', dot:'#28B7BD', glow:'rgba(40,183,189,0.18)' },
+  '104': { bg:'#E8EEF7', border:'#93A8CC', dot:'#004286', glow:'rgba(0,66,134,0.18)' },
+  '101': { bg:'#E8F5E9', border:'#8FC890', dot:'#389C39', glow:'rgba(56,156,57,0.18)' },
+  '005': { bg:'#F3EAFB', border:'#BFA8DC', dot:'#491B87', glow:'rgba(73,27,135,0.18)' },
+  '108': { bg:'#E4F5F3', border:'#86CFC8', dot:'#008B8B', glow:'rgba(0,139,139,0.18)' },
+  '119': { bg:'#FFF3E2', border:'#F0B060', dot:'#E88A00', glow:'rgba(232,138,0,0.18)' },
+  '132': { bg:'#F5EEE4', border:'#D0B090', dot:'#8B5A2B', glow:'rgba(139,90,43,0.18)' },
+  'ERP': { bg:'#EAECF2', border:'#98A2B8', dot:'#1F3A5F', glow:'rgba(31,58,95,0.18)' },
 };
-function supplierColor(name) {
-  return SUPPLIER_COLORS[name] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
+// 2026-08-12: 供应商代码（46 家，与全量库 supplier_code / 子库 supplier 对应）
+
+// 颜色按供应商代码查（子库 supplier 只存代码）
+function supplierColor(code) {
+  return SUPPLIER_COLORS[code] || { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999' };
 }
 
-// 获取天数：优先 days 字段（纵贯等做了天数→晚数转换后回算），fallback 到 nights
+// ═══════════════ 供应商标签框（2026-08-12 照搬客服版 customer_h5/core.js，逐字一致）═══════════════
+// 仅数据差异：子库 supplier 只存供应商代码（111…），同款函数链自然显示代码——
+// _decSup(非enc:原样返回) → supDispName(无缩写映射回退原值) → esc(代码)。其他一行不改。
+const SUP_KEY = 'csk2026@PQ88';
+
+// 解密供应商名（兼容未加密明文，解密失败原样返回）
+function _decSup(cipher) {
+  if (!cipher || typeof cipher !== 'string' || cipher.indexOf('enc:') !== 0) return cipher;
+  try {
+    var bin = atob(cipher.slice(4));
+    var bytes = new Uint8Array(bin.length);
+    for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+    for (var j = 0; j < bytes.length; j++) bytes[j] ^= SUP_KEY.charCodeAt(j % SUP_KEY.length);
+    return new TextDecoder('utf-8').decode(bytes);
+  } catch (e) { return cipher; }
+}
+
+// 供应商显示：解密后原样返回（子库 supplier 只存代码）
+
+
+// 供应商显示名：解密 → 拼音首字母缩写（大写）；子库传代码（非 enc:、无缩写映射）时原样返回代码
+function supDispName(cipher) {
+  return _decSup(cipher);
+}
+
+// ═══════════════ 供应商可见性权限（照搬客服版：唯一权威，禁止业务代码另写判断）═══════════════
+//   游客（未登录）           → 无权限：完全不渲染供应商相关内容
+//   普通用户（role='cs'）     → 默认无权限；如需开通，把用户名登记进 SUPPLIER_CS_VISIBLE
+//   管理员（role='admin'）    → 始终有权限
+const SUPPLIER_CS_VISIBLE = ['hq_sunyw', 'hq_liurong'];  // ★ 机票操作员：孙奕雯/刘蓉（2026-08-11 用户定）
+
+// 权限判断唯一入口
+function canSeeSupplier() {
+  try {
+    var u = CURRENT_USER;
+    if (!u || !u.user) return false;               // 游客
+    if (u.role === 'admin') return true;           // 管理员始终可见
+    if (u.role === 'cs') return SUPPLIER_CS_VISIBLE.indexOf(u.user) >= 0;  // 客服需开通
+    return false;
+  } catch (e) { return false; }
+}
+
+// 供应商标签框 HTML（照搬客服版 supTagHtml）：无权限/无值 → 空串；内容=供应商代码（子库数据）
+function supTagHtml(name, cls) {
+  if (!canSeeSupplier() || !name) return '';
+  var real = _decSup(name);                       // 子库传代码：原样返回
+  var disp = supDispName(real);                   // 无缩写映射：回退代码
+  var sc = supplierColor(real);                   // 颜色按供应商代码匹配
+  var isDetail = (cls || '').indexOf('dh-') === 0;
+  return '<span class="' + (cls || 'cf-sup-tag') + '" style="' + (isDetail ? '' : 'color:var(--text);') + 'border-color:' + sc.dot + '">' + esc(disp) + '</span>';
+}
+
+// 卡片装饰色（左边条/阴影）：无权限 → 中性灰，避免供应商专属色泄露身份（照搬客服版）
+function supStripe(r) {
+  if (!canSeeSupplier() || !r) return { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999', glow:'rgba(0,0,0,0.05)' };
+  return supplierColor(_decSup(r.supplier));
+}
+
+// 获取天数：优先 days 字段（部分供应商做了天数→晚数转换后回算），fallback 到 nights
 function getDays(r) {
   var d = r.days || r.nights || '';
   return d;
@@ -226,7 +405,7 @@ function _iata(name) {
 
 // 机场名显示：樟宜→新加坡樟宜，普吉岛→普吉岛等
 function _apt(name) {
-  var iata = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港', 'PQC':'富国岛', 'NGB':'宁波', 'NKG':'南京', 'WUX':'无锡', 'NTG':'南通', 'SYX':'三亚', 'URC':'乌鲁木齐', 'DYG':'张家界', 'KWL':'桂林', 'HAK':'海口', 'XNN':'西宁', 'JXU':'嘉兴', 'AAT':'阿勒泰', 'PEK':'北京', 'PKX':'北京', 'CAN':'广州', 'SZX':'深圳', 'TFU':'成都', 'CTU':'成都', 'CKG':'重庆', 'XIY':'西安', 'WUH':'武汉', 'CSX':'长沙', 'KMG':'昆明', 'XMN':'厦门', 'TAO':'青岛', 'DLC':'大连', 'SHE':'沈阳', 'TSN':'天津', 'CGO':'郑州', 'TNA':'济南', 'FOC':'福州', 'KWE':'贵阳', 'NNG':'南宁', 'LHW':'兰州', 'HRB':'哈尔滨', 'CJJ':'清州', 'NGO':'名古屋', 'DMK':'曼谷', 'MNL':'马尼拉', 'CGK':'雅加达', 'HAN':'河内', 'SGN':'胡志明', 'DAD':'岘港', 'TPE':'台北', 'KHH':'高雄'
+  var iata = {'PVG':'上海','SHA':'上海','HGH':'杭州','ICN':'首尔','GMP':'首尔','PUS':'釜山','CJU':'济州岛','NRT':'东京','HND':'东京','KIX':'大阪','FUK':'福冈','OKA':'冲绳','CTS':'札幌','BKK':'曼谷','HKT':'普吉岛','CNX':'清迈','DPS':'巴厘岛','SIN':'新加坡','BKI':'沙巴','KUL':'吉隆坡','MFM':'澳门','HKG':'香港', 'PQC':'富国岛', 'NGB':'宁波', 'NKG':'南京', 'WUX':'无锡', 'NTG':'南通', 'SYX':'三亚', 'URC':'乌鲁木齐', 'DYG':'张家界', 'KWL':'桂林', 'HAK':'海口', 'XNN':'西宁', 'JXU':'嘉兴', 'AAT':'阿勒泰', 'PEK':'北京', 'PKX':'北京', 'CAN':'广州', 'SZX':'深圳', 'TFU':'成都', 'CTU':'成都', 'CKG':'重庆', 'XIY':'西安', 'WUH':'武汉', 'CSX':'长沙', 'KMG':'昆明', 'XMN':'厦门', 'TAO':'青岛', 'DLC':'大连', 'SHE':'沈阳', 'TSN':'天津', 'CGO':'郑州', 'TNA':'济南', 'FOC':'福州', 'KWE':'贵阳', 'NNG':'南宁', 'LHW':'兰州', 'HRB':'哈尔滨', 'CJJ':'清州', 'NGO':'名古屋', 'DMK':'曼谷', 'MNL':'马尼拉', 'CGK':'雅加达', 'HAN':'河内', 'SGN':'胡志明', 'DAD':'岘港', 'TPE':'台北', 'KHH':'高雄'
   };
   if (iata[name]) return iata[name];
   var m = {'樟宜':'新加坡樟宜','济州':'济州','沙巴亚庇':'沙巴亚庇','普吉岛':'普吉岛','曼谷素万那普':'曼谷素万那普','冲绳那霸':'冲绳那霸','札幌新千岁':'札幌新千岁'};
