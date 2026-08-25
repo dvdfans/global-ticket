@@ -1478,7 +1478,7 @@ document.getElementById('csModal').onclick = function(e) {
 };
 document.getElementById('qrCs').onclick = function() {
   recordAction('qr_click', {route:(CURRENT_USER?CURRENT_USER.user:'')+'→咨询'});
-  consultCS('一般咨询');
+  openCSMulti();
 };
 
 // ═══════════════ 分享（含二维码）═══════════════
@@ -1537,7 +1537,9 @@ function copyShareText() {
 
 function openCSMulti() {
   // 客服咨询：先复制当前报价文本（方便扫码后直接粘贴给客服），再弹出企业微信多人客服二维码（扫码系统自动分配在线客服）
-  copyShareText();
+  var _csText = _buildShareResultsText() || _shareText || _lastShareText || ('🌍 环球度假 · 特价机票每日更新\n' + location.href);
+  if (navigator.clipboard) { navigator.clipboard.writeText(_csText).then(function(){ showToast('✅ 已复制报价，可直接粘贴'); }); } else { prompt('复制：', _csText); }
+  recordAction('share_copy', {quote:_csText});
   var html = '<div style="text-align:center;padding:16px">'
     + '<p style="font-size:15px;font-weight:700;color:var(--text)">企业微信客服</p>'
     + '<img src="img/qr_cs.png" alt="企业微信客服" style="width:180px;height:180px;border-radius:8px;margin:12px 0">'
