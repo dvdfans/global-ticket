@@ -1559,8 +1559,22 @@ document.getElementById('shareModal').onclick = function(e) {
 
 // ═══════════════ Tab切换 ═══════════════
 
+// 2026-08-25 ③ 深链残留修复：导航切换时同步重置浏览器地址栏深链参数+分享卡片复制信息+尾部二维码
+function _resetDeepLinkAndShare() {
+  // 1) 清空筛选条件 → 地址栏深链参数(?f_*)随之清空
+  _filter = { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
+  _updateFilterUrl();            // 重置地址栏为干净 pathname（移除 ?f_* 残留）
+  // 2) 清空上一次搜索/详情残留的复制文本与深链
+  _shareText = ''; _shareTextSingle = ''; _shareTextAll = '';
+  _lastShareText = ''; _deepUrl = ''; _sameRoute = []; _curReturnOptions = [];
+  _isSearchView = false;
+  // 3) 尾部「分享报价」二维码重置为当前干净页面 URL
+  if (typeof generateFooterQR === 'function') generateFooterQR();
+}
+
 document.getElementById('tabBar').onclick = function(e) {
   if (e.target.classList.contains('tab')) {
+    _resetDeepLinkAndShare();   // ③ 切换即重置深链 + 分享残留
     document.querySelectorAll('.tab').forEach(function(t) { t.classList.remove('active'); });
     e.target.classList.add('active');
     var tab = e.target.dataset.tab;
