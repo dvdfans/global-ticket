@@ -11,7 +11,7 @@
   <link rel="icon" type="image/png" href="img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=113">
+  <link rel="stylesheet" href="css/style.css?v=114">
   <link rel="stylesheet" href="css/theme.css?v=107">
 <script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
 <script>
@@ -110,8 +110,14 @@
   <!-- 筛选弹层 -->
   <div class="modal" id="filterModal">
     <div class="modal-content" style="height:97vh;max-height:97vh;display:flex;flex-direction:column;overflow:hidden">
-      <div class="filter-modal-hd" style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between">
-        <span class="fml-title" style="font-size:16px;font-weight:700;cursor:pointer" onclick="location.href='login.html?goto='+encodeURIComponent(location.pathname+location.search)">筛选报价</span>
+      <div class="filter-modal-hd" style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px;min-width:0">
+          <span class="fml-title" style="font-size:16px;font-weight:700;cursor:pointer:text" onclick="location.href='login.html?goto='+encodeURIComponent(location.pathname+location.search)">筛选报价</span>
+          <span id="searchModeToggle" style="display:none;flex:0 0 auto;background:var(--tag-bg);border-radius:999px;padding:2px;font-size:12px;white-space:nowrap">
+            <span id="modeFlight" onclick="_setSearchMode('flight')" style="padding:4px 10px;border-radius:999px;cursor:pointer;color:var(--text-secondary)">单机票</span>
+            <span id="modeFree" onclick="_setSearchMode('freetour')" style="padding:4px 10px;border-radius:999px;cursor:pointer;color:var(--text-secondary)">自由行</span>
+          </span>
+        </div>
         <span class="fml-close" onclick="closeFilter()" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--tag-bg);cursor:pointer;font-size:14px">×</span>
       </div>
       <div id="filterBody" style="flex:1 1 0;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px 16px"></div>
@@ -127,6 +133,7 @@
   <script src="js/core.js?v=108"></script>
   <script src="js/data.js?v=99"></script>
   <script src="js/sort.js?v=101"></script>
-  <script src="js/app_main.js?v=153"></script>
+  <script src="js/free_tour.js?v=2"></script>
+  <script src="js/app_main.js?v=155"></script>
 </body>
 </html>

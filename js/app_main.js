@@ -3,7 +3,10 @@ function render() {
   _isSearchView = false;
   // 首页-热销(千巡); 热门-中秋国庆; 其他-区域筛选
   if (currentTab === 'home') return renderHome();
-  if (currentTab === 'filter') return renderFiltered();
+  if (currentTab === 'filter') {
+    if (_searchMode === 'freetour' && window.FreeTour && window.FreeTour.renderFiltered) return window.FreeTour.renderFiltered();
+    return renderFiltered();
+  }
   renderTab();
 }
 
@@ -217,6 +220,10 @@ function renderTab() {
   // 所有区域统一使用排序+分组模式
   records = _sortRecords(records);
   var html = _stickyBar();
+  // 自由行套餐（机+酒）——独立模块 FreeTour（js/free_tour.js）；仅当 index.html 引入时启用
+  if (window.FreeTour) {
+    html += FreeTour.renderGroupHtml(currentTab);
+  }
   if (_groupMode) {
     // 分组模式
     var groups = {};
@@ -1684,6 +1691,8 @@ function isStaff(){ return false; }
 applyTheme(pqThemeGet());
 
 loadDB();
+// 自由行套餐模块：仅当 index.html 引入 free_tour.js 时加载并渲染（正式版=自营 only）
+if (window.FreeTour) FreeTour.load();
 
 // 全局卡片点击委托 — 所有 .hmcard 和 .card 通过 data-rec 触发详情
 document.getElementById('cardList').addEventListener('click', function(e) {
@@ -1840,6 +1849,7 @@ function _showFilter() {
   
   // 复制按钮：四个条件全选中才可点击
   _updateCopyBtnState();
+  _refreshSearchModeUI();
 }
 
 function _updateCopyBtnState() {
@@ -2065,7 +2075,7 @@ var _searchInputId = 'fitSearch';
 function _mkSearchInput(val) {
   var v = val || '';
   return '<div style="display:flex;gap:6px;align-items:center">'
-    + '<span style="color:var(--text-secondary);display:inline-flex;flex-shrink:0"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg></span>' + '<input class="fit-search" id="' + _searchInputId + '" placeholder="搜航线、航班号、目的地..."'
+    + '<span style="color:var(--text-secondary);display:inline-flex;flex-shrink:0"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg></span>' + '<input class="fit-search" id="' + _searchInputId + '" placeholder="' + (_searchMode === 'freetour' ? '搜目的地 / 酒店 / 航线 / 日期...' : '搜航线、航班号、目的地...') + '"'
     + ' onkeydown="if(event.key===\'Enter\'){searchFilter(this.value)}"'
     + ' value="' + v.replace(/"/g,'&quot;') + '"'
     + ' style="flex:1;min-width:0;padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;outline:none;box-sizing:border-box">'
@@ -2242,6 +2252,9 @@ function _filterCalendar() {
 }
 
 function _filteredCount() {
+  if (_searchMode === 'freetour' && window.FreeTour && window.FreeTour.filteredCount) {
+    return window.FreeTour.filteredCount(_filter);
+  }
   return _getFilteredRecs().length;
 }
 
@@ -2577,10 +2590,41 @@ function _parseDateQuery(q){
   return {mode:'none'};
 }
 
+// ── 单机票 / 自由行 搜索模式切换（2026-08-26）──
+var _searchMode = 'flight';   // 'flight' | 'freetour'；默认单机票搜索
+function _refreshSearchModeUI() {
+  var tf = document.getElementById('searchModeToggle');
+  if (!tf) return;
+  tf.style.display = window.FreeTour ? 'inline-flex' : 'none';
+  var mf = document.getElementById('modeFlight'), mfr = document.getElementById('modeFree');
+  if (mf) {
+    var on = _searchMode === 'flight';
+    mf.style.background = on ? 'var(--brand,var(--red))' : 'transparent';
+    mf.style.color = on ? '#fff' : 'var(--text-secondary)';
+  }
+  if (mfr) {
+    var on2 = _searchMode === 'freetour';
+    mfr.style.background = on2 ? 'var(--brand,var(--red))' : 'transparent';
+    mfr.style.color = on2 ? '#fff' : 'var(--text-secondary)';
+  }
+}
+function _setSearchMode(mode) {
+  _searchMode = mode;
+  _filter = { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
+  if (window.FreeTour && window.FreeTour.setMode) window.FreeTour.setMode(mode);
+  _refreshSearchModeUI();
+  _showFilter();
+}
+
 function searchFilter(q) {
   // 显式触发：不再 IME 防抖，点击搜索按钮/回车才执行
   q = (q || '').trim();
   if (!q) { _showFilter(); return; }
+  // 2026-08-26：自由行模式 → 自由行套餐搜索
+  if (_searchMode === 'freetour' && window.FreeTour && window.FreeTour.search) {
+    window.FreeTour.search(q);
+    return;
+  }
 
     // 0. 关键字抽取（2026-08-18）：航司(中文名/IATA码，大小写无关) + 剔除供应商名
     var _kw = _extractSearchKw(q);
@@ -2856,6 +2900,10 @@ function applyFilter() {
   closeFilter();
   currentTab = 'filter';
   recordAction('filter_apply', {route:(_filter.dep||'')+'→'+(_filter.arr||''),days:_filter.days,date:_filter.month});
+  if (_searchMode === 'freetour' && window.FreeTour && window.FreeTour.applyFilter) {
+    window.FreeTour.applyFilter(_filter);
+    return;
+  }
   renderFiltered();
 }
 
