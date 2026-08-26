@@ -413,30 +413,13 @@ function _apt(name) {
 }
 
 // 航站楼：按 航司+机场 查询
+// 航站楼：2026-08-26 起由数据字段提供（建库阶段经 terminal_reference.json 权威注入）。
+// 前端硬编码 _term() 映射已废弃——曾产生大量错误航站楼（PVG/CZ 应为 T2 却渲染 T1、NRT/MU 应为 T2 却渲染 T1）。
+// 任何航站楼须来自数据字段 dep_terminal/arr_terminal，严禁静态推断。保留空实现兼容历史调用点。
 function _term(airline, airport) {
-  if (!airline || !airport) return '';
-  // 常见航站楼映射
-  var m = {
-    'PVG':{MU:'T1',FM:'T1',CA:'T2',CZ:'T1',HO:'T2','9C':'T2',CX:'T2'},
-    'NRT':{CA:'T1',MU:'T1',CZ:'T1',GK:'T2',JL:'T2',NH:'T1'},
-    'HND':{NH:'T2',JL:'T1',MM:'T1'},
-    'KIX':{CA:'T1',MU:'T1',CZ:'T1',JL:'T1'},
-    'ICN':{CA:'T1',MU:'T1',CZ:'T1',KE:'T2'},
-    'HKG':{CX:'T1',MU:'T1',CA:'T1'},
-    'MFM':{NX:'T1'},
-    'BKK':{TG:'T1',MU:'T1',CA:'T1'},
-    'SIN':{CA:'T1',MU:'T1',SQ:'T2'},
-    'NGB':{MU:'T2',FM:'T2'},
-    'HGH':{CA:'T2',MU:'T3',MF:'T3'},
-    'NKG':{MU:'T2',CA:'T2',HO:'T2'},
-  };
-  var code = _iata(airport);
-  if (!code) return '';
-  var termMap = m[code];
-  if (termMap && termMap[airline]) return '<span class="t-term">' + termMap[airline] + '</span>';
-  if (code === 'PVG' || code === 'SHA') return '<span class="t-term">T2</span>';
   return '';
 }
+
 
 // 余位有效判断
 // 2026-08-06 用户规则：余位0 = 售罄 = 满 = (空) = 候补 = 暂停 = 0805上调 = 停售 → 一律视为售罄，H5 不渲染
