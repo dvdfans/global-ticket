@@ -1492,11 +1492,19 @@ function _buildShareResultsText() {
   return batches.length ? batches[0].text : '';
 }
 
+// 2026-08-26 修复 B+ 回归：分享/尾部二维码是否携带"搜索·筛选结果"取决于是否存在有效筛选上下文。
+// 自由文本搜索(searchFilterAndShow)会置 _isSearchView=true；但筛选弹窗(applyFilter→renderFiltered)只填 _filter 不置 _isSearchView。
+// 旧 B+ 仅以 _isSearchView 为开关，导致筛选后分享回退成干净沙箱链接——现改为以下任一成立即视为"活跃筛选上下文"：
+//   · _filter 任意字段非空（出发/到达/天数/月份/多选日期）
+//   · _isSearchView 为 true（自由文本搜索）
+function _hasActiveFilterCtx() {
+  return !!(_filter && (_filter.dep || _filter.arr || _filter.days || _filter.month || (_filter.dates && _filter.dates.length))) || _isSearchView;
+}
 function openShareModal(mode) {
   recordAction('share_open', {});
-  var url = _isSearchView ? (location.origin + location.pathname + _filterUrlQuery()) : (location.origin + location.pathname);
+  var url = _hasActiveFilterCtx() ? (location.origin + location.pathname + _filterUrlQuery()) : (location.origin + location.pathname);
   // 筛选/结果页场景：优先展示全部报价（与「复制文字」、二维码一致）；单卡场景回落 _shareText
-  var isFilterCtx = _isSearchView && _getFilteredRecs().length;
+  var isFilterCtx = _hasActiveFilterCtx() && _getFilteredRecs().length;
   var _tabLabels = {home:'首页',hot:'热门',japan:'日本',korea:'韩国',seasia:'东南亚',ganga:'港澳',domestic:'国内'};
   var _tabLabel = _tabLabels[currentTab] || '特价';
   var resultsText = isFilterCtx ? _buildShareResultsText() : '';
@@ -1709,7 +1717,7 @@ document.head.appendChild(odStyle);
 function generateFooterQR() {
   var wrap = document.getElementById('qrLinkCanvas');
   if (!wrap || typeof QRCode === 'undefined') return;
-  var shareUrl = _isSearchView ? (location.origin + location.pathname + _filterUrlQuery()) : (location.origin + location.pathname);
+  var shareUrl = _hasActiveFilterCtx() ? (location.origin + location.pathname + _filterUrlQuery()) : (location.origin + location.pathname);
   // 清空可能存在的占位
   wrap.innerHTML = '';
   new QRCode(wrap, { text: shareUrl, width: 56, height: 56 });
