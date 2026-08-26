@@ -1,0 +1,8082 @@
+{
+ "packages": [
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6688,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10447,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5998,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4990,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4592,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5149,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4834,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4759,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5401,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5072,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5155,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7783,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5747,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "FM805",
+   "flight_return": "MU240",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6688,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10447,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5998,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4990,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4592,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5149,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4834,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4759,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5401,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5072,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5155,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7783,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5747,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "FM805",
+   "flight_return": "MU9992",
+   "flight_desc": "FM805 上海→澳门 09:20-12:25 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM805 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7088,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10847,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6398,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5390,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4992,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5549,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5234,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5159,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5801,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5472,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5555,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 8183,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6147,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "FM817",
+   "flight_return": "MU2008",
+   "flight_desc": "FM817 上海→澳门 09:55-12:40 回 MU2008 澳门→上海 13:45-16:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM817 上海航空(FM) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6588,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10347,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5898,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4890,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4492,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5049,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4734,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4659,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5301,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4972,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5055,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7683,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5647,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "MU2007",
+   "flight_return": "FM806",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 FM806 澳门→上海 10:25-13:25",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，上海航空(FM) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7088,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10847,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6398,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5390,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4992,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5549,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5234,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5159,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5801,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5472,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5555,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 8183,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6147,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "MU2007",
+   "flight_return": "MU240",
+   "flight_desc": "MU2007 上海→澳门 12:30-15:30 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2007 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 12
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7088,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10847,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6398,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5390,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4992,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5549,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5234,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5159,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5801,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5472,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5555,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 8183,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6147,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "MU2055",
+   "flight_return": "MU2056",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU2056 澳门→上海 16:55-19:55",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6388,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10147,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5698,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4690,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4292,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4849,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4534,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4459,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5101,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4772,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4855,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7483,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5447,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "MU2055",
+   "flight_return": "MU9992",
+   "flight_desc": "MU2055 上海→澳门 16:00-19:00 回 MU9992 澳门→上海 18:45-21:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2055 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 19
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6388,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10147,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5698,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4690,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4292,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4849,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4534,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4459,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5101,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4772,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4855,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7483,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "上海",
+   "arr": "澳门",
+   "route": "上海→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5447,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "MU239",
+   "flight_return": "MU240",
+   "flight_desc": "MU239 上海→澳门 16:15-19:15 回 MU240 澳门→上海 17:20-20:20",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU239 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 20
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6388,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门华都酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门华都酒店",
+    "display_name": "澳门华都酒店",
+    "plan": "3晚 澳门：澳门华都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门华都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门华都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 10147,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门上葡京",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门上葡京",
+    "display_name": "澳门上葡京",
+    "plan": "3晚 澳门：澳门上葡京",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门上葡京"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门上葡京。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5698,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门雅辰酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门雅辰酒店",
+    "display_name": "澳门雅辰酒店",
+    "plan": "3晚 澳门：澳门雅辰酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门雅辰酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门雅辰酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4690,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇都酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇都酒店",
+    "display_name": "澳门皇都酒店",
+    "plan": "3晚 澳门：澳门皇都酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇都酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇都酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4292,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门东望洋酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门东望洋酒店",
+    "display_name": "澳门东望洋酒店",
+    "plan": "3晚 澳门：澳门东望洋酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门东望洋酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门东望洋酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4849,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门新口岸智选假日酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门新口岸智选假日酒店",
+    "display_name": "澳门新口岸智选假日酒店",
+    "plan": "3晚 澳门：澳门新口岸智选假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门新口岸智选假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门新口岸智选假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4534,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门金龙酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门金龙酒店",
+    "display_name": "澳门金龙酒店",
+    "plan": "3晚 澳门：澳门金龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门金龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门金龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4459,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门御龙酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门御龙酒店",
+    "display_name": "澳门御龙酒店",
+    "plan": "3晚 澳门：澳门御龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门御龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门御龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5101,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门十六浦索菲特大酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门十六浦索菲特大酒店",
+    "display_name": "澳门十六浦索菲特大酒店",
+    "plan": "3晚 澳门：澳门十六浦索菲特大酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门十六浦索菲特大酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门十六浦索菲特大酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4772,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门励庭海景酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门励庭海景酒店",
+    "display_name": "澳门励庭海景酒店",
+    "plan": "3晚 澳门：澳门励庭海景酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门励庭海景酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门励庭海景酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4855,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门丽景湾艺术酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门丽景湾艺术酒店",
+    "display_name": "澳门丽景湾艺术酒店",
+    "plan": "3晚 澳门：澳门丽景湾艺术酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门丽景湾艺术酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门丽景湾艺术酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 7483,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "YOHO金银岛酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "YOHO金银岛酒店",
+    "display_name": "YOHO金银岛酒店",
+    "plan": "3晚 澳门：YOHO金银岛酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "YOHO金银岛酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往YOHO金银岛酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  },
+  {
+   "supplier": "SH-MAC",
+   "dep": "无锡",
+   "arr": "澳门",
+   "route": "无锡→澳门",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5447,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "澳门皇冠假日酒店",
+   "flight": "MU2961",
+   "flight_return": "MU2962",
+   "flight_desc": "MU2961 无锡→澳门 13:00-15:50 回 MU2962 澳门→无锡 14:00-16:50",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ],
+   "hotel_details": {
+    "name": "澳门皇冠假日酒店",
+    "display_name": "澳门皇冠假日酒店",
+    "plan": "3晚 澳门：澳门皇冠假日酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "澳门",
+      "hotels": [
+       "澳门皇冠假日酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU2961 东方航空(MU) 飞往 澳门国际机场 (MFM)。落地后自行前往澳门皇冠假日酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往澳门国际机场 (MFM)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": 13
+  }
+ ],
+ "meta": {
+  "source": "上海@澳门自营自由行组合(机+酒)",
+  "count": 117,
+  "generated": "2026-08-24"
+ }
+}

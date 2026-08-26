@@ -526,3 +526,170 @@ body {
   vertical-align:middle;flex-shrink:0;
 }
 .dh-sup-tag{font-size:12px;padding:3px 8px;border-radius:6px;vertical-align:2px;}
+/* ===== 自由行模块样式（移植自客服版 a52b 的 jj/jjd/seat-badge 规则，2026-08-26 修正：正式版自由行卡片格式与客服版一致；通用 .detail-* 弹窗样式由 sandbox 既有样式兜底，避免污染机票详情弹窗）===== */
+
+.modal-content.jjd-lock { display: flex; flex-direction: column; overflow: hidden; }
+.modal-content.jjd-lock .detail-header { flex-shrink: 0; position: relative; }
+.modal-content.jjd-lock .detail-body { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+.modal-content.jjd-lock .jjd-footer { margin: 0 -12px -12px; border-radius: 0 0 14px 14px; }
+/* 余位徽章 */
+.seat-badge{display:inline-flex;align-items:center;padding:3px 8px;border-radius:10px;font-size:11px;font-weight:600;line-height:1.3}
+.seat-badge.low{background:#FFF3E0;color:#E65100}
+.seat-badge.ok{background:#E8F5E9;color:#2E7D32}
+.seat-badge.soldout{background:#F5F5F5;color:#999}
+.seat-badge.full{background:#E3F2FD;color:#1565C0}
+.seat-badge.unknown{background:#F5F5F5;color:#999}
+.seat-badge.info{background:#ECEFF1;color:#607D8B}
+
+/* ══ 自由行套餐（机+酒）卡片 ══ */
+/* ── 自由行套餐（机+酒）卡片 ── */
+.jj-cat { padding:14px 4px 6px; font-size:14px; font-weight:700; color:var(--text); display:flex; align-items:center; gap:8px; }
+.jj-cat-tag { background:var(--brand); color:#fff; font-size:11px; padding:2px 10px; border-radius:10px; font-weight:600; }  /* 2026-08-07: 跟随主题色 */
+.jj-cat-tag-sup { background:#e8833a; }  /* 2026-08-26：供应商自由行标签（橙，区别于自营蓝） */
+.jj-nights { font-weight:700; color:var(--red); font-size:12px; }  /* 自由行分组头几天几晚，对齐原往返 hm-nights */
+.jj-group { margin-bottom:8px; }
+.jj-group-hd { display:flex; align-items:center; padding:8px 4px 6px; gap:6px; font-size:13px; font-weight:700; color:var(--text); }
+.jj-count { font-size:11px; color:var(--text-3); font-weight:400; }
+.jj-card { background:var(--card-bg); border:1px solid var(--border); border-radius:12px; padding:12px 14px; margin-bottom:8px; box-shadow:0 1px 3px var(--shadow); }
+.jj-head { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; }
+.jj-route { font-size:15px; font-weight:700; color:var(--text); }
+.jj-days { font-size:11px; color:var(--text-2); background:var(--tag-bg); padding:2px 8px; border-radius:8px; font-weight:600; }
+.jj-price { margin-left:auto; font-size:19px; font-weight:800; color:var(--red); letter-spacing:-.5px; }
+.jj-price-suffix { font-size:11px; color:var(--text-3); font-weight:400; }
+.jj-price-tag { font-size:9.5px; font-weight:700; color:var(--brand); background:var(--brand-light); padding:1px 6px; border-radius:7px; margin-left:5px; vertical-align:2px; }
+.jj-price-suffix { font-size:11px; color:var(--text-3); font-weight:400; }
+.jjd-price-tag { font-size:11px; font-weight:700; color:var(--brand); background:#FFF0EE; border:1px solid var(--brand-2); padding:2px 8px; border-radius:8px; margin-left:8px; vertical-align:5px; }
+.jj-dates { margin:8px 0 6px; display:flex; gap:6px; flex-wrap:wrap; }
+.jj-date { font-size:11px; font-weight:600; padding:2px 8px; border-radius:10px; background:#FFF0EE; color:var(--red); border:1px solid #F5D5D0; }
+.jj-date-empty { font-size:11px; color:var(--text-3); }
+.jj-line { font-size:12px; color:var(--text); line-height:1.7; display:flex; gap:6px; }
+.jj-k { flex-shrink:0; font-size:10.5px; font-weight:700; color:var(--text-3); padding-top:1px; }
+.jj-v { color:var(--text); }
+.jj-hls { margin-top:6px; display:flex; gap:6px; flex-wrap:wrap; }
+.jj-hl { font-size:10.5px; color:var(--text-2); background:var(--tag-bg); padding:2px 7px; border-radius:8px; }
+.jj-foot { margin-top:8px; padding-top:6px; border-top:1px dashed var(--border); display:flex; align-items:center; gap:8px; }
+.jj-sup { font-size:11px; font-weight:700; color:var(--green); }
+.jj-sub { font-size:11px; color:var(--text-3); }
+.jj-ptype { font-size:10px; font-weight:600; color:var(--green); background:#E8F5E9; padding:1px 6px; border-radius:6px; margin-left:6px; vertical-align:2px; }
+.jj-date-big { font-size:16px; font-weight:800; color:var(--red); margin-bottom:6px; padding-bottom:6px; border-bottom:1px dashed var(--border); }
+.jj-date-big .jj-date-wk { font-size:12px; color:var(--text-2); font-weight:500; }
+
+/* ── 自由行套餐详情页 ── */
+.jjd-title { font-size:18px; font-weight:800; color:#fff; margin-top:2px; }
+.jjd-sub { font-size:12px; color:rgba(255,255,255,.85); margin-top:3px; }
+.jjd-price-card { background:var(--brand-light); border:1px solid var(--brand-2); border-radius:12px; padding:14px 16px; margin-bottom:14px; }
+.jjd-price { font-size:30px; font-weight:800; color:var(--brand); letter-spacing:-1px; }
+.jjd-price-suffix { font-size:13px; color:var(--text-2); font-weight:400; }
+.jjd-ptype { font-size:11px; font-weight:700; color:var(--green); background:#E8F5E9; padding:2px 8px; border-radius:8px; margin-left:8px; vertical-align:4px; }
+.jjd-price-note { font-size:11.5px; color:var(--text-2); margin-top:4px; }
+.jjd-sec { margin-bottom:14px; }
+.jjd-sec-t { font-size:12px; font-weight:700; color:var(--text-2); margin-bottom:6px; letter-spacing:1px; }
+.jjd-flight { font-size:13px; color:var(--text); background:var(--tag-bg); border-radius:10px; padding:10px 12px; line-height:1.7; font-family:"SF Mono","Consolas",Menlo,monospace; }
+.jjd-hotel { font-size:14px; font-weight:600; color:var(--text); background:var(--tag-bg); border-radius:10px; padding:10px 12px; }
+.jjd-hotel-sub { font-size:11.5px; color:var(--text-2); font-weight:400; margin-top:3px; }
+.jjd-chips { display:flex; gap:8px; flex-wrap:wrap; }
+.jjd-chip { font-size:12.5px; font-weight:600; padding:6px 14px; border-radius:16px; background:var(--card-bg); border:1px solid var(--border); color:var(--text-2); cursor:pointer; }
+.jjd-chip.active { background:var(--brand); border-color:var(--brand); color:#fff; }
+.jjd-bag { font-size:13px; color:var(--text); background:var(--tag-bg); border-radius:10px; padding:10px 12px; }
+.jjd-hls { display:flex; flex-direction:column; gap:6px; }
+.jjd-hl { font-size:12.5px; color:var(--text); background:var(--tag-bg); border-radius:8px; padding:7px 10px; }
+.jjd-hl span { margin-right:6px; }
+.jjd-src { font-size:11px; color:var(--text-2); text-align:center; margin-top:8px; }
+/* 2026-08-07: 按钮不悬浮——作为详情内容流的一部分固定在末尾（滚动到底可见） */
+.jjd-footer { background:var(--card-bg); padding:12px 16px 16px; border-top:1px solid var(--border); }
+
+/* ── 自由行详情页按钮组（2026-08-19 对齐往返机票 detail-actions 排版：复制左 + 咨询右，等宽并排）── */
+.jjd-btn-group { display:flex; gap:8px; }
+.jjd-copy { flex:1; padding:13px; border:none; border-radius:10px; background:var(--brand); color:#fff; font-size:14px; font-weight:700; cursor:pointer; }
+.jjd-copy:active { opacity:.85; }
+.jjd-copy.copied { background:var(--green); }
+.jjd-consult { flex:1; padding:13px; border:none; border-radius:10px; background:linear-gradient(135deg, #FF6B35, var(--red)); color:#fff; font-size:14px; font-weight:700; cursor:pointer; }
+.jjd-consult:active { opacity:.85; }
+
+/* ── 自由行广告化卡片 ── */
+.jj-card { background:var(--card-bg); border:1px solid var(--border); border-radius:14px; overflow:hidden; margin-bottom:10px; box-shadow:0 2px 8px var(--shadow); cursor:pointer; }
+.jj-banner { position:relative; padding:14px 16px 12px; background:var(--brand-grad); color:#fff; }
+.jj-banner-t1 { font-size:17px; font-weight:800; letter-spacing:.5px; }
+.jj-banner-t2 { font-size:11.5px; color:rgba(255,255,255,.9); margin-top:4px; }
+.jj-direct { position:absolute; top:10px; right:12px; font-size:10px; font-weight:700; background:rgba(255,255,255,.25); padding:2px 8px; border-radius:8px; }
+.jj-flights { padding:8px 14px 4px; }
+.jj-f-row { display:flex; align-items:center; gap:6px; font-size:11.5px; padding:3px 0; color:var(--text); }
+.jj-f-seat { flex:0 0 auto; margin-left:4px; }
+.jj-keymiss { margin:0 12px 8px; padding:6px 10px; font-size:12px; font-weight:600; color:#B26A00; background:#FFF8E1; border:1px solid #FFE0A3; border-radius:8px; }
+.jj-f-tag { flex:0 0 auto; font-size:10px; font-weight:700; color:var(--text-2); background:var(--tag-bg); padding:1px 6px; border-radius:6px; }
+.jj-f-tag-ret { color:#1B8A5A; background:#E8F5E9; }
+.jj-f-flt { flex:0 0 auto; font-weight:800; color:var(--text); font-family:"SF Mono","Consolas",monospace; white-space:nowrap; }
+.jj-f-city { flex:0 0 auto; color:var(--text); font-weight:600; white-space:nowrap; }
+.jj-f-time { color:var(--text-2); font-size:11px; white-space:nowrap; margin-left:auto; }
+.jj-f-desc { font-size:11.5px; color:var(--text-2); font-family:"SF Mono","Consolas",monospace; padding:4px 0; }
+.jj-hotel { padding:8px 14px 4px; }
+.jj-hotel-hd { display:flex; align-items:center; gap:6px; flex-wrap:wrap; }
+.jj-hotel-name { font-size:13.5px; font-weight:700; color:var(--text); }
+.jj-star { font-size:10px; font-weight:700; color:var(--brand); background:var(--brand-light); padding:1px 7px; border-radius:8px; }  /* 红字浅底：与详情页一致 */
+.jj-hotel-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:5px; }
+.jj-htag { font-size:10px; color:var(--text-2); background:var(--tag-bg); padding:2px 7px; border-radius:8px; }
+/* 2026-08-24k：卡片只渲染最低价酒店组合，其余 12 家统一进详情页选；此行为引导入口 */
+.jj-hotel-more { margin-top:7px; padding:7px 10px; font-size:11.5px; font-weight:700; color:var(--brand-accent); background:var(--brand-light); border:1px dashed var(--brand-2); border-radius:9px; cursor:pointer; display:flex; align-items:center; gap:6px; }
+.jj-hotel-more:active { opacity:.82; }
+.jj-hotel-more-sub { font-size:10px; font-weight:400; color:var(--text-2); }
+.jj-htag.link { text-decoration:none; cursor:pointer; color:var(--brand-accent); }  /* 2026-08-19: 卡片酒店官网标签 → 可点链接（新窗口打开），阻止冒泡到卡片详情 */
+.jj-foot2 { display:flex; align-items:baseline; gap:8px; padding:8px 14px 4px; flex-wrap:wrap; }
+.jj-date { font-size:13px; font-weight:800; color:var(--brand); }
+.jj-price { margin-left:auto; font-size:20px; font-weight:800; color:var(--brand); letter-spacing:-.5px; }
+.jj-price-suffix { font-size:11px; color:var(--text-3); font-weight:400; }
+.jj-hls { padding:2px 14px 6px; display:flex; gap:6px; flex-wrap:wrap; }
+.jj-hl { font-size:10px; color:var(--text-2); background:var(--tag-bg); padding:2px 7px; border-radius:8px; }
+/* 2026-08-26：自由行卡片「小提示」行（如丽江首晚住宿说明），仅当套餐 hotel_details.tip 存在时渲染 */
+.jj-tip { margin:0 14px 4px; padding:7px 10px; font-size:11px; line-height:1.6; color:var(--text-2); background:var(--brand-light); border-left:3px solid var(--brand); border-radius:6px; }
+.jj-consult { width:calc(100% - 28px); margin:2px 14px 12px; padding:11px; border:none; border-radius:10px; background:var(--brand); color:#fff; font-size:14px; font-weight:700; cursor:pointer; }
+.jj-consult:active { opacity:.85; }
+
+/* ── 自由行详情页：航班卡/酒店卡 ── */
+.jjd-flight-card { background:var(--tag-bg); border-radius:10px; padding:10px 12px; margin-bottom:8px; }
+.jjd-f-hd { display:flex; align-items:center; gap:8px; }
+.jjd-f-flt { font-weight:800; font-size:14px; font-family:"SF Mono","Consolas",monospace; }
+.jjd-f-airline { font-size:11px; color:var(--text-2); }
+.jjd-f-dur { margin-left:auto; font-size:11px; color:var(--green); font-weight:600; }
+.jjd-f-row { display:flex; align-items:center; gap:6px; font-size:13px; margin-top:5px; }
+.jjd-f-air { color:var(--text); font-weight:500; }
+.jjd-f-arrow { color:var(--text-2); }
+.jjd-f-time { font-size:12px; color:var(--text-2); margin-top:2px; }
+.jjd-f-tags { display:flex; gap:6px; flex-wrap:wrap; margin-top:6px; }
+.jjd-f-tags span { font-size:10px; color:var(--text-2); background:var(--card-bg); padding:2px 7px; border-radius:8px; }
+.jjd-hotel-card { background:var(--tag-bg); border-radius:10px; padding:12px; }
+.jjd-hotel-hd { display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.jjd-hotel-name { font-size:15px; font-weight:800; color:var(--text); }
+.jjd-hotel-name a, a.jj-hotel-name { text-decoration:none; color:var(--brand-accent); border-bottom:1px dashed var(--brand-accent); }  /* 2026-08-19: 酒店名即官网链接 */
+.jjd-star { font-size:10.5px; font-weight:700; color:var(--brand); background:var(--brand-light); padding:2px 8px; border-radius:8px; }  /* 红字浅底：修复金字浅底反差不足（星级/含早+150徽章） */
+.jjd-nights { font-size:10.5px; font-weight:700; color:var(--green); background:#E8F5E9; padding:2px 8px; border-radius:8px; }
+.jjd-hotel-brand { font-size:11px; color:var(--text-2); margin-top:3px; }
+.jjd-hotel-rows { margin-top:8px; }
+.jjd-hr { font-size:12px; line-height:1.75; color:var(--text); }
+.jjd-hr b { color:var(--text-2); font-weight:600; margin-right:6px; }
+
+/* 2026-08-24k：OTA 预订须知区块（详情页底部——来源：携程/Trip.com/Booking/Agoda 多源爬取，写入 hotel_details.json 的 notes 字段） */
+.jjd-notes { margin-top:10px; background:var(--card-bg); border:1px solid var(--border); border-radius:10px; padding:10px 12px; }
+.jjd-notes > b { display:block; font-size:12px; font-weight:700; color:var(--brand); letter-spacing:1px; margin-bottom:6px; }
+.jjd-note { font-size:11.5px; line-height:1.7; color:var(--text-2); padding:3px 0; border-top:1px dashed var(--border); }
+.jjd-note:first-of-type { border-top:none; padding-top:0; }
+
+/* 2026-08-19：#19 增强渲染 —— 行程安排逐日卡片（日期徽章 + 内容块） */
+.jjd-itinerary { font-size:13px; line-height:1.85; color:var(--text); }
+.jjd-it-day { background:var(--card-bg); border:1px solid var(--border, #ececec); border-radius:12px; padding:9px 12px; margin-bottom:8px; }
+.jjd-it-day:last-child { margin-bottom:0; }
+.jjd-it-date { display:inline-block; font-size:11.5px; font-weight:800; color:#fff; background:var(--brand, #DA3A2C); padding:3px 10px; border-radius:8px; margin-bottom:6px; letter-spacing:0.5px; }  /* 白字+品牌红底：修复金字浅底反差不足 */
+.jjd-it-txt { font-size:13px; line-height:1.8; color:var(--text); }
+.jjd-pickup { font-size:13px; color:var(--text); background:var(--tag-bg); border-radius:10px; padding:10px 12px; }
+.jjd-pickup .jjd-pk-yes { color:var(--green); font-weight:700; }
+.jjd-pickup .jjd-pk-no { color:var(--brand-accent); font-weight:700; }
+
+/* 自由行详情页头部跟随主题 */
+.jjd-header { background: var(--brand-grad) !important; }
+
+/* ── 自由行卡片回程日期（2026-08-07）── */
+.jj-retdate { font-size:11.5px; font-weight:600; color:var(--text-2); margin-left:4px; }
+
+/* ── 搜索结果中的自由行命中（2026-08-18 新增）── */
+.jj-search-block { margin: 8px 0 4px; }
+.jj-search-hd { font-size: 12px; font-weight: 700; color: var(--text-secondary); padding: 6px 4px; display: flex; align-items: center; gap: 6px; }
+.jj-search-hd::before { content: ""; width: 3px; height: 12px; background: var(--brand); border-radius: 2px; }
