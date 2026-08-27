@@ -12,7 +12,7 @@ var ADMIN_LIST = [
 var STATS_API_URL = '';
 try {
   if ((location.hostname || '').indexOf('7116b6b0') >= 0) {
-    STATS_API_URL = 'https://qualities-berkeley-incurred-story.trycloudflare.com/track';
+    STATS_API_URL = 'https://planners-verde-slides-healthcare.trycloudflare.com/track';
   }
 } catch(e) {}
 
