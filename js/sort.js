@@ -21,6 +21,12 @@ var CARD_SORT_DIMS = [
 
 function _getModes() { return _sortModes || []; }
 
+// 2026-08-27：排序图标改用 Lucide 线性 SVG，与放大镜(index.html)同描边风格（24x24/stroke2/currentColor）
+var ICON_ASC = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>';
+var ICON_DESC = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em"><line x1="12" y1="5" x2="12" y2="19"></line><polyline points="19 12 12 19 5 12"></polyline></svg>';
+var ICON_SORT = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em"><polyline points="17 11 12 6 7 11"></polyline><polyline points="7 13 12 18 17 13"></polyline></svg>';
+var ICON_CHECK = '<svg viewBox="0 0 24 24" width="1em" height="1em" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" style="vertical-align:-0.15em"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+
 // 2026-08-21 BUG二修复：是否有分组处于展开状态（正在看组内卡片）→ 排序上下文联动切到「报价卡片排序」
 function _anyGroupExpanded() {
   var els = document.querySelectorAll('.hm-group-bd');
@@ -75,7 +81,7 @@ function _renderSortBody(modes) {
     var bg = sel ? '#F0F5FF' : 'var(--card-bg)';
     var border = sel ? '#0C6FA8' : 'var(--border)';
     var col = sel ? '#0C6FA8' : 'var(--text-secondary)';
-    var badge = sel ? '<span style="background:'+col+';color:#fff;border-radius:8px;padding:0 6px;font-size:10px;font-weight:700;margin-left:auto">' + (dir === 'asc' ? '↑' : dir === 'desc' ? '↓' : '✓') + '</span>' : '';
+    var badge = sel ? '<span style="background:'+col+';color:#fff;border-radius:8px;padding:0 6px;font-size:10px;font-weight:700;margin-left:auto">' + (dir === 'asc' ? ICON_ASC : dir === 'desc' ? ICON_DESC : ICON_CHECK) + '</span>' : '';
     var prioTag = sel && prio ? '<span style="width:16px;height:16px;border-radius:50%;background:'+col+';color:#fff;font-size:9px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0">'+prio+'</span>' : '';
     return '<div class="sort-dim" data-key="'+key+'" data-group="'+ (key.indexOf('g_') === 0 ? 'g' : 'c') + '" style="display:flex;align-items:center;gap:8px;padding:9px 12px;margin-bottom:5px;border-radius:8px;border:1px solid '+border+';background:'+bg+';cursor:pointer;font-size:13px;color:'+(sel?'#333':'var(--text)')+'">'
       + prioTag + '<span>'+label+'</span>'
@@ -215,7 +221,7 @@ function _sortLabel() {
     var gs = typeof _groupSort !== 'undefined' ? _groupSort : 'smart';
     if (gs !== 'smart') {
       var gk = gs.split('_')[0];
-      var gd = gs.indexOf('_desc') >= 0 ? '↓' : '↑';
+      var gd = gs.indexOf('_desc') >= 0 ? ICON_DESC : ICON_ASC;
       var gm = {'route':'航线','days':'天数','count':'条数','price':'价格','date':'日期'};
       parts.push('组:' + (gm[gk] || '排序') + gd);
     }
@@ -223,11 +229,11 @@ function _sortLabel() {
     var modes = _getModes();
     if (modes && modes.length) {
       var m = modes[0];
-      var cd = m.indexOf('_desc') >= 0 ? '↓' : '↑';
+      var cd = m.indexOf('_desc') >= 0 ? ICON_DESC : ICON_ASC;
       var cm = {'price':'价格','date':'日期','seats':'余位','airline':'航司'};
       parts.push('卡:' + (cm[m.split('_')[0]] || '排序') + cd);
     }
   }
-  if (!parts.length) return '↕ ✨ 智能排序';
-  return '↕ ' + parts.join(' · ');
+  if (!parts.length) return ICON_SORT + ' 智能排序';
+  return ICON_SORT + ' ' + parts.join(' · ');
 }
