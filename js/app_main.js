@@ -1836,6 +1836,19 @@ function _getMonths() {
 // ── 主渲染函数（所有选项始终可见，未满足条件的灰色提示）──
 function _showFilter() {
   var html = _filterSearchBox();
+  if (_searchMode === 'freetour') {
+    if (window.FreeTour && window.FreeTour.filterPills) html += window.FreeTour.filterPills();
+    else html += '<div class="loading">自由行模块加载中…</div>';
+    var _ftc = _filteredCount();
+    var _fcd = document.getElementById('filterCountDisplay');
+    if (_fcd) _fcd.textContent = _ftc;
+    var _fbody = document.getElementById('filterBody');
+    if (_fbody) _fbody.innerHTML = html;
+    var _fcb = document.getElementById('filterCopyBtn');
+    if (_fcb) _fcb.style.display = 'none';
+    _refreshSearchModeUI();
+    return;
+  }
   html += _filterCityPills();
   html += '<div style="display:flex;gap:12px;margin-bottom:10px">'
     + '<div style="flex:1;min-width:0">' + _filterDayPills(true) + '</div>'

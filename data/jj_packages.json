@@ -8075,7 +8075,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8141,7 +8142,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8207,7 +8209,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8273,7 +8276,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8339,7 +8343,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8405,7 +8410,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8471,7 +8477,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8537,7 +8544,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8603,7 +8611,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8669,7 +8678,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8735,7 +8745,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8801,7 +8812,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8867,7 +8879,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8933,7 +8946,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -8999,7 +9013,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9065,7 +9080,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9131,7 +9147,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9197,7 +9214,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9263,7 +9281,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9329,7 +9348,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9395,7 +9415,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9461,7 +9482,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9527,7 +9549,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9593,7 +9616,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9659,7 +9683,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9725,7 +9750,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9791,7 +9817,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9857,7 +9884,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9923,7 +9951,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -9989,7 +10018,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10055,7 +10085,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10121,7 +10152,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10187,7 +10219,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10253,7 +10286,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10319,7 +10353,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10385,7 +10420,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10451,7 +10487,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10517,7 +10554,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10583,7 +10621,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10649,7 +10688,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10715,7 +10755,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10781,7 +10822,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10847,7 +10889,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10913,7 +10956,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -10979,7 +11023,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11045,7 +11090,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11111,7 +11157,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11177,7 +11224,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11243,7 +11291,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11309,7 +11358,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11375,7 +11425,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11441,7 +11492,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11507,7 +11559,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11573,7 +11626,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11639,7 +11693,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11705,7 +11760,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11771,7 +11827,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11837,7 +11894,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11903,7 +11961,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -11969,7 +12028,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -12035,7 +12095,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2018_008646",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -12101,7 +12162,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006800",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -12167,7 +12229,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006798",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -12233,7 +12296,8 @@
   },
   {
    "supplier": "SH-HKG",
-   "internal": true,
+   "ticket_res": "2017_006801",
+   "internal": false,
    "dep": "上海",
    "arr": "香港",
    "route": "上海→香港",
@@ -12303,7 +12367,7 @@
   "count": 181,
   "generated": "2026-08-28",
   "hk_count": 64,
-  "hk_note": "香港源=腾讯文档DUHNCSndUd0VqamxK API实时读取(get_cell_data,导出仅兜底)；internal=true 仅管理员+刘蓉可见；MU501+MU506双价格档取最低1799/可用20（1999/可用40弃用记此备查）",
-  "hk_fetched": "自营自由行套餐_API读取_20260828_163106.xlsx"
+  "hk_note": "香港源=腾讯文档DUHNCSndUd0VqamxK API实时读取(get_cell_data,导出仅兜底)；2026-08-28 用户批准转公开(internal=false)；新航线批次仍默认 internal=true；MU501+MU506双价格档取最低1799/可用20（1999/可用40弃用记此备查）",
+  "hk_fetched": "自营自由行套餐_API读取_20260828_174808.xlsx"
  }
 }
