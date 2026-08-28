@@ -17,23 +17,6 @@
   // 避免宿主 core.js 的 canSeeSupplier 在 CURRENT_USER 未定义时抛 ReferenceError。
   function canSeeSupplier() { return false; }
 
-  /* 2026-08-28: 内部套餐可见性闸口（正式版同步）——带 internal 标记的套餐（新入库默认）仅
-     管理员(role=admin)+刘蓉(hq_liurong) 可见；游客与其他登录账号一律按游客态处理
-     （卡片/详情/分组/筛选/搜索全链路完全隐藏）。注意：正式版 free_tour 本地 canSeeSupplier
-     恒 false（供应商专用设计），内部套餐闸口独立读 core.js 的 CURRENT_USER（复活登录有效） */
-  function _ftInternalVisible() {
-    try {
-      var u = (typeof CURRENT_USER !== 'undefined' && CURRENT_USER) ? CURRENT_USER : null;
-      if (!u || !u.user) return false;            // 游客
-      if (u.role === 'admin') return true;        // 管理员
-      if (u.user === 'hq_liurong') return true;   // 刘蓉
-      return false;                               // 其他登录账号 = 游客态
-    } catch (e) { return false; }
-  }
-  function _ftIsInternal(p) {
-    return !!p && (p.internal === true || p.internal === 1 || p.internal === '1');
-  }
-
   var FreeTour = {
     // 状态（原 app_main.js 的 var JJ）
     JJ: { loaded: false, packages: [] },
@@ -190,7 +173,6 @@
       var self = this;
       var m = 0, day = 0, w = '';
       var isSup = (p._src === 'supplier');
-      if (_ftIsInternal(p) && !_ftInternalVisible()) return '';   // 内部套餐：无权限完全不渲染
       if (date) {
         m = parseInt(date.slice(5, 7)); day = parseInt(date.slice(8, 10));
         var wk = ['日', '一', '二', '三', '四', '五', '六'];
@@ -229,16 +211,14 @@
       // 2026-08-24k（自营）：卡片只渲染「该航班下 13 家自营酒店里 hotel_total 最低的一家」组合；其余 12 家隐藏。
       // 2026-08-26（供应商）：供应商套餐不走 _selfbuild，直接用自身 hotel_details 渲染，不挂「13 家」组合器。
       var sb = isSup ? null : this.JJ._selfbuild;
-      var _minHotel = null, _minPer = Infinity, _sbCount = 0;
-      var _sbH = (!isSup) ? this._sbHotelsFor(p) : [];
-      _sbCount = _sbH.length;
-      if (_sbH.length) {
+      var _minHotel = null, _minPer = Infinity;
+      if (sb && sb.hotels && sb.hotels.length) {
         var _f = this._findFlight(p);
         var _F = _f ? (Number(_f.flight_direct) || 0) : 0;
-        for (var _hi = 0; _hi < _sbH.length; _hi++) {
-          var _R = Number(_sbH[_hi].hotel_total) || 0;
+        for (var _hi = 0; _hi < sb.hotels.length; _hi++) {
+          var _R = Number(sb.hotels[_hi].hotel_total) || 0;
           var _per = Math.round(_F + _R / 2);
-          if (_per < _minPer) { _minPer = _per; _minHotel = _sbH[_hi]; }
+          if (_per < _minPer) { _minPer = _per; _minHotel = sb.hotels[_hi]; }
         }
       }
       // 卡片展示酒店：自营=最低价那家（优先富信息库）；供应商=自身 hotel_details
@@ -251,7 +231,7 @@
         var nm = (hd.display_name || hd.name || '').replace(/(\d+)\/(\d+号店)/g, '$1$2');
         var moreTxt = isSup
           ? '🏨 查看套餐酒店 › <span class="jj-hotel-more-sub">进详情页看全部组合</span>'
-          : '🏨 更多酒店组合 › <span class="jj-hotel-more-sub">共 ' + (_sbCount || 1) + ' 家可选 · 进详情页切换</span>';
+          : '🏨 更多酒店组合 › <span class="jj-hotel-more-sub">共 ' + (sb && sb.hotels ? sb.hotels.length : 1) + ' 家可选 · 进详情页切换</span>';
         hotelHtml = '<div class="jj-hotel">'
           + (firstUrl
               ? '<div class="jj-hotel-hd"><a class="jj-hotel-name" href="' + esc(firstUrl) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏨 ' + esc(nm) + '</a>'
@@ -357,7 +337,6 @@
     openDetail: function (pi, date, prefHIdx) {
       var p = this.JJ.packages[pi];
       if (!p) return;
-      if (_ftIsInternal(p) && !_ftInternalVisible()) return;    // 内部套餐：无权限不开详情
       var curDate = date || (p.dates && p.dates[0]) || '';
       // 2026-08-19: 头部固定布局标记（closeDetail 时移除；机票详情不受影响）
       document.getElementById('modalContent').classList.add('jjd-lock');
@@ -669,8 +648,6 @@
       var pkgs = (this.JJ.packages || []).filter(function (p) {
         // 未知航线（无 route）：仅登录版本可见，游客版本不可渲染（避免向外泄露未归类航线）
         if (!p.route) return !!canSeeSupplier();
-        // 内部套餐(新入库默认隐藏)：无权限不进分组（整组消失，不留空壳分组头）
-        if (_ftIsInternal(p) && !_ftInternalVisible()) return false;
         if (p._keymiss) return true;                      // 其他缺失套餐：对所有用户可见（带标注）
         return CAT_TAB[p.country] === currentTab;         // 正常套餐：按分类 tab 过滤
       });
@@ -767,18 +744,6 @@
           && f.flights[0].flight === p.flight && f.flights[1].flight === p.flight_return) return f;
       }
       return null;
-    },
-    /* 2026-08-28: 组合器酒店按目的地(dest)过滤——澳门/香港自营两维共存同一 selfbuild，防跨航线污染选最低价 */
-    _sbHotelsFor: function (p) {
-      var sb = this.JJ && this.JJ._selfbuild;
-      if (!sb || !sb.hotels) return [];
-      var arr = p && p.arr, out = [];
-      for (var i = 0; i < sb.hotels.length; i++) {
-        var h = sb.hotels[i];
-        if (h.dest && arr && h.dest !== arr) continue;
-        out.push(h);
-      }
-      return out;
     },
     _findHotelIdx: function (name) {
       var sb = this.JJ._selfbuild; if (!sb) return -1;
@@ -947,12 +912,9 @@
       if (!sb || !sb.hotels || !sb.hotels.length) return '';
       var defIdx = this._findHotelIdx(p.hotel);
       if (defIdx < 0) defIdx = 0;
-      var opts = '';
-      for (var _ci = 0; _ci < sb.hotels.length; _ci++) {
-        var _ch = sb.hotels[_ci];
-        if (_ch.dest && p.arr && _ch.dest !== p.arr) continue;
-        opts += '<option value="' + _ci + '"' + (_ci === defIdx ? ' selected' : '') + '>' + esc(_ch.name) + '</option>';
-      }
+      var opts = sb.hotels.map(function (h, i) {
+        return '<option value="' + i + '"' + (i === defIdx ? ' selected' : '') + '>' + esc(h.name) + '</option>';
+      }).join('');
       return '<div class="jjd-sec jjd-pick-hotel">'
         + '<div class="jjd-sec-t">选择酒店</div>'
         + '<select id="comboHotel" class="jjd-combo-sel" onchange="FreeTour._recalcCombo()">' + opts + '</select>'
@@ -1076,7 +1038,7 @@
       var hits = [];
       if (this.JJ && this.JJ.packages && this.JJ.packages.length) {
         // 未知航线（无 route）：游客版本不可见，仅登录版本可搜到
-        var _vis = function (p) { return !(!p.route && !canSeeSupplier()) && !(_ftIsInternal(p) && !_ftInternalVisible()); };
+        var _vis = function (p) { return !(!p.route && !canSeeSupplier()); };
         // 搜「自由行」/「自由行套餐」→ 列出全部可见自由行套餐（2026-08-19 修复：此前无结果）
         var q2 = (q || '').toLowerCase();
         if (q2.indexOf('自由行') !== -1) return this.JJ.packages.filter(_vis);
@@ -1140,8 +1102,6 @@
       if (!p) return false;
       // 供应商套餐：游客态不可见（canSeeSupplier 兜底 false），仅登录版可见
       if (p._src === 'supplier' && !canSeeSupplier()) return false;
-      // 内部套餐(新入库默认隐藏)：无权限同样隐藏
-      if (_ftIsInternal(p) && !_ftInternalVisible()) return false;
       f = f || {};
       if (f.dep) {
         var _seg = (p.route || '').split('→');
