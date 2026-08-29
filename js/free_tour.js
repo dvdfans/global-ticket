@@ -675,21 +675,22 @@
       // 每个分组头带「自由行」标签，点开 toggleGroup 显示该组下所有自由行报价卡片（jj-card）。
       // 单层结构（分组头 → 直接卡片），无航班组嵌套；_selfbuild 组合器富信息在详情页维度保留。
       var CAT_TAB = this.CAT_TAB;
-      // 2026-08-26：不做隐藏——关键缺失套餐照常渲染（带「缺失信息未上线」标注），仅正常套餐按分类 tab 过滤
+      // 2026-08-29：关键缺失套餐照常渲染（带「缺失信息未上线」标注），但归类口径与正常套餐一致
       var pkgs = (this.JJ.packages || []).filter(function (p) {
         // 未知航线（无 route）：仅登录版本可见，游客版本不可渲染（避免向外泄露未归类航线）
         if (!p.route) return false;   // 2026-08-29: 无航线所有用户都不渲染
         // 内部套餐(新入库默认隐藏)：无权限不进分组（整组消失，不留空壳分组头）
         if (_ftIsInternal(p) && !_ftInternalVisible()) return false;
         if (p._src === 'supplier' && !canSeeSupplier()) return false;   // 供应商套餐：游客态整组不渲染（铁律，勿删）
-        if (p._keymiss) return true;                      // 其他缺失套餐：对所有用户可见（带标注）
-        return CAT_TAB[p.country] === currentTab;         // 正常套餐：按分类 tab 过滤
+        // 2026-08-29 修复：_keymiss（关键缺失/internal）套餐也必须按国家归类进导航键——
+        // 此前 `if (p._keymiss) return true` 绕过 CAT_TAB 过滤，331 条缺失套餐混进所有 tab（归类错误根因）。
+        // 缺失标注仍保留（卡片 jj-keymiss 徽章），只是不再豁免分类过滤。
+        return CAT_TAB[p.country] === currentTab;         // 正常+缺失套餐：统一按分类 tab 过滤
       });
       if (!pkgs.length) return html;
-      // 2026-08-29: 分组口径升级——按【目的地】归组（导航键=分类 tab，组=目的地）：
-      // 同目的地（如 首尔/济州岛/三亚）下不同航线、不同天数的套餐合并进同一组；
-      // 组间顺序对齐宿主 TAB_CITIES 目的地导航顺序（前缀归一：冲绳(那霸)→冲绳、沙巴(亚庇)→沙巴），
-      // 未收录目的地排在其后按名称排；组内上海出发优先→航线→天数→日期。
+      // 2026-08-29 定案（用户确认）：分组口径回归【出发→到达】航线式，与往返机票分组命名对齐，仅多一个「自由行」标签。
+      // 组键 = p.route（数据源格式统一为 '出发→到达'，自营/供应商一致可直接合并）。
+      // 组间顺序：到达城市按宿主 TAB_CITIES 目的地导航顺序（前缀归一），同到达城市上海出发优先，再按航线名。
       var TAB_ORDER = (typeof TAB_CITIES !== 'undefined' && TAB_CITIES && TAB_CITIES[currentTab]) || [];
       function _destIdx(d) {
         for (var i = 0; i < TAB_ORDER.length; i++) {
@@ -698,22 +699,30 @@
         }
         return 999;
       }
+      function _destOf(route) {
+        var i = route.indexOf('→');
+        return i >= 0 ? route.slice(i + 1).trim() : route;
+      }
+      function _depOf(route) {
+        var i = route.indexOf('→');
+        return i >= 0 ? route.slice(0, i).trim() : '';
+      }
       var groups = {};
       pkgs.forEach(function (p) {
-        var dest = p.arr || p.route || '未知航线';
-        // 组键=目的地（不含 _src）：同目的地自营+供应商合并进一组，组内按 _src 分渲染路径，卡面自带来源区分
-        var key = dest;
+        var key = p.route || '未知航线';
         if (!groups[key]) groups[key] = [];
         groups[key].push(p);
       });
       var keys = Object.keys(groups);
       keys.sort(function (a, b) {
-        var ia = _destIdx(a), ib = _destIdx(b);
+        var da = _destOf(a), db = _destOf(b);
+        var ia = _destIdx(da), ib = _destIdx(db);
         if (ia !== ib) return ia - ib;
+        var pa = _depOf(a).indexOf('上海') === 0 ? 0 : 1, pb = _depOf(b).indexOf('上海') === 0 ? 0 : 1;
+        if (pa !== pb) return pa - pb;
         return a === b ? 0 : (a < b ? -1 : 1);
       });
       keys.forEach(function (key) {
-        var dest = key;
         var items = groups[key];
         // 2026-08-29: 同一目的地组内混合两种渲染路径——
         //  · 供应商：每条套餐 = 一个去程日期 = 1 张卡（绝不按航班塌缩，否则丢日期维度）
@@ -754,10 +763,10 @@
         var pers = cards.map(function (c) { return c.per; }).filter(Boolean);
         var mn = pers.length ? Math.min.apply(null, pers) : 0;
         var countLabel = cards.length + '条';
-        // 分组标题：目的地 → 自由行标签 → 数量 → 最低价起（航线/天数在各卡片上展示）
+        // 分组标题（2026-08-29 定案）：出发→到达 + 自由行标签 + 数量 + 最低价起（天数在各卡片上展示）
         html += '<div class="hm-group">'
           + '<div class="hm-group-hd" onclick="if(event.target.closest(\'.jj-card\'))return;toggleGroup(\'' + gid + '\')">'
-          + '<span class="hm-route">' + esc(dest) + '</span>'
+          + '<span class="hm-route">' + esc(key) + '</span>'
           + '<span class="jj-cat-tag">自由行</span>'
           + '<span class="hm-count">' + countLabel + '</span>'
           + (mn ? '<span class="hm-minprice">¥' + Math.round(mn) + ' 起</span>' : '')
