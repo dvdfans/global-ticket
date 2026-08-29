@@ -1,7 +1,7 @@
 function render() {
   // 2026-08-13: 非搜索结果视图（render 是常规视图渲染入口）→ 重置搜索态标志
   _isSearchView = false;
-  // 首页-热销(千巡); 热门-中秋国庆; 其他-区域筛选
+  // 首页-热销(S130); 热门-中秋国庆; 其他-区域筛选
   if (currentTab === 'home') return renderHome();
   if (currentTab === 'filter') {
     if (_searchMode === 'freetour' && window.FreeTour && window.FreeTour.renderFiltered) return window.FreeTour.renderFiltered();
@@ -366,7 +366,7 @@ function renderHome() {
   var weekEnd = new Date(today.getTime() + 7 * 86400000);
   var weekEndStr = weekEnd.toISOString().slice(0,10);
   
-  // 首页：热销 — 渲染全部千巡(供应商码130)报价卡片，按去程日期升序（2026-08-21 撤销原尾单规则）
+  // 首页：热销 — 渲染全部S130(供应商码130)报价卡片，按去程日期升序（2026-08-21 撤销原尾单规则）
   var records = DB.records.filter(function(r) {
     if (!_hasSeats(r) || !_validRecord(r)) return false;
     if (String(r.supplier) !== '130') return false;  // 仅指定供应商代码
@@ -764,7 +764,7 @@ function renderCard(r) {
     + '</div></div>';
 }
 
-// ═══ 简化版卡片（用于首页热销/千巡）═══
+// ═══ 简化版卡片（用于首页热销/S130）═══
 function renderCardSimple(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
   var daysVal = getDays(r);
