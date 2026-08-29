@@ -686,76 +686,79 @@
         return CAT_TAB[p.country] === currentTab;         // 正常套餐：按分类 tab 过滤
       });
       if (!pkgs.length) return html;
-      // 外部分组保持 (route+days+nights) 不变；组内按航班实体 (flight+flight_return) 聚合，
-      // 每航班只渲染 1 张卡 = 该航班 13 家组合里「组合人均价」最低的那套；其余组合仅在详情页切换。
+      // 2026-08-29: 分组口径升级——按【目的地】归组（导航键=分类 tab，组=目的地）：
+      // 同目的地（如 首尔/济州岛/三亚）下不同航线、不同天数的套餐合并进同一组；
+      // 组间顺序对齐宿主 TAB_CITIES 目的地导航顺序（前缀归一：冲绳(那霸)→冲绳、沙巴(亚庇)→沙巴），
+      // 未收录目的地排在其后按名称排；组内上海出发优先→航线→天数→日期。
+      var TAB_ORDER = (typeof TAB_CITIES !== 'undefined' && TAB_CITIES && TAB_CITIES[currentTab]) || [];
+      function _destIdx(d) {
+        for (var i = 0; i < TAB_ORDER.length; i++) {
+          var c = TAB_ORDER[i];
+          if (d === c || d.indexOf(c) === 0) return i;
+        }
+        return 999;
+      }
       var groups = {};
       pkgs.forEach(function (p) {
-        // 2026-08-26：分组键含 _src → 同航线自营/供应商各自独立分组块（并列区分，满足「区别分组标签」）
-        var key = (p.route || '未知航线') + '|' + (p.days || 0) + '|' + (p.nights || 0) + '|' + (p._src || 'self');
+        var dest = p.arr || p.route || '未知航线';
+        // 组键=目的地（不含 _src）：同目的地自营+供应商合并进一组，组内按 _src 分渲染路径，卡面自带来源区分
+        var key = dest;
         if (!groups[key]) groups[key] = [];
         groups[key].push(p);
       });
       var keys = Object.keys(groups);
-      // 组内排序：上海出发优先 → 同出发地按航线 → 同航线按天数升序；分组间按 days 升序
       keys.sort(function (a, b) {
-        var pa = a.split('|'), pb = b.split('|');
-        var ra = pa[0].indexOf('上海') === 0 ? 0 : 1, rb = pb[0].indexOf('上海') === 0 ? 0 : 1;
-        if (ra !== rb) return ra - rb;
-        if (pa[0] !== pb[0]) return pa[0] < pb[0] ? -1 : 1;
-        return (Number(pa[1]) || 0) - (Number(pb[1]) || 0);
+        var ia = _destIdx(a), ib = _destIdx(b);
+        if (ia !== ib) return ia - ib;
+        return a === b ? 0 : (a < b ? -1 : 1);
       });
       keys.forEach(function (key) {
-        var parts = key.split('|');
-        var route = parts[0], days = Number(parts[1]) || 0, nights = Number(parts[2]) || 0;
+        var dest = key;
         var items = groups[key];
-        // 2026-08-26：供应商 vs 自营 分组方式不同
-        //  · 供应商：每条套餐 = 一个去程日期 = 1 张卡，按去程日期升序排列（绝不按航班塌缩，否则丢日期维度）
+        // 2026-08-29: 同一目的地组内混合两种渲染路径——
+        //  · 供应商：每条套餐 = 一个去程日期 = 1 张卡（绝不按航班塌缩，否则丢日期维度）
         //  · 自营：按航班组合聚合，每航班取组合人均价最低的套餐 → 1 张卡（9航班×13酒店笛卡尔积）
-        var isSup = items.length && items[0]._src === 'supplier';
         var gid = 'jjg_' + key.replace(/[^a-z0-9一-龥]/g, '_');
         var cards = [];
-        if (isSup) {
-          var ordered = items.slice().sort(function (a, b) {
-            var da = (a.dates && a.dates[0]) || '', db = (b.dates && b.dates[0]) || '';
-            return da < db ? -1 : da > db ? 1 : 0;
-          });
-          ordered.forEach(function (p) {
+        items.filter(function (p) { return p._src === 'supplier'; }).forEach(function (p) {
+          var d = (p.dates && p.dates[0]) || '';
+          cards.push({ p: p, date: d, pi: self.JJ.packages.indexOf(p), per: Number(self.perPersonPrice(p, d)) || 0, route: p.route || '', days: Number(p.days) || 0 });
+        });
+        var byFlight = {};
+        items.filter(function (p) { return p._src !== 'supplier'; }).forEach(function (p) {
+          var fk = (p.flight || '?') + '|' + (p.flight_return || '?');
+          if (!byFlight[fk]) byFlight[fk] = [];
+          byFlight[fk].push(p);
+        });
+        Object.keys(byFlight).sort().forEach(function (fk) {
+          var arr2 = byFlight[fk];
+          var best = null, bestPer = Infinity;
+          arr2.forEach(function (p) {
             var d = (p.dates && p.dates[0]) || '';
-            var pi = self.JJ.packages.indexOf(p);
             var per = Number(self.perPersonPrice(p, d)) || 0;
-            cards.push({ p: p, date: d, pi: pi, per: per });
+            if (per && per < bestPer) { bestPer = per; best = p; }
           });
-        } else {
-          var byFlight = {};
-          items.forEach(function (p) {
-            var fk = (p.flight || '?') + '|' + (p.flight_return || '?');
-            if (!byFlight[fk]) byFlight[fk] = [];
-            byFlight[fk].push(p);
-          });
-          Object.keys(byFlight).sort().forEach(function (fk) {
-            var arr = byFlight[fk];
-            var best = null, bestPer = Infinity;
-            arr.forEach(function (p) {
-              var d = (p.dates && p.dates[0]) || '';
-              var per = Number(self.perPersonPrice(p, d)) || 0;
-              if (per && per < bestPer) { bestPer = per; best = p; }
-            });
-            if (!best) best = arr[0];
-            var bestDate = (best.dates && best.dates[0]) || '';
-            var bestPi = self.JJ.packages.indexOf(best);
-            var bestPer2 = Number(self.perPersonPrice(best, bestDate)) || 0;
-            cards.push({ p: best, date: bestDate, pi: bestPi, per: bestPer2 });
-          });
-        }
+          if (!best) best = arr2[0];
+          var bestDate = (best.dates && best.dates[0]) || '';
+          cards.push({ p: best, date: bestDate, pi: self.JJ.packages.indexOf(best), per: Number(self.perPersonPrice(best, bestDate)) || 0, route: best.route || '', days: Number(best.days) || 0 });
+        });
+        // 组内排序：上海出发优先 → 航线 → 天数升序 → 去程日期升序
+        cards.sort(function (a, b) {
+          var ra = a.route.indexOf('上海') === 0 ? 0 : 1, rb = b.route.indexOf('上海') === 0 ? 0 : 1;
+          if (ra !== rb) return ra - rb;
+          if (a.route !== b.route) return a.route < b.route ? -1 : 1;
+          if (a.days !== b.days) return a.days - b.days;
+          var d1 = a.date || '', d2 = b.date || '';
+          return d1 < d2 ? -1 : d1 > d2 ? 1 : 0;
+        });
         var pers = cards.map(function (c) { return c.per; }).filter(Boolean);
         var mn = pers.length ? Math.min.apply(null, pers) : 0;
-        var countLabel = isSup ? (cards.length + '条') : (cards.length + ' 航班');
-        // 分组标题：航线 → 自由行标签（供应商/自营区分）→ 几天几晚 → 数量 → 最低价起
+        var countLabel = cards.length + '条';
+        // 分组标题：目的地 → 自由行标签 → 数量 → 最低价起（航线/天数在各卡片上展示）
         html += '<div class="hm-group">'
           + '<div class="hm-group-hd" onclick="if(event.target.closest(\'.jj-card\'))return;toggleGroup(\'' + gid + '\')">'
-          + '<span class="hm-route">' + esc(route) + '</span>'
+          + '<span class="hm-route">' + esc(dest) + '</span>'
           + '<span class="jj-cat-tag">自由行</span>'
-          + '<span class="hm-nights">' + (days ? days + '天' : '') + (nights ? nights + '晚' : '') + '</span>'
           + '<span class="hm-count">' + countLabel + '</span>'
           + (mn ? '<span class="hm-minprice">¥' + Math.round(mn) + ' 起</span>' : '')
           + '<span class="hm-arrow">▾</span></div>'
