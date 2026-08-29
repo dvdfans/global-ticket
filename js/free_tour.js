@@ -676,7 +676,7 @@
       // 2026-08-26：不做隐藏——关键缺失套餐照常渲染（带「缺失信息未上线」标注），仅正常套餐按分类 tab 过滤
       var pkgs = (this.JJ.packages || []).filter(function (p) {
         // 未知航线（无 route）：仅登录版本可见，游客版本不可渲染（避免向外泄露未归类航线）
-        if (!p.route) return !!canSeeSupplier();
+        if (!p.route) return false;   // 2026-08-29: 无航线所有用户都不渲染
         // 内部套餐(新入库默认隐藏)：无权限不进分组（整组消失，不留空壳分组头）
         if (_ftIsInternal(p) && !_ftInternalVisible()) return false;
         if (p._keymiss) return true;                      // 其他缺失套餐：对所有用户可见（带标注）
@@ -1219,6 +1219,7 @@
       var dateSet = {};
       pk.forEach(function (p) {
         if (p._src === 'supplier' && !canSeeSupplier()) return;
+        if (!p.route) return false;   // 2026-08-29: 无航线一律不渲染（杜绝「未知航线」分组）
         if (_ftIsInternal(p) && !_ftInternalVisible()) return;   // 内部套餐不计入筛选/日历   // 游客态供应商套餐不计入日历
         if (_filter.dep) {
           var _s1 = (p.route || '').split('→');
@@ -1266,6 +1267,7 @@
       var depSet = {}, arrSet = {}, daySet = {}, monSet = {};
       pk.forEach(function (p) {
         if (p._src === 'supplier' && !canSeeSupplier()) return;
+        if (!p.route) return false;   // 2026-08-29: 无航线一律不渲染（杜绝「未知航线」分组）
         if (_ftIsInternal(p) && !_ftInternalVisible()) return;   // 内部套餐不计入筛选/日历   // 游客态供应商套餐不计入筛选下拉
         var seg = String(p.route || '').split('→');
         var dep = (seg[0] || '').trim();
