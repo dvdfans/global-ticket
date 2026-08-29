@@ -12,7 +12,7 @@ var ADMIN_LIST = [
 var STATS_API_URL = '';
 try {
   if ((location.hostname || '').indexOf('7116b6b0') >= 0) {
-    STATS_API_URL = 'https://foods-collecting-bags-added.trycloudflare.com/track';
+    STATS_API_URL = 'https://council-refers-paid-consolidated.trycloudflare.com/track';
   }
 } catch(e) {}
 

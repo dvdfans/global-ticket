@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-29 18:02:47",
+  "build_time": "2026-08-29 19:22:12",
   "packages": [
     {
       "internal": false,
@@ -13581,7 +13581,7 @@
       "route": "上海→恩施",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1199,
       "price_type": "直客价",
       "dates": [
@@ -13607,7 +13607,7 @@
       "route": "上海→恩施",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -13632,8 +13632,8 @@
       "arr": "长白山",
       "route": "上海→长白山",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 2480,
       "price_type": "直客价",
       "dates": [
@@ -13658,8 +13658,8 @@
       "arr": "长白山",
       "route": "上海→长白山",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 3400,
       "price_type": "直客价",
       "dates": [
@@ -13684,8 +13684,8 @@
       "arr": "长白山",
       "route": "上海→长白山",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 3340,
       "price_type": "直客价",
       "dates": [
@@ -13710,8 +13710,8 @@
       "arr": "长白山",
       "route": "上海→长白山",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 3690,
       "price_type": "直客价",
       "dates": [
@@ -13736,8 +13736,8 @@
       "arr": "长白山",
       "route": "上海→长白山",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 3540,
       "price_type": "直客价",
       "dates": [
@@ -13762,8 +13762,8 @@
       "arr": "长白山",
       "route": "上海→长白山",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 4140,
       "price_type": "直客价",
       "dates": [
@@ -14647,7 +14647,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1499,
       "price_type": "直客价",
       "dates": [
@@ -14673,7 +14673,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1999,
       "price_type": "直客价",
       "dates": [
@@ -14699,7 +14699,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1599,
       "price_type": "直客价",
       "dates": [
@@ -14725,7 +14725,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1599,
       "price_type": "直客价",
       "dates": [
@@ -14751,7 +14751,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1599,
       "price_type": "直客价",
       "dates": [
@@ -14777,7 +14777,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 2499,
       "price_type": "直客价",
       "dates": [
@@ -14803,7 +14803,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 2499,
       "price_type": "直客价",
       "dates": [
@@ -14829,7 +14829,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1799,
       "price_type": "直客价",
       "dates": [
@@ -14855,7 +14855,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1699,
       "price_type": "直客价",
       "dates": [
@@ -14881,7 +14881,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 2199,
       "price_type": "直客价",
       "dates": [
@@ -14907,7 +14907,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 2999,
       "price_type": "直客价",
       "dates": [
@@ -14933,7 +14933,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 4199,
       "price_type": "直客价",
       "dates": [
@@ -14959,7 +14959,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 4199,
       "price_type": "直客价",
       "dates": [
@@ -14985,7 +14985,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 4199,
       "price_type": "直客价",
       "dates": [
@@ -15011,7 +15011,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 4099,
       "price_type": "直客价",
       "dates": [
@@ -15037,7 +15037,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 2299,
       "price_type": "直客价",
       "dates": [
@@ -15063,7 +15063,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1799,
       "price_type": "直客价",
       "dates": [
@@ -15089,7 +15089,7 @@
       "route": "上海→济州岛",
       "country": "韩国",
       "days": "4",
-      "nights": "3",
+      "nights": "1",
       "price": 1399,
       "price_type": "直客价",
       "dates": [
@@ -15115,7 +15115,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15141,7 +15141,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15167,7 +15167,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15193,7 +15193,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15219,7 +15219,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -15245,7 +15245,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15271,7 +15271,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15297,7 +15297,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15323,7 +15323,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15349,7 +15349,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15375,7 +15375,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15401,7 +15401,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -15427,7 +15427,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15453,7 +15453,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15479,7 +15479,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15505,7 +15505,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15531,7 +15531,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1499,
       "price_type": "直客价",
       "dates": [
@@ -15557,7 +15557,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -15583,7 +15583,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15609,7 +15609,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -15635,7 +15635,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15661,7 +15661,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15687,7 +15687,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1199,
       "price_type": "直客价",
       "dates": [
@@ -15713,7 +15713,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15739,7 +15739,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 999,
       "price_type": "直客价",
       "dates": [
@@ -15765,7 +15765,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1299,
       "price_type": "直客价",
       "dates": [
@@ -15791,7 +15791,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1199,
       "price_type": "直客价",
       "dates": [
@@ -15817,7 +15817,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15843,7 +15843,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -15869,7 +15869,7 @@
       "route": "上海→丽江",
       "country": "国内",
       "days": "5",
-      "nights": "4",
+      "nights": "1",
       "price": 1099,
       "price_type": "直客价",
       "dates": [
@@ -17870,8 +17870,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 959,
       "price_type": "直客价",
       "dates": [
@@ -17896,8 +17896,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -17922,8 +17922,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -17948,8 +17948,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -17974,8 +17974,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 899,
       "price_type": "直客价",
       "dates": [
@@ -18000,8 +18000,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 869,
       "price_type": "直客价",
       "dates": [
@@ -18026,8 +18026,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 869,
       "price_type": "直客价",
       "dates": [
@@ -18052,8 +18052,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 869,
       "price_type": "直客价",
       "dates": [
@@ -18078,8 +18078,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 979,
       "price_type": "直客价",
       "dates": [
@@ -18104,8 +18104,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 979,
       "price_type": "直客价",
       "dates": [
@@ -18130,8 +18130,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 979,
       "price_type": "直客价",
       "dates": [
@@ -18156,8 +18156,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 979,
       "price_type": "直客价",
       "dates": [
@@ -18182,8 +18182,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 1199,
       "price_type": "直客价",
       "dates": [
@@ -18208,8 +18208,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 889,
       "price_type": "直客价",
       "dates": [
@@ -18234,8 +18234,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 939,
       "price_type": "直客价",
       "dates": [
@@ -18260,8 +18260,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 939,
       "price_type": "直客价",
       "dates": [
@@ -18286,8 +18286,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 1039,
       "price_type": "直客价",
       "dates": [
@@ -18312,8 +18312,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 1039,
       "price_type": "直客价",
       "dates": [
@@ -18338,8 +18338,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 1039,
       "price_type": "直客价",
       "dates": [
@@ -18364,8 +18364,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 989,
       "price_type": "直客价",
       "dates": [
@@ -18390,8 +18390,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 989,
       "price_type": "直客价",
       "dates": [
@@ -18416,8 +18416,8 @@
       "arr": "泉州",
       "route": "上海→泉州",
       "country": "国内",
-      "days": "5",
-      "nights": "4",
+      "days": "4",
+      "nights": "3",
       "price": 989,
       "price_type": "直客价",
       "dates": [
@@ -18443,7 +18443,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18469,7 +18469,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18495,7 +18495,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18521,7 +18521,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18547,7 +18547,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18573,7 +18573,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18599,7 +18599,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18625,7 +18625,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18651,7 +18651,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18677,7 +18677,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18703,7 +18703,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18729,7 +18729,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18755,7 +18755,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18781,7 +18781,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18807,7 +18807,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18833,7 +18833,7 @@
       "route": "上海→普吉岛",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 300,
       "price_type": "直客价",
       "dates": [
@@ -18859,7 +18859,7 @@
       "route": "上海→沙巴(亚庇)",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 1500,
       "price_type": "直客价",
       "dates": [
@@ -18885,7 +18885,7 @@
       "route": "上海→沙巴(亚庇)",
       "country": "东南亚",
       "days": "7",
-      "nights": "6",
+      "nights": "5",
       "price": 1500,
       "price_type": "直客价",
       "dates": [
@@ -19509,7 +19509,7 @@
       "route": "上海→长白山",
       "country": "国内",
       "days": "4",
-      "nights": "3",
+      "nights": "4",
       "price": 4999,
       "price_type": "直客价",
       "dates": [
