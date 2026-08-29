@@ -199,6 +199,7 @@
       var m = 0, day = 0, w = '';
       var isSup = (p._src === 'supplier');
       if (_ftIsInternal(p) && !_ftInternalVisible()) return '';   // 内部套餐：无权限完全不渲染
+      if (isSup && !canSeeSupplier()) return '';   // 供应商套餐：游客态完全不渲染（铁律，勿删）
       if (date) {
         m = parseInt(date.slice(5, 7)); day = parseInt(date.slice(8, 10));
         var wk = ['日', '一', '二', '三', '四', '五', '六'];
@@ -366,6 +367,7 @@
       var p = this.JJ.packages[pi];
       if (!p) return;
       if (_ftIsInternal(p) && !_ftInternalVisible()) return;    // 内部套餐：无权限不开详情
+      if (p._src === 'supplier' && !canSeeSupplier()) return;   // 供应商套餐：游客态不开详情（铁律，勿删）
       var curDate = date || (p.dates && p.dates[0]) || '';
       // 2026-08-19: 头部固定布局标记（closeDetail 时移除；机票详情不受影响）
       document.getElementById('modalContent').classList.add('jjd-lock');
@@ -679,6 +681,7 @@
         if (!p.route) return false;   // 2026-08-29: 无航线所有用户都不渲染
         // 内部套餐(新入库默认隐藏)：无权限不进分组（整组消失，不留空壳分组头）
         if (_ftIsInternal(p) && !_ftInternalVisible()) return false;
+        if (p._src === 'supplier' && !canSeeSupplier()) return false;   // 供应商套餐：游客态整组不渲染（铁律，勿删）
         if (p._keymiss) return true;                      // 其他缺失套餐：对所有用户可见（带标注）
         return CAT_TAB[p.country] === currentTab;         // 正常套餐：按分类 tab 过滤
       });
@@ -1088,7 +1091,7 @@
       var hits = [];
       if (this.JJ && this.JJ.packages && this.JJ.packages.length) {
         // 未知航线（无 route）：游客版本不可见，仅登录版本可搜到
-        var _vis = function (p) { return !(!p.route && !canSeeSupplier()) && !(_ftIsInternal(p) && !_ftInternalVisible()); };
+        var _vis = function (p) { return !(!p.route && !canSeeSupplier()) && !(_ftIsInternal(p) && !_ftInternalVisible()) && !(p._src === 'supplier' && !canSeeSupplier()); };
         // 搜「自由行」/「自由行套餐」→ 列出全部可见自由行套餐（2026-08-19 修复：此前无结果）
         var q2 = (q || '').toLowerCase();
         if (q2.indexOf('自由行') !== -1) return this.JJ.packages.filter(_vis);
@@ -1150,10 +1153,10 @@
     // 由 _filter（dep/arr/days/month/dates）过滤套餐；arr 容错 route 包含
     _matchFilter: function (p, f) {
       if (!p) return false;
-      // 供应商套餐：游客态不可见（canSeeSupplier 兜底 false），仅登录版可见
-      if (p._src === 'supplier' && !canSeeSupplier()) return false;
-      // 内部套餐(新入库默认隐藏)：无权限同样隐藏
+      // 2026-08-29: 供应商套餐转公开——字段完整者全员可见；
+      // 字段不全者（新入库待补全）由下方 internal 闸口隐藏，避免详情页空白对外展示。
       if (_ftIsInternal(p) && !_ftInternalVisible()) return false;
+      if (p._src === 'supplier' && !canSeeSupplier()) return false;   // 铁律，勿删
       f = f || {};
       if (f.dep) {
         var _seg = (p.route || '').split('→');
@@ -1218,7 +1221,8 @@
       }
       var dateSet = {};
       pk.forEach(function (p) {
-        if (p._src === 'supplier' && !canSeeSupplier()) return;
+        if (_ftIsInternal(p) && !_ftInternalVisible()) return;
+        if (p._src === 'supplier' && !canSeeSupplier()) return;   // 铁律，勿删
         if (!p.route) return false;   // 2026-08-29: 无航线一律不渲染（杜绝「未知航线」分组）
         if (_ftIsInternal(p) && !_ftInternalVisible()) return;   // 内部套餐不计入筛选/日历   // 游客态供应商套餐不计入日历
         if (_filter.dep) {
@@ -1266,7 +1270,8 @@
       var _depFilter = _filter.dep || '';
       var depSet = {}, arrSet = {}, daySet = {}, monSet = {};
       pk.forEach(function (p) {
-        if (p._src === 'supplier' && !canSeeSupplier()) return;
+        if (_ftIsInternal(p) && !_ftInternalVisible()) return;
+        if (p._src === 'supplier' && !canSeeSupplier()) return;   // 铁律，勿删
         if (!p.route) return false;   // 2026-08-29: 无航线一律不渲染（杜绝「未知航线」分组）
         if (_ftIsInternal(p) && !_ftInternalVisible()) return;   // 内部套餐不计入筛选/日历   // 游客态供应商套餐不计入筛选下拉
         var seg = String(p.route || '').split('→');
@@ -1304,7 +1309,8 @@
     },
 
     search: function (q) {
-      var hits = this.searchHits(q).filter(function (p) { return !(p._src === 'supplier' && !canSeeSupplier()); });
+      // 2026-08-29: 供应商套餐转公开，搜索结果仅按 internal 隐藏（字段不全者不对外）
+      var hits = this.searchHits(q).filter(function (p) { return !(_ftIsInternal(p) && !_ftInternalVisible()) && !(p._src === 'supplier' && !canSeeSupplier()); });
       var self = this;
       var body = document.getElementById('filterBody');
       if (!body) return;
