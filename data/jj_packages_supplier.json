@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-08-29 21:58:25",
+  "build_time": "2026-08-29 22:58:30",
   "packages": [
     {
       "internal": false,
@@ -14432,7 +14432,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14482,7 +14482,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14532,7 +14532,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14582,7 +14582,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14632,7 +14632,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14682,7 +14682,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14732,7 +14732,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14782,7 +14782,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14832,7 +14832,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14882,7 +14882,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14932,7 +14932,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -14982,7 +14982,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15032,7 +15032,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15082,7 +15082,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15132,7 +15132,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15182,7 +15182,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15232,7 +15232,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15282,7 +15282,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15332,7 +15332,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15382,7 +15382,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15432,7 +15432,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15482,7 +15482,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15532,7 +15532,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15582,7 +15582,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15632,7 +15632,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15682,7 +15682,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15732,7 +15732,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15782,7 +15782,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15832,7 +15832,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15882,7 +15882,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15932,7 +15932,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -15982,7 +15982,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16032,7 +16032,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16082,7 +16082,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16132,7 +16132,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16182,7 +16182,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16232,7 +16232,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16282,7 +16282,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16332,7 +16332,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16382,7 +16382,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16432,7 +16432,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16482,7 +16482,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16532,7 +16532,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16582,7 +16582,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16632,7 +16632,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16682,7 +16682,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16732,7 +16732,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16782,7 +16782,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16832,7 +16832,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16882,7 +16882,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",
@@ -16932,7 +16932,7 @@
       "has_pickup": false
     },
     {
-      "internal": false,
+      "internal": true,
       "supplier": "132",
       "dep": "上海",
       "arr": "普吉岛",

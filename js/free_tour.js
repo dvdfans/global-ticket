@@ -64,8 +64,8 @@
       '2大1小（2～12周岁）出行，儿童价现询；1大1小出行，大小同价。'
     ],
 
-    // 供应商自由行「上线白名单」（2026-08-26：仅 千巡(码130) 全系上线；其余供应商暂时隐藏）
-    // ⚠️ 春秋 自由行数据当前未接入 jj_packages_supplier.json（库内仅 千巡/浙江新世界/奇妙/积木/无锡国旅/待补全），
+    // 供应商自由行「上线白名单」（2026-08-26：仅 S130(码130) 全系上线；其余供应商暂时隐藏）
+    // ⚠️ S132 自由行数据当前未接入 jj_packages_supplier.json（库内仅 S130/S124/S111/S106/S128/待补全），
     //    其代码待数据接入后补入本数组即可生效，无需改其它逻辑。自营(_src='self')不受此限制，全部上线。
     VISIBLE_SUPPLIER_CODES: ['130', '128', '124', '111', '106', '132', '待补全'],  // 2026-08-28: 全供应商接入（可见性由 canSeeSupplier 闸口控制）
 
@@ -393,14 +393,14 @@
       var w = isNaN(dt.getTime()) ? '' : '（周' + wk[dt.getDay()] + '）';
       var sb = this.JJ._selfbuild;
       var isSup = (p._src === 'supplier');
-      // 2026-08-27：春秋供应商自由行（supplier==132 且带 hotels 列表）→ 独立渲染分支：
+      // 2026-08-27：S132供应商自由行（supplier==132 且带 hotels 列表）→ 独立渲染分支：
       // 套餐本身即「机+酒一价」组合，hotels[] 为可选酒店/升级项，每项 price 已是直客价(全包)，
       // 与自营组合器(sb.hotels 拆 F+R/2)模型不同，故单独走 cq* 系列函数，不碰 _selfbuild。
       var isChunqiu = isSup && p.hotels && p.hotels.length;
       var cqIdx = isChunqiu ? this._cqDefIdx(p) : -1;
       // 2026-08-26m：详情顶部人均价用「当前选中酒店」的 OTA 起价口径（F+R/2），与卡片/perPersonPrice/_recalcCombo 完全一致；
       // 初值取默认酒店（p.hotel）的 perPersonPrice，避免与切酒店后不一致。
-      // 春秋：直接取选中 hotels 项的直客价（机+酒全包）。
+      // S132：直接取选中 hotels 项的直客价（机+酒全包）。
       var _ppTop = isChunqiu ? Number(p.hotels[cqIdx].price) : this.perPersonPrice(p, curDate);
       // 2026-08-24c：酒店富信息优先取 _hotelIndex（已合并 13 家自营组合酒店富信息），回落 p.hotel_details
       var hdFull = this._hotelDetailsOf(p.hotel) || p.hotel_details;
@@ -454,7 +454,7 @@
               + (f.distance ? '<span>航程' + esc(f.distance) + '</span>' : '')
               + (FreeTour._seatBadgeForFlight(f.flight) ? '<span class="jjd-f-seat">' + FreeTour._seatBadgeForFlight(f.flight) + '</span>' : '') + '</div></div>';
           }).join('') + '</div>' : '')
-        // 选酒店下拉：自营=组合器(13家)联动；春秋=hotels 下拉切换套餐与报价（独立分支，不碰 _selfbuild）
+        // 选酒店下拉：自营=组合器(13家)联动；S132=hotels 下拉切换套餐与报价（独立分支，不碰 _selfbuild）
         + (isChunqiu ? this._cqComboHtml(p, cqIdx) : (isSup ? '' : this._comboHtml(p)))
         // 酒店（详情库优先：星级/开业/位置/餐饮/设施；随选中酒店实时联动，见 _recalcCombo → _hotelSecHtml）
         // 2026-08-24j：隐藏房间/房型价格信息，只渲染顶部最终人均价（jjd-price-top）
@@ -534,10 +534,10 @@
         + (p.baggage ? '<div class="jjd-sec"><div class="jjd-sec-t">行李</div><div class="jjd-bag">🧳 ' + esc(p.baggage) + '</div></div>' : '')
         // 卖点
         + (hl ? '<div class="jjd-sec"><div class="jjd-sec-t">套餐包含</div><div class="jjd-hls">' + hl + '</div></div>' : '')
-        // 2026-08-27：春秋供应商自由行富信息区（套餐包含/单房差/儿童政策/退票规则），随套餐切换；价格构成/返利属商业机密已剔除
+        // 2026-08-27：S132供应商自由行富信息区（套餐包含/单房差/儿童政策/退票规则），随套餐切换；价格构成/返利属商业机密已剔除
         + (isChunqiu ? this._cqRichHtml(p) : '')
         // 来源（2026-08-19: 不显示子表名/供应商名；登录后（canSeeSupplier）追加供应商代码标签，游客零泄露）
-        + '<div class="jjd-src">来源：自由行套餐' + (p.ticket_res ? ' · 千巡资源 ' + esc(p.ticket_res) : (typeof supTagHtml === 'function' ? supTagHtml(p.supplier, 'dh-sup-tag') : '')) + '</div>'
+        + '<div class="jjd-src">来源：自由行套餐' + (typeof supTagHtml === 'function' ? supTagHtml(p.supplier, 'dh-sup-tag') : '') + '</div>'
         // 套餐说明（2026-08-26：固定产品规则，展示于每个自由行套餐报价详情页）
         + '<div class="jjd-sec" id="jjdNotesSec"><div class="jjd-sec-t">套餐说明</div><div class="jjd-notes">'
         + (this.FT_NOTES || []).map(function (n, i) { return '<div class="jjd-note">' + (i + 1) + '. ' + esc(n) + '</div>'; }).join('')
@@ -591,7 +591,7 @@
       } else if (p.hotel) {
         L.push('🏨 ' + p.hotel);
       }
-      // 春秋供应商自由行：列出全部可选酒店/升级项及各自直客价（机+酒全包），便于客服复制报价
+      // S132供应商自由行：列出全部可选酒店/升级项及各自直客价（机+酒全包），便于客服复制报价
       if (p._src === 'supplier' && p.hotels && p.hotels.length) {
         L.push('🏨 可选酒店/套餐（机+酒直客价）：');
         p.hotels.forEach(function (h) {
@@ -727,6 +727,8 @@
         // 2026-08-29: 同一目的地组内混合两种渲染路径——
         //  · 供应商：每条套餐 = 一个去程日期 = 1 张卡（绝不按航班塌缩，否则丢日期维度）
         //  · 自营：按航班组合聚合，每航班取组合人均价最低的套餐 → 1 张卡（9航班×13酒店笛卡尔积）
+        //  ★用户 2026-08-24 三次纠正定案（勿再当缺陷改掉）：自营每航班=1张最低价组合卡，
+        //    其余酒店在详情页「选择酒店」切换；组头条数=航班配对数（上海-香港=4 是正确口径）。
         var gid = 'jjg_' + key.replace(/[^a-z0-9一-龥]/g, '_');
         var cards = [];
         items.filter(function (p) { return p._src === 'supplier'; }).forEach(function (p) {
@@ -1021,8 +1023,8 @@
     },
 
     /* ───────────────────────────────────────────────────────────────────────
-     * 春秋供应商自由行（supplier==132，p.hotels 为可选酒店/升级项，price 已是机+酒直客价全包）
-     * 独立于自营组合器(_selfbuild)体系，下列 cq* 函数仅供春秋分支调用。
+     * S132供应商自由行（supplier==132，p.hotels 为可选酒店/升级项，price 已是机+酒直客价全包）
+     * 独立于自营组合器(_selfbuild)体系，下列 cq* 函数仅供S132分支调用。
      * ─────────────────────────────────────────────────────────────────────── */
     /* 默认选中项 = 价格最低的那家（与卡片起价 p.price 一致）；回退 default_hidx */
     _cqDefIdx: function (p) {
@@ -1049,7 +1051,7 @@
         + '<select id="cqHotelSel" class="jjd-combo-sel" onchange="FreeTour._onCqHotel(this.value)">' + opts + '</select>'
         + '</div>';
     },
-    /* 酒店区块（春秋：随下拉选中项实时渲染，含 desc/余位/升级加价） */
+    /* 酒店区块（S132：随下拉选中项实时渲染，含 desc/余位/升级加价） */
     _cqHotelSecHtml: function (p, idx) {
       var h = p.hotels[idx];
       if (!h) return '';
