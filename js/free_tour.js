@@ -13,17 +13,30 @@
 (function (global) {
   'use strict';
 
-  // 正式版（公开站）无登录态：canSeeSupplier 统一兜底为游客态(false)，
-  // 避免宿主 core.js 的 canSeeSupplier 在 CURRENT_USER 未定义时抛 ReferenceError。
-  function canSeeSupplier() { return false; }
+  // 2026-08-31（与客服版同步）：不再硬覆盖 canSeeSupplier，
+  // 改用宿主 core.js 的角色版权限（游客false / 管理员true / 客服按 SUPPLIER_CS_VISIBLE）。
+  // 安全性：core.js 先于本文件加载且内部 try/catch + CURRENT_USER 判空，游客态返回 false，不会抛 ReferenceError。
+  // 供应商自由行卡片另由 core.js 的 canSeeSupplierFreeTour() 门控，与「供应商代码」权限分离。
+
+  // 任意登录用户判定（权限清单 1.1：机型/餐食/行李 → 全体登录人员可见）
+  // _isStaffUser 定义于 app_main.js（本文件之后加载）→ 运行时解析，故用 typeof 守卫；
+  // 若宿主缺失该函数的极端情况，降级为 CURRENT_USER 判空（与 app_main.js:_isStaffUser 同口径）。
+  function _isStaff() {
+    try {
+      if (typeof _isStaffUser === 'function') return !!_isStaffUser();
+      return !!(typeof CURRENT_USER !== 'undefined' && CURRENT_USER && CURRENT_USER.user);
+    } catch (e) { return false; }
+  }
 
   var FreeTour = {
     // 状态（原 app_main.js 的 var JJ）
     JJ: { loaded: false, packages: [] },
 
-    // 正式版：仅自营自由行（供应商自由行套餐暂不推送，保持隐藏）
+    // 2026-08-31（与客服版同步）：①自营自由行 ②供应商自由行（供应商模块上线）
+    // 供应商源加载后仍受 canSeeSupplierFreeTour() 门控，游客/其余账号渲染 0 卡。
     sources: [
-      'data/jj_packages.json'
+      'data/jj_packages.json',
+      'data/jj_packages_supplier.json'
     ],
 
     // 分类 Tab 映射（route.country → tab key）
@@ -39,10 +52,10 @@
       '2大1小（2～12周岁）出行，儿童价现询；1大1小出行，大小同价。'
     ],
 
-    // 供应商自由行「上线白名单」（2026-08-26：仅 S130(码130) 全系上线；其余供应商暂时隐藏）
-    // ⚠️ S132 自由行数据当前未接入 jj_packages_supplier.json（库内仅 S130/S124/S111/S106/S128/待补全），
-    //    其代码待数据接入后补入本数组即可生效，无需改其它逻辑。自营(_src='self')不受此限制，全部上线。
-    VISIBLE_SUPPLIER_CODES: ['130', '132'],
+    // 2026-08-31（与客服版同步）：放开为库内全部供应商代码。
+    // 库内实际分布：132×368 / 007×248 / 106×81 / 124×54 / 111×48 / 128×6 / 130×4（共 809 条，全 internal=true）。
+    // 注：此白名单只决定「哪些代码进入渲染候选」，是否显示由 canSeeSupplierFreeTour() 决定；自营(_src='self')不受此限制。
+    VISIBLE_SUPPLIER_CODES: ['130', '132', '007', '106', '124', '111', '128'],
 
     /* ── 注入自选酒店组合器样式（自包含，不污染宿主 style.css）────────────── */
     _injectStyle: function () {
@@ -109,6 +122,15 @@
           return self.VISIBLE_SUPPLIER_CODES.indexOf(String(p.supplier)) !== -1;
         });
         self.JJ.packages = selfPk.concat(supPk);
+        // 2026-08-31 过期拦截（前端兜底层，对齐主库「去程<明天即过期」+ 建库层已过滤）：
+        // 建库时有效、到前端渲染时已过期的边界情况在此拦截。无日期的待补全行保留（keymiss 照旧）。
+        var _tm = (function () { var d = new Date(); d.setDate(d.getDate() + 1); var m = d.getMonth() + 1, dd = d.getDate(); return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (dd < 10 ? '0' : '') + dd; })();
+        self.JJ.packages = self.JJ.packages.filter(function (p) {
+          var ds = p.dates || [];
+          if (!ds.length) return true;
+          for (var i = 0; i < ds.length; i++) { if (String(ds[i]).slice(0, 10) >= _tm) return true; }
+          return false;
+        });
         self.JJ._selfbuild = arr[2] || null;
         self.JJ._seats = arr[3] || {};
         self._buildLinkage();
@@ -162,7 +184,7 @@
       if (!sb) return this.price(p, date);
       var f = this._findFlight(p);
       var F = f ? (Number(f.flight_direct) || 0) : 0;
-      var hi = this._findHotelIdx(p.hotel);
+      var hi = this._findHotelIdx(p.hotel, this._selfDest(p));   // 2026-08-31: 按目的地过滤
       var R = hi >= 0 ? (Number(sb.hotels[hi].hotel_total) || 0) : 0;
       if (!F && !R) return this.price(p, date);
       return Math.round(F + R / 2);
@@ -197,10 +219,13 @@
           var depDate = (idx === 0 ? (p.dep_date || (p.dates && p.dates[0]) || '') : (p.return_date || (p.return_dates && p.return_dates[0]) || ''));
           var dateShort = depDate ? depDate.replace(/^\d{4}-/, '').replace(/-/g, '/') : '';
           var _seatB = self._seatBadgeForFlight(f.flight);
+          // 2026-08-31：卡片航站楼简称（航班定义表透传值，机场名未含才显示，防重复）
+          var _dterm = (f.dep_terminal && String(f.dep_airport).indexOf(f.dep_terminal) === -1) ? f.dep_terminal : '';
+          var _aterm = (f.arr_terminal && String(f.arr_airport).indexOf(f.arr_terminal) === -1) ? f.arr_terminal : '';
           return '<div class="jj-f-row">'
             + tag
             + '<span class="jj-f-flt">' + esc(f.flight || '') + (dateShort ? ' ' + esc(dateShort) : '') + '</span>'
-            + '<span class="jj-f-city">' + esc(_aptShort(f.dep_airport)) + '→' + esc(_aptShort(f.arr_airport)) + '</span>'
+            + '<span class="jj-f-city">' + esc(_aptShort(f.dep_airport)) + (_dterm ? ' ' + esc(_dterm) : '') + '→' + esc(_aptShort(f.arr_airport)) + (_aterm ? ' ' + esc(_aterm) : '') + '</span>'
             + '<span class="jj-f-time">' + esc(f.dep_time) + '-' + esc(f.arr_time) + (f.duration ? '（' + esc(f.duration) + '）' : '') + '</span>'
             + (_seatB ? '<span class="jj-f-seat">' + _seatB + '</span>' : '')
             + '</div>';
@@ -215,7 +240,10 @@
       if (sb && sb.hotels && sb.hotels.length) {
         var _f = this._findFlight(p);
         var _F = _f ? (Number(_f.flight_direct) || 0) : 0;
+        // 2026-08-31：仅遍历当前套餐目的地(dest)匹配的酒店——香港酒店不得参与澳门套餐起价（Howard 定案）
+        var _dest = this._selfDest(p);
         for (var _hi = 0; _hi < sb.hotels.length; _hi++) {
+          if (_dest != null && _dest !== '' && sb.hotels[_hi].dest !== _dest) continue;
           var _R = Number(sb.hotels[_hi].hotel_total) || 0;
           var _per = Math.round(_F + _R / 2);
           if (_per < _minPer) { _minPer = _per; _minHotel = sb.hotels[_hi]; }
@@ -229,13 +257,16 @@
       if (hd) {
         var firstUrl = (hd.urls && hd.urls.length && hd.urls[0].url) || hd.url || '';
         var nm = (hd.display_name || hd.name || '').replace(/(\d+)\/(\d+号店)/g, '$1$2');
+        var _en = hd.en_name || '';
         var moreTxt = isSup
           ? '🏨 查看套餐酒店 › <span class="jj-hotel-more-sub">进详情页看全部组合</span>'
           : '🏨 更多酒店组合 › <span class="jj-hotel-more-sub">共 ' + (sb && sb.hotels ? sb.hotels.length : 1) + ' 家可选 · 进详情页切换</span>';
         hotelHtml = '<div class="jj-hotel">'
-          + (firstUrl
+          // 2026-08-31：酒店官网链接仅员工端可见（Howard 定案）；游客端酒店名纯文本、不暴露外链
+          + ((_isStaff() && firstUrl)
               ? '<div class="jj-hotel-hd"><a class="jj-hotel-name" href="' + esc(firstUrl) + '" target="_blank" rel="noopener" onclick="event.stopPropagation()">🏨 ' + esc(nm) + '</a>'
               : '<div class="jj-hotel-hd"><span class="jj-hotel-name">🏨 ' + esc(nm) + '</span>')
+          + (_en ? '<span style="font-size:11px;color:var(--color-text-tertiary);margin-left:6px;font-weight:400">' + esc(_en) + '</span>' : '')
           + (hd.star ? '<span class="jj-star">' + esc(hd.star) + '</span>' : '')
           + (p.has_pickup ? '<span class="jj-star" style="color:var(--green);background:#E8F5E9">含接送</span>' : '')
           + '</div>'
@@ -317,7 +348,8 @@
       return s;
     },
     _seatDispRender: function (seats) {
-      return canSeeSupplier() ? this._seatDispAll(seats) : this._seatDisp(seats);
+      // 2026-08-31 F2（权限清单§5）：与主站余位口径对齐——任意登录员工可见实际余位（原 canSeeSupplier 仅3人，过严）
+      return _isStaff() ? this._seatDispAll(seats) : this._seatDisp(seats);
     },
     fmtSeatsBadge: function (s) {
       var t = this._seatDispRender(s);
@@ -386,6 +418,11 @@
           seenF1[k] = true; return true;
         });
         flightChipCount = dedupFlights.length;
+        // 2026-08-31：按去程起飞时间升序（Howard 定案）
+        dedupFlights.sort(function (a, b) {
+          var ta = a.flights[0].dep_time || '99:99', tb = b.flights[0].dep_time || '99:99';
+          return ta < tb ? -1 : (ta > tb ? 1 : 0);
+        });
         flightOpts = dedupFlights.map(function (f) {
           var f1 = f.flights[0], f2 = f.flights[1];
           var active = (f1.flight === p.flight);
@@ -414,11 +451,13 @@
           + p.flights.map(function (f) {
             return '<div class="jjd-flight-card"><div class="jjd-f-hd"><span class="jjd-f-flt">' + esc(f.flight) + '</span>'
               + '<span class="jjd-f-airline">' + esc(f.airline) + '</span><span class="jjd-f-dur">' + esc(f.duration) + '</span></div>'
-              + '<div class="jjd-f-row"><span class="jjd-f-air">' + esc(f.dep_airport) + '</span>'
-              + '<span class="jjd-f-arrow">→</span><span class="jjd-f-air">' + esc(f.arr_airport) + '</span></div>'
+              + '<div class="jjd-f-row"><span class="jjd-f-air">' + esc(f.dep_airport) + (f.dep_terminal && f.dep_airport.indexOf(f.dep_terminal) === -1 ? ' ' + esc(f.dep_terminal) : '') + '</span>'
+              + '<span class="jjd-f-arrow">→</span><span class="jjd-f-air">' + esc(f.arr_airport) + (f.arr_terminal && f.arr_airport.indexOf(f.arr_terminal) === -1 ? ' ' + esc(f.arr_terminal) : '') + '</span></div>'
               + '<div class="jjd-f-time">' + esc(f.dep_time) + ' — ' + esc(f.arr_time) + '</div>'
-              + '<div class="jjd-f-tags">' + (canSeeSupplier() && f.aircraft ? '<span>' + esc(f.aircraft) + '</span>' : '')
-              + (canSeeSupplier() && f.meal ? '<span>' + esc(f.meal) + '</span>' : '')
+              // 2026-08-31：机型/餐食属「外部信息」，按权限清单 1.1 = 全体登录人员可见（原为 canSeeSupplier 仅3人，过严）。
+              // _isStaffUser 定义于 app_main.js（本文件之后加载），运行时解析，故用 typeof 守卫。
+              + '<div class="jjd-f-tags">' + (_isStaff() && f.aircraft ? '<span>' + esc(f.aircraft) + '</span>' : '')
+              + (_isStaff() && f.meal ? '<span>' + esc(f.meal) + '</span>' : '')
               + (f.wifi ? '<span>' + esc(f.wifi) + '</span>' : '')
               + (f.distance ? '<span>航程' + esc(f.distance) + '</span>' : '')
               + (FreeTour._seatBadgeForFlight(f.flight) ? '<span class="jjd-f-seat">' + FreeTour._seatBadgeForFlight(f.flight) + '</span>' : '') + '</div></div>';
@@ -432,10 +471,12 @@
           + (function () {
               // 2026-08-19: 按「住宿安排」分段渲染：每段标题（N晚·城市·区 + 同级标注）+ 每酒店一行；
               // 酒店名=链接（有官网即嵌，新窗口打开），无官网的纯文本。不再单独显示「官网」行。
+              // 2026-08-31：官网链接仅员工端可见（Howard 定案）——游客态 urlOf 恒返回空 → 纯文本
               var hd = hdFull;
               var segs = (hd.segs && hd.segs.length) ? hd.segs : null;
               var urls = hd.urls || [];
               function urlOf(h) {
+                if (!_isStaff()) return '';   // 游客不返回官网链接
                 // 官网名与酒店行名匹配前，都先剥离「X市区」区域前缀（那霸市区Livemax ↔ Livemax波之上1/2号店）
                 var stripD = function (s) { return (s || '').replace(/^(那霸市区|济州市区|沙巴市区|亚庇市区|首尔市区|京都市区|大阪市区|吉隆坡市区|冲绳市区|市区)/, ''); };
                 for (var i = 0; i < urls.length; i++) {
@@ -445,13 +486,17 @@
                 return '';
               }
               var html = '';
+              // 2026-08-31：酒店英文全称（en_name）随酒店名渲染（Howard 定案，全员可见）
+              var _en = hd.en_name || '';
               if (segs) {
                 segs.forEach(function (s, si) {
                   var loc = (segs.length > 1 ? '第' + (si + 1) + '段 ' : '') + s.nights + '晚·' + esc(s.location) + (s.same_level ? '（同级替换，视房态）' : '');
                   html += '<div class="jjd-hr" style="margin-top:' + (si ? '8px' : '0') + '"><b>' + loc + '</b></div>';
                   (s.hotels || []).forEach(function (h) {
                     var u = urlOf(h);
-                    html += '<div class="jjd-hotel-name">' + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">🏨 ' + esc(h) + '</a>' : '🏨 ' + esc(h)) + '</div>';
+                    var _isMain = (h === (hd.name || hd.display_name));
+                    html += '<div class="jjd-hotel-name">' + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">🏨 ' + esc(h) + '</a>' : '🏨 ' + esc(h)) + '</div>'
+                      + (_isMain && _en ? '<div style="font-size:11px;color:var(--color-text-tertiary);line-height:1.4">' + esc(_en) + '</div>' : '');
                   });
                 });
               } else {
@@ -459,7 +504,8 @@
                 if (!names.length) names = [hd.name || ''];
                 names.forEach(function (n, i) {
                   var u = urlOf(n);
-                  html += '<div class="jjd-hotel-name">' + (names.length > 1 ? (i + 1) + '. ' : '') + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">🏨 ' + esc(n) + '</a>' : '🏨 ' + esc(n)) + '</div>';
+                  html += '<div class="jjd-hotel-name">' + (names.length > 1 ? (i + 1) + '. ' : '') + (u ? '<a href="' + esc(u) + '" target="_blank" rel="noopener">🏨 ' + esc(n) + '</a>' : '🏨 ' + esc(n)) + '</div>'
+                    + (i === 0 && _en ? '<div style="font-size:11px;color:var(--color-text-tertiary);line-height:1.4">' + esc(_en) + '</div>' : '');
                 });
               }
               return html
@@ -503,10 +549,12 @@
         + (p.baggage ? '<div class="jjd-sec"><div class="jjd-sec-t">行李</div><div class="jjd-bag">🧳 ' + esc(p.baggage) + '</div></div>' : '')
         // 卖点
         + (hl ? '<div class="jjd-sec"><div class="jjd-sec-t">套餐包含</div><div class="jjd-hls">' + hl + '</div></div>' : '')
-        // 2026-08-27：S132供应商自由行富信息区（套餐包含/单房差/儿童政策/退票规则），随套餐切换；价格构成/返利属商业机密已剔除
-        + (isChunqiu ? this._cqRichHtml(p) : '')
-        // 来源（2026-08-19: 不显示子表名/供应商名；登录后（canSeeSupplier）追加供应商代码标签，游客零泄露）
-        + '<div class="jjd-src">来源：自由行套餐' + (typeof supTagHtml === 'function' ? supTagHtml(p.supplier, 'dh-sup-tag') : '') + '</div>'
+        // 2026-08-31 Howard 定案：富信息区（套餐包含/单房差/儿童政策/退票规则）属参考信息，
+        //   仅登录员工可见（游客隐藏）；isChunqiu 门控已放宽至全员 _isStaff()（字段缺失仍整段不渲染）。
+        + (_isStaff() ? this._cqRichHtml(p) : '')
+        // 来源（2026-08-31 Howard 定案：游客端不显示「来源：自由行套餐」整行；
+        //   仅登录员工可见，并追加供应商代码标签（supTagHtml 无权限返回空串，游客零泄露））
+        + (_isStaff() ? '<div class="jjd-src">来源：自由行套餐' + (typeof supTagHtml === 'function' ? supTagHtml(p.supplier, 'dh-sup-tag') : '') + '</div>' : '')
         // 套餐说明（2026-08-26：固定产品规则，展示于每个自由行套餐报价详情页）
         + '<div class="jjd-sec" id="jjdNotesSec"><div class="jjd-sec-t">套餐说明</div><div class="jjd-notes">'
         + (this.FT_NOTES || []).map(function (n, i) { return '<div class="jjd-note">' + (i + 1) + '. ' + esc(n) + '</div>'; }).join('')
@@ -570,7 +618,8 @@
       }
       var hd = p.hotel_details;
       if (hd && hd.address) L.push('📍 ' + hd.address);
-      if (hd && hd.urls && hd.urls.length) {
+      // 2026-08-31：官网链接仅员工端可见（Howard 定案）——复制文本同样只对员工附加官网行
+      if (hd && hd.urls && hd.urls.length && _isStaff()) {
         var uu = hd.urls.map(function (u) { return (u.name ? u.name + ' ' : '') + u.url; }).join('；');
         L.push('🔗 官网 ' + uu);
       }
@@ -593,7 +642,12 @@
           itLines.forEach(function (x) { L.push('  ' + x); });
         }
       }
-      L.push(p.has_pickup ? '🚗 含接送机（专车接送至酒店）' : '🚗 不含接送（公共交通/打车自行前往，见行程说明）');
+      // 接送信息铁律（2026-08-31 Howard 定案）：源表「是否含接送」未标注/标注「不含」= 不含接送，
+      //   一律不渲染、不进复制文本，且**严禁编造解释性文案**——旧版 else 分支曾凭空生成一段
+      //   「不含接送 + 交通方式指引」，源表并无此信息，属未审核编造且会随复制文本外发给客人，
+      //   2026-08-31 已删除、禁止恢复。
+      //   仅当源表明确「含接送」时输出该行，且不附加任何源表之外的补充说明。
+      if (p.has_pickup) L.push('🚗 含接送机');
       if (p.baggage) L.push('🧳 ' + p.baggage);
       // 深链（借鉴机票详情页 copyAll 的 _PROMO 引导结构：正文 + 分隔线引导 + 🔗 深链）
       try {
@@ -633,6 +687,43 @@
       if (btn) { btn.textContent = '✅ 已复制'; btn.classList.add('copied'); }
     },
 
+    /* ── 2026-08-31 组名由航班号航段推导（Howard 定案）──────────────────────
+     * 去程到达城市 = 回程出发城市（同城往返）→「去程出发城市-到达城市」       如 上海-首尔
+     * 去程到达城市 ≠ 回程出发城市（开口程）  →「去程出发-到达 / 回程出发-到达」 如 上海-香港 / 澳门-上海
+     * 城市从航段机场名归一（剥航站楼/IATA码/机场后缀 + 地名别名表）；
+     * 航段/机场数据缺失 → fail-closed 用路由文案转同款「-」格式（route 本身是结构化 出发→目的，非猜测）。
+     * 显示名同时并入分组键 → 同源路由混排（上海→港澳 4天3晚 = 7澳门往返+2香港进澳门出）自动拆块。 */
+    _aptCity: function (s) {
+      var t = String(s || '').replace(/\s*T\d+$/i, '').replace(/\s*\([A-Z]{3}\)\s*$/, '').trim();
+      t = t.replace(/国际机场$/, '').replace(/机场$/, '').trim();
+      var ALIAS = ['浦东=上海', '虹桥=上海', '仁川=首尔', '金浦=首尔', '樟宜=新加坡', '关西=大阪',
+        '成田=东京', '羽田=东京', '萧山=杭州', '禄口=南京', '硕放=无锡', '栎社=宁波', '兴东=南通', '凤凰=三亚'];
+      for (var i = 0; i < ALIAS.length; i++) {
+        var kv = ALIAS[i].split('=');
+        if (t.indexOf(kv[0]) !== -1) return kv[1];
+      }
+      return t;
+    },
+    _legName: function (p) {
+      var rt = String(p.route || '');
+      var fl = p.flights || [];
+      var dash = rt.replace(/→/g, '-');
+      if (!rt || fl.length < 2) return { pat: 'na', name: dash };
+      var c = this._aptCity;
+      var o1 = c(fl[0].dep_airport), o2 = c(fl[0].arr_airport);
+      var r1 = c(fl[1].dep_airport), r2 = c(fl[1].arr_airport);
+      if (!o1 || !o2 || !r1 || !r2) return { pat: 'na', name: dash };
+      var arr = (rt.split('→')[1] || '');
+      if (o2 === r1) {
+        // 同城往返：到达城市与路由目的地互为包含（普吉/普吉岛、济州/济州岛、那霸/冲绳(那霸)、大阪/大阪京都）
+        //   → 沿用路由目的地文案（更完整）；仅语义不同（港澳块内澳门往返：澳门 vs 港澳）→ 用航段实际城市
+        var _same = arr && (arr.indexOf(o2) !== -1 || o2.indexOf(arr) !== -1);
+        return { pat: 'same:' + (_same ? arr : o2), name: o1 + '-' + (_same ? arr : o2) };
+      }
+      // 开口程（去程到达 ≠ 回程出发）
+      return { pat: 'open:' + o2 + '>' + r1, name: o1 + '-' + o2 + ' / ' + r1 + '-' + r2 };
+    },
+
     /* ── 分组渲染（原 render() 内自由行置顶分组块，返回 HTML 片段）─────────
      * 2026-08-07: 自由行套餐置顶（top）——归入对应分类（country→tab）
      * 组内排序 = 上海出发优先 → 同出发地按航线 → 同航线按天数升序
@@ -644,12 +735,17 @@
       // 每个分组头带「自由行」标签，点开 toggleGroup 显示该组下所有自由行报价卡片（jj-card）。
       // 单层结构（分组头 → 直接卡片），无航班组嵌套；_selfbuild 组合器富信息在详情页维度保留。
       var CAT_TAB = this.CAT_TAB;
-      // 2026-08-26：不做隐藏——关键缺失套餐照常渲染（带「缺失信息未上线」标注），仅正常套餐按分类 tab 过滤
+      // 2026-08-31 修复（Howard 13:11 报 渲染窜栏目+权限错误，双根因同源）：
+      // ①权限闸门必须最先——供应商套餐（含关键缺失 _keymiss）仅授权账号可见。
+      //   原 _keymiss 无条件直通 return true → 游客也能看到 110 条供应商套餐（权限漏洞）。
       var pkgs = (this.JJ.packages || []).filter(function (p) {
+        if (p._src === 'supplier' && !canSeeSupplierFreeTour()) return false;
         // 未知航线（无 route）：仅登录版本可见，游客版本不可渲染（避免向外泄露未归类航线）
-        if (!p.route) return !!canSeeSupplier();
-        if (p._keymiss) return true;                      // 其他缺失套餐：对所有用户可见（带标注）
-        return CAT_TAB[p.country] === currentTab;         // 正常套餐：按分类 tab 过滤
+        if (!p.route) return !!canSeeSupplierFreeTour();
+        // ②分类修复：删除 _keymiss 无条件直通——关键缺失套餐同样按 country→tab 归类，
+        //   原「return true」使其在五个栏目全部重复出现（丽江/新加坡/巴厘岛+新加坡/沙巴 窜进日本栏目）。
+        //   数据层已由 build_freetour_json.py norm_country() 保证 country ∈ 五区域；无法归类的不渲染。
+        return CAT_TAB[p.country] === currentTab;
       });
       if (!pkgs.length) return html;
       // 外部分组保持 (route+days+nights) 不变；组内按航班实体 (flight+flight_return) 聚合，
@@ -657,7 +753,12 @@
       var groups = {};
       pkgs.forEach(function (p) {
         // 2026-08-26：分组键含 _src → 同航线自营/供应商各自独立分组块（并列区分，满足「区别分组标签」）
-        var key = (p.route || '未知航线') + '|' + (p.days || 0) + '|' + (p.nights || 0) + '|' + (p._src || 'self');
+        // 2026-08-31：分组键改用「去回城市对显示名」(_legName) → ①开口程组头展开全名 ②同源路由混排
+        //   （上海→港澳 4天3晚 = 7澳门往返+2香港进澳门出）自动拆块；键用显示名保证「名称相同必同块」，
+        //   有/无机场数据（na 与 same 同名）不会拆出重复组头。
+        var lg = self._legName(p);
+        p._legDisp = lg.name;
+        var key = (p.route || '未知航线') + '|' + (p.days || 0) + '|' + (p.nights || 0) + '|' + (p._src || 'self') + '|' + lg.name;
         if (!groups[key]) groups[key] = [];
         groups[key].push(p);
       });
@@ -674,6 +775,8 @@
         var parts = key.split('|');
         var route = parts[0], days = Number(parts[1]) || 0, nights = Number(parts[2]) || 0;
         var items = groups[key];
+        // 2026-08-31 组头全名：开口程展开「上海 → 香港 / 澳门 → 上海」；同城精确简写（上海-澳门）；缺数据回退原 route
+        var routeName = (items[0] && items[0]._legDisp) || route;
         // 2026-08-26：供应商 vs 自营 分组方式不同
         //  · 供应商：每条套餐 = 一个去程日期 = 1 张卡，按去程日期升序排列（绝不按航班塌缩，否则丢日期维度）
         //  · 自营：按航班组合聚合，每航班取组合人均价最低的套餐 → 1 张卡（9航班×13酒店笛卡尔积）
@@ -719,7 +822,7 @@
         // 分组标题：航线 → 自由行标签（供应商/自营区分）→ 几天几晚 → 数量 → 最低价起
         html += '<div class="hm-group">'
           + '<div class="hm-group-hd" onclick="if(event.target.closest(\'.jj-card\'))return;toggleGroup(\'' + gid + '\')">'
-          + '<span class="hm-route">' + esc(route) + '</span>'
+          + '<span class="hm-route">' + esc(routeName) + '</span>'
           + '<span class="jj-cat-tag">自由行</span>'
           + '<span class="hm-nights">' + (days ? days + '天' : '') + (nights ? nights + '晚' : '') + '</span>'
           + '<span class="hm-count">' + countLabel + '</span>'
@@ -736,6 +839,16 @@
 
 
     /* ── 组合器辅助（2026-08-24b：详情页内酒店下拉+人数+房型，实时算价，OTA 单房差规则）── */
+    /* 自营套餐目的地（2026-08-31 Howard 定案：香港酒店不得扩散进澳门套餐/组合器）：
+       route 含「香港」→ 香港；含「澳门」→ 澳门；其余返回 ''（不参与过滤）。
+       供应商套餐(_src==='supplier')不走 _selfbuild 池 → 返回 null。 */
+    _selfDest: function (p) {
+      if (!p || p._src === 'supplier') return null;
+      var rt = String(p.route || '');
+      if (rt.indexOf('香港') !== -1) return '香港';
+      if (rt.indexOf('澳门') !== -1) return '澳门';
+      return '';
+    },
     _findFlight: function (p) {
       var sb = this.JJ._selfbuild; if (!sb) return null;
       for (var i = 0; i < sb.flights.length; i++) {
@@ -745,9 +858,12 @@
       }
       return null;
     },
-    _findHotelIdx: function (name) {
+    _findHotelIdx: function (name, dest) {
       var sb = this.JJ._selfbuild; if (!sb) return -1;
-      for (var i = 0; i < sb.hotels.length; i++) { if (sb.hotels[i].name === name) return i; }
+      for (var i = 0; i < sb.hotels.length; i++) {
+        if (sb.hotels[i].name === name
+          && (dest == null || dest === '' || sb.hotels[i].dest === dest)) return i;
+      }
       return -1;
     },
     /* 套餐索引：给定 (去程航班, 回程航班, 酒店) → packages 下标（117=9航班×13酒店笛卡尔积，唯一） */
@@ -801,6 +917,7 @@
             var segs = (hd.segs && hd.segs.length) ? hd.segs : null;
             var urls = hd.urls || [];
             function urlOf(h) {
+              if (!_isStaff()) return '';   // 2026-08-31：官网链接仅员工端可见（游客纯文本）
               var stripD = function (s) { return (s || '').replace(/^(那霸市区|济州市区|沙巴市区|亚庇市区|首尔市区|京都市区|大阪市区|吉隆坡市区|冲绳市区|市区)/, ''); };
               for (var i = 0; i < urls.length; i++) {
                 var n = stripD(urls[i].name || '');
@@ -880,8 +997,15 @@
       var sel = document.getElementById('comboHotel');
       if (!sel) return null;
       var sb = this.JJ._selfbuild;
-      var hIdx = parseInt(sel.value, 10);
-      var hotel = (sb && sb.hotels[hIdx]) ? sb.hotels[hIdx] : null;
+      // 2026-08-31：下拉 option 值=过滤后下标；需映射回全池索引（香港酒店不混入澳门套餐）
+      var selName = sel.options && sel.options[sel.selectedIndex] ? sel.options[sel.selectedIndex].text : '';
+      var hIdx = -1;
+      if (sb && sb.hotels) {
+        for (var i = 0; i < sb.hotels.length; i++) {
+          if (sb.hotels[i].name === selName) { hIdx = i; break; }
+        }
+      }
+      var hotel = (sb && hIdx >= 0) ? sb.hotels[hIdx] : null;
       return { hIdx: hIdx, hotel: hotel, adults: 2, children: 0, childBed: false, solo: false, pax: 2 };
     },
     /* 实时重算总价/人均 */
@@ -910,11 +1034,15 @@
     _comboHtml: function (p) {
       var sb = this.JJ._selfbuild;
       if (!sb || !sb.hotels || !sb.hotels.length) return '';
-      var defIdx = this._findHotelIdx(p.hotel);
+      // 2026-08-31：下拉只列当前套餐目的地(dest)的酒店——香港酒店不得混入澳门套餐（Howard 定案）
+      var dest = this._selfDest(p);
+      var defIdx = this._findHotelIdx(p.hotel, dest);
       if (defIdx < 0) defIdx = 0;
       var opts = sb.hotels.map(function (h, i) {
+        if (dest != null && dest !== '' && h.dest !== dest) return '';
         return '<option value="' + i + '"' + (i === defIdx ? ' selected' : '') + '>' + esc(h.name) + '</option>';
-      }).join('');
+      }).filter(Boolean).join('');
+      if (!opts) return '';
       return '<div class="jjd-sec jjd-pick-hotel">'
         + '<div class="jjd-sec-t">选择酒店</div>'
         + '<select id="comboHotel" class="jjd-combo-sel" onchange="FreeTour._recalcCombo()">' + opts + '</select>'
@@ -1038,7 +1166,7 @@
       var hits = [];
       if (this.JJ && this.JJ.packages && this.JJ.packages.length) {
         // 未知航线（无 route）：游客版本不可见，仅登录版本可搜到
-        var _vis = function (p) { return !(!p.route && !canSeeSupplier()); };
+        var _vis = function (p) { return !(!p.route && !canSeeSupplierFreeTour()); };
         // 搜「自由行」/「自由行套餐」→ 列出全部可见自由行套餐（2026-08-19 修复：此前无结果）
         var q2 = (q || '').toLowerCase();
         if (q2.indexOf('自由行') !== -1) return this.JJ.packages.filter(_vis);
@@ -1101,7 +1229,7 @@
     _matchFilter: function (p, f) {
       if (!p) return false;
       // 供应商套餐：游客态不可见（canSeeSupplier 兜底 false），仅登录版可见
-      if (p._src === 'supplier' && !canSeeSupplier()) return false;
+      if (p._src === 'supplier' && !canSeeSupplierFreeTour()) return false;
       f = f || {};
       if (f.dep) {
         var _seg = (p.route || '').split('→');
@@ -1159,7 +1287,7 @@
 
     // 自由行模式：关键字检索套餐（路由自 searchFilter）
     search: function (q) {
-      var hits = this.searchHits(q).filter(function (p) { return !(p._src === 'supplier' && !canSeeSupplier()); });
+      var hits = this.searchHits(q).filter(function (p) { return !(p._src === 'supplier' && !canSeeSupplierFreeTour()); });
       var self = this;
       var body = document.getElementById('filterBody');
       if (!body) return;
