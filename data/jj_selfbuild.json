@@ -796,21 +796,23 @@
    "dest": "澳门"
   },
   {
-   "name": "九龙海逸君绰",
+   "name": "香港九龙海逸君绰酒店",
+   "en_name": "Harbour Grand Kowloon",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 3796,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "九龙海逸君绰",
-    "display_name": "九龙海逸君绰",
-    "plan": "3晚 香港：九龙海逸君绰",
+    "name": "香港九龙海逸君绰酒店",
+    "display_name": "香港九龙海逸君绰酒店",
+    "en_name": "Harbour Grand Kowloon",
+    "plan": "3晚 香港：香港九龙海逸君绰酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "九龙海逸君绰"
+       "香港九龙海逸君绰酒店"
       ],
       "same_level": false
      }
@@ -819,21 +821,23 @@
    }
   },
   {
-   "name": "港岛海逸君绰",
+   "name": "香港港岛海逸君绰酒店",
+   "en_name": "Harbour Grand Hong Kong",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 3897,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "港岛海逸君绰",
-    "display_name": "港岛海逸君绰",
-    "plan": "3晚 香港：港岛海逸君绰",
+    "name": "香港港岛海逸君绰酒店",
+    "display_name": "香港港岛海逸君绰酒店",
+    "en_name": "Harbour Grand Hong Kong",
+    "plan": "3晚 香港：香港港岛海逸君绰酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "港岛海逸君绰"
+       "香港港岛海逸君绰酒店"
       ],
       "same_level": false
      }
@@ -842,21 +846,23 @@
    }
   },
   {
-   "name": "九龙酒店",
+   "name": "香港九龙酒店",
+   "en_name": "The Kowloon Hotel",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 3306,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "九龙酒店",
-    "display_name": "九龙酒店",
-    "plan": "3晚 香港：九龙酒店",
+    "name": "香港九龙酒店",
+    "display_name": "香港九龙酒店",
+    "en_name": "The Kowloon Hotel",
+    "plan": "3晚 香港：香港九龙酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "九龙酒店"
+       "香港九龙酒店"
       ],
       "same_level": false
      }
@@ -865,21 +871,23 @@
    }
   },
   {
-   "name": "历山",
+   "name": "香港历山酒店",
+   "en_name": "Hotel Alexandra",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 3845,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "历山",
-    "display_name": "历山",
-    "plan": "3晚 香港：历山",
+    "name": "香港历山酒店",
+    "display_name": "香港历山酒店",
+    "en_name": "Hotel Alexandra",
+    "plan": "3晚 香港：香港历山酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "历山"
+       "香港历山酒店"
       ],
       "same_level": false
      }
@@ -888,21 +896,23 @@
    }
   },
   {
-   "name": "铜锣湾利景",
+   "name": "香港铜锣湾利景酒店",
+   "en_name": "The Charterhouse Causeway Bay",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 2175,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "铜锣湾利景",
-    "display_name": "铜锣湾利景",
-    "plan": "3晚 香港：铜锣湾利景",
+    "name": "香港铜锣湾利景酒店",
+    "display_name": "香港铜锣湾利景酒店",
+    "en_name": "The Charterhouse Causeway Bay",
+    "plan": "3晚 香港：香港铜锣湾利景酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "铜锣湾利景"
+       "香港铜锣湾利景酒店"
       ],
       "same_level": false
      }
@@ -911,21 +921,23 @@
    }
   },
   {
-   "name": "华美达海景",
+   "name": "华美达海景酒店",
+   "en_name": "Ramada Hong Kong Harbour View",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 2323,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "华美达海景",
-    "display_name": "华美达海景",
-    "plan": "3晚 香港：华美达海景",
+    "name": "华美达海景酒店",
+    "display_name": "华美达海景酒店",
+    "en_name": "Ramada Hong Kong Harbour View",
+    "plan": "3晚 香港：华美达海景酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "华美达海景"
+       "华美达海景酒店"
       ],
       "same_level": false
      }
@@ -934,21 +946,23 @@
    }
   },
   {
-   "name": "皇家太平洋",
+   "name": "香港皇家太平洋酒店",
+   "en_name": "The Royal Pacific Hotel & Towers",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 3480,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "皇家太平洋",
-    "display_name": "皇家太平洋",
-    "plan": "3晚 香港：皇家太平洋",
+    "name": "香港皇家太平洋酒店",
+    "display_name": "香港皇家太平洋酒店",
+    "en_name": "The Royal Pacific Hotel & Towers",
+    "plan": "3晚 香港：香港皇家太平洋酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "皇家太平洋"
+       "香港皇家太平洋酒店"
       ],
       "same_level": false
      }
@@ -957,21 +971,23 @@
    }
   },
   {
-   "name": "都会海逸",
+   "name": "香港都会海逸酒店",
+   "en_name": "Harbour Plaza Metropolis",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 3406,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "都会海逸",
-    "display_name": "都会海逸",
-    "plan": "3晚 香港：都会海逸",
+    "name": "香港都会海逸酒店",
+    "display_name": "香港都会海逸酒店",
+    "en_name": "Harbour Plaza Metropolis",
+    "plan": "3晚 香港：香港都会海逸酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "都会海逸"
+       "香港都会海逸酒店"
       ],
       "same_level": false
      }
@@ -980,21 +996,23 @@
    }
   },
   {
-   "name": "荃湾西如心",
+   "name": "香港荃湾西如心酒店",
+   "en_name": "Nina Hotel Tsuen Wan West",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 2640,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "荃湾西如心",
-    "display_name": "荃湾西如心",
-    "plan": "3晚 香港：荃湾西如心",
+    "name": "香港荃湾西如心酒店",
+    "display_name": "香港荃湾西如心酒店",
+    "en_name": "Nina Hotel Tsuen Wan West",
+    "plan": "3晚 香港：香港荃湾西如心酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "荃湾西如心"
+       "香港荃湾西如心酒店"
       ],
       "same_level": false
      }
@@ -1003,21 +1021,23 @@
    }
   },
   {
-   "name": "马哥孛罗香港",
+   "name": "马哥孛罗香港酒店",
+   "en_name": "Marco Polo Hongkong Hotel",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 4230,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "马哥孛罗香港",
-    "display_name": "马哥孛罗香港",
-    "plan": "3晚 香港：马哥孛罗香港",
+    "name": "马哥孛罗香港酒店",
+    "display_name": "马哥孛罗香港酒店",
+    "en_name": "Marco Polo Hongkong Hotel",
+    "plan": "3晚 香港：马哥孛罗香港酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "马哥孛罗香港"
+       "马哥孛罗香港酒店"
       ],
       "same_level": false
      }
@@ -1026,21 +1046,23 @@
    }
   },
   {
-   "name": "珀丽",
+   "name": "香港珀丽酒店",
+   "en_name": "Rosedale Hotel Hong Kong",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 2430,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "珀丽",
-    "display_name": "珀丽",
-    "plan": "3晚 香港：珀丽",
+    "name": "香港珀丽酒店",
+    "display_name": "香港珀丽酒店",
+    "en_name": "Rosedale Hotel Hong Kong",
+    "plan": "3晚 香港：香港珀丽酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "珀丽"
+       "香港珀丽酒店"
       ],
       "same_level": false
      }
@@ -1049,21 +1071,23 @@
    }
   },
   {
-   "name": "柏宁",
+   "name": "香港柏宁酒店",
+   "en_name": "The Park Lane Hong Kong",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 4350,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "柏宁",
-    "display_name": "柏宁",
-    "plan": "3晚 香港：柏宁",
+    "name": "香港柏宁酒店",
+    "display_name": "香港柏宁酒店",
+    "en_name": "The Park Lane Hong Kong",
+    "plan": "3晚 香港：香港柏宁酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "柏宁"
+       "香港柏宁酒店"
       ],
       "same_level": false
      }
@@ -1072,21 +1096,23 @@
    }
   },
   {
-   "name": "富豪九龙",
+   "name": "香港富豪九龙酒店",
+   "en_name": "Regal Kowloon Hotel",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 2760,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "富豪九龙",
-    "display_name": "富豪九龙",
-    "plan": "3晚 香港：富豪九龙",
+    "name": "香港富豪九龙酒店",
+    "display_name": "香港富豪九龙酒店",
+    "en_name": "Regal Kowloon Hotel",
+    "plan": "3晚 香港：香港富豪九龙酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "富豪九龙"
+       "香港富豪九龙酒店"
       ],
       "same_level": false
      }
@@ -1095,21 +1121,23 @@
    }
   },
   {
-   "name": "富豪香港",
+   "name": "富豪香港酒店",
+   "en_name": "Regal Hongkong Hotel",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 3390,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "富豪香港",
-    "display_name": "富豪香港",
-    "plan": "3晚 香港：富豪香港",
+    "name": "富豪香港酒店",
+    "display_name": "富豪香港酒店",
+    "en_name": "Regal Hongkong Hotel",
+    "plan": "3晚 香港：富豪香港酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "富豪香港"
+       "富豪香港酒店"
       ],
       "same_level": false
      }
@@ -1118,21 +1146,23 @@
    }
   },
   {
-   "name": "九龙维景",
+   "name": "香港九龙维景酒店",
+   "en_name": "Metropark Hotel Kowloon",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 2770,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "九龙维景",
-    "display_name": "九龙维景",
-    "plan": "3晚 香港：九龙维景",
+    "name": "香港九龙维景酒店",
+    "display_name": "香港九龙维景酒店",
+    "en_name": "Metropark Hotel Kowloon",
+    "plan": "3晚 香港：香港九龙维景酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "九龙维景"
+       "香港九龙维景酒店"
       ],
       "same_level": false
      }
@@ -1141,21 +1171,23 @@
    }
   },
   {
-   "name": "千禧新世界",
+   "name": "千禧新世界香港酒店",
+   "en_name": "New World Millennium Hong Kong Hotel",
    "dest": "香港",
    "nights": 3,
    "hotel_total": 4920,
    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
    "details": {
-    "name": "千禧新世界",
-    "display_name": "千禧新世界",
-    "plan": "3晚 香港：千禧新世界",
+    "name": "千禧新世界香港酒店",
+    "display_name": "千禧新世界香港酒店",
+    "en_name": "New World Millennium Hong Kong Hotel",
+    "plan": "3晚 香港：千禧新世界香港酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "千禧新世界"
+       "千禧新世界香港酒店"
       ],
       "same_level": false
      }
