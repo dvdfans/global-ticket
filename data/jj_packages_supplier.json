@@ -1,5 +1,5 @@
 {
- "build_time": "2026-08-31 21:00:07",
+ "build_time": "2026-09-01 00:23:17",
  "packages": [
   {
    "internal": true,
@@ -12636,36 +12636,6 @@
    ],
    "return_dates": [
     "2026-10-07"
-   ],
-   "hotel": "",
-   "flight": "",
-   "flight_return": "",
-   "flight_desc": "",
-   "baggage": "",
-   "highlights": [],
-   "flights": [],
-   "hotel_details": {},
-   "itinerary": "",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1849,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-01"
-   ],
-   "return_dates": [
-    "2026-09-05"
    ],
    "hotel": "",
    "flight": "",
@@ -31489,57 +31459,6 @@
    "price": 1249,
    "price_type": "直客价",
    "dates": [
-    "2026-09-01"
-   ],
-   "return_dates": [
-    "2026-09-05"
-   ],
-   "hotel": "",
-   "flight": "9C6617",
-   "flight_return": "9C6618",
-   "flight_desc": "9C6617 上海 → 丽江 - 回 9C6618 丽江 → 上海 -",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "",
-     "flight": "9C6617",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "",
-     "flight": "9C6618",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {},
-   "itinerary": "",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-丽江",
-   "dep": "上海",
-   "arr": "丽江",
-   "route": "上海→丽江",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 1249,
-   "price_type": "直客价",
-   "dates": [
     "2026-09-04"
    ],
    "return_dates": [
@@ -32309,57 +32228,6 @@
    ],
    "return_dates": [
     "2026-09-28"
-   ],
-   "hotel": "",
-   "flight": "9C6617",
-   "flight_return": "9C6618",
-   "flight_desc": "9C6617 上海 → 丽江 - 回 9C6618 丽江 → 上海 -",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "",
-     "flight": "9C6617",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "",
-     "flight": "9C6618",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {},
-   "itinerary": "",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-丽江",
-   "dep": "上海",
-   "arr": "丽江",
-   "route": "上海→丽江",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 1349,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-01"
-   ],
-   "return_dates": [
-    "2026-09-05"
    ],
    "hotel": "",
    "flight": "9C6617",
@@ -35560,61 +35428,6 @@
     "note": "含早"
    },
    "itinerary": "9月5日（周五）·第一天： 飞往 。落地后自行前往1晚铂尔曼酒店。14:00后办理入住。\n9月6日（周六）·第二天：自由活动，行程自行安排。\n9月7日（周日）·第三天：自由活动，行程自行安排。\n9月8日（周一）·第四天：睡到自然醒，退房后前往，9C7752 返回。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-揭阳",
-   "dep": "上海",
-   "arr": "揭阳",
-   "route": "上海→揭阳",
-   "country": "国内",
-   "days": "3",
-   "nights": "2",
-   "price": 1249,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-01"
-   ],
-   "return_dates": [
-    "2026-09-03"
-   ],
-   "hotel": "2晚汕头逸居酒店",
-   "flight": "9C6223",
-   "flight_return": "9C6224",
-   "flight_desc": "9C6223 上海 → 揭阳 - 回 9C6224 揭阳 → 上海 -",
-   "baggage": "手提7kg+托运10kg",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "",
-     "flight": "9C6223",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "",
-     "flight": "9C6224",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "2晚汕头逸居酒店",
-    "display_name": "汕头逸居酒店",
-    "note": "含早"
-   },
-   "itinerary": "9月1日（周一）·第一天： 飞往 。落地后自行前往2晚汕头逸居酒店。14:00后办理入住。\n9月2日（周二）·第二天：自由活动，行程自行安排。\n9月3日（周三）·第三天：睡到自然醒，退房后前往，9C6224 返回。",
    "has_pickup": false,
    "child_policy": ""
   },
@@ -39960,62 +39773,6 @@
     "note": "含早"
    },
    "itinerary": "9月10日（周三）·第一天： 飞往 。落地后自行前往成都桔子酒店。14:00后办理入住。\n9月11日（周四）·第二天：自由活动，行程自行安排。\n9月12日（周五）·第三天：自由活动，行程自行安排。\n9月13日（周六）·第四天：自由活动，行程自行安排。\n9月14日（周日）·第五天：睡到自然醒，退房后前往，9C8820 返回。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-成都+九寨沟",
-   "dep": "成都",
-   "arr": "九寨沟",
-   "route": "成都→九寨沟",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2039,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-01"
-   ],
-   "return_dates": [
-    "2026-09-05"
-   ],
-   "hotel": "成都首尾2晚宿雅悦蓝天酒店",
-   "flight": "9C8819",
-   "flight_return": "9C8820",
-   "flight_desc": "9C8819 成都 → 九寨沟 - 回 9C8820 九寨沟 → 成都 -",
-   "baggage": "手提7kg+托运10kg",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "",
-     "flight": "9C8819",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "",
-     "flight": "9C8820",
-     "dep_airport": "",
-     "arr_airport": "",
-     "dep_time": "",
-     "arr_time": "",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "成都首尾2晚宿雅悦蓝天酒店",
-    "display_name": "成都首尾2晚宿雅悦蓝天酒店",
-    "star": "5钻",
-    "note": "含早"
-   },
-   "itinerary": "9月1日（周一）·第一天： 飞往 。落地后自行前往成都首尾2晚宿雅悦蓝天酒店。14:00后办理入住。\n9月2日（周二）·第二天：自由活动，行程自行安排。\n9月3日（周三）·第三天：自由活动，行程自行安排。\n9月4日（周四）·第四天：自由活动，行程自行安排。\n9月5日（周五）·第五天：睡到自然醒，退房后前往，9C8820 返回。",
    "has_pickup": false,
    "child_policy": ""
   },
