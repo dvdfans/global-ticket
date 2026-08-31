@@ -367,6 +367,23 @@ function canSeeSupplier() {
   } catch (e) { return false; }
 }
 
+// ═══════════════ 供应商自由行套餐可见性（2026-08-31 与客服版同步）═══════════════
+//   与 canSeeSupplier() 的区别（权限分离）：
+//     供应商代码查看   → admin + SUPPLIER_CS_VISIBLE      （canSeeSupplier）
+//     供应商自由行卡片 → admin + FREETOUR_SUPPLIER_CS_VISIBLE（canSeeSupplierFreeTour）
+//   游客 / 其余账号 → 一律隐藏（卡片 / 详情 / 分组 / 搜索 全链路）
+const FREETOUR_SUPPLIER_CS_VISIBLE = ['hq_liurong'];  // 2026-08-31 用户定
+
+function canSeeSupplierFreeTour() {
+  try {
+    var u = CURRENT_USER;
+    if (!u || !u.user) return false;               // 游客
+    if (u.role === 'admin') return true;           // 管理员始终可见
+    if (u.role === 'cs') return FREETOUR_SUPPLIER_CS_VISIBLE.indexOf(u.user) >= 0;
+    return false;
+  } catch (e) { return false; }
+}
+
 // 供应商标签框 HTML（照搬客服版 supTagHtml）：无权限/无值 → 空串；内容=供应商代码（子库数据）
 function supTagHtml(name, cls) {
   if (!canSeeSupplier() || !name) return '';

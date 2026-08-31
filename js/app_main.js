@@ -617,7 +617,7 @@ function _actualFlight(depTime, arrTime, depCity, arrCity) {
 
 function renderCard(r) {
   var hasReturn = !!(r.flight_return && r.flight_return.trim());
-  var sc = supplierColor(r.supplier);
+  var sc = supStripe(r);   // 2026-08-31 F1（权限清单§5）：色条门控——无供应商代码权限→中性灰，防游客从配色反推供应商（原 supplierColor 未门控）
   var seatsHtml = fmtSeatsBadge(r.seats);
   
   // 天数晚数显示
@@ -804,7 +804,7 @@ function renderCardSimple(r) {
   var consultText = routeStr + (durationStr||'') + ' ¥' + (r.retail||0) + (seatDispCopy || '') + ' ' + (r.airline_cn||'')
     + '\n去程 ' + _fmtDateShort(r.dep_date) + ' ' + (r.flight||'') + ' ' + _aptBlockTxt(r,'dep') + ' ' + (r.dep_time||'') + ' ' + _durFmt(outDur) + ' ' + (r.arr_time||'') + ' ' + _aptBlockTxt(r,'arr')
     + (hasReturn ? '\n回程 ' + _fmtDateShort(r.return_date) + ' ' + (r.flight_return||'') + ' ' + _aptBlockTxt(r,'return_dep') + ' ' + (r.return_dep_time||'') + ' ' + _durFmt(retDurConsult) + ' ' + (r.return_arr_time||'') + ' ' + _aptBlockTxt(r,'return_arr') : '');
-  var _sc2 = supplierColor(r.supplier);
+  var _sc2 = supStripe(r);   // 2026-08-31 F1：同上，色条门控（无权限→中性灰）
   return '<div class="card cfs-card" data-rec=\'' + JSON.stringify(r).replace(/'/g,"&#39;") + '\' style="--card-stripe:' + _sc2.dot + ';--card-glow:' + (_sc2.glow||'rgba(0,0,0,0.05)') + '">'
     + '<div class="cfs-top"><span class="cfs-route">' + routeStr + '</span>'
     + durationStr + ' ' + supTagHtml(r.supplier, 'cfs-sup-tag')
@@ -917,14 +917,35 @@ function _comboBarHtml(outRec, ret) {
 }
 // 组合行程完整复制文本（单条）：去程+回程+日期+价格+余位——selectReturn 与客服批量复制共用，保证格式逐字一致
 // 铁律（REFERENCE §2.10）：复制文本严禁含供应商标签，客服登录同样必须与游客逐字节一致
-function _comboText(outRec, ret) {
+// 2026-08-31 新增第三参 incStd：仅「客服批量组合复制」copySelectedCombos() 传 true，追加权威认证信息；
+//   游客侧 copyAll()→_shareText 及 selectReturn/openDetail/toggleDates 均不传 → 文本与改动前逐字节一致。
+// ★复制准入铁律（2026-08-31 Howard 定案）：复制文本=对外文案，判据=「是否经过权威认证」——
+//   ✅ 进：行李=供应商在线表采集值(baggage)；机型=ERP航班定义表逐航班值(aircraft_ota/return_aircraft_ota，
+//      2026-08-28 周五完善采集，iVision 实抓)。飞行时长/航站楼本就源自 ERP 权威时刻，已在基础行中。
+//   ❌ 不进：baggage_std(产品定义参考，页面标*)、aircraft(航司级静态常识表，非逐航班)、meal(航司官网政策层，非ERP采集)。
+//   ERP 未采集到的字段如实留空不编造；机型值「待定」视为无信息，不进对外文案。
+function _comboText(outRec, ret, incStd) {
   var days = getDays(outRec) || _comboDays(outRec, ret);
   var outSeat = _seatDisp(outRec.seats);
   var retSeat = _seatDisp(ret.seats);
   var total = (outRec.retail||0) + (ret.retail||0);
+  var mid = '';
+  if (incStd) {
+    // ── 权威认证信息（2026-08-31 复制准入铁律，逐项溯源见函数头注释）──
+    // 行李：仅供应商在线表采集值（baggage，权威数据源）；产品定义参考值(baggage_std)绝不进复制
+    var _bg = ((outRec.baggage||'')).trim() || ((ret.baggage||'')).trim();
+    if (_bg) mid += '\n' + _bg;
+    // 机型：仅 ERP 航班定义表逐航班值（aircraft_ota/return_aircraft_ota，08-28 周五权威采集）；
+    // 静态航司级 aircraft 与 meal 不进；「待定」视为无信息；去回程同机型只显一次
+    var _acOk = function (v) { v = (v || '').trim(); return (v && v !== '待定') ? v : ''; };
+    var _a1 = _acOk(outRec.aircraft_ota), _a2 = _acOk(ret.aircraft_ota);
+    var _acLine = (_a1 && _a2) ? ((_a1 === _a2) ? _a1 : ('去程' + _a1 + ' 回程' + _a2)) : (_a1 || _a2 || '');
+    if (_acLine) mid += '\n' + _acLine;
+  }
   var t = (outRec.dep||'') + '-' + (outRec.arr||'') + '/' + (ret.dep||'') + '-' + (ret.arr||'') + (days ? ' ' + days + '天' : '')
     + '\n' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '-' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + ' ' + _durTxt(outRec)
     + '\n' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '-' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + ' ' + _durTxt(ret)
+    + mid
     + '\n' + _fmtDateShort(outRec.dep_date) + '-' + _fmtDateShort(ret.dep_date)
     + '\n去¥' + (outRec.retail||0) + (outSeat ? '(' + outSeat + ')' : '') + ' + 回¥' + (ret.retail||0) + (retSeat ? '(' + retSeat + ')' : '') + ' = 合计¥' + total;
   return t;
@@ -1038,7 +1059,7 @@ function copySelectedCombos() {
     var prs = _pairRetsForOut(out);
     if (!prs.length) { skipped.push(out.dep_date || ''); return; }  // 该去程无可配回程 → 记录并跳过，不静默消失
     prs.forEach(function(ret) {
-      lines.push(_comboText(out, ret));
+      lines.push(_comboText(out, ret, true));   // 2026-08-31：员工组合复制含 行李/机型/餐食（游客侧 copyAll 不受影响）
     });
   });
   if (!lines.length) { showToast('⚠ 所选去程均无可用的合法回程组合，请调整勾选', true); return; }
