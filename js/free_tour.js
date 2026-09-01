@@ -202,17 +202,29 @@
         w = isNaN(dt.getTime()) ? '' : '（周' + wk[dt.getDay()] + '）';
       }
       // 航班行：紧凑式（对齐普通往返机票 .cf-leg 风格，适配手机浏览）
-      // 机场取城市简称（去"国际机场"，留城市名），航班号+日期合一格，时刻+时长合一格，加去/回标签
-      // 2026-09-01（Howard 纠偏）：卡片航班行=城市+机场+航站楼（如 上海浦东T1 / 那霸T1），
-      //   与单机票报价卡片一致；城市归一（那霸→冲绳/亚庇→沙巴）只属于分组名 _aptCity，不进卡片。
+      // 机场显示=城市+机场 简称（2026-09-01 Howard 定案，抄单机票 app_main.js:425）：
+      //   那霸→冲绳那霸、亚庇→沙巴亚庇、济州→济州岛……与单机票卡片逐字一致；
+      //   数据字段仍保留「那霸机场」原值（一比一透传），仅展示层归一。航站楼由下方独立字段拼接。
       function _aptShort(a) {
         if (!a) return '';
-        return String(a)
+        var t = String(a)
           .replace(/国际机场/g, '')
+          .replace(/机场/g, '')
           .replace(/\s*\([A-Z]{3}\)\s*/g, '')
           .replace(/T\d+/g, '')
           .replace(/\s+/g, ' ')
           .trim();
+        var ALIAS = ['浦东=上海浦东', '虹桥=上海虹桥', '萧山=杭州萧山', '禄口=南京禄口',
+          '栎社=宁波栎社', '兴东=南通兴东', '硕放=无锡硕放', '凤凰=三亚凤凰',
+          '成田=东京成田', '羽田=东京羽田', '仁川=首尔仁川', '金浦=首尔金浦', '金海=釜山金海',
+          '关西=大阪关西', '那霸=冲绳那霸', '新千岁=札幌新千岁', '中部=名古屋中部',
+          '素万那普=曼谷素万那普', '廊曼=曼谷廊曼', '樟宜=新加坡樟宜', '亚庇=沙巴亚庇',
+          '济州=济州岛', '普吉岛=普吉岛'];
+        for (var i = 0; i < ALIAS.length; i++) {
+          var kv = ALIAS[i].split('=');
+          if (t === kv[0] || t.indexOf(kv[0]) !== -1) return kv[1];
+        }
+        return t;
       }
       var flightHtml = '';
       if (p.flights && p.flights.length) {
@@ -220,8 +232,6 @@
           var tag = idx === 0 ? '<span class="jj-f-tag">去程</span>' : '<span class="jj-f-tag jj-f-tag-ret">回程</span>';
           var depDate = (idx === 0 ? (p.dep_date || (p.dates && p.dates[0]) || '') : (p.return_date || (p.return_dates && p.return_dates[0]) || ''));
           var dateShort = depDate ? depDate.replace(/^\d{4}-/, '').replace(/-/g, '/') : '';
-          // 余位=往返团票组合级（Howard 08-31 定案），参考单机票每卡仅一个徽章（2026-09-01：去/回程各显示一个不合理）
-          var _seatB = (idx === 0) ? self._seatBadgeForFlight(f.flight) : '';
           // 航站楼：独立字段（全量库一比一透传）优先；字段空时从机场名提取 T{n}（源嵌名归位，值来自源原文，非编造）。
           // _aptShort 已清洗机场名中的 T{n}，此处再拼不会重复——修复嵌名数据下航站楼两头丢失不显示的 BUG。
           var _dtm = String(f.dep_terminal || '') || (String(f.dep_airport || '').match(/T\d+/) || [''])[0];
@@ -231,7 +241,6 @@
             + '<span class="jj-f-flt">' + esc(f.flight || '') + (dateShort ? ' ' + esc(dateShort) : '') + '</span>'
             + '<span class="jj-f-city">' + esc(_aptShort(f.dep_airport)) + (_dtm ? ' ' + esc(_dtm) : '') + '→' + esc(_aptShort(f.arr_airport)) + (_atm ? ' ' + esc(_atm) : '') + '</span>'
             + '<span class="jj-f-time">' + esc(f.dep_time) + '-' + esc(f.arr_time) + (f.duration ? '（' + esc(f.duration) + '）' : '') + '</span>'
-            + (_seatB ? '<span class="jj-f-seat">' + _seatB + '</span>' : '')
             + '</div>';
         }).join('');
       } else if (p.flight_desc) {
@@ -296,6 +305,9 @@
               + (p.flight && p.flights && p.flights[0] ? '<span class="jj-direct">直飞</span>' : ''))
         + '</div>';
       var kmBadge = p._keymiss ? '<div class="jj-keymiss">⚠ 缺失信息未上线</div>' : '';
+      // 余位徽章：单机票置于卡片底部 meta 区（cf-meta-group，与起价同行），不在航班行内联。
+      //   员工登录可见实际余位、游客仅 1-4（fmtSeatsBadge 已按权限处理）；取去程航班余位。
+      var _cardSeat = (p.flights && p.flights.length) ? self._seatBadgeForFlight(p.flights[0].flight) : '';
       return '<div class="jj-card" onclick="FreeTour.openDetail(' + (pi === undefined ? '0' : pi) + ',\'' + (date || '') + '\')">'
         + banner
         + kmBadge
@@ -304,7 +316,10 @@
         + (p.hotel_details && p.hotel_details.tip ? '<div class="jj-tip">💡 ' + esc(p.hotel_details.tip) + '</div>' : '')
         + '<div class="jj-foot2">'
         + (date ? '<span class="jj-date">' + m + '月' + day + '日 ' + w + '</span><span class="jj-retdate">✈ 回程 ' + this.retDateTxt(p, date) + '</span>' : '<span class="jj-date-empty">日期待定</span>')
+        + '<span class="jj-foot-right">'
+        + (_cardSeat ? '<span class="jj-foot-seat">' + _cardSeat + '</span>' : '')
         + '<span class="jj-price">¥' + ((_minHotel && _minPer !== Infinity) ? _minPer.toLocaleString() : (this.perPersonPrice(p, date) || '—')) + '<span class="jj-price-suffix">/人起</span></span>'
+        + '</span>'
         + '</div>'
         + (hl ? '<div class="jj-hls">' + hl + '</div>' : '')
         + '<button class="jj-consult" onclick="event.stopPropagation();FreeTour.openDetail(' + (pi === undefined ? '0' : pi) + ',\'' + (date || '') + '\')">💬 咨询客服</button>'

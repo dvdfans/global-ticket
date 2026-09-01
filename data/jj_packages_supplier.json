@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-01 15:23:16",
+ "build_time": "2026-09-01 17:05:00",
  "packages": [
   {
    "internal": true,
@@ -9179,7 +9179,11 @@
      "dep_time": "10:20",
      "arr_time": "13:30",
      "duration": "2小时10分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": "1"
     },
     {
      "airline": "东航(MU)",
@@ -9189,7 +9193,11 @@
      "dep_time": "16:20",
      "arr_time": "17:30",
      "duration": "2小时10分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "1",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -10123,7 +10131,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10133,7 +10145,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -10201,7 +10217,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10211,7 +10231,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -10438,7 +10462,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10448,7 +10476,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -10519,7 +10551,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10529,7 +10565,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -10601,7 +10641,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10611,7 +10655,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -10682,7 +10730,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10692,7 +10744,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -10763,7 +10819,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10773,7 +10833,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -10844,7 +10908,11 @@
      "dep_time": "08:05",
      "arr_time": "14:10",
      "duration": "6小时5分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航(SQ)",
@@ -10854,7 +10922,11 @@
      "dep_time": "17:00",
      "arr_time": "22:20",
      "duration": "5小时20分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -12137,7 +12209,11 @@
      "dep_time": "09:45",
      "arr_time": "13:30",
      "duration": "2小时45分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": "I"
     },
     {
      "airline": "东航(MU)",
@@ -12147,7 +12223,11 @@
      "dep_time": "14:30",
      "arr_time": "15:55",
      "duration": "2小时25分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "I",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -12298,7 +12378,11 @@
      "dep_time": "09:45",
      "arr_time": "13:30",
      "duration": "2小时45分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": "I"
     },
     {
      "airline": "东航(MU)",
@@ -12308,7 +12392,11 @@
      "dep_time": "14:30",
      "arr_time": "15:55",
      "duration": "2小时25分",
-     "via": ""
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "I",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -46528,7 +46616,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -46538,8 +46626,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -46548,8 +46640,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -46744,7 +46840,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -46754,8 +46850,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -46764,8 +46864,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "3小时55分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -46798,7 +46902,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -46808,8 +46912,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -46818,8 +46926,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -46852,7 +46964,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -46862,8 +46974,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -46872,8 +46988,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -46906,7 +47026,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -46916,8 +47036,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -46926,8 +47050,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -46960,7 +47088,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -46970,8 +47098,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -46980,8 +47112,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -47014,7 +47150,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -47024,8 +47160,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -47034,8 +47174,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -47068,7 +47212,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -47078,8 +47222,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -47088,8 +47236,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "3小时55分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -47122,7 +47274,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -47132,8 +47284,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -47142,8 +47298,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "3小时55分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -47176,7 +47336,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -47186,8 +47346,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -47196,8 +47360,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -47284,7 +47452,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -47294,8 +47462,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -47304,8 +47476,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -47338,7 +47514,7 @@
    "flight": "MU205",
    "flight_return": "MU206",
    "flight_desc": "MU205 上海清迈 1000-1325 回 MU206 清迈上海 1455-2000",
-   "baggage": "",
+   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
    "highlights": [],
    "flights": [
     {
@@ -47348,8 +47524,12 @@
      "arr_airport": "清迈机场",
      "dep_time": "1000",
      "arr_time": "1325",
-     "duration": "",
-     "via": ""
+     "duration": "4小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东航",
@@ -47358,8 +47538,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1455",
      "arr_time": "2000",
-     "duration": "",
-     "via": ""
+     "duration": "4小时20分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "",
+     "arr_terminal": "T1"
     }
    ],
    "hotel_details": {
@@ -47770,7 +47954,7 @@
    "flight": "SQ827",
    "flight_return": "SQ836",
    "flight_desc": "SQ827 上海新加坡 0805-1410 回 SQ836 新加坡上海 1700-2220",
-   "baggage": "",
+   "baggage": "托运行李 25kg · 手提行李 1件7kg",
    "highlights": [],
    "flights": [
     {
@@ -47780,8 +47964,12 @@
      "arr_airport": "樟宜机场",
      "dep_time": "0805",
      "arr_time": "1410",
-     "duration": "",
-     "via": ""
+     "duration": "5小时20分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航",
@@ -47790,8 +47978,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1700",
      "arr_time": "2220",
-     "duration": "",
-     "via": ""
+     "duration": "5小时35分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -47824,7 +48016,7 @@
    "flight": "SQ827",
    "flight_return": "SQ836",
    "flight_desc": "SQ827 上海新加坡 0805-1410 回 SQ836 新加坡上海 1700-2220",
-   "baggage": "",
+   "baggage": "托运行李 25kg · 手提行李 1件7kg",
    "highlights": [],
    "flights": [
     {
@@ -47834,8 +48026,12 @@
      "arr_airport": "樟宜机场",
      "dep_time": "0805",
      "arr_time": "1410",
-     "duration": "",
-     "via": ""
+     "duration": "5小时20分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航",
@@ -47844,8 +48040,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1700",
      "arr_time": "2220",
-     "duration": "",
-     "via": ""
+     "duration": "5小时35分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -47878,7 +48078,7 @@
    "flight": "SQ827",
    "flight_return": "SQ836",
    "flight_desc": "SQ827 上海新加坡 0805-1410 回 SQ836 新加坡上海 1700-2220",
-   "baggage": "",
+   "baggage": "托运行李 25kg · 手提行李 1件7kg",
    "highlights": [],
    "flights": [
     {
@@ -47888,8 +48088,12 @@
      "arr_airport": "樟宜机场",
      "dep_time": "0805",
      "arr_time": "1410",
-     "duration": "",
-     "via": ""
+     "duration": "5小时20分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航",
@@ -47898,8 +48102,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1700",
      "arr_time": "2220",
-     "duration": "",
-     "via": ""
+     "duration": "5小时35分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -47932,7 +48140,7 @@
    "flight": "SQ827",
    "flight_return": "SQ836",
    "flight_desc": "SQ827 上海新加坡 0805-1410 回 SQ836 新加坡上海 1700-2220",
-   "baggage": "",
+   "baggage": "托运行李 25kg · 手提行李 1件7kg",
    "highlights": [],
    "flights": [
     {
@@ -47942,8 +48150,12 @@
      "arr_airport": "樟宜机场",
      "dep_time": "0805",
      "arr_time": "1410",
-     "duration": "",
-     "via": ""
+     "duration": "5小时20分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航",
@@ -47952,8 +48164,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1700",
      "arr_time": "2220",
-     "duration": "",
-     "via": ""
+     "duration": "5小时35分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -47986,7 +48202,7 @@
    "flight": "SQ827",
    "flight_return": "SQ836",
    "flight_desc": "SQ827 上海新加坡 0805-1410 回 SQ836 新加坡上海 1700-2220",
-   "baggage": "",
+   "baggage": "托运行李 25kg · 手提行李 1件7kg",
    "highlights": [],
    "flights": [
     {
@@ -47996,8 +48212,12 @@
      "arr_airport": "樟宜机场",
      "dep_time": "0805",
      "arr_time": "1410",
-     "duration": "",
-     "via": ""
+     "duration": "5小时20分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航",
@@ -48006,8 +48226,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1700",
      "arr_time": "2220",
-     "duration": "",
-     "via": ""
+     "duration": "5小时35分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
@@ -48040,7 +48264,7 @@
    "flight": "SQ827",
    "flight_return": "SQ836",
    "flight_desc": "SQ827 上海新加坡 0805-1410 回 SQ836 新加坡上海 1700-2220",
-   "baggage": "",
+   "baggage": "托运行李 25kg · 手提行李 1件7kg",
    "highlights": [],
    "flights": [
     {
@@ -48050,8 +48274,12 @@
      "arr_airport": "樟宜机场",
      "dep_time": "0805",
      "arr_time": "1410",
-     "duration": "",
-     "via": ""
+     "duration": "5小时20分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "2",
+     "arr_terminal": "0"
     },
     {
      "airline": "新航",
@@ -48060,8 +48288,12 @@
      "arr_airport": "上海浦东机场",
      "dep_time": "1700",
      "arr_time": "2220",
-     "duration": "",
-     "via": ""
+     "duration": "5小时35分",
+     "via": "",
+     "aircraft": "空客A350-900(宽体机)",
+     "meal": "含餐食",
+     "dep_terminal": "3",
+     "arr_terminal": "2"
     }
    ],
    "hotel_details": {
