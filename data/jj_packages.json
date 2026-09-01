@@ -8804,7 +8804,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4122,
+   "price": 3983,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -8872,7 +8872,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4122,
+   "price": 3983,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -9068,142 +9068,6 @@
   },
   {
    "supplier": "SH-HKG",
-   "ticket_res": "2018_008646",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 4229,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "香港珀丽酒店",
-   "flight": "FM811",
-   "flight_return": "MU502",
-   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM811",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:40",
-     "arr_time": "12:45",
-     "duration": "3小时05分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU502",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:50",
-     "arr_time": "15:15",
-     "duration": "2小时25分"
-    }
-   ],
-   "hotel_details": {
-    "name": "香港珀丽酒店",
-    "display_name": "香港珀丽酒店",
-    "en_name": "Rosedale Hotel Hong Kong",
-    "plan": "3晚 香港：香港珀丽酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "香港珀丽酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "31"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006800",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 4229,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "香港珀丽酒店",
-   "flight": "MU501",
-   "flight_return": "MU506",
-   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU501",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:00",
-     "arr_time": "11:50",
-     "duration": "2小时50分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU506",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "20:05",
-     "arr_time": "22:40",
-     "duration": "2小时35分"
-    }
-   ],
-   "hotel_details": {
-    "name": "香港珀丽酒店",
-    "display_name": "香港珀丽酒店",
-    "en_name": "Rosedale Hotel Hong Kong",
-    "plan": "3晚 香港：香港珀丽酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "香港珀丽酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
    "ticket_res": "2017_006798",
    "internal": false,
    "dep": "上海",
@@ -9212,7 +9076,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4322,
+   "price": 4183,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -9280,7 +9144,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4322,
+   "price": 4183,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -9340,7 +9204,7 @@
   },
   {
    "supplier": "SH-HKG",
-   "ticket_res": "2017_006798",
+   "ticket_res": "2018_008646",
    "internal": false,
    "dep": "上海",
    "arr": "香港",
@@ -9348,7 +9212,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4429,
+   "price": 4346,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -9356,10 +9220,10 @@
    "return_dates": [
     "2026-10-07"
    ],
-   "hotel": "香港珀丽酒店",
+   "hotel": "香港富豪九龙酒店",
    "flight": "FM811",
-   "flight_return": "MU510",
-   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU510 香港→上海 17:05-19:40",
+   "flight_return": "MU502",
+   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
    "baggage": "托运20kg",
    "highlights": [
     "机+酒一价全包",
@@ -9377,38 +9241,38 @@
     },
     {
      "airline": "东方航空(MU)",
-     "flight": "MU510",
+     "flight": "MU502",
      "dep_airport": "香港国际机场 (HKG)",
      "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "17:05",
-     "arr_time": "19:40",
-     "duration": "2小时35分"
+     "dep_time": "12:50",
+     "arr_time": "15:15",
+     "duration": "2小时25分"
     }
    ],
    "hotel_details": {
-    "name": "香港珀丽酒店",
-    "display_name": "香港珀丽酒店",
-    "en_name": "Rosedale Hotel Hong Kong",
-    "plan": "3晚 香港：香港珀丽酒店",
+    "name": "香港富豪九龙酒店",
+    "display_name": "香港富豪九龙酒店",
+    "en_name": "Regal Kowloon Hotel",
+    "plan": "3晚 香港：香港富豪九龙酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "香港珀丽酒店"
+       "香港富豪九龙酒店"
       ],
       "same_level": false
      }
     ],
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
-   "avail": "20"
+   "avail": "31"
   },
   {
    "supplier": "SH-HKG",
-   "ticket_res": "2017_006801",
+   "ticket_res": "2017_006800",
    "internal": false,
    "dep": "上海",
    "arr": "香港",
@@ -9416,7 +9280,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4429,
+   "price": 4346,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -9424,10 +9288,10 @@
    "return_dates": [
     "2026-10-07"
    ],
-   "hotel": "香港珀丽酒店",
-   "flight": "MU509",
-   "flight_return": "MU508",
-   "flight_desc": "MU509 上海→香港 12:55-16:05 回 MU508 香港→上海 15:05-17:45",
+   "hotel": "香港富豪九龙酒店",
+   "flight": "MU501",
+   "flight_return": "MU506",
+   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
    "baggage": "托运20kg",
    "highlights": [
     "机+酒一价全包",
@@ -9436,41 +9300,41 @@
    "flights": [
     {
      "airline": "东方航空(MU)",
-     "flight": "MU509",
+     "flight": "MU501",
      "dep_airport": "上海浦东国际机场 (PVG)",
      "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "12:55",
-     "arr_time": "16:05",
-     "duration": "3小时10分"
+     "dep_time": "09:00",
+     "arr_time": "11:50",
+     "duration": "2小时50分"
     },
     {
      "airline": "东方航空(MU)",
-     "flight": "MU508",
+     "flight": "MU506",
      "dep_airport": "香港国际机场 (HKG)",
      "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "15:05",
-     "arr_time": "17:45",
-     "duration": "2小时40分"
+     "dep_time": "20:05",
+     "arr_time": "22:40",
+     "duration": "2小时35分"
     }
    ],
    "hotel_details": {
-    "name": "香港珀丽酒店",
-    "display_name": "香港珀丽酒店",
-    "en_name": "Rosedale Hotel Hong Kong",
-    "plan": "3晚 香港：香港珀丽酒店",
+    "name": "香港富豪九龙酒店",
+    "display_name": "香港富豪九龙酒店",
+    "en_name": "Regal Kowloon Hotel",
+    "plan": "3晚 香港：香港富豪九龙酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "香港珀丽酒店"
+       "香港富豪九龙酒店"
       ],
       "same_level": false
      }
     ],
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
-   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
    "avail": "20"
   },
@@ -9612,7 +9476,7 @@
   },
   {
    "supplier": "SH-HKG",
-   "ticket_res": "2018_008646",
+   "ticket_res": "2017_006798",
    "internal": false,
    "dep": "上海",
    "arr": "香港",
@@ -9620,7 +9484,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4559,
+   "price": 4546,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -9629,6 +9493,142 @@
     "2026-10-07"
    ],
    "hotel": "香港富豪九龙酒店",
+   "flight": "FM811",
+   "flight_return": "MU510",
+   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU510 香港→上海 17:05-19:40",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU510",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "17:05",
+     "arr_time": "19:40",
+     "duration": "2小时35分"
+    }
+   ],
+   "hotel_details": {
+    "name": "香港富豪九龙酒店",
+    "display_name": "香港富豪九龙酒店",
+    "en_name": "Regal Kowloon Hotel",
+    "plan": "3晚 香港：香港富豪九龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "香港富豪九龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006801",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4546,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "香港富豪九龙酒店",
+   "flight": "MU509",
+   "flight_return": "MU508",
+   "flight_desc": "MU509 上海→香港 12:55-16:05 回 MU508 香港→上海 15:05-17:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU509",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "12:55",
+     "arr_time": "16:05",
+     "duration": "3小时10分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU508",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "15:05",
+     "arr_time": "17:45",
+     "duration": "2小时40分"
+    }
+   ],
+   "hotel_details": {
+    "name": "香港富豪九龙酒店",
+    "display_name": "香港富豪九龙酒店",
+    "en_name": "Regal Kowloon Hotel",
+    "plan": "3晚 香港：香港富豪九龙酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "香港富豪九龙酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2018_008646",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 4565,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "香港珀丽酒店",
    "flight": "FM811",
    "flight_return": "MU502",
    "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
@@ -9658,23 +9658,23 @@
     }
    ],
    "hotel_details": {
-    "name": "香港富豪九龙酒店",
-    "display_name": "香港富豪九龙酒店",
-    "en_name": "Regal Kowloon Hotel",
-    "plan": "3晚 香港：香港富豪九龙酒店",
+    "name": "香港珀丽酒店",
+    "display_name": "香港珀丽酒店",
+    "en_name": "Rosedale Hotel Hong Kong",
+    "plan": "3晚 香港：香港珀丽酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "香港富豪九龙酒店"
+       "香港珀丽酒店"
       ],
       "same_level": false
      }
     ],
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
    "avail": "31"
   },
@@ -9688,7 +9688,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4559,
+   "price": 4565,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -9696,7 +9696,7 @@
    "return_dates": [
     "2026-10-07"
    ],
-   "hotel": "香港富豪九龙酒店",
+   "hotel": "香港珀丽酒店",
    "flight": "MU501",
    "flight_return": "MU506",
    "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
@@ -9726,23 +9726,23 @@
     }
    ],
    "hotel_details": {
-    "name": "香港富豪九龙酒店",
-    "display_name": "香港富豪九龙酒店",
-    "en_name": "Regal Kowloon Hotel",
-    "plan": "3晚 香港：香港富豪九龙酒店",
+    "name": "香港珀丽酒店",
+    "display_name": "香港珀丽酒店",
+    "en_name": "Rosedale Hotel Hong Kong",
+    "plan": "3晚 香港：香港珀丽酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "香港富豪九龙酒店"
+       "香港珀丽酒店"
       ],
       "same_level": false
      }
     ],
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
-   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
    "avail": "20"
   },
@@ -10028,7 +10028,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4759,
+   "price": 4765,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -10036,7 +10036,7 @@
    "return_dates": [
     "2026-10-07"
    ],
-   "hotel": "香港富豪九龙酒店",
+   "hotel": "香港珀丽酒店",
    "flight": "FM811",
    "flight_return": "MU510",
    "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU510 香港→上海 17:05-19:40",
@@ -10066,23 +10066,23 @@
     }
    ],
    "hotel_details": {
-    "name": "香港富豪九龙酒店",
-    "display_name": "香港富豪九龙酒店",
-    "en_name": "Regal Kowloon Hotel",
-    "plan": "3晚 香港：香港富豪九龙酒店",
+    "name": "香港珀丽酒店",
+    "display_name": "香港珀丽酒店",
+    "en_name": "Rosedale Hotel Hong Kong",
+    "plan": "3晚 香港：香港珀丽酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "香港富豪九龙酒店"
+       "香港珀丽酒店"
       ],
       "same_level": false
      }
     ],
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
    "avail": "20"
   },
@@ -10096,7 +10096,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 4759,
+   "price": 4765,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -10104,7 +10104,7 @@
    "return_dates": [
     "2026-10-07"
    ],
-   "hotel": "香港富豪九龙酒店",
+   "hotel": "香港珀丽酒店",
    "flight": "MU509",
    "flight_return": "MU508",
    "flight_desc": "MU509 上海→香港 12:55-16:05 回 MU508 香港→上海 15:05-17:45",
@@ -10134,23 +10134,23 @@
     }
    ],
    "hotel_details": {
-    "name": "香港富豪九龙酒店",
-    "display_name": "香港富豪九龙酒店",
-    "en_name": "Regal Kowloon Hotel",
-    "plan": "3晚 香港：香港富豪九龙酒店",
+    "name": "香港珀丽酒店",
+    "display_name": "香港珀丽酒店",
+    "en_name": "Rosedale Hotel Hong Kong",
+    "plan": "3晚 香港：香港珀丽酒店",
     "segs": [
      {
       "nights": 3,
       "location": "香港",
       "hotels": [
-       "香港富豪九龙酒店"
+       "香港珀丽酒店"
       ],
       "same_level": false
      }
     ],
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
-   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港富豪九龙酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港珀丽酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
    "avail": "20"
   },
@@ -10436,142 +10436,6 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 5189,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "富豪香港酒店",
-   "flight": "FM811",
-   "flight_return": "MU502",
-   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM811",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:40",
-     "arr_time": "12:45",
-     "duration": "3小时05分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU502",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:50",
-     "arr_time": "15:15",
-     "duration": "2小时25分"
-    }
-   ],
-   "hotel_details": {
-    "name": "富豪香港酒店",
-    "display_name": "富豪香港酒店",
-    "en_name": "Regal Hongkong Hotel",
-    "plan": "3晚 香港：富豪香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "富豪香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "31"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006800",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 5189,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "富豪香港酒店",
-   "flight": "MU501",
-   "flight_return": "MU506",
-   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU501",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:00",
-     "arr_time": "11:50",
-     "duration": "2小时50分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU506",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "20:05",
-     "arr_time": "22:40",
-     "duration": "2小时35分"
-    }
-   ],
-   "hotel_details": {
-    "name": "富豪香港酒店",
-    "display_name": "富豪香港酒店",
-    "en_name": "Regal Hongkong Hotel",
-    "plan": "3晚 香港：富豪香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "富豪香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2018_008646",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
    "price": 5205,
    "price_type": "直客价",
    "dates": [
@@ -10695,6 +10559,142 @@
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
    "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港都会海逸酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2018_008646",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5255,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "富豪香港酒店",
+   "flight": "FM811",
+   "flight_return": "MU502",
+   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU502",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:50",
+     "arr_time": "15:15",
+     "duration": "2小时25分"
+    }
+   ],
+   "hotel_details": {
+    "name": "富豪香港酒店",
+    "display_name": "富豪香港酒店",
+    "en_name": "Regal Hongkong Hotel",
+    "plan": "3晚 香港：富豪香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "富豪香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "31"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006800",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5255,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "富豪香港酒店",
+   "flight": "MU501",
+   "flight_return": "MU506",
+   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU501",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:00",
+     "arr_time": "11:50",
+     "duration": "2小时50分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU506",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "20:05",
+     "arr_time": "22:40",
+     "duration": "2小时35分"
+    }
+   ],
+   "hotel_details": {
+    "name": "富豪香港酒店",
+    "display_name": "富豪香港酒店",
+    "en_name": "Regal Hongkong Hotel",
+    "plan": "3晚 香港：富豪香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "富豪香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
    "avail": "20"
   },
@@ -10980,142 +10980,6 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 5389,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "富豪香港酒店",
-   "flight": "FM811",
-   "flight_return": "MU510",
-   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU510 香港→上海 17:05-19:40",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM811",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:40",
-     "arr_time": "12:45",
-     "duration": "3小时05分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU510",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "17:05",
-     "arr_time": "19:40",
-     "duration": "2小时35分"
-    }
-   ],
-   "hotel_details": {
-    "name": "富豪香港酒店",
-    "display_name": "富豪香港酒店",
-    "en_name": "Regal Hongkong Hotel",
-    "plan": "3晚 香港：富豪香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "富豪香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006801",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 5389,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "富豪香港酒店",
-   "flight": "MU509",
-   "flight_return": "MU508",
-   "flight_desc": "MU509 上海→香港 12:55-16:05 回 MU508 香港→上海 15:05-17:45",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU509",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "12:55",
-     "arr_time": "16:05",
-     "duration": "3小时10分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU508",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "15:05",
-     "arr_time": "17:45",
-     "duration": "2小时40分"
-    }
-   ],
-   "hotel_details": {
-    "name": "富豪香港酒店",
-    "display_name": "富豪香港酒店",
-    "en_name": "Regal Hongkong Hotel",
-    "plan": "3晚 香港：富豪香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "富豪香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006798",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
    "price": 5405,
    "price_type": "直客价",
    "dates": [
@@ -11239,6 +11103,142 @@
     "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
    },
    "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港都会海逸酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006798",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5455,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "富豪香港酒店",
+   "flight": "FM811",
+   "flight_return": "MU510",
+   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU510 香港→上海 17:05-19:40",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU510",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "17:05",
+     "arr_time": "19:40",
+     "duration": "2小时35分"
+    }
+   ],
+   "hotel_details": {
+    "name": "富豪香港酒店",
+    "display_name": "富豪香港酒店",
+    "en_name": "Regal Hongkong Hotel",
+    "plan": "3晚 香港：富豪香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "富豪香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006801",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5455,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "富豪香港酒店",
+   "flight": "MU509",
+   "flight_return": "MU508",
+   "flight_desc": "MU509 上海→香港 12:55-16:05 回 MU508 香港→上海 15:05-17:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU509",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "12:55",
+     "arr_time": "16:05",
+     "duration": "3小时10分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU508",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "15:05",
+     "arr_time": "17:45",
+     "duration": "2小时40分"
+    }
+   ],
+   "hotel_details": {
+    "name": "富豪香港酒店",
+    "display_name": "富豪香港酒店",
+    "en_name": "Regal Hongkong Hotel",
+    "plan": "3晚 香港：富豪香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "富豪香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往富豪香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
    "has_pickup": false,
    "avail": "20"
   },
@@ -11788,6 +11788,142 @@
   },
   {
    "supplier": "SH-HKG",
+   "ticket_res": "2018_008646",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5775,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "香港柏宁酒店",
+   "flight": "FM811",
+   "flight_return": "MU502",
+   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU502",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:50",
+     "arr_time": "15:15",
+     "duration": "2小时25分"
+    }
+   ],
+   "hotel_details": {
+    "name": "香港柏宁酒店",
+    "display_name": "香港柏宁酒店",
+    "en_name": "The Park Lane Hong Kong",
+    "plan": "3晚 香港：香港柏宁酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "香港柏宁酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港柏宁酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "31"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006800",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 5775,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "香港柏宁酒店",
+   "flight": "MU501",
+   "flight_return": "MU506",
+   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU501",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:00",
+     "arr_time": "11:50",
+     "duration": "2小时50分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU506",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "20:05",
+     "arr_time": "22:40",
+     "duration": "2小时35分"
+    }
+   ],
+   "hotel_details": {
+    "name": "香港柏宁酒店",
+    "display_name": "香港柏宁酒店",
+    "en_name": "The Park Lane Hong Kong",
+    "plan": "3晚 香港：香港柏宁酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "香港柏宁酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港柏宁酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
    "ticket_res": "2017_006798",
    "internal": false,
    "dep": "上海",
@@ -12196,278 +12332,6 @@
   },
   {
    "supplier": "SH-HKG",
-   "ticket_res": "2018_008646",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 6029,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "马哥孛罗香港酒店",
-   "flight": "FM811",
-   "flight_return": "MU502",
-   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM811",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:40",
-     "arr_time": "12:45",
-     "duration": "3小时05分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU502",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:50",
-     "arr_time": "15:15",
-     "duration": "2小时25分"
-    }
-   ],
-   "hotel_details": {
-    "name": "马哥孛罗香港酒店",
-    "display_name": "马哥孛罗香港酒店",
-    "en_name": "Marco Polo Hongkong Hotel",
-    "plan": "3晚 香港：马哥孛罗香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "马哥孛罗香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "31"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006800",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 6029,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "马哥孛罗香港酒店",
-   "flight": "MU501",
-   "flight_return": "MU506",
-   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU501",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:00",
-     "arr_time": "11:50",
-     "duration": "2小时50分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU506",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "20:05",
-     "arr_time": "22:40",
-     "duration": "2小时35分"
-    }
-   ],
-   "hotel_details": {
-    "name": "马哥孛罗香港酒店",
-    "display_name": "马哥孛罗香港酒店",
-    "en_name": "Marco Polo Hongkong Hotel",
-    "plan": "3晚 香港：马哥孛罗香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "马哥孛罗香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2018_008646",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 6149,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "香港柏宁酒店",
-   "flight": "FM811",
-   "flight_return": "MU502",
-   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM811",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:40",
-     "arr_time": "12:45",
-     "duration": "3小时05分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU502",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:50",
-     "arr_time": "15:15",
-     "duration": "2小时25分"
-    }
-   ],
-   "hotel_details": {
-    "name": "香港柏宁酒店",
-    "display_name": "香港柏宁酒店",
-    "en_name": "The Park Lane Hong Kong",
-    "plan": "3晚 香港：香港柏宁酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "香港柏宁酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往香港柏宁酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "31"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006800",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 6149,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "香港柏宁酒店",
-   "flight": "MU501",
-   "flight_return": "MU506",
-   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU501",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:00",
-     "arr_time": "11:50",
-     "duration": "2小时50分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU506",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "20:05",
-     "arr_time": "22:40",
-     "duration": "2小时35分"
-    }
-   ],
-   "hotel_details": {
-    "name": "香港柏宁酒店",
-    "display_name": "香港柏宁酒店",
-    "en_name": "The Park Lane Hong Kong",
-    "plan": "3晚 香港：香港柏宁酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "香港柏宁酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往香港柏宁酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
    "ticket_res": "2017_006798",
    "internal": false,
    "dep": "上海",
@@ -12476,143 +12340,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 6229,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "马哥孛罗香港酒店",
-   "flight": "FM811",
-   "flight_return": "MU510",
-   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU510 香港→上海 17:05-19:40",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM811",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:40",
-     "arr_time": "12:45",
-     "duration": "3小时05分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU510",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "17:05",
-     "arr_time": "19:40",
-     "duration": "2小时35分"
-    }
-   ],
-   "hotel_details": {
-    "name": "马哥孛罗香港酒店",
-    "display_name": "马哥孛罗香港酒店",
-    "en_name": "Marco Polo Hongkong Hotel",
-    "plan": "3晚 香港：马哥孛罗香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "马哥孛罗香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006801",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 6229,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-04"
-   ],
-   "return_dates": [
-    "2026-10-07"
-   ],
-   "hotel": "马哥孛罗香港酒店",
-   "flight": "MU509",
-   "flight_return": "MU508",
-   "flight_desc": "MU509 上海→香港 12:55-16:05 回 MU508 香港→上海 15:05-17:45",
-   "baggage": "托运20kg",
-   "highlights": [
-    "机+酒一价全包",
-    "国庆档期"
-   ],
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU509",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "12:55",
-     "arr_time": "16:05",
-     "duration": "3小时10分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU508",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "15:05",
-     "arr_time": "17:45",
-     "duration": "2小时40分"
-    }
-   ],
-   "hotel_details": {
-    "name": "马哥孛罗香港酒店",
-    "display_name": "马哥孛罗香港酒店",
-    "en_name": "Marco Polo Hongkong Hotel",
-    "plan": "3晚 香港：马哥孛罗香港酒店",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "香港",
-      "hotels": [
-       "马哥孛罗香港酒店"
-      ],
-      "same_level": false
-     }
-    ],
-    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
-   },
-   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
-   "has_pickup": false,
-   "avail": "20"
-  },
-  {
-   "supplier": "SH-HKG",
-   "ticket_res": "2017_006798",
-   "internal": false,
-   "dep": "上海",
-   "arr": "香港",
-   "route": "上海→香港",
-   "country": "港澳",
-   "days": "4",
-   "nights": "3",
-   "price": 6349,
+   "price": 5975,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -12680,7 +12408,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 6349,
+   "price": 5975,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -12748,7 +12476,279 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 6719,
+   "price": 6195,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "马哥孛罗香港酒店",
+   "flight": "FM811",
+   "flight_return": "MU502",
+   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU502 香港→上海 12:50-15:15",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU502",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:50",
+     "arr_time": "15:15",
+     "duration": "2小时25分"
+    }
+   ],
+   "hotel_details": {
+    "name": "马哥孛罗香港酒店",
+    "display_name": "马哥孛罗香港酒店",
+    "en_name": "Marco Polo Hongkong Hotel",
+    "plan": "3晚 香港：马哥孛罗香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "马哥孛罗香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "31"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006800",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6195,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "马哥孛罗香港酒店",
+   "flight": "MU501",
+   "flight_return": "MU506",
+   "flight_desc": "MU501 上海→香港 09:00-11:50 回 MU506 香港→上海 20:05-22:40",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU501",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:00",
+     "arr_time": "11:50",
+     "duration": "2小时50分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU506",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "20:05",
+     "arr_time": "22:40",
+     "duration": "2小时35分"
+    }
+   ],
+   "hotel_details": {
+    "name": "马哥孛罗香港酒店",
+    "display_name": "马哥孛罗香港酒店",
+    "en_name": "Marco Polo Hongkong Hotel",
+    "plan": "3晚 香港：马哥孛罗香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "马哥孛罗香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU501 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006798",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6395,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "马哥孛罗香港酒店",
+   "flight": "FM811",
+   "flight_return": "MU510",
+   "flight_desc": "FM811 上海→香港 09:40-12:45 回 MU510 香港→上海 17:05-19:40",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU510",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "17:05",
+     "arr_time": "19:40",
+     "duration": "2小时35分"
+    }
+   ],
+   "hotel_details": {
+    "name": "马哥孛罗香港酒店",
+    "display_name": "马哥孛罗香港酒店",
+    "en_name": "Marco Polo Hongkong Hotel",
+    "plan": "3晚 香港：马哥孛罗香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "马哥孛罗香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：FM811 上海航空(FM) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2017_006801",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6395,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "马哥孛罗香港酒店",
+   "flight": "MU509",
+   "flight_return": "MU508",
+   "flight_desc": "MU509 上海→香港 12:55-16:05 回 MU508 香港→上海 15:05-17:45",
+   "baggage": "托运20kg",
+   "highlights": [
+    "机+酒一价全包",
+    "国庆档期"
+   ],
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU509",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "12:55",
+     "arr_time": "16:05",
+     "duration": "3小时10分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU508",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "15:05",
+     "arr_time": "17:45",
+     "duration": "2小时40分"
+    }
+   ],
+   "hotel_details": {
+    "name": "马哥孛罗香港酒店",
+    "display_name": "马哥孛罗香港酒店",
+    "en_name": "Marco Polo Hongkong Hotel",
+    "plan": "3晚 香港：马哥孛罗香港酒店",
+    "segs": [
+     {
+      "nights": 3,
+      "location": "香港",
+      "hotels": [
+       "马哥孛罗香港酒店"
+      ],
+      "same_level": false
+     }
+    ],
+    "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价随档期浮动不单列"
+   },
+   "itinerary": "10月4日（周六）·第一天：MU509 东方航空(MU) 飞往 香港国际机场 (HKG)。落地后自行前往马哥孛罗香港酒店。14:00后办理入住。\n10月5日（周日）·第二天：自由活动，行程自行安排。\n10月6日（周一）·第三天：自由活动，行程自行安排。\n10月7日（周二）·第四天：睡到自然醒，退房后自行前往香港国际机场 (HKG)，东方航空(MU) 返回上海。",
+   "has_pickup": false,
+   "avail": "20"
+  },
+  {
+   "supplier": "SH-HKG",
+   "ticket_res": "2018_008646",
+   "internal": false,
+   "dep": "上海",
+   "arr": "香港",
+   "route": "上海→香港",
+   "country": "港澳",
+   "days": "4",
+   "nights": "3",
+   "price": 6889,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -12816,7 +12816,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 6719,
+   "price": 6889,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -12884,7 +12884,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 6919,
+   "price": 7089,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -12952,7 +12952,7 @@
    "country": "港澳",
    "days": "4",
    "nights": "3",
-   "price": 6919,
+   "price": 7089,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -13017,6 +13017,6 @@
   "generated": "2026-08-28",
   "hk_count": 64,
   "hk_note": "香港源=腾讯文档DUHNCSndUd0VqamxK OpenAPI实时导出(lib/tdocs_read,原生xlsx,自动化可用)；2026-08-28 用户批准转公开(internal=false)；新航线批次仍默认 internal=true；MU501+MU506双价格档取最低1799/可用20（1999/可用40弃用记此备查）",
-  "hk_fetched": "自营自由行套餐_20260829_2230.xlsx"
+  "hk_fetched": "上海自营_实时_20260901_120311.xlsx"
  }
 }
