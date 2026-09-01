@@ -36,7 +36,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -48,7 +49,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -108,7 +110,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -120,7 +123,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -180,7 +184,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -192,7 +197,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -252,7 +258,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -264,7 +271,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -324,7 +332,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -336,7 +345,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -396,7 +406,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -408,7 +419,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -468,7 +480,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -480,7 +493,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -540,7 +554,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -552,7 +567,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -612,7 +628,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -624,7 +641,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -684,7 +702,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -696,7 +715,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -756,7 +776,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -768,7 +789,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -828,7 +850,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -840,7 +863,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -900,7 +924,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -912,7 +937,8 @@
      "duration": "2h30",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -972,7 +998,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -984,7 +1011,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1044,7 +1072,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1056,7 +1085,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1116,7 +1146,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1128,7 +1159,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1188,7 +1220,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1200,7 +1233,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1260,7 +1294,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1272,7 +1307,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1332,7 +1368,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1344,7 +1381,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1404,7 +1442,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1416,7 +1455,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1476,7 +1516,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1488,7 +1529,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1548,7 +1590,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1560,7 +1603,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1620,7 +1664,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1632,7 +1677,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1692,7 +1738,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1704,7 +1751,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1764,7 +1812,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1776,7 +1825,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1836,7 +1886,8 @@
      "duration": "2h45",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1848,7 +1899,8 @@
      "duration": "3小时",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1908,7 +1960,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1920,7 +1973,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -1980,7 +2034,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -1992,7 +2047,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2052,7 +2108,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2064,7 +2121,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2124,7 +2182,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2136,7 +2195,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2196,7 +2256,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2208,7 +2269,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2268,7 +2330,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2280,7 +2343,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2340,7 +2404,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2352,7 +2417,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2412,7 +2478,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2424,7 +2491,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2484,7 +2552,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2496,7 +2565,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2556,7 +2626,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2568,7 +2639,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2628,7 +2700,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2640,7 +2713,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2700,7 +2774,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2712,7 +2787,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2772,7 +2848,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -2784,7 +2861,8 @@
      "duration": "2h35",
      "aircraft": "波音B737-800(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2844,7 +2922,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -2856,7 +2935,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2916,7 +2996,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -2928,7 +3009,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -2988,7 +3070,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3000,7 +3083,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3060,7 +3144,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3072,7 +3157,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3132,7 +3218,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3144,7 +3231,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3204,7 +3292,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3216,7 +3305,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3276,7 +3366,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3288,7 +3379,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3348,7 +3440,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3360,7 +3453,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3420,7 +3514,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3432,7 +3527,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3492,7 +3588,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3504,7 +3601,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3564,7 +3662,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3576,7 +3675,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3636,7 +3736,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3648,7 +3749,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3708,7 +3810,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "上海航空(FM)",
@@ -3720,7 +3823,8 @@
      "duration": "2h40",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3780,7 +3884,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -3792,7 +3897,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3852,7 +3958,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -3864,7 +3971,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3924,7 +4032,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -3936,7 +4045,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -3996,7 +4106,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4008,7 +4119,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4068,7 +4180,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4080,7 +4193,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4140,7 +4254,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4152,7 +4267,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4212,7 +4328,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4224,7 +4341,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4284,7 +4402,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4296,7 +4415,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4356,7 +4476,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4368,7 +4489,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4428,7 +4550,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4440,7 +4563,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4500,7 +4624,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4512,7 +4637,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4572,7 +4698,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4584,7 +4711,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4644,7 +4772,8 @@
      "duration": "2h45",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4656,7 +4785,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4716,7 +4846,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4728,7 +4859,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4788,7 +4920,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4800,7 +4933,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4860,7 +4994,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4872,7 +5007,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -4932,7 +5068,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -4944,7 +5081,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5004,7 +5142,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5016,7 +5155,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5076,7 +5216,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5088,7 +5229,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5148,7 +5290,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5160,7 +5303,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5220,7 +5364,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5232,7 +5377,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5292,7 +5438,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5304,7 +5451,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5364,7 +5512,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5376,7 +5525,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5436,7 +5586,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5448,7 +5599,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5508,7 +5660,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5520,7 +5673,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5580,7 +5734,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5592,7 +5747,8 @@
      "duration": "2h25",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5652,7 +5808,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5664,7 +5821,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5724,7 +5882,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5736,7 +5895,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5796,7 +5956,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5808,7 +5969,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5868,7 +6030,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5880,7 +6043,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -5940,7 +6104,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -5952,7 +6117,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6012,7 +6178,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6024,7 +6191,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6084,7 +6252,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6096,7 +6265,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6156,7 +6326,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6168,7 +6339,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6228,7 +6400,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6240,7 +6413,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6300,7 +6474,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6312,7 +6487,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6372,7 +6548,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6384,7 +6561,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6444,7 +6622,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6456,7 +6635,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6516,7 +6696,8 @@
      "duration": "2h55",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6528,7 +6709,8 @@
      "duration": "3小时",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6588,7 +6770,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6600,7 +6783,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6660,7 +6844,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6672,7 +6857,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6732,7 +6918,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6744,7 +6931,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6804,7 +6992,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6816,7 +7005,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6876,7 +7066,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6888,7 +7079,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -6948,7 +7140,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -6960,7 +7153,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7020,7 +7214,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7032,7 +7227,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7092,7 +7288,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7104,7 +7301,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7164,7 +7362,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7176,7 +7375,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7236,7 +7436,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7248,7 +7449,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7308,7 +7510,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7320,7 +7523,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7380,7 +7584,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7392,7 +7597,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7452,7 +7658,8 @@
      "duration": "2h15",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7464,7 +7671,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7524,7 +7732,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7536,7 +7745,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7596,7 +7806,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7608,7 +7819,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7668,7 +7880,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7680,7 +7893,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7740,7 +7954,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7752,7 +7967,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7812,7 +8028,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7824,7 +8041,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7884,7 +8102,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7896,7 +8115,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -7956,7 +8176,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -7968,7 +8189,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -8028,7 +8250,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -8040,7 +8263,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -8100,7 +8324,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -8112,7 +8337,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -8172,7 +8398,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -8184,7 +8411,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -8244,7 +8472,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -8256,7 +8485,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -8316,7 +8546,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -8328,7 +8559,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
@@ -8388,7 +8620,8 @@
      "duration": "2h20",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "dep_terminal": "T1"
+     "dep_terminal": "T1",
+     "arr_terminal": ""
     },
     {
      "airline": "东方航空(MU)",
@@ -8400,7 +8633,8 @@
      "duration": "2h30",
      "aircraft": "空客A320/A321(中型)",
      "meal": "含餐食",
-     "arr_terminal": "T1"
+     "arr_terminal": "T1",
+     "dep_terminal": ""
     }
    ],
    "hotel_details": {
