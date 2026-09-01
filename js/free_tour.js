@@ -218,7 +218,8 @@
           var tag = idx === 0 ? '<span class="jj-f-tag">去程</span>' : '<span class="jj-f-tag jj-f-tag-ret">回程</span>';
           var depDate = (idx === 0 ? (p.dep_date || (p.dates && p.dates[0]) || '') : (p.return_date || (p.return_dates && p.return_dates[0]) || ''));
           var dateShort = depDate ? depDate.replace(/^\d{4}-/, '').replace(/-/g, '/') : '';
-          var _seatB = self._seatBadgeForFlight(f.flight);
+          // 余位=往返团票组合级（Howard 08-31 定案），参考单机票每卡仅一个徽章（2026-09-01：去/回程各显示一个不合理）
+          var _seatB = (idx === 0) ? self._seatBadgeForFlight(f.flight) : '';
           // 航站楼：独立字段（全量库一比一透传）优先；字段空时从机场名提取 T{n}（源嵌名归位，值来自源原文，非编造）。
           // _aptShort 已清洗机场名中的 T{n}，此处再拼不会重复——修复嵌名数据下航站楼两头丢失不显示的 BUG。
           var _dtm = String(f.dep_terminal || '') || (String(f.dep_airport || '').match(/T\d+/) || [''])[0];
@@ -451,7 +452,7 @@
         + (flightOpts ? '<div class="jjd-sec"><div class="jjd-sec-t">可选去程航班（' + flightChipCount + '个起飞时刻 · ' + (p.dates && p.dates[0] ? p.dates[0].slice(5).replace('-', '/') + ' 出发' : '') + '）</div><select id="comboFlight" class="jjd-combo-sel" onchange="FreeTour.switchFlight(this.value)">' + flightOpts + '</select></div>' : '')
         // 航班（详情库优先：机场/航站楼/机型/时长/餐食/WiFi）
         + (p.flights && p.flights.length ? '<div class="jjd-sec"><div class="jjd-sec-t">参考航班</div>'
-          + p.flights.map(function (f) {
+          + p.flights.map(function (f, fidx) {
             // 航站楼：独立字段优先，空则从机场名提取（源嵌名归位）；机场名先清洗 T{n} 防重复显示
             var _dtm = String(f.dep_terminal || '') || (String(f.dep_airport || '').match(/T\d+/) || [''])[0];
             var _atm = String(f.arr_terminal || '') || (String(f.arr_airport || '').match(/T\d+/) || [''])[0];
@@ -468,7 +469,7 @@
               + (_isStaff() && f.meal ? '<span>' + esc(f.meal) + '</span>' : '')
               + (f.wifi ? '<span>' + esc(f.wifi) + '</span>' : '')
               + (f.distance ? '<span>航程' + esc(f.distance) + '</span>' : '')
-              + (FreeTour._seatBadgeForFlight(f.flight) ? '<span class="jjd-f-seat">' + FreeTour._seatBadgeForFlight(f.flight) + '</span>' : '') + '</div></div>';
+              + (fidx === 0 && FreeTour._seatBadgeForFlight(f.flight) ? '<span class="jjd-f-seat">' + FreeTour._seatBadgeForFlight(f.flight) + '</span>' : '') + '</div></div>';
           }).join('') + '</div>' : '')
         // 选酒店下拉：自营=组合器(13家)联动；S132=hotels 下拉切换套餐与报价（独立分支，不碰 _selfbuild）
         + (isChunqiu ? this._cqComboHtml(p, cqIdx) : (isSup ? '' : this._comboHtml(p)))
