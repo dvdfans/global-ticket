@@ -203,6 +203,8 @@
       }
       // 航班行：紧凑式（对齐普通往返机票 .cf-leg 风格，适配手机浏览）
       // 机场取城市简称（去"国际机场"，留城市名），航班号+日期合一格，时刻+时长合一格，加去/回标签
+      // 2026-09-01（Howard 纠偏）：卡片航班行=城市+机场+航站楼（如 上海浦东T1 / 那霸T1），
+      //   与单机票报价卡片一致；城市归一（那霸→冲绳/亚庇→沙巴）只属于分组名 _aptCity，不进卡片。
       function _aptShort(a) {
         if (!a) return '';
         return String(a)
@@ -706,7 +708,9 @@
       var t = String(s || '').replace(/\s*T\d+$/i, '').replace(/\s*\([A-Z]{3}\)\s*$/, '').trim();
       t = t.replace(/国际机场$/, '').replace(/机场$/, '').trim();
       var ALIAS = ['浦东=上海', '虹桥=上海', '仁川=首尔', '金浦=首尔', '樟宜=新加坡', '关西=大阪',
-        '成田=东京', '羽田=东京', '萧山=杭州', '禄口=南京', '硕放=无锡', '栎社=宁波', '兴东=南通', '凤凰=三亚'];
+        '成田=东京', '羽田=东京', '萧山=杭州', '禄口=南京', '硕放=无锡', '栎社=宁波', '兴东=南通', '凤凰=三亚',
+        // 2026-09-01（Howard 定案）：目的地一律城市名，机场名不得当城市（与主站 IATA_CITY 同源）
+        '那霸=冲绳', '亚庇=沙巴', '济州=济州岛', '清州=清州'];
       for (var i = 0; i < ALIAS.length; i++) {
         var kv = ALIAS[i].split('=');
         if (t.indexOf(kv[0]) !== -1) return kv[1];
@@ -716,7 +720,9 @@
     _legName: function (p) {
       var rt = String(p.route || '');
       var fl = p.flights || [];
-      var dash = rt.replace(/→/g, '-');
+      // 2026-09-01（Howard 定案）：自由行分组名与单机票分组唯一区别=多一个「自由行」标签；
+      //   航线名统一用「→」分隔（原用「-」，与单机票不一致）。
+      var dash = rt.replace(/-/g, '→');
       if (!rt || fl.length < 2) return { pat: 'na', name: dash };
       var c = this._aptCity;
       var o1 = c(fl[0].dep_airport), o2 = c(fl[0].arr_airport);
@@ -724,13 +730,13 @@
       if (!o1 || !o2 || !r1 || !r2) return { pat: 'na', name: dash };
       var arr = (rt.split('→')[1] || '');
       if (o2 === r1) {
-        // 同城往返：到达城市与路由目的地互为包含（普吉/普吉岛、济州/济州岛、那霸/冲绳(那霸)、大阪/大阪京都）
+        // 同城往返：到达城市与路由目的地互为包含（普吉/普吉岛、济州/济州岛、冲绳(那霸)、大阪/大阪京都）
         //   → 沿用路由目的地文案（更完整）；仅语义不同（港澳块内澳门往返：澳门 vs 港澳）→ 用航段实际城市
         var _same = arr && (arr.indexOf(o2) !== -1 || o2.indexOf(arr) !== -1);
-        return { pat: 'same:' + (_same ? arr : o2), name: o1 + '-' + (_same ? arr : o2) };
+        return { pat: 'same:' + (_same ? arr : o2), name: o1 + '→' + (_same ? arr : o2) };
       }
       // 开口程（去程到达 ≠ 回程出发）
-      return { pat: 'open:' + o2 + '>' + r1, name: o1 + '-' + o2 + ' / ' + r1 + '-' + r2 };
+      return { pat: 'open:' + o2 + '>' + r1, name: o1 + '→' + o2 + ' / ' + r1 + '→' + r2 };
     },
 
     /* ── 分组渲染（原 render() 内自由行置顶分组块，返回 HTML 片段）─────────
@@ -827,7 +833,9 @@
         }
         var pers = cards.map(function (c) { return c.per; }).filter(Boolean);
         var mn = pers.length ? Math.min.apply(null, pers) : 0;
-        var countLabel = isSup ? (cards.length + '条') : (cards.length + ' 航班');
+        // 2026-09-01（Howard 定案）：分组计数三位补零 → 001条/023条，使「自由行」标签与「起价」在各分组头上下对齐
+        var _cnt3 = ('000' + cards.length).slice(-3);
+        var countLabel = isSup ? (_cnt3 + '条') : (_cnt3 + ' 航班');
         // 分组标题：航线 → 自由行标签（供应商/自营区分）→ 几天几晚 → 数量 → 最低价起
         html += '<div class="hm-group">'
           + '<div class="hm-group-hd" onclick="if(event.target.closest(\'.jj-card\'))return;toggleGroup(\'' + gid + '\')">'
