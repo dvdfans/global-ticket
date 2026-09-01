@@ -355,34 +355,6 @@
    ]
   },
   {
-   "id": "FM811|MU510",
-   "dep_city": "上海",
-   "route": "上海→香港",
-   "dest": "香港",
-   "flight_direct": 1999,
-   "avail": "20",
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM811",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "香港国际机场 (HKG)",
-     "dep_time": "09:40",
-     "arr_time": "12:45",
-     "duration": "3小时05分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU510",
-     "dep_airport": "香港国际机场 (HKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "17:05",
-     "arr_time": "19:40",
-     "duration": "2小时35分"
-    }
-   ]
-  },
-  {
    "id": "MU509|MU508",
    "dep_city": "上海",
    "route": "上海→香港",
@@ -407,6 +379,34 @@
      "dep_time": "15:05",
      "arr_time": "17:45",
      "duration": "2小时40分"
+    }
+   ]
+  },
+  {
+   "id": "FM811|MU510",
+   "dep_city": "上海",
+   "route": "上海→香港",
+   "dest": "香港",
+   "flight_direct": 2199,
+   "avail": "20",
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU510",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "17:05",
+     "arr_time": "19:40",
+     "duration": "2小时35分"
     }
    ]
   }
