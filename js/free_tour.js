@@ -219,13 +219,14 @@
           var depDate = (idx === 0 ? (p.dep_date || (p.dates && p.dates[0]) || '') : (p.return_date || (p.return_dates && p.return_dates[0]) || ''));
           var dateShort = depDate ? depDate.replace(/^\d{4}-/, '').replace(/-/g, '/') : '';
           var _seatB = self._seatBadgeForFlight(f.flight);
-          // 2026-08-31：卡片航站楼简称（航班定义表透传值，机场名未含才显示，防重复）
-          var _dterm = (f.dep_terminal && String(f.dep_airport).indexOf(f.dep_terminal) === -1) ? f.dep_terminal : '';
-          var _aterm = (f.arr_terminal && String(f.arr_airport).indexOf(f.arr_terminal) === -1) ? f.arr_terminal : '';
+          // 航站楼：独立字段（全量库一比一透传）优先；字段空时从机场名提取 T{n}（源嵌名归位，值来自源原文，非编造）。
+          // _aptShort 已清洗机场名中的 T{n}，此处再拼不会重复——修复嵌名数据下航站楼两头丢失不显示的 BUG。
+          var _dtm = String(f.dep_terminal || '') || (String(f.dep_airport || '').match(/T\d+/) || [''])[0];
+          var _atm = String(f.arr_terminal || '') || (String(f.arr_airport || '').match(/T\d+/) || [''])[0];
           return '<div class="jj-f-row">'
             + tag
             + '<span class="jj-f-flt">' + esc(f.flight || '') + (dateShort ? ' ' + esc(dateShort) : '') + '</span>'
-            + '<span class="jj-f-city">' + esc(_aptShort(f.dep_airport)) + (_dterm ? ' ' + esc(_dterm) : '') + '→' + esc(_aptShort(f.arr_airport)) + (_aterm ? ' ' + esc(_aterm) : '') + '</span>'
+            + '<span class="jj-f-city">' + esc(_aptShort(f.dep_airport)) + (_dtm ? ' ' + esc(_dtm) : '') + '→' + esc(_aptShort(f.arr_airport)) + (_atm ? ' ' + esc(_atm) : '') + '</span>'
             + '<span class="jj-f-time">' + esc(f.dep_time) + '-' + esc(f.arr_time) + (f.duration ? '（' + esc(f.duration) + '）' : '') + '</span>'
             + (_seatB ? '<span class="jj-f-seat">' + _seatB + '</span>' : '')
             + '</div>';
@@ -237,6 +238,7 @@
       // 2026-08-26（供应商）：供应商套餐不走 _selfbuild，直接用自身 hotel_details 渲染，不挂「13 家」组合器。
       var sb = isSup ? null : this.JJ._selfbuild;
       var _minHotel = null, _minPer = Infinity;
+      var _destCnt = 0;   // 2026-09-01：dest 过滤后的可选酒店数——计数与起价同口径，修「共 N 家可选」不实（全池香港+澳门混计）
       if (sb && sb.hotels && sb.hotels.length) {
         var _f = this._findFlight(p);
         var _F = _f ? (Number(_f.flight_direct) || 0) : 0;
@@ -244,6 +246,7 @@
         var _dest = this._selfDest(p);
         for (var _hi = 0; _hi < sb.hotels.length; _hi++) {
           if (_dest != null && _dest !== '' && sb.hotels[_hi].dest !== _dest) continue;
+          _destCnt++;
           var _R = Number(sb.hotels[_hi].hotel_total) || 0;
           var _per = Math.round(_F + _R / 2);
           if (_per < _minPer) { _minPer = _per; _minHotel = sb.hotels[_hi]; }
@@ -260,7 +263,7 @@
         var _en = hd.en_name || '';
         var moreTxt = isSup
           ? '🏨 查看套餐酒店 › <span class="jj-hotel-more-sub">进详情页看全部组合</span>'
-          : '🏨 更多酒店组合 › <span class="jj-hotel-more-sub">共 ' + (sb && sb.hotels ? sb.hotels.length : 1) + ' 家可选 · 进详情页切换</span>';
+          : '🏨 更多酒店组合 › <span class="jj-hotel-more-sub">共 ' + (_destCnt || 1) + ' 家可选 · 进详情页切换</span>';
         hotelHtml = '<div class="jj-hotel">'
           // 2026-08-31：酒店官网链接仅员工端可见（Howard 定案）；游客端酒店名纯文本、不暴露外链
           + ((_isStaff() && firstUrl)
@@ -449,10 +452,15 @@
         // 航班（详情库优先：机场/航站楼/机型/时长/餐食/WiFi）
         + (p.flights && p.flights.length ? '<div class="jjd-sec"><div class="jjd-sec-t">参考航班</div>'
           + p.flights.map(function (f) {
+            // 航站楼：独立字段优先，空则从机场名提取（源嵌名归位）；机场名先清洗 T{n} 防重复显示
+            var _dtm = String(f.dep_terminal || '') || (String(f.dep_airport || '').match(/T\d+/) || [''])[0];
+            var _atm = String(f.arr_terminal || '') || (String(f.arr_airport || '').match(/T\d+/) || [''])[0];
+            var _dname = String(f.dep_airport || '').replace(/T\d+/g, '').replace(/\s+/g, ' ').trim();
+            var _aname = String(f.arr_airport || '').replace(/T\d+/g, '').replace(/\s+/g, ' ').trim();
             return '<div class="jjd-flight-card"><div class="jjd-f-hd"><span class="jjd-f-flt">' + esc(f.flight) + '</span>'
               + '<span class="jjd-f-airline">' + esc(f.airline) + '</span><span class="jjd-f-dur">' + esc(f.duration) + '</span></div>'
-              + '<div class="jjd-f-row"><span class="jjd-f-air">' + esc(f.dep_airport) + (f.dep_terminal && f.dep_airport.indexOf(f.dep_terminal) === -1 ? ' ' + esc(f.dep_terminal) : '') + '</span>'
-              + '<span class="jjd-f-arrow">→</span><span class="jjd-f-air">' + esc(f.arr_airport) + (f.arr_terminal && f.arr_airport.indexOf(f.arr_terminal) === -1 ? ' ' + esc(f.arr_terminal) : '') + '</span></div>'
+              + '<div class="jjd-f-row"><span class="jjd-f-air">' + esc(_dname) + (_dtm ? ' ' + esc(_dtm) : '') + '</span>'
+              + '<span class="jjd-f-arrow">→</span><span class="jjd-f-air">' + esc(_aname) + (_atm ? ' ' + esc(_atm) : '') + '</span></div>'
               + '<div class="jjd-f-time">' + esc(f.dep_time) + ' — ' + esc(f.arr_time) + '</div>'
               // 2026-08-31：机型/餐食属「外部信息」，按权限清单 1.1 = 全体登录人员可见（原为 canSeeSupplier 仅3人，过严）。
               // _isStaffUser 定义于 app_main.js（本文件之后加载），运行时解析，故用 typeof 守卫。
