@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-02 22:02:18",
+ "build_time": "2026-09-03 07:05:46",
  "packages": [
   {
    "internal": true,
@@ -608,196 +608,6 @@
    "itinerary": "10月4日（周日）·第一天：无锡硕放机场 (WUX) 飞往 济州国际机场 (CJU)。落地后专车送到五花特二酒店（济州岛·济州市区），不用自己找路。14:00后办理入住。 10月5日（周一）·第二天：自由活动，行程自己安排。济州岛·济州市区周边吃饭逛街都方便。 10月6日（周二）·第三天：自由活动。 10月7日（周三）·第四天：自由活动。 10月8日（周四）·第五天：12:00前退房，前往济州国际机场 (CJU) 乘返程航班回无锡硕放机场 (WUX)。全程共4晚。",
    "has_pickup": true,
    "child_policy": "1人起发，12周岁以下儿童不占床-400元/人"
-  },
-  {
-   "internal": true,
-   "supplier": "124",
-   "subtable": "124-杭州首尔",
-   "dep": "杭州",
-   "arr": "首尔",
-   "route": "杭州→首尔",
-   "country": "韩国",
-   "days": "4",
-   "nights": "3",
-   "price": 4599,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级",
-   "flight": "CA139",
-   "flight_return": "CA140",
-   "flight_desc": "CA139 杭州→首尔 09:20-12:25 回 CA140 首尔→杭州 13:35-14:55",
-   "baggage": "",
-   "highlights": [
-    "仁川机场至首尔酒店接送机(机酒套餐)",
-    "免税店金卡折扣"
-   ],
-   "flights": [
-    {
-     "airline": "国航(CA)",
-     "flight": "CA139",
-     "dep_airport": "杭州萧山国际机场 (HGH)",
-     "arr_airport": "仁川国际机场 (ICN)",
-     "dep_time": "09:20",
-     "arr_time": "12:25",
-     "duration": "2小时5分",
-     "via": ""
-    },
-    {
-     "airline": "国航(CA)",
-     "flight": "CA140",
-     "dep_airport": "首尔仁川国际机场 (ICN)",
-     "arr_airport": "杭州萧山国际机场 (HGH)",
-     "dep_time": "13:35",
-     "arr_time": "14:55",
-     "duration": "2小时20分",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级",
-    "display_name": "东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级",
-    "star": "4星",
-    "address": "东大门天空花园：首尔中区东湖路335号（Skypark Dongdaemun I） / 东大门瑞森：首尔东大门区千户大路383号（The Recenz Dongdaemun） / 明洞世运：首尔中区乙支路19街23-1（The Botanik Sewoon Myeongdong） / 明洞索拉格：首尔中区忠武路2街9号（Sollago Myeongdong Hotel & Residence） / 明洞美利来：首尔中区退溪路115号（Migliore Hotel Seoul Myeongdong） / 明洞国都：首尔中区乙支路164号（Best Western Premier Kukdo）",
-    "url": "https://www.skyparkhotel.com/",
-    "urls": [
-     {
-      "name": "东大门天空花园",
-      "url": "https://www.skyparkhotel.com/"
-     },
-     {
-      "name": "明洞索拉格",
-      "url": "https://sollagomyeongdonghotel.com"
-     },
-     {
-      "name": "明洞美利来",
-      "url": "https://migliorehotel.co.kr"
-     },
-     {
-      "name": "明洞国都",
-      "url": "https://hotelkukdo.com"
-     }
-    ],
-    "note": "无早",
-    "plan": "3晚 首尔·东大门：东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级（同级替换，具体入住视当地房态安排）",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "首尔·东大门",
-      "hotels": [
-       "东大门天空花园1号店",
-       "明洞世运酒店",
-       "明洞索拉格酒店",
-       "明洞美利来酒店",
-       "明洞国都酒店",
-       "东大门瑞森酒店或同级"
-      ],
-      "same_level": true
-     }
-    ]
-   },
-   "itinerary": "9月3日（周四）·第一天：杭州萧山国际机场 (HGH) 飞往 仁川国际机场 (ICN)。落地后专车送到东大门天空花园1号店，不用自己找路。14:00后办理入住。 9月4日（周五）·第二天：自由活动，行程自己安排。首尔·东大门周边吃饭逛街都方便。 9月5日（周六）·第三天：自由活动。 9月6日（周日）·第四天：12:00前退房，前往仁川国际机场 (ICN) 乘返程航班回杭州萧山国际机场 (HGH)。全程共3晚。",
-   "has_pickup": true,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "124",
-   "subtable": "124-杭州首尔",
-   "dep": "杭州",
-   "arr": "首尔",
-   "route": "杭州→首尔",
-   "country": "韩国",
-   "days": "4",
-   "nights": "3",
-   "price": 5399,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级",
-   "flight": "CA139",
-   "flight_return": "CA140",
-   "flight_desc": "CA139 杭州→首尔 09:20-12:25 回 CA140 首尔→杭州 13:35-14:55",
-   "baggage": "",
-   "highlights": [
-    "仁川机场至首尔酒店接送机(机酒套餐)",
-    "免税店金卡折扣"
-   ],
-   "flights": [
-    {
-     "airline": "国航(CA)",
-     "flight": "CA139",
-     "dep_airport": "杭州萧山国际机场 (HGH)",
-     "arr_airport": "仁川国际机场 (ICN)",
-     "dep_time": "09:20",
-     "arr_time": "12:25",
-     "duration": "2小时5分",
-     "via": ""
-    },
-    {
-     "airline": "国航(CA)",
-     "flight": "CA140",
-     "dep_airport": "首尔仁川国际机场 (ICN)",
-     "arr_airport": "杭州萧山国际机场 (HGH)",
-     "dep_time": "13:35",
-     "arr_time": "14:55",
-     "duration": "2小时20分",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级",
-    "display_name": "东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级",
-    "star": "5星",
-    "address": "东大门天空花园：首尔中区东湖路335号（Skypark Dongdaemun I） / 东大门瑞森：首尔东大门区千户大路383号（The Recenz Dongdaemun） / 明洞世运：首尔中区乙支路19街23-1（The Botanik Sewoon Myeongdong） / 明洞索拉格：首尔中区忠武路2街9号（Sollago Myeongdong Hotel & Residence） / 明洞美利来：首尔中区退溪路115号（Migliore Hotel Seoul Myeongdong） / 明洞国都：首尔中区乙支路164号（Best Western Premier Kukdo）",
-    "url": "https://www.skyparkhotel.com/",
-    "urls": [
-     {
-      "name": "东大门天空花园",
-      "url": "https://www.skyparkhotel.com/"
-     },
-     {
-      "name": "明洞索拉格",
-      "url": "https://sollagomyeongdonghotel.com"
-     },
-     {
-      "name": "明洞美利来",
-      "url": "https://migliorehotel.co.kr"
-     },
-     {
-      "name": "明洞国都",
-      "url": "https://hotelkukdo.com"
-     }
-    ],
-    "note": "无早",
-    "plan": "3晚 首尔·东大门：东大门天空花园1号店/明洞世运酒店/明洞索拉格酒店/明洞美利来酒店/明洞国都酒店/东大门瑞森酒店或同级（同级替换，具体入住视当地房态安排）",
-    "segs": [
-     {
-      "nights": 3,
-      "location": "首尔·东大门",
-      "hotels": [
-       "东大门天空花园1号店",
-       "明洞世运酒店",
-       "明洞索拉格酒店",
-       "明洞美利来酒店",
-       "明洞国都酒店",
-       "东大门瑞森酒店或同级"
-      ],
-      "same_level": true
-     }
-    ]
-   },
-   "itinerary": "9月3日（周四）·第一天：杭州萧山国际机场 (HGH) 飞往 仁川国际机场 (ICN)。落地后专车送到东大门天空花园1号店，不用自己找路。14:00后办理入住。 9月4日（周五）·第二天：自由活动，行程自己安排。首尔·东大门周边吃饭逛街都方便。 9月5日（周六）·第三天：自由活动。 9月6日（周日）·第四天：12:00前退房，前往仁川国际机场 (ICN) 乘返程航班回杭州萧山国际机场 (HGH)。全程共3晚。",
-   "has_pickup": true,
-   "child_policy": ""
   },
   {
    "internal": true,
@@ -2071,7 +1881,7 @@
    "flight": "MU5071",
    "flight_return": "MU5072",
    "flight_desc": "MU5071 杭州→首尔 07:55-10:55 回 MU5072 首尔→杭州 11:55-13:05",
-   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
+   "baggage": "",
    "highlights": [
     "仁川机场至首尔酒店接送机(机酒套餐)",
     "免税店金卡折扣"
@@ -2085,11 +1895,7 @@
      "dep_time": "07:55",
      "arr_time": "10:55",
      "duration": "2小时0分",
-     "via": "",
-     "aircraft": "空客A320/A321(中型)",
-     "meal": "含餐食",
-     "dep_terminal": "T4",
-     "arr_terminal": "1"
+     "via": ""
     },
     {
      "airline": "东航(MU)",
@@ -2099,11 +1905,7 @@
      "dep_time": "11:55",
      "arr_time": "13:05",
      "duration": "2小时10分",
-     "via": "",
-     "aircraft": "空客A320/A321(中型)",
-     "meal": "含餐食",
-     "dep_terminal": "1",
-     "arr_terminal": "T4"
+     "via": ""
     }
    ],
    "hotel_details": {
@@ -2150,8 +1952,7 @@
    },
    "itinerary": "9月5日（周六）·第一天：杭州萧山国际机场 (HGH) 飞往 仁川国际机场 (ICN)。落地后专车送到东大门天空花园1号店，不用自己找路。14:00后办理入住。 9月6日（周日）·第二天：自由活动，行程自己安排。首尔·东大门周边吃饭逛街都方便。 9月7日（周一）·第三天：自由活动。 9月8日（周二）·第四天：自由活动。 9月9日（周三）·第五天：12:00前退房，前往仁川国际机场 (ICN) 乘返程航班回杭州萧山国际机场 (HGH)。全程共4晚。",
    "has_pickup": true,
-   "child_policy": "",
-   "avail": "7"
+   "child_policy": ""
   },
   {
    "internal": true,
@@ -2175,7 +1976,7 @@
    "flight": "MU5071",
    "flight_return": "MU5072",
    "flight_desc": "MU5071 杭州→首尔 07:55-10:55 回 MU5072 首尔→杭州 11:55-13:05",
-   "baggage": "托运行李 2件×23kg · 手提行李 1件8kg",
+   "baggage": "",
    "highlights": [
     "仁川机场至首尔酒店接送机(机酒套餐)",
     "免税店金卡折扣"
@@ -2189,11 +1990,7 @@
      "dep_time": "07:55",
      "arr_time": "10:55",
      "duration": "2小时0分",
-     "via": "",
-     "aircraft": "空客A320/A321(中型)",
-     "meal": "含餐食",
-     "dep_terminal": "T4",
-     "arr_terminal": "1"
+     "via": ""
     },
     {
      "airline": "东航(MU)",
@@ -2203,11 +2000,7 @@
      "dep_time": "11:55",
      "arr_time": "13:05",
      "duration": "2小时10分",
-     "via": "",
-     "aircraft": "空客A320/A321(中型)",
-     "meal": "含餐食",
-     "dep_terminal": "1",
-     "arr_terminal": "T4"
+     "via": ""
     }
    ],
    "hotel_details": {
@@ -2254,8 +2047,7 @@
    },
    "itinerary": "9月5日（周六）·第一天：杭州萧山国际机场 (HGH) 飞往 仁川国际机场 (ICN)。落地后专车送到东大门天空花园1号店，不用自己找路。14:00后办理入住。 9月6日（周日）·第二天：自由活动，行程自己安排。首尔·东大门周边吃饭逛街都方便。 9月7日（周一）·第三天：自由活动。 9月8日（周二）·第四天：自由活动。 9月9日（周三）·第五天：12:00前退房，前往仁川国际机场 (ICN) 乘返程航班回杭州萧山国际机场 (HGH)。全程共4晚。",
    "has_pickup": true,
-   "child_policy": "",
-   "avail": "7"
+   "child_policy": ""
   },
   {
    "internal": true,
@@ -16052,60 +15844,6 @@
    "price": 1249,
    "price_type": "直客价",
    "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-08"
-   ],
-   "hotel": "古城内客栈（福临/青苔，随机安排）",
-   "flight": "9C6617",
-   "flight_return": "9C6618",
-   "flight_desc": "9C6617 上海浦东T2-丽江三义 17:00-20:55 回 9C6618 丽江三义-上海浦东T2 21:40-01:10",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6617",
-     "dep_airport": "上海浦东T2",
-     "arr_airport": "丽江三义",
-     "dep_time": "17:00",
-     "arr_time": "20:55",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6618",
-     "dep_airport": "丽江三义",
-     "arr_airport": "上海浦东T2",
-     "dep_time": "21:40",
-     "arr_time": "01:10",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "古城内客栈（福临/青苔，随机安排）",
-    "display_name": "古城内客栈（福临/青苔，随机安排）"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海浦东T2 飞往 丽江三义。落地后自行前往古城内客栈（福临/青苔，随机安排）。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：自由活动，行程自行安排。\n9月7日（周日）·第五天：自由活动，行程自行安排。\n9月8日（周一）·第六天：睡到自然醒，退房后前往上海浦东T2，9C6618 返回上海浦东T2。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-丽江",
-   "dep": "上海",
-   "arr": "丽江",
-   "route": "上海→丽江",
-   "country": "国内",
-   "days": "6",
-   "nights": "1",
-   "price": 1249,
-   "price_type": "直客价",
-   "dates": [
     "2026-09-04"
    ],
    "return_dates": [
@@ -17062,60 +16800,6 @@
     "display_name": "古城内客栈（福临/青苔，随机安排）"
    },
    "itinerary": "9月24日（周三）·第一天：上海浦东T2 飞往 丽江三义。落地后自行前往古城内客栈（福临/青苔，随机安排）。14:00后办理入住。\n9月25日（周四）·第二天：自由活动，行程自行安排。\n9月26日（周五）·第三天：自由活动，行程自行安排。\n9月27日（周六）·第四天：自由活动，行程自行安排。\n9月28日（周日）·第五天：自由活动，行程自行安排。\n9月29日（周一）·第六天：睡到自然醒，退房后前往上海浦东T2，9C6618 返回上海浦东T2。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-揭阳",
-   "dep": "上海",
-   "arr": "潮汕",
-   "route": "上海→潮汕",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1149,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-07"
-   ],
-   "hotel": "汕头逸居酒店(万象城龙眼南路店)商务房 + 潮州麗枫酒店（潮汕高铁站揭阳潮汕国际机场店）豪华房",
-   "flight": "9C6223",
-   "flight_return": "9C6224",
-   "flight_desc": "9C6223 浦东T2-揭阳 1700-1935 回 9C6224 揭阳-浦东T2 1315-1525",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6223",
-     "dep_airport": "浦东T2",
-     "arr_airport": "揭阳",
-     "dep_time": "1700",
-     "arr_time": "1935",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6224",
-     "dep_airport": "揭阳",
-     "arr_airport": "浦东T2",
-     "dep_time": "1315",
-     "arr_time": "1525",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "汕头逸居酒店(万象城龙眼南路店)商务房 + 潮州麗枫酒店（潮汕高铁站揭阳潮汕国际机场店）豪华房",
-    "display_name": "汕头逸居酒店(万象城龙眼南路店)商务房 + 潮州麗枫酒店（潮汕高铁站揭阳潮汕国际机场店）豪华房"
-   },
-   "itinerary": "9月3日（周三）·第一天：浦东T2 飞往 揭阳。落地后自行前往汕头逸居酒店(万象城龙眼南路店)商务房 + 潮州麗枫酒店（潮汕高铁站揭阳潮汕国际机场店）豪华房。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：自由活动，行程自行安排。\n9月7日（周日）·第五天：睡到自然醒，退房后前往浦东T2，9C6224 返回浦东T2。",
    "has_pickup": false,
    "child_policy": ""
   },
@@ -19724,60 +19408,6 @@
    "price": 1509,
    "price_type": "直客价",
    "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-07"
-   ],
-   "hotel": "成都桔子酒店（天府广场宽窄巷子店，大床房，含早餐）",
-   "flight": "9C8819",
-   "flight_return": "9C8820",
-   "flight_desc": "9C8819 上海虹桥T1-成都天府T2 0750-1050 回 9C8820 成都天府T2-上海虹桥T1 2010-2250",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8819",
-     "dep_airport": "上海虹桥T1",
-     "arr_airport": "成都天府T2",
-     "dep_time": "0750",
-     "arr_time": "1050",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8820",
-     "dep_airport": "成都天府T2",
-     "arr_airport": "上海虹桥T1",
-     "dep_time": "2010",
-     "arr_time": "2250",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "成都桔子酒店（天府广场宽窄巷子店，大床房，含早餐）",
-    "display_name": "成都桔子酒店（天府广场宽窄巷子店，大床房，含早餐）"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海虹桥T1 飞往 成都天府T2。落地后自行前往成都桔子酒店（天府广场宽窄巷子店，大床房，含早餐）。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：自由活动，行程自行安排。\n9月7日（周日）·第五天：睡到自然醒，退房后前往上海虹桥T1，9C8820 返回上海虹桥T1。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-成都2",
-   "dep": "上海",
-   "arr": "成都",
-   "route": "上海→成都",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1509,
-   "price_type": "直客价",
-   "dates": [
     "2026-09-04"
    ],
    "return_dates": [
@@ -20842,60 +20472,6 @@
     "display_name": "雅悦蓝天酒店（成都首尾2晚，豪华双床房，含早餐）+天源豪生度假酒店/九寨庄园国际大酒店（九寨沟2晚网评5钻2选1）"
    },
    "itinerary": "9月8日（周一）·第一天：上海虹桥T1 飞往 成都天府T2。落地后自行前往雅悦蓝天酒店（成都首尾2晚，豪华双床房，含早餐）+天源豪生度假酒店/九寨庄园国际大酒店（九寨沟2晚网评5钻2选1）。14:00后办理入住。\n9月9日（周二）·第二天：自由活动，行程自行安排。\n9月10日（周三）·第三天：自由活动，行程自行安排。\n9月11日（周四）·第四天：自由活动，行程自行安排。\n9月12日（周五）·第五天：睡到自然醒，退房后前往上海虹桥T1，9C8820 返回上海虹桥T1。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-成都+九寨沟",
-   "dep": "上海",
-   "arr": "成都+九寨沟",
-   "route": "上海→成都+九寨沟",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1889,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-07"
-   ],
-   "hotel": "雅悦蓝天酒店（成都首尾2晚，豪华双床房，含早餐）+天源豪生度假酒店/九寨庄园国际大酒店（九寨沟2晚网评5钻2选1）",
-   "flight": "9C8819",
-   "flight_return": "9C8820",
-   "flight_desc": "9C8819 上海虹桥T1-成都天府T2 0750-1050 回 9C8820 成都天府T2-上海虹桥T1 2010-2250",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8819",
-     "dep_airport": "上海虹桥T1",
-     "arr_airport": "成都天府T2",
-     "dep_time": "0750",
-     "arr_time": "1050",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8820",
-     "dep_airport": "成都天府T2",
-     "arr_airport": "上海虹桥T1",
-     "dep_time": "2010",
-     "arr_time": "2250",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "雅悦蓝天酒店（成都首尾2晚，豪华双床房，含早餐）+天源豪生度假酒店/九寨庄园国际大酒店（九寨沟2晚网评5钻2选1）",
-    "display_name": "雅悦蓝天酒店（成都首尾2晚，豪华双床房，含早餐）+天源豪生度假酒店/九寨庄园国际大酒店（九寨沟2晚网评5钻2选1）"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海虹桥T1 飞往 成都天府T2。落地后自行前往雅悦蓝天酒店（成都首尾2晚，豪华双床房，含早餐）+天源豪生度假酒店/九寨庄园国际大酒店（九寨沟2晚网评5钻2选1）。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：自由活动，行程自行安排。\n9月7日（周日）·第五天：睡到自然醒，退房后前往上海虹桥T1，9C8820 返回上海虹桥T1。",
    "has_pickup": false,
    "child_policy": ""
   },
@@ -23326,60 +22902,6 @@
     "display_name": "雨林公园戴斯温德姆酒店"
    },
    "itinerary": "9月22日（周一）·第一天：浦东T2 飞往 版纳。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月23日（周二）·第二天：自由活动，行程自行安排。\n9月24日（周三）·第三天：自由活动，行程自行安排。\n9月25日（周四）·第四天：自由活动，行程自行安排。\n9月26日（周五）·第五天：睡到自然醒，退房后前往浦东T2，9C6450 返回浦东T2。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1949,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-07"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "浦东T2",
-     "arr_airport": "版纳",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "版纳",
-     "arr_airport": "浦东T2",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天：浦东T2 飞往 版纳。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：自由活动，行程自行安排。\n9月7日（周日）·第五天：睡到自然醒，退房后前往浦东T2，9C6450 返回浦东T2。",
    "has_pickup": false,
    "child_policy": ""
   },
@@ -26150,60 +25672,6 @@
    "price": 1849,
    "price_type": "直客价",
    "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "亚庇元明酒店",
-   "flight": "9C8593",
-   "flight_return": "9C8594",
-   "flight_desc": "9C8593 上海亚庇 22:10-02:35 回 9C8594 亚庇-上海 03:35-08:15",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8593",
-     "dep_airport": "上海浦东机场",
-     "arr_airport": "亚庇国际机场",
-     "dep_time": "22:10",
-     "arr_time": "02:35",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8594",
-     "dep_airport": "亚庇国际机场 (BKI)",
-     "arr_airport": "上海浦东机场",
-     "dep_time": "03:35",
-     "arr_time": "08:15",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "亚庇元明酒店",
-    "display_name": "亚庇元明酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天： 飞往 。落地后自行前往亚庇元明酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：自由活动，行程自行安排。\n9月7日（周日）·第五天：自由活动，行程自行安排。\n9月8日（周一）·第六天：自由活动，行程自行安排。\n9月9日（周二）·第七天：睡到自然醒，退房后前往，9C8594 返回。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-沙巴",
-   "dep": "上海",
-   "arr": "沙巴",
-   "route": "上海→沙巴",
-   "country": "东南亚",
-   "days": "7",
-   "nights": "5",
-   "price": 1849,
-   "price_type": "直客价",
-   "dates": [
     "2026-09-05"
    ],
    "return_dates": [
@@ -26998,60 +26466,6 @@
     "display_name": "重庆IU酒店"
    },
    "itinerary": "9月10日（周三）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆IU酒店。14:00后办理入住。\n9月11日（周四）·第二天：自由活动，行程自行安排。\n9月12日（周五）·第三天：自由活动，行程自行安排。\n9月13日（周六）·第四天：自由活动，行程自行安排。\n9月14日（周日）·第五天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "4",
-   "nights": "4",
-   "price": 1755,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "重庆Pagoda君亭设计酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东",
-     "arr_airport": "重庆江北",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北",
-     "arr_airport": "上海浦东",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆Pagoda君亭设计酒店",
-    "display_name": "重庆Pagoda君亭设计酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆Pagoda君亭设计酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
    "has_pickup": false,
    "child_policy": ""
   },
@@ -28904,60 +28318,6 @@
    "price": 1440,
    "price_type": "直客价",
    "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "重庆丽怡酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东",
-     "arr_airport": "重庆江北",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北",
-     "arr_airport": "上海浦东",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆丽怡酒店",
-    "display_name": "重庆丽怡酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆丽怡酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "4",
-   "nights": "4",
-   "price": 1440,
-   "price_type": "直客价",
-   "dates": [
     "2026-09-04"
    ],
    "return_dates": [
@@ -30794,60 +30154,6 @@
    "price": 1695,
    "price_type": "直客价",
    "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "重庆华宇温德姆至尊豪廷大酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东",
-     "arr_airport": "重庆江北",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北",
-     "arr_airport": "上海浦东",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆华宇温德姆至尊豪廷大酒店",
-    "display_name": "重庆华宇温德姆至尊豪廷大酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆华宇温德姆至尊豪廷大酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "4",
-   "nights": "4",
-   "price": 1695,
-   "price_type": "直客价",
-   "dates": [
     "2026-09-04"
    ],
    "return_dates": [
@@ -32344,60 +31650,6 @@
     "display_name": "重庆大集Pagoda君亭设计酒店"
    },
    "itinerary": "9月27日（周六）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆大集Pagoda君亭设计酒店。14:00后办理入住。\n9月28日（周日）·第二天：自由活动，行程自行安排。\n9月29日（周一）·第三天：自由活动，行程自行安排。\n9月30日（周二）·第四天：自由活动，行程自行安排。\n10月1日（周三）·第五天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "4",
-   "nights": "4",
-   "price": 1350,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "重庆宾顿朗逸酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东",
-     "arr_airport": "重庆江北",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北",
-     "arr_airport": "上海浦东",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆宾顿朗逸酒店",
-    "display_name": "重庆宾顿朗逸酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆宾顿朗逸酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
    "has_pickup": false,
    "child_policy": ""
   },
@@ -33980,60 +33232,6 @@
    "price": 1545,
    "price_type": "直客价",
    "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "重庆观音桥华美达安可酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东",
-     "arr_airport": "重庆江北",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北",
-     "arr_airport": "上海浦东",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆观音桥华美达安可酒店",
-    "display_name": "重庆观音桥华美达安可酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆观音桥华美达安可酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "4",
-   "nights": "4",
-   "price": 1545,
-   "price_type": "直客价",
-   "dates": [
     "2026-09-04"
    ],
    "return_dates": [
@@ -35260,60 +34458,6 @@
     "display_name": "重庆观音桥华美达安可酒店"
    },
    "itinerary": "9月27日（周六）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆观音桥华美达安可酒店。14:00后办理入住。\n9月28日（周日）·第二天：自由活动，行程自行安排。\n9月29日（周一）·第三天：自由活动，行程自行安排。\n9月30日（周二）·第四天：自由活动，行程自行安排。\n10月1日（周三）·第五天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
-   "has_pickup": false,
-   "child_policy": ""
-  },
-  {
-   "internal": true,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "4",
-   "nights": "4",
-   "price": 1290,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-03"
-   ],
-   "return_dates": [
-    "2026-09-06"
-   ],
-   "hotel": "重庆辉米酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东",
-     "arr_airport": "重庆江北",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "duration": "",
-     "via": ""
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北",
-     "arr_airport": "上海浦东",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "duration": "",
-     "via": ""
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆辉米酒店",
-    "display_name": "重庆辉米酒店"
-   },
-   "itinerary": "9月3日（周三）·第一天：上海浦东 飞往 重庆江北。落地后自行前往重庆辉米酒店。14:00后办理入住。\n9月4日（周四）·第二天：自由活动，行程自行安排。\n9月5日（周五）·第三天：自由活动，行程自行安排。\n9月6日（周六）·第四天：睡到自然醒，退房后前往上海浦东，9C8868 返回上海浦东。",
    "has_pickup": false,
    "child_policy": ""
   },
