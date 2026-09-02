@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-09-02 20:22:17",
+  "build_time": "2026-09-02 22:01:53",
   "record_count": 2168,
   "records": [
     {
@@ -6985,7 +6985,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "10+",
+      "seats": "7",
       "erp_seats": "10",
       "airline": "CA",
       "airline_cn": "国航",
@@ -8025,7 +8025,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "3",
+      "seats": "2",
       "erp_seats": "10",
       "airline": "JL",
       "airline_cn": "日航",
