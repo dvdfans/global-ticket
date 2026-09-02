@@ -240,7 +240,7 @@
             + tag
             + '<span class="jj-f-flt">' + esc(f.flight || '') + (dateShort ? ' ' + esc(dateShort) : '') + '</span>'
             + '<span class="jj-f-city">' + esc(_aptShort(f.dep_airport)) + (_dtm ? ' ' + esc(_dtm) : '') + '→' + esc(_aptShort(f.arr_airport)) + (_atm ? ' ' + esc(_atm) : '') + '</span>'
-            + '<span class="jj-f-time">' + esc(f.dep_time) + '-' + esc(f.arr_time) + (f.duration ? '（' + esc(f.duration) + '）' : '') + '</span>'
+            + '<span class="jj-f-time">' + esc(FreeTour._fmtTime(f.dep_time)) + '-' + esc(FreeTour._fmtTime(f.arr_time)) + (f.duration ? '（' + esc(f.duration) + '）' : '') + '</span>'
             + '</div>';
         }).join('');
       } else if (p.flight_desc) {
@@ -479,7 +479,7 @@
               + '<span class="jjd-f-airline">' + esc(f.airline) + '</span><span class="jjd-f-dur">' + esc(f.duration) + '</span></div>'
               + '<div class="jjd-f-row"><span class="jjd-f-air">' + esc(_dname) + (_dtm ? ' ' + esc(_dtm) : '') + '</span>'
               + '<span class="jjd-f-arrow">→</span><span class="jjd-f-air">' + esc(_aname) + (_atm ? ' ' + esc(_atm) : '') + '</span></div>'
-              + '<div class="jjd-f-time">' + esc(f.dep_time) + ' — ' + esc(f.arr_time) + '</div>'
+              + '<div class="jjd-f-time">' + esc(FreeTour._fmtTime(f.dep_time)) + ' - ' + esc(FreeTour._fmtTime(f.arr_time)) + '</div>'
               // 2026-08-31：机型/餐食属「外部信息」，按权限清单 1.1 = 全体登录人员可见（原为 canSeeSupplier 仅3人，过严）。
               // _isStaffUser 定义于 app_main.js（本文件之后加载），运行时解析，故用 typeof 守卫。
               + '<div class="jjd-f-tags">' + (_isStaff() && f.aircraft ? '<span>' + esc(f.aircraft) + '</span>' : '')
@@ -613,9 +613,9 @@
           var dep = (f.dep_airport || '').replace(/ \(([A-Z]{3})\)/, '');
           var arr = (f.arr_airport || '').replace(/ \(([A-Z]{3})\)/, '');
           var t = (i === 0 ? '✈ 去程 ' : '✈ 回程 ') + (f.flight || '')
-            + (dep ? ' ' + dep : '') + (f.dep_time ? ' ' + f.dep_time : '')
-            + (f.arr_time ? ' → ' + f.arr_time : '') + (arr ? ' ' + arr : '')
-            + (f.duration ? '（约' + f.duration + '）' : '');
+            + (dep ? ' ' + dep : '') + (f.dep_time ? ' ' + FreeTour._fmtTime(f.dep_time) : '')
+            + (f.arr_time ? ' - ' + FreeTour._fmtTime(f.arr_time) : '') + (arr ? ' ' + arr : '')
+            + (f.duration ? '（' + f.duration + '）' : '');
           L.push(t);
         });
       } else if (p.flight_desc) {
@@ -719,6 +719,19 @@
      * 城市从航段机场名归一（剥航站楼/IATA码/机场后缀 + 地名别名表）；
      * 航段/机场数据缺失 → fail-closed 用路由文案转同款「-」格式（route 本身是结构化 出发→目的，非猜测）。
      * 显示名同时并入分组键 → 同源路由混排（上海→港澳 4天3晚 = 7澳门往返+2香港进澳门出）自动拆块。 */
+    // 2026-09-01（Howard 定案）：时刻表统一——源中部分航段时间为紧凑 24h 制（如 1425 / 900，无冒号），
+    //   展示层规整为 HH:MM；数据字段保持原值（一比一透传），仅展示层归一，与机场别名同原则。
+    //   非数字（如「待定」）原样保留，不编造。
+    _fmtTime: function (t) {
+      t = String(t == null ? '' : t).trim();
+      if (!t || t.indexOf(':') !== -1) return t;
+      if (/^\d{3,4}$/.test(t)) {
+        if (t.length === 3) t = '0' + t;
+        var h = parseInt(t.slice(0, 2), 10), m = parseInt(t.slice(2), 10);
+        if (h >= 0 && h <= 23 && m >= 0 && m <= 59) return ('0' + h).slice(-2) + ':' + ('0' + m).slice(-2);
+      }
+      return t;
+    },
     _aptCity: function (s) {
       var t = String(s || '').replace(/\s*T\d+$/i, '').replace(/\s*\([A-Z]{3}\)\s*$/, '').trim();
       t = t.replace(/国际机场$/, '').replace(/机场$/, '').trim();
@@ -769,7 +782,7 @@
       // ①权限闸门必须最先——供应商套餐（含关键缺失 _keymiss）仅授权账号可见。
       //   原 _keymiss 无条件直通 return true → 游客也能看到 110 条供应商套餐（权限漏洞）。
       var pkgs = (this.JJ.packages || []).filter(function (p) {
-        if (p._src === 'supplier' && !canSeeSupplierFreeTour()) return false;
+        if (p._src === 'supplier' && p.internal && !canSeeSupplierFreeTour()) return false;
         // 未知航线（无 route）：仅登录版本可见，游客版本不可渲染（避免向外泄露未归类航线）
         if (!p.route) return !!canSeeSupplierFreeTour();
         // ②分类修复：删除 _keymiss 无条件直通——关键缺失套餐同样按 country→tab 归类，
@@ -1099,7 +1112,7 @@
         fl.forEach(function (f2, i) {
           var dep = (f2.dep_airport || '').replace(/ \(([A-Z]{3})\)/, '');
           var arr = (f2.arr_airport || '').replace(/ \(([A-Z]{3})\)/, '');
-          L.push((i === 0 ? '✈ 去程 ' : '✈ 回程 ') + (f2.flight || '') + (dep ? ' ' + dep : '') + (f2.dep_time ? ' ' + f2.dep_time : '') + (f2.arr_time ? ' → ' + f2.arr_time : '') + (arr ? ' ' + arr : '') + (f2.duration ? '（约' + f2.duration + '）' : ''));
+          L.push((i === 0 ? '✈ 去程 ' : '✈ 回程 ') + (f2.flight || '') + (dep ? ' ' + dep : '') + (f2.dep_time ? ' ' + FreeTour._fmtTime(f2.dep_time) : '') + (f2.arr_time ? ' - ' + FreeTour._fmtTime(f2.arr_time) : '') + (arr ? ' ' + arr : '') + (f2.duration ? '（' + f2.duration + '）' : ''));
         });
       } else if (p.flight_desc) { L.push('✈ ' + p.flight_desc); }
       L.push('🏨 ' + st.hotel.name);
@@ -1197,8 +1210,12 @@
     searchHits: function (q) {
       var hits = [];
       if (this.JJ && this.JJ.packages && this.JJ.packages.length) {
-        // 未知航线（无 route）：游客版本不可见，仅登录版本可搜到
-        var _vis = function (p) { return !(!p.route && !canSeeSupplierFreeTour()); };
+        // 可见性门控（与 785/1281/1339 一致）：自营/公开组游客可见；内部供应商组仅特权可见；无 route 仅特权可见
+        var _vis = function (p) {
+          if (!p.route) return !!canSeeSupplierFreeTour();
+          if (p._src === 'supplier' && p.internal) return !!canSeeSupplierFreeTour();
+          return true;
+        };
         // 搜「自由行」/「自由行套餐」→ 列出全部可见自由行套餐（2026-08-19 修复：此前无结果）
         var q2 = (q || '').toLowerCase();
         if (q2.indexOf('自由行') !== -1) return this.JJ.packages.filter(_vis);
@@ -1260,8 +1277,8 @@
     // 由 _filter（dep/arr/days/month/dates）过滤套餐；arr 容错 route 包含
     _matchFilter: function (p, f) {
       if (!p) return false;
-      // 供应商套餐：游客态不可见（canSeeSupplier 兜底 false），仅登录版可见
-      if (p._src === 'supplier' && !canSeeSupplierFreeTour()) return false;
+      // 供应商套餐：仅 internal=true 的供应商组对游客隐藏，internal=false 的供应商组游客可见（可见性铁律例外）
+      if (p._src === 'supplier' && p.internal && !canSeeSupplierFreeTour()) return false;
       f = f || {};
       if (f.dep) {
         var _seg = (p.route || '').split('→');
@@ -1317,9 +1334,124 @@
       else { var l = document.getElementById('cardList'); if (l) l.innerHTML = '<div class="loading">请设置筛选条件</div>'; }
     },
 
+    // 自由行模式筛选面板：出发城市/到达城市/天数/月份/月历（数据源 jj_packages，复用宿主 select* 处理器与 _filter 状态）
+    filterPills: function () {
+      if (!this.JJ.loaded) return '<div class="loading">自由行套餐加载中…</div>';
+      var self = this;
+      // 可见套餐（与 _matchFilter 空过滤一致：游客只看自营 + 公开组，特权账号看全部）
+      var pk = (this.JJ.packages || []).filter(function (p) { return self._matchFilter(p, {}); });
+      function _seg(p) { var s = (p.route || '').split('→'); return { dep: s[0] || '', arr: s[1] || '' }; }
+
+      function deps() {
+        var s = new Set();
+        pk.forEach(function (p) { var d = _seg(p).dep; if (d) s.add(d); });
+        return Array.from(s);
+      }
+      function arrs() {
+        var s = new Set();
+        pk.forEach(function (p) {
+          var g = _seg(p);
+          if (_filter.dep && g.dep !== _filter.dep) return;
+          if (g.arr) s.add(g.arr);
+        });
+        return Array.from(s);
+      }
+      function days() {
+        var s = new Set();
+        pk.forEach(function (p) {
+          var g = _seg(p);
+          if (_filter.dep && g.dep !== _filter.dep) return;
+          if (_filter.arr && g.arr !== _filter.arr) return;
+          if (p.days) s.add(String(p.days));
+        });
+        return Array.from(s).sort(function (a, b) { return parseInt(a) - parseInt(b); });
+      }
+      function months() {
+        var s = new Set();
+        pk.forEach(function (p) {
+          var g = _seg(p);
+          if (_filter.dep && g.dep !== _filter.dep) return;
+          if (_filter.arr && g.arr !== _filter.arr) return;
+          if (_filter.days && String(p.days) !== String(_filter.days)) return;
+          (p.dates || []).forEach(function (d) { if (d.length >= 7) s.add(d.slice(0, 7)); });
+        });
+        return Array.from(s).sort();
+      }
+      function pill(onclick, label, active) {
+        var a = active ? ' style="background:var(--brand,var(--red));color:#fff;border-color:var(--brand,var(--red))"' : '';
+        return '<div class="fit-pill" onclick="' + onclick + '"' + a + '>' + label + '</div>';
+      }
+
+      // 出发城市
+      var depHtml = '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">出发城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      deps().forEach(function (c) { depHtml += pill('selectDep(\'' + c + '\')', c, _filter.dep === c); });
+      depHtml += '</div></div>';
+
+      // 到达城市
+      var arrHtml = '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      arrs().forEach(function (c) { arrHtml += pill('selectArr(\'' + c + '\')', c, _filter.arr === c); });
+      arrHtml += '</div></div>';
+
+      // 天数
+      var canSel = _filter.dep || _filter.arr;
+      var dDisabled = canSel ? '' : ' style="opacity:0.4;pointer-events:none"';
+      var dayHtml = '<div' + dDisabled + ' style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">天数 <span style="font-size:11px;color:var(--text-light)">' + (canSel ? '' : '先选择出发或到达城市') + '</span></div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      (canSel ? days() : []).forEach(function (d) { dayHtml += pill('selectDay(\'' + d + '\')', d + '天', String(_filter.days) === String(d)); });
+      dayHtml += '</div></div>';
+
+      // 月份
+      var mDisabled = canSel ? '' : ' style="opacity:0.4;pointer-events:none"';
+      var monthHtml = '<div' + mDisabled + ' style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">月份 <span style="font-size:11px;color:var(--text-light)">' + (canSel ? '' : '先选择出发或到达城市') + '</span></div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      (canSel ? months() : []).forEach(function (m) { monthHtml += pill('selectMonth(\'' + m + '\')', parseInt(m.slice(5, 7)) + '月', _filter.month === m); });
+      monthHtml += '</div></div>';
+
+      // 月历（按已选条件聚合每日最低人均价）
+      var calHtml = (function () {
+        var canCal = canSel && _filter.days && _filter.month;
+        if (!canCal) {
+          return '<div style="margin-bottom:10px;opacity:0.4;pointer-events:none"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">日历报价 <span style="font-size:11px;color:var(--text-light)">请先选择月份</span></div>'
+            + '<div style="padding:20px;text-align:center;font-size:11px;color:var(--text-light);background:var(--tag-bg);border-radius:8px">请先选择出发城市、到达城市、天数和月份</div></div>';
+        }
+        var recs = pk.filter(function (p) { return self._matchFilter(p, _filter); });
+        var dateMap = {};
+        recs.forEach(function (p) {
+          (p.dates || []).forEach(function (d) {
+            if (d.slice(0, 7) !== _filter.month) return;
+            var pr = Number(self.perPersonPrice(p, d)) || 0;
+            if (!dateMap[d] || pr < dateMap[d].min) dateMap[d] = { min: pr };
+          });
+        });
+        var year = parseInt(_filter.month.slice(0, 4), 10);
+        var mo = parseInt(_filter.month.slice(5, 7), 10) - 1;
+        var firstDay = new Date(year, mo, 1).getDay();
+        var dim = new Date(year, mo + 1, 0).getDate();
+        var h = '<div style="margin-bottom:6px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">' + parseInt(_filter.month.slice(5, 7), 10) + '月日历 · 最低价</div>'
+          + '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center">'
+          + '<span style="font-size:10px;color:var(--text-light)">日</span><span style="font-size:10px;color:var(--text-light)">一</span><span style="font-size:10px;color:var(--text-light)">二</span>'
+          + '<span style="font-size:10px;color:var(--text-light)">三</span><span style="font-size:10px;color:var(--text-light)">四</span>'
+          + '<span style="font-size:10px;color:var(--text-light)">五</span><span style="font-size:10px;color:var(--text-light)">六</span>';
+        for (var i = 0; i < firstDay; i++) h += '<div></div>';
+        for (var day = 1; day <= dim; day++) {
+          var pad = day < 10 ? '0' + day : '' + day;
+          var dateStr = _filter.month + '-' + pad;
+          var info = dateMap[dateStr];
+          var sel = (_filter.dates || []).indexOf(dateStr) >= 0 ? ' style="border:1.5px solid var(--red);background:var(--red-light)"' : ' style="cursor:pointer"';
+          h += '<div class="cal-cell" onclick="selectDate(\'' + dateStr + '\')"' + sel + '>'
+            + '<div style="font-size:11px;font-weight:500;color:var(--text)">' + day + '</div>';
+          if (info) h += '<div style="font-size:10px;color:var(--red);font-weight:500">¥' + Math.round(info.min) + '</div>';
+          else h += '<div style="font-size:9px;color:var(--text-light)">—</div>';
+          h += '</div>';
+        }
+        h += '</div></div>';
+        return h;
+      })();
+
+      return depHtml + arrHtml + dayHtml + monthHtml + calHtml;
+    },
+
     // 自由行模式：关键字检索套餐（路由自 searchFilter）
     search: function (q) {
-      var hits = this.searchHits(q).filter(function (p) { return !(p._src === 'supplier' && !canSeeSupplierFreeTour()); });
+      var hits = this.searchHits(q).filter(function (p) { return !(p._src === 'supplier' && p.internal && !canSeeSupplierFreeTour()); });
       var self = this;
       var body = document.getElementById('filterBody');
       if (!body) return;
