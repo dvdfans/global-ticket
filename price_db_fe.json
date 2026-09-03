@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-09-03 20:22:14",
+  "build_time": "2026-09-03 22:02:17",
   "record_count": 2185,
   "records": [
     {
@@ -44165,7 +44165,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "14",
+      "seats": "12",
       "erp_seats": "",
       "airline": "MH",
       "airline_cn": "马航",
@@ -106045,8 +106045,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "3",
-      "erp_seats": "3",
+      "seats": "1",
+      "erp_seats": "1",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "SHA",
