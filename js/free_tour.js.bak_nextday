@@ -240,7 +240,7 @@
             + tag
             + '<span class="jj-f-flt">' + esc(f.flight || '') + (dateShort ? ' ' + esc(dateShort) : '') + '</span>'
             + '<span class="jj-f-city">' + esc(_aptShort(f.dep_airport)) + (_dtm ? ' ' + esc(_dtm) : '') + '→' + esc(_aptShort(f.arr_airport)) + (_atm ? ' ' + esc(_atm) : '') + '</span>'
-            + '<span class="jj-f-time">' + esc(FreeTour._fmtTime(f.dep_time)) + '-' + esc(FreeTour._fmtTime(f.arr_time)) + (f.arr_next_day ? ' +' + f.arr_next_day : '') + (f.duration ? '（' + esc(f.duration) + '）' : '') + '</span>'
+            + '<span class="jj-f-time">' + esc(FreeTour._fmtTime(f.dep_time)) + '-' + esc(FreeTour._fmtTime(f.arr_time)) + (f.duration ? '（' + esc(f.duration) + '）' : '') + '</span>'
             + '</div>';
         }).join('');
       } else if (p.flight_desc) {
@@ -479,7 +479,7 @@
               + '<span class="jjd-f-airline">' + esc(f.airline) + '</span><span class="jjd-f-dur">' + esc(f.duration) + '</span></div>'
               + '<div class="jjd-f-row"><span class="jjd-f-air">' + esc(_dname) + (_dtm ? ' ' + esc(_dtm) : '') + '</span>'
               + '<span class="jjd-f-arrow">→</span><span class="jjd-f-air">' + esc(_aname) + (_atm ? ' ' + esc(_atm) : '') + '</span></div>'
-              + '<div class="jjd-f-time">' + esc(FreeTour._fmtTime(f.dep_time)) + ' - ' + esc(FreeTour._fmtTime(f.arr_time)) + (f.arr_next_day ? ' +' + f.arr_next_day : '') + '</div>'
+              + '<div class="jjd-f-time">' + esc(FreeTour._fmtTime(f.dep_time)) + ' - ' + esc(FreeTour._fmtTime(f.arr_time)) + '</div>'
               // 2026-08-31：机型/餐食属「外部信息」，按权限清单 1.1 = 全体登录人员可见（原为 canSeeSupplier 仅3人，过严）。
               // _isStaffUser 定义于 app_main.js（本文件之后加载），运行时解析，故用 typeof 守卫。
               + '<div class="jjd-f-tags">' + (_isStaff() && f.aircraft ? '<span>' + esc(f.aircraft) + '</span>' : '')
@@ -614,7 +614,7 @@
           var arr = (f.arr_airport || '').replace(/ \(([A-Z]{3})\)/, '');
           var t = (i === 0 ? '✈ 去程 ' : '✈ 回程 ') + (f.flight || '')
             + (dep ? ' ' + dep : '') + (f.dep_time ? ' ' + FreeTour._fmtTime(f.dep_time) : '')
-            + (f.arr_time ? ' - ' + FreeTour._fmtTime(f.arr_time) + (f.arr_next_day ? ' +' + f.arr_next_day : '') : '') + (arr ? ' ' + arr : '')
+            + (f.arr_time ? ' - ' + FreeTour._fmtTime(f.arr_time) : '') + (arr ? ' ' + arr : '')
             + (f.duration ? '（' + f.duration + '）' : '');
           L.push(t);
         });
@@ -1112,7 +1112,7 @@
         fl.forEach(function (f2, i) {
           var dep = (f2.dep_airport || '').replace(/ \(([A-Z]{3})\)/, '');
           var arr = (f2.arr_airport || '').replace(/ \(([A-Z]{3})\)/, '');
-          L.push((i === 0 ? '✈ 去程 ' : '✈ 回程 ') + (f2.flight || '') + (dep ? ' ' + dep : '') + (f2.dep_time ? ' ' + FreeTour._fmtTime(f2.dep_time) : '') + (f2.arr_time ? ' - ' + FreeTour._fmtTime(f2.arr_time) + (f2.arr_next_day ? ' +' + f2.arr_next_day : '') : '') + (arr ? ' ' + arr : '') + (f2.duration ? '（' + f2.duration + '）' : ''));
+          L.push((i === 0 ? '✈ 去程 ' : '✈ 回程 ') + (f2.flight || '') + (dep ? ' ' + dep : '') + (f2.dep_time ? ' ' + FreeTour._fmtTime(f2.dep_time) : '') + (f2.arr_time ? ' - ' + FreeTour._fmtTime(f2.arr_time) : '') + (arr ? ' ' + arr : '') + (f2.duration ? '（' + f2.duration + '）' : ''));
         });
       } else if (p.flight_desc) { L.push('✈ ' + p.flight_desc); }
       L.push('🏨 ' + st.hotel.name);
