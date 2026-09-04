@@ -122,14 +122,23 @@
           return self.VISIBLE_SUPPLIER_CODES.indexOf(String(p.supplier)) !== -1;
         });
         self.JJ.packages = selfPk.concat(supPk);
-        // 2026-08-31 过期拦截（前端兜底层，对齐主库「去程<明天即过期」+ 建库层已过滤）：
-        // 建库时有效、到前端渲染时已过期的边界情况在此拦截。无日期的待补全行保留（keymiss 照旧）。
+        // 2026-09-04 升级为**日期级**裁剪（原为整包级）：逐个剔除「今天及以前」的班期，
+        // 而非「有任一未来日期就保留整包」—— 后者会把已过期班期继续渲染成可选日期。
+        // 无日期的待补全行保留（keymiss 照旧）；全部班期过期 → 整卡不渲染。
         var _tm = (function () { var d = new Date(); d.setDate(d.getDate() + 1); var m = d.getMonth() + 1, dd = d.getDate(); return d.getFullYear() + '-' + (m < 10 ? '0' : '') + m + '-' + (dd < 10 ? '0' : '') + dd; })();
         self.JJ.packages = self.JJ.packages.filter(function (p) {
           var ds = p.dates || [];
           if (!ds.length) return true;
-          for (var i = 0; i < ds.length; i++) { if (String(ds[i]).slice(0, 10) >= _tm) return true; }
-          return false;
+          var keep = [];
+          for (var i = 0; i < ds.length; i++) { if (String(ds[i]).slice(0, 10) >= _tm) keep.push(i); }
+          if (!keep.length) return false;                    // 全部班期已过期 → 整卡不渲染
+          if (keep.length !== ds.length) {
+            p.dates = keep.map(function (i) { return ds[i]; });
+            if (p.return_dates && p.return_dates.length === ds.length) {
+              p.return_dates = keep.map(function (i) { return p.return_dates[i]; });
+            }
+          }
+          return true;
         });
         self.JJ._selfbuild = arr[2] || null;
         self.JJ._seats = arr[3] || {};

@@ -447,6 +447,18 @@ function _hasSeats(r) {
   return true;
 }
 
+// 2026-09-04 Howard 定案：自然下线 —— 去程日期「今天及以前」的报价卡片一律不渲染，
+// 只渲染「明天及以后」。时间口径=浏览器本地日期（用户视角的「今天」）；
+// YYYY-MM-DD 字典序即时间序，可直接字符串比较。
+function _natExpireMinDate() {
+  var d = new Date();
+  d.setDate(d.getDate() + 1);                    // 明天
+  return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2);
+}
+function _isFutureDep(depDate) {
+  return !!(depDate && String(depDate) >= _natExpireMinDate());
+}
+
 // 记录完整性判断（排除dep/arr为空的不完整数据）
 // 2026-08-07 18:0x: 增加航班号完整性校验 —— 航段1/航段2 非标准航班号
 // （含中文/特殊字符/候选格式如「FM看WPS报价」「FM831/832/876」）→ 数据不完整，
