@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-04 22:03:00",
+ "build_time": "2026-09-05 07:05:21",
  "packages": [
   {
    "internal": false,
@@ -52957,7 +52957,7 @@
    "country": "日本",
    "days": "5",
    "nights": "4",
-   "price": 4099,
+   "price": 4399,
    "price_type": "直客价",
    "dates": [
     "2026-09-17"
@@ -70483,6 +70483,71 @@
     "display_name": "成都西藏饭店"
    },
    "itinerary": "9月21日（周一）·第一天：上海虹桥T1 飞往 成都天府T2。落地后自行前往成都西藏饭店。14:00后办理入住。\n9月22日（周二）·第二天：自由活动，行程自行安排。\n9月23日（周三）·第三天：自由活动，行程自行安排。\n9月24日（周四）·第四天：自由活动，行程自行安排。\n9月25日（周五）·第五天：睡到自然醒，退房后前往上海虹桥T1，9C8820 返回上海虹桥T1。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "106",
+   "subtable": "106-大阪",
+   "dep": "上海",
+   "arr": "大阪",
+   "route": "上海→大阪",
+   "country": "日本",
+   "days": "6",
+   "nights": "5",
+   "price": 4099,
+   "price_type": "直客价",
+   "dates": [
+    "2026-11-04"
+   ],
+   "return_dates": [
+    "2026-11-09"
+   ],
+   "hotel": "京都livemax或环球或同级酒店+大阪okini酒店",
+   "flight": "CA857",
+   "flight_return": "CA858",
+   "flight_desc": "CA857 上海大阪 1200-1525 回 CA858 大阪上海 1645-1830",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "国航",
+     "flight": "CA857",
+     "dep_airport": "上海浦东机场",
+     "arr_airport": "大阪关西机场",
+     "dep_time": "1200",
+     "arr_time": "1525",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "T2",
+     "arr_terminal": "1"
+    },
+    {
+     "airline": "国航",
+     "flight": "CA858",
+     "dep_airport": "大阪关西机场",
+     "arr_airport": "上海浦东机场",
+     "dep_time": "1645",
+     "arr_time": "1830",
+     "arr_next_day": 0,
+     "duration": "1小时45分",
+     "via": "",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食",
+     "dep_terminal": "1",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "京都livemax或环球或同级酒店+大阪okini酒店",
+    "display_name": "京都livemax或环球或同级酒店+大阪okini酒店"
+   },
+   "itinerary": "11月4日（周三）·第一天：上海浦东机场 飞往 大阪关西机场。落地后自行前往京都livemax或环球或同级酒店+大阪okini酒店。14:00后办理入住。\n11月5日（周四）·第二天：自由活动，行程自行安排。\n11月6日（周五）·第三天：自由活动，行程自行安排。\n11月7日（周六）·第四天：自由活动，行程自行安排。\n11月8日（周日）·第五天：自由活动，行程自行安排。\n11月9日（周一）·第六天：睡到自然醒，退房后前往上海浦东机场，CA858 返回上海浦东机场。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
