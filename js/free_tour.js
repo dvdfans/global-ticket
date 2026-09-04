@@ -630,7 +630,7 @@
       } else if (p.flight_desc) {
         L.push('✈ ' + p.flight_desc);
       }
-      // 酒店（结构化 segs：段×晚数×候选；同级/换酒店标注）
+      // 酒店（2026-09-04 Howard 定案：复制信息里酒店信息恒为一条；多段并入同一行，末尾附切换提示）
       var segs = p.hotel_details && p.hotel_details.segs;
       if (segs && segs.length) {
         var hs = segs.map(function (s) {
@@ -638,18 +638,11 @@
           if (s.same_level) t += '（同级替换视房态）';
           return t;
         });
-        L.push('🏨 ' + hs.join('；'));
-        if (segs.length > 1) L.push('   ⤷ 行程中需切换酒店');
+        var hline = '🏨 ' + hs.join('；');
+        if (segs.length > 1) hline += '（行程中需切换酒店）';
+        L.push(hline);
       } else if (p.hotel) {
         L.push('🏨 ' + p.hotel);
-      }
-      // S132供应商自由行：列出全部可选酒店/升级项及各自直客价（机+酒全包），便于客服复制报价
-      if (p._src === 'supplier' && p.hotels && p.hotels.length) {
-        L.push('🏨 可选酒店/套餐（机+酒直客价）：');
-        p.hotels.forEach(function (h) {
-          var tag = h.is_upgrade ? '（升级 +' + (h.add || 0) + (h.add_unit || '元/人') + '）' : '';
-          L.push('   · ' + h.name + tag + ' ¥' + Number(h.price).toLocaleString() + '/人' + (h.restock ? '（余位：' + h.restock + '）' : ''));
-        });
       }
       var hd = p.hotel_details;
       if (hd && hd.address) L.push('📍 ' + hd.address);
