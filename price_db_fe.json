@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-09-05 08:42:01",
+  "build_time": "2026-09-05 10:23:32",
   "record_count": 2190,
   "records": [
     {
@@ -98401,8 +98401,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "6",
-      "erp_seats": "6",
+      "seats": "4",
+      "erp_seats": "4",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
@@ -98817,8 +98817,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "7",
-      "erp_seats": "7",
+      "seats": "5",
+      "erp_seats": "5",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
