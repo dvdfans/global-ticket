@@ -236,7 +236,9 @@
         return t;
       }
       var flightHtml = '';
-      if (p.flights && p.flights.length) {
+      if (p.segments && p.segments.length > 2) {
+        flightHtml = this._multiSegCardHtml(p);
+      } else if (p.flights && p.flights.length) {
         flightHtml = p.flights.map(function (f, idx) {
           var tag = idx === 0 ? '<span class="jj-f-tag">去程</span>' : '<span class="jj-f-tag jj-f-tag-ret">回程</span>';
           var depDate = (idx === 0 ? (p.dep_date || (p.dates && p.dates[0]) || '') : (p.return_date || (p.return_dates && p.return_dates[0]) || ''));
@@ -309,7 +311,7 @@
       var banner = '<div class="jj-banner"><div class="jj-banner-bg"></div>'
         + '<div class="jj-banner-t1">' + esc(p.arr || '') + (p.days ? ' · ' + p.days + '天' + (p.nights ? p.nights + '晚' : '') : '') + ' 自由行</div>'
         + (isSup
-            ? '<div class="jj-banner-t2">' + esc(p.route || '') + ' <span class="jj-cat-tag">自由行</span>' + (p.flight && p.flights && p.flights[0] ? ' <span class="jj-direct">直飞</span>' : '') + '</div>'
+            ? '<div class="jj-banner-t2">' + esc(this._openJawRoute(p)) + ' <span class="jj-cat-tag">自由行</span>' + this._fltBadge(p) + '</div>'
             : '<div class="jj-banner-t2">' + esc(p.route || '') + ' · 东航/上航直飞 · 机+酒一价全包</div>'
               + (p.flight && p.flights && p.flights[0] ? '<span class="jj-direct">直飞</span>' : ''))
         + '</div>';
@@ -333,6 +335,105 @@
         + (hl ? '<div class="jj-hls">' + hl + '</div>' : '')
         + '<button class="jj-consult" onclick="event.stopPropagation();FreeTour.openDetail(' + (pi === undefined ? '0' : pi) + ',\'' + (date || '') + '\')">💬 咨询客服</button>'
         + '</div>';
+    },
+
+    /* ── 多段 / 中转套餐专用渲染（2026-09-07：开口程+中转，如 上海→吉隆坡+兰卡威）──
+       数据取自 p.segments[]（kind: intl_out / domestic / transfer / intl_ret）与 p.trip_meta。
+       仅 segments > 2 段时启用；普通往返仍走原 flights[] 路径，零回归。 */
+
+    _segShort: function (s) {
+      return String(s || '').replace(/\s*\([^)]*\)\s*/g, '').trim();
+    },
+
+    _fltBadge: function (p) {
+      var tm = p.trip_meta || {};
+      if (p.segments && p.segments.length > 2) {
+        var n = tm.transfer_count || 0;
+        return n ? ' <span class="jj-direct" style="background:#FFF4E5;color:#B26A00">'
+                   + esc(n) + '次中转</span>'
+                 : ' <span class="jj-direct">多段</span>';
+      }
+      if (tm.direct === false) return '';
+      return (p.flight && p.flights && p.flights[0]) ? ' <span class="jj-direct">直飞</span>' : '';
+    },
+
+    _openJawRoute: function (p) {
+      var segs = p.segments || [];
+      if (segs.length <= 2) return p.route || '';
+      // 2026-09-07：航线/分组名一律 **城市名口径**（p.route），绝不用机场全名拼接
+      // （机场全名+代码+航站楼只在各航班段内展示），与 09-01 命名口径铁律一致
+      return p.route || '';
+    },
+
+    _multiSegCardHtml: function (p) {
+      var self = this;
+      var segs = p.segments || [];
+      var tm = p.trip_meta || {};
+      var lay = (tm.transfers && tm.transfers[0] && tm.transfers[0].layover) || '';
+      var out = '';
+      for (var i = 0; i < segs.length; i++) {
+        var s = segs[i];
+        var isRet = (s.kind === 'transfer' || s.kind === 'intl_ret');
+        var ds = s.date ? s.date.replace(/^\d{4}-/, '').replace('-', '/') : '';
+        out += '<div class="jj-f-row">'
+          + '<span class="jj-f-tag' + (isRet ? ' jj-f-tag-ret' : '') + '">' + esc(s.label || '段') + '</span>'
+          + '<span class="jj-f-flt">' + esc(s.flight || '待定') + (ds ? ' ' + esc(ds) : '') + '</span>'
+          + '<span class="jj-f-city">' + esc(self._segShort(s.dep)) + '→'
+          + esc(self._segShort(s.arr)) + '</span>'
+          + '<span class="jj-f-time">' + esc(s.dep_time || '') + '-' + esc(s.arr_time || '待定')
+          + (s.arr_next_day ? ' +' + s.arr_next_day : '')
+          + (s.duration ? '（' + esc(s.duration) + '）' : '') + '</span>'
+          + '</div>';
+        if (s.kind === 'transfer' && lay) {
+          out += '<div style="font-size:11px;color:#B26A00;margin:1px 0 3px 6px;'
+            + 'padding-left:6px;border-left:1px dashed #E0C9A8">↓ 停留 ' + esc(lay)
+            + ' · ' + esc(self._segShort(s.arr)) + '中转</div>';
+        }
+      }
+      if (tm.ret_dep_date) {
+        out += '<div style="font-size:11px;color:var(--color-text-tertiary);margin-top:2px">'
+          + '返程 ' + esc(tm.ret_dep_date.replace(/^\d{4}-/, '').replace('-', '/')) + ' 起飞'
+          + (tm.ret_arr_date
+              ? '，' + (tm.ret_arr_date !== tm.ret_dep_date ? '次日 ' : '当日 ')
+                + esc(tm.ret_arr_date.replace(/^\d{4}-/, '').replace('-', '/')) + ' 抵达'
+              : '')
+          + '</div>';
+      }
+      return out;
+    },
+
+    _segDetailSec: function (p) {
+      var self = this;
+      var segs = p.segments || [];
+      var tm = p.trip_meta || {};
+      var lay = (tm.transfers && tm.transfers[0] && tm.transfers[0].layover) || '';
+      var head = '<div class="jjd-sec"><div class="jjd-sec-t">参考航班</div>'
+        + '<div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:8px">'
+        + esc(tm.total_segments || segs.length) + ' 段'
+        + (tm.transfer_count ? ' · ' + esc(tm.transfer_count) + ' 次中转' : '')
+        + (tm.trip_type === 'open_jaw' ? ' · 开口程（去回不同城）' : '')
+        + '</div>';
+      var body = segs.map(function (s) {
+        return '<div class="jjd-flight-card">'
+          + '<div class="jjd-f-hd"><span class="jjd-f-flt">' + esc(s.flight || '待定') + '</span>'
+          + '<span class="jjd-f-airline">'
+          + esc((s.day ? s.day + ' · ' : '') + (s.label || '')) + '</span>'
+          + (s.duration ? '<span class="jjd-f-dur">' + esc(s.duration) + '</span>' : '') + '</div>'
+          + '<div class="jjd-f-row"><span class="jjd-f-air">' + esc(self._segShort(s.dep)) + '</span>'
+          + '<span class="jjd-f-arrow">→</span><span class="jjd-f-air">'
+          + esc(self._segShort(s.arr)) + '</span></div>'
+          + '<div class="jjd-f-time">' + esc(s.dep_time || '—') + ' - '
+          + esc(s.arr_time || '待定') + (s.arr_next_day ? ' +' + s.arr_next_day : '')
+          + (s.date ? ' · ' + esc(s.date.replace(/^\d{4}-/, '').replace('-', '/')) : '') + '</div>'
+          + (s.note ? '<div class="jjd-f-tags"><span>' + esc(s.note) + '</span></div>' : '')
+          + '</div>'
+          + (s.kind === 'transfer' && lay
+            ? '<div style="font-size:12px;color:#B26A00;padding:3px 0 3px 10px;'
+              + 'border-left:1px dashed #E0C9A8;margin:2px 0 8px 4px">↓ 中转停留 '
+              + esc(lay) + '（' + esc(self._segShort(s.arr)) + '）</div>'
+            : '');
+      }).join('');
+      return head + body + '</div>';
     },
 
     /* ── 回程日期文本（去程 date → p.return_dates 对应项 → "8月30日（周日）"）── */
@@ -477,7 +578,9 @@
         // 可选去程航班（下拉切换起飞时刻）→ 跳到「同酒店·不同航班」套餐，保留已选酒店
         + (flightOpts ? '<div class="jjd-sec"><div class="jjd-sec-t">可选去程航班（' + flightChipCount + '个起飞时刻 · ' + (p.dates && p.dates[0] ? p.dates[0].slice(5).replace('-', '/') + ' 出发' : '') + '）</div><select id="comboFlight" class="jjd-combo-sel" onchange="FreeTour.switchFlight(this.value)">' + flightOpts + '</select></div>' : '')
         // 航班（详情库优先：机场/航站楼/机型/时长/餐食/WiFi）
-        + (p.flights && p.flights.length ? '<div class="jjd-sec"><div class="jjd-sec-t">参考航班</div>'
+        + (p.segments && p.segments.length > 2
+            ? this._segDetailSec(p)
+            : (p.flights && p.flights.length ? '<div class="jjd-sec"><div class="jjd-sec-t">参考航班</div>'
           + p.flights.map(function (f, fidx) {
             // 航站楼：独立字段优先，空则从机场名提取（源嵌名归位）；机场名先清洗 T{n} 防重复显示
             var _dtm = String(f.dep_terminal || '') || (String(f.dep_airport || '').match(/T\d+/) || [''])[0];
@@ -496,7 +599,7 @@
               + (f.wifi ? '<span>' + esc(f.wifi) + '</span>' : '')
               + (f.distance ? '<span>航程' + esc(f.distance) + '</span>' : '')
               + (fidx === 0 && FreeTour._seatBadgeForFlight(f.flight) ? '<span class="jjd-f-seat">' + FreeTour._seatBadgeForFlight(f.flight) + '</span>' : '') + '</div></div>';
-          }).join('') + '</div>' : '')
+          }).join('') + '</div>' : ''))
         // 选酒店下拉：自营=组合器(13家)联动；S132=hotels 下拉切换套餐与报价（独立分支，不碰 _selfbuild）
         + (isChunqiu ? this._cqComboHtml(p, cqIdx) : (isSup ? '' : this._comboHtml(p)))
         // 酒店（详情库优先：星级/开业/位置/餐饮/设施；随选中酒店实时联动，见 _recalcCombo → _hotelSecHtml）
@@ -740,7 +843,11 @@
       var ALIAS = ['浦东=上海', '虹桥=上海', '仁川=首尔', '金浦=首尔', '樟宜=新加坡', '关西=大阪',
         '成田=东京', '羽田=东京', '萧山=杭州', '禄口=南京', '硕放=无锡', '栎社=宁波', '兴东=南通', '凤凰=三亚',
         // 2026-09-01（Howard 定案）：目的地一律城市名，机场名不得当城市（与主站 IATA_CITY 同源）
-        '那霸=冲绳', '亚庇=沙巴', '济州=济州岛', '清州=清州'];
+        '那霸=冲绳', '亚庇=沙巴', '哥打京那巴鲁=沙巴', '济州=济州岛', '清州=清州',
+          // 2026-09-07：天府/双流均为成都的机场名，分组名须归一为城市名「成都」
+          '天府=成都', '双流=成都',
+          // 2026-09-07：巴厘岛机场名含「登巴萨」（机场所在区），须归一为城市名「巴厘岛」
+          '登巴萨=巴厘岛'];
       for (var i = 0; i < ALIAS.length; i++) {
         var kv = ALIAS[i].split('=');
         if (t.indexOf(kv[0]) !== -1) return kv[1];
