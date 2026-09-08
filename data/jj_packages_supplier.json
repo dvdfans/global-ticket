@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-08 09:17:56",
+ "build_time": "2026-09-09 07:08:27",
  "packages": [
   {
    "internal": false,
@@ -58053,66 +58053,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1249,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-07"
-   ],
-   "return_dates": [
-    "2026-09-10"
-   ],
-   "hotel": "三钻酒店（ever酒店或四季酒店或同级）",
-   "flight": "9C8569",
-   "flight_return": "9C8568",
-   "flight_desc": "9C8569 上海浦东t2-济州机场 07:40-10:05 回 9C8568 济州机场-上海浦东t2 21:35-22:15",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8569",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "济州机场",
-     "dep_time": "07:40",
-     "arr_time": "10:05",
-     "arr_next_day": 0,
-     "duration": "2小时25分",
-     "via": "",
-     "dep_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8568",
-     "dep_airport": "济州机场",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "21:35",
-     "arr_time": "22:15",
-     "arr_next_day": 0,
-     "duration": "0小时40分",
-     "via": "",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三钻酒店（ever酒店或四季酒店或同级）",
-    "display_name": "三钻酒店（ever酒店或四季酒店或同级）"
-   },
-   "itinerary": "9月7日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 济州机场。落地后自行前往三钻酒店（ever酒店或四季酒店或同级）。14:00后办理入住。\n9月8日（周二）·第二天：自由活动，行程自行安排。\n9月9日（周三）·第三天：自由活动，行程自行安排。\n9月10日（周四）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8568 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "2个"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-上海济州",
-   "dep": "上海",
-   "arr": "济州岛",
-   "route": "上海→济州岛",
-   "country": "韩国",
-   "days": "4",
-   "nights": "1",
-   "price": 1749,
+   "price": 1349,
    "price_type": "直客价",
    "dates": [
     "2026-09-19"
@@ -58171,7 +58112,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1749,
+   "price": 1349,
    "price_type": "直客价",
    "dates": [
     "2026-09-20"
@@ -58230,7 +58171,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1749,
+   "price": 1449,
    "price_type": "直客价",
    "dates": [
     "2026-09-21"
@@ -58289,7 +58230,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1749,
+   "price": 1149,
    "price_type": "直客价",
    "dates": [
     "2026-09-22"
@@ -58348,7 +58289,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1949,
+   "price": 1849,
    "price_type": "直客价",
    "dates": [
     "2026-09-26"
@@ -58407,7 +58348,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 2149,
+   "price": 1949,
    "price_type": "直客价",
    "dates": [
     "2026-09-29"
@@ -58466,7 +58407,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 3299,
+   "price": 2749,
    "price_type": "直客价",
    "dates": [
     "2026-09-30"
@@ -58525,7 +58466,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 4599,
+   "price": 4399,
    "price_type": "直客价",
    "dates": [
     "2026-10-01"
@@ -58702,7 +58643,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 4499,
+   "price": 3899,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -58761,7 +58702,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 2449,
+   "price": 2149,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -58820,7 +58761,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1949,
+   "price": 1849,
    "price_type": "直客价",
    "dates": [
     "2026-10-06"
@@ -59056,7 +58997,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1349,
+   "price": 1249,
    "price_type": "直客价",
    "dates": [
     "2026-10-11"
@@ -59292,7 +59233,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1649,
+   "price": 1549,
    "price_type": "直客价",
    "dates": [
     "2026-10-15"
@@ -59351,7 +59292,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1649,
+   "price": 1549,
    "price_type": "直客价",
    "dates": [
     "2026-10-16"
@@ -59410,7 +59351,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1649,
+   "price": 1549,
    "price_type": "直客价",
    "dates": [
     "2026-10-17"
@@ -60354,7 +60295,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 2649,
+   "price": 2349,
    "price_type": "直客价",
    "dates": [
     "2026-09-25"
@@ -60402,65 +60343,6 @@
    "has_pickup": false,
    "child_policy": "",
    "avail": "4个"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-上海济州",
-   "dep": "上海",
-   "arr": "济州岛",
-   "route": "上海→济州岛",
-   "country": "韩国",
-   "days": "3",
-   "nights": "1",
-   "price": 1949,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-18"
-   ],
-   "return_dates": [
-    "2026-09-20"
-   ],
-   "hotel": "三钻酒店（ever酒店或四季酒店或同级）",
-   "flight": "9C8569",
-   "flight_return": "9C8568",
-   "flight_desc": "9C8569 上海浦东t2-济州机场 07:40-10:05 回 9C8568 济州机场-上海浦东t2 21:35-22:15",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8569",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "济州机场",
-     "dep_time": "07:40",
-     "arr_time": "10:05",
-     "arr_next_day": 0,
-     "duration": "2小时25分",
-     "via": "",
-     "dep_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8568",
-     "dep_airport": "济州机场",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "21:35",
-     "arr_time": "22:15",
-     "arr_next_day": 0,
-     "duration": "0小时40分",
-     "via": "",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三钻酒店（ever酒店或四季酒店或同级）",
-    "display_name": "三钻酒店（ever酒店或四季酒店或同级）"
-   },
-   "itinerary": "9月18日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 济州机场。落地后自行前往三钻酒店（ever酒店或四季酒店或同级）。14:00后办理入住。\n9月19日（周六）·第二天：自由活动，行程自行安排。\n9月20日（周日）·第三天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8568 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
   },
   {
    "internal": false,
