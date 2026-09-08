@@ -42,6 +42,35 @@
     // 分类 Tab 映射（route.country → tab key）
     CAT_TAB: { '韩国': 'korea', '日本': 'japan', '东南亚': 'seasia', '港澳': 'ganga', '国内': 'domestic' },
 
+    /* ══ 导航 Tab 联动作用域（2026-09-08）══════════════════════════════════
+     * 点击顶部导航（日本/韩国/东南亚/港澳/国内）后，自由行「筛选面板 + 搜索」
+     * 只显示该分类的套餐与关键字（目的地/天数/月份/日历随套餐集收窄）；
+     * 首页 / 热门 / 筛选结果态 不限（筛选结果态沿用打开面板前的分类）。
+     * 判据：country→tab 为主，目的地城市∈TAB_CITIES[tab] 为兜底。
+     */
+    TAB_LABEL: { japan: '日本', korea: '韩国', seasia: '东南亚', ganga: '港澳', domestic: '国内' },
+    _scopeTab: '',
+    _tabRelaxed: false,     // 当前分类 0 个套餐 → 自动放宽到全部分类
+    _tabScope: function () {
+      var t = '';
+      try { t = (typeof currentTab !== 'undefined' ? currentTab : '') || ''; } catch (e) {}
+      if (t === 'filter') return this._scopeTab || '';         // 筛选结果态：沿用打开面板前的分类
+      if (t && t !== 'home' && t !== 'hot') { this._scopeTab = t; return t; }
+      return '';                                               // 首页/热门/未知：不限
+    },
+    _pkgInTab: function (p, tab) {
+      if (!p || !tab || this._tabRelaxed) return true;
+      if (this.CAT_TAB[p.country] === tab) return true;
+      var cities = [];
+      try { if (typeof TAB_CITIES !== 'undefined') cities = TAB_CITIES[tab] || []; } catch (e) {}
+      var seg = (p.route || '').split('→');
+      var arrCity = (seg[1] || p.arr || '').trim();
+      for (var i = 0; i < cities.length; i++) {
+        if (arrCity.indexOf(cities[i]) !== -1 || (p.arr || '').indexOf(cities[i]) !== -1) return true;
+      }
+      return false;
+    },
+
     // 自由行套餐固定说明（2026-08-26：展示于每个套餐报价详情页「套餐说明」区块）
     FT_NOTES: [
       '本产品酒店房型不可指定，以核销客服实时查询为准。',
@@ -146,11 +175,12 @@
         self.JJ.loaded = true;
         if (global.render) global.render();   // 加载完成刷新当前视图（自由行 + 自选酒店 分组同屏）
         self.gotoDeepLink();                   // 深链：#ft=子表|日期|天数 → 自动打开对应套餐详情
+        self.ftSearchDeepLink();               // 深链：#fts=… → 直达自由行搜索/筛选结果页（2026-09-08）
       }).catch(function () {
         // 极端兜底：两套餐源都挂 → 至少尝试加载自营
         fetch(self.sources[0] + '?_=' + Date.now())
           .then(function (r) { return r.json(); })
-          .then(function (d) { (d.packages || []).forEach(function (p) { p._src = 'self'; }); self.JJ.packages = d.packages || []; self._buildLinkage(); self.JJ.loaded = true; if (global.render) global.render(); self.gotoDeepLink(); })
+          .then(function (d) { (d.packages || []).forEach(function (p) { p._src = 'self'; }); self.JJ.packages = d.packages || []; self._buildLinkage(); self.JJ.loaded = true; if (global.render) global.render(); self.gotoDeepLink(); self.ftSearchDeepLink(); })
           .catch(function () { self.JJ.loaded = true; });
       });
     },
@@ -782,7 +812,9 @@
       if (p.baggage) L.push('🧳 ' + p.baggage);
       // 深链（借鉴机票详情页 copyAll 的 _PROMO 引导结构：正文 + 分隔线引导 + 🔗 深链）
       try {
-        var base = window.location.href.split('#')[0];
+        // 2026-09-08：剥离 ?f_*/dep/arr 等筛选参数——带参链接打开会被单机票深链解析
+        // 接走（currentTab='filter'），自由行专属目的地在单机票库 0 条时整页「数据加载失败」
+        var base = window.location.href.split('#')[0].split('?')[0];
         L.push('');
         L.push('———————————————');
         L.push('更多自由行特价套餐（日韩港澳东南亚等）');
@@ -880,8 +912,10 @@
      * 2026-08-07: 自由行套餐置顶（top）——归入对应分类（country→tab）
      * 组内排序 = 上海出发优先 → 同出发地按航线 → 同航线按天数升序
      */
-    renderGroupHtml: function (currentTab) {
-      var html = '';
+    /* 分组块元数据（2026-09-08）：供宿主与机票分组统一排序插入（取消自由行置顶）。
+       renderGroupHtml 保留为兼容包装（只拼 HTML）。 */
+    _groupBlocks: function (currentTab) {
+      var blocks = [];
       var self = this;
       // 2026-08-24g：回溯到"自由行标签分组"原始规则——按 (route+days+nights) 聚合，
       // 每个分组头带「自由行」标签，点开 toggleGroup 显示该组下所有自由行报价卡片（jj-card）。
@@ -899,7 +933,7 @@
         //   数据层已由 build_freetour_json.py norm_country() 保证 country ∈ 五区域；无法归类的不渲染。
         return CAT_TAB[p.country] === currentTab;
       });
-      if (!pkgs.length) return html;
+      if (!pkgs.length) return blocks;
       // 外部分组保持 (route+days+nights) 不变；组内按航班实体 (flight+flight_return) 聚合，
       // 每航班只渲染 1 张卡 = 该航班 13 家组合里「组合人均价」最低的那套；其余组合仅在详情页切换。
       var groups = {};
@@ -974,21 +1008,37 @@
         var _cnt3 = ('000' + cards.length).slice(-3);
         var countLabel = isSup ? (_cnt3 + '条') : (_cnt3 + ' 航班');
         // 分组标题：航线 → 自由行标签（供应商/自营区分）→ 几天几晚 → 数量 → 最低价起
-        html += '<div class="hm-group">'
+        var blockHtml = '<div class="hm-group">'
           + '<div class="hm-group-hd" onclick="if(event.target.closest(\'.jj-card\'))return;toggleGroup(\'' + gid + '\')">'
           + '<span class="hm-route">' + esc(routeName) + '</span>'
           + '<span class="jj-cat-tag">自由行</span>'
           + '<span class="hm-nights">' + (days ? days + '天' : '') + (nights ? nights + '晚' : '') + '</span>'
-          + '<span class="hm-count">' + countLabel + '</span>'
+          // 2026-09-08（Howard 定案）：分组「N 条」仅登录可见，游客端整段不渲染
+          + (_isStaff() ? '<span class="hm-count">' + countLabel + '</span>' : '')
           + (mn ? '<span class="hm-minprice">¥' + Math.round(mn) + ' 起</span>' : '')
           + '<span class="hm-arrow">▾</span></div>'
           + '<div class="hm-group-bd" id="grp_' + gid + '" style="display:none">';
         cards.forEach(function (c) {
-          html += self.card(c.p, c.date, c.pi);
+          blockHtml += self.card(c.p, c.date, c.pi);
         });
-        html += '</div></div>';
+        blockHtml += '</div></div>';
+        // 排序字段：dep/arr 供宿主与机票分组按目的地对齐插入
+        var _segFT = String((items[0] && items[0].route) || route).split('→');
+        blocks.push({
+          kind: 'freetour', gid: gid, html: blockHtml,
+          dep: (items[0] && (items[0].dep || _segFT[0])) || _segFT[0] || '',
+          arr: (items[0] && (items[0].arr || _segFT[1])) || _segFT[1] || '',
+          days: days, nights: nights, count: cards.length, minPrice: mn
+        });
       });
-      return html;
+      return blocks;
+    },
+
+    renderGroupHtml: function (currentTab) {
+      return this._groupBlocks(currentTab).map(function (b) { return b.html; }).join('');
+    },
+    groupBlocks: function (currentTab) {
+      return this._groupBlocks(currentTab);
     },
 
 
@@ -1227,7 +1277,9 @@
       L.push('🏨 ' + st.hotel.name);
       if (p.baggage) L.push('🧳 ' + p.baggage);
       try {
-        var base = window.location.href.split('#')[0];
+        // 2026-09-08：剥离 ?f_*/dep/arr 等筛选参数——带参链接打开会被单机票深链解析
+        // 接走（currentTab='filter'），自由行专属目的地在单机票库 0 条时整页「数据加载失败」
+        var base = window.location.href.split('#')[0].split('?')[0];
         L.push(''); L.push('———————————————');
         L.push('更多自由行特价套餐（日韩港澳东南亚等）');
         L.push('实时更新，更多惊喜，戳这里查👇');
@@ -1316,30 +1368,204 @@
     },
 
     /* ── 搜索命中（原搜索块内 jjHits 计算，返回命中的套餐对象数组）────────── */
-    searchHits: function (q) {
-      var hits = [];
-      if (this.JJ && this.JJ.packages && this.JJ.packages.length) {
-        // 可见性门控（与 785/1281/1339 一致）：自营/公开组游客可见；内部供应商组仅特权可见；无 route 仅特权可见
-        var _vis = function (p) {
-          if (!p.route) return !!canSeeSupplierFreeTour();
-          if (p._src === 'supplier' && p.internal) return !!canSeeSupplierFreeTour();
-          return true;
-        };
-        // 搜「自由行」/「自由行套餐」→ 列出全部可见自由行套餐（2026-08-19 修复：此前无结果）
-        var q2 = (q || '').toLowerCase();
-        if (q2.indexOf('自由行') !== -1) return this.JJ.packages.filter(_vis);
-        var kwl = q2;
-        var kwh = (q || '').trim();
-        this.JJ.packages.forEach(function (p) {
-          if (!_vis(p)) return;
-          var hit = (p.route || '').indexOf(kwh) !== -1
-            || (p.arr || '').indexOf(kwh) !== -1
-            || (p.hotel || '').toLowerCase().indexOf(kwl) !== -1
-            || (p.flight_desc || '').toLowerCase().indexOf(kwl) !== -1
-            || (p.country || '').indexOf(kwh) !== -1
-            || (p.highlights || []).some(function (h) { return h.indexOf(kwh) !== -1; });
-          if (hit) hits.push(p);
+    /* ══ 自由行搜索 v2（2026-09-08）：复刻单机票结构化规则 + 增加【酒店信息】维度 ══
+     * 维度：城市(词典+同义词) / 日期(单日·区间·月份·节假日) / 天数 / 航司(中文+IATA) /
+     *       航班号(含联程拆分) / 机场名+IATA / 供应商代码 / ★酒店(名称·房型·住宿安排·亮点) / 拼音兜底
+     * 规则：AND 组合 + 空条件闸门(禁全库) + 模糊兜底 + 拼音兜底；结果：计数+条件说明+价格升序+上限+查看全部+复制
+     */
+    _FT_CITY_SYN: {'普吉': '普吉岛', '普吉岛': '普吉岛', '济州': '济州岛', '亚庇': '沙巴',
+      '哥打京那巴鲁': '沙巴', '那霸': '冲绳', '登巴萨': '巴厘岛', '仁川': '首尔', '金浦': '首尔',
+      '樟宜': '新加坡', '关西': '大阪', '天府': '成都', '双流': '成都', '浦东': '上海', '虹桥': '上海', '硕放': '无锡'},
+
+    _parseQuery: function (q) {
+      q = (q || '').trim();
+      var o = { q: q, cities: [], airlines: [], flights: [], suppliers: [], hotels: '',
+                dates: null, days: '', unsupported: [] };
+      if (!q) return o;
+      // ① 航司 / 供应商代码 / 航班号 / 不支持关键字 —— 复用单机票抽取器（同一套语义）
+      if (typeof window._extractSearchKw === 'function') {
+        try {
+          var kw = window._extractSearchKw(q) || {};
+          o.airlines = kw.airlines || [];
+          o.flights = kw.flights || [];
+          o.suppliers = kw.suppliers || [];
+          o.unsupported = kw.unsupported || [];
+        } catch (e) {}
+      }
+      // ② 城市：TAB_CITIES 全量 + 自由行目的地补充 + 同义词归一（最长优先，与单机票一致）
+      var all = [];
+      try {
+        if (typeof TAB_CITIES !== 'undefined') {
+          Object.keys(TAB_CITIES).forEach(function (k) {
+            (TAB_CITIES[k] || []).forEach(function (c) { if (all.indexOf(c) === -1) all.push(c); });
+          });
+        }
+      } catch (e) {}
+      ['巴厘岛','兰卡威','沙巴','清州','长白山','恩施','潮汕','晋江','西双版纳','丽江','首尔','济州岛'].forEach(function (c) {
+        if (all.indexOf(c) === -1) all.push(c);
+      });
+      var found = all.filter(function (c) { return q.indexOf(c) !== -1; });
+      found.sort(function (a, b) { return b.length - a.length; });
+      o.cities = found.map(function (c) { return this._FT_CITY_SYN[c] || c; }, this);
+      // ③ 日期（单日/区间/月份/节假日窗口，复用单机票）
+      if (typeof window._parseDateQuery === 'function') {
+        try { o.dates = window._parseDateQuery(q) || null; } catch (e) {}
+      }
+      // ④ 天数（含中文数字）
+      var dm = q.match(/(\d+)天|一(?=天)|二(?=天)|三(?=天)|四(?=天)|五(?=天)|六(?=天)|七(?=天)|八(?=天)|九(?=天)|十(?=天)/);
+      if (dm) {
+        var cn = { '一': 1, '二': 2, '三': 3, '四': 4, '五': 5, '六': 6, '七': 7, '八': 8, '九': 9, '十': 10 };
+        o.days = cn[dm[0]] ? '' + cn[dm[0]] : (dm[1] || '');
+      }
+      // ⑤ ★酒店/文本关键字：剔除已识别维度后的剩余词。
+      //    必须把 航班号 / 航司 / 城市 / 天数 / 各种日期写法 全部剔除，
+      //    否则 SQ827、PVG、10月 这类词会被当成酒店词做硬匹配 → 0 命中（2026-09-08 实测坑）
+      var rest = q;
+      o.cities.forEach(function (c) { rest = rest.split(c).join(' '); });
+      o.airlines.forEach(function (c) { rest = rest.split(c).join(' '); });
+      o.flights.forEach(function (c) { rest = rest.split(String(c)).join(' ').split(String(c).toUpperCase()).join(' '); });
+      if (o.days) rest = rest.split(o.days + '天').join(' ');
+      rest = rest.replace(/[一二三四五六七八九十]天/g, ' ').replace(/\d+天/g, ' ');   // 中文/数字天数
+      rest = rest.replace(/\d{4}-\d{1,2}-\d{1,2}/g, ' ')
+                 .replace(/\d{1,2}月\d{1,2}日?/g, ' ')
+                 .replace(/\d{1,2}月/g, ' ')
+                 .replace(/\d{1,2}[\/\-.]\d{1,2}/g, ' ')
+                 .replace(/[0-9]+/g, ' ')
+                 .replace(/自由行|套餐|机\+酒|酒店/g, ' ')
+                 .replace(/国庆|中秋|春节|元旦|寒假|暑假|五一|十一|清明|端午/g, ' ')
+                 .replace(/[\s，,。、~至-]+/g, ' ').trim();
+      o.hotels = rest;
+      return o;
+    },
+
+    _matchPkg: function (p, o) {
+      if (!p) return false;
+      // 供应商代码
+      if (o.suppliers.length && o.suppliers.indexOf(String(p.supplier || '')) === -1) return false;
+      // 航司（中文名 / IATA）——自由行存于 flights[].airline，如「南航(CZ)」「新航」
+      if (o.airlines.length) {
+        var okA = (p.flights || []).some(function (f) {
+          if (!f) return false;
+          var al = String(f.airline || '');
+          var no = String(f.flight || '').toUpperCase();
+          return o.airlines.some(function (a) {
+            var A = String(a).toUpperCase();
+            // 航司中文名（新航/南航）或 IATA 代码（SQ/CZ，兼用航班号前缀，因 airline 字段未必带 IATA）
+            return al.indexOf(a) !== -1 || al.indexOf(A) !== -1 || no.indexOf(A) === 0;
+          });
         });
+        if (!okA) return false;
+      }
+      // 航班号（含联程拆分 SQ827/SQ944 + segments 各段）
+      if (o.flights.length) {
+        var nos = [p.flight, p.flight_return].concat((p.segments || []).map(function (s) { return s.flight; })).join('/');
+        var okF = o.flights.some(function (f) { return nos.toLowerCase().indexOf(String(f).toLowerCase()) !== -1; });
+        if (!okF) return false;
+      }
+      // 城市（目的地/出发地/航线/国家）
+      if (o.cities.length) {
+        var okC = o.cities.some(function (c) {
+          return (p.arr || '').indexOf(c) !== -1 || (p.dep || '').indexOf(c) !== -1
+            || (p.route || '').indexOf(c) !== -1 || (p.country || '').indexOf(c) !== -1;
+        });
+        if (!okC) return false;
+      }
+      // 日期：去程(dates) 或 回程(return_dates) 任一命中（与单机票同一口径）
+      var dq = o.dates;
+      if (dq && dq.mode && dq.mode !== 'none') {
+        var ds = (p.dates || []).concat(p.return_dates || []);
+        var okD = false;
+        if (dq.mode === 'single') {
+          okD = ds.some(function (d) { return Math.abs(new Date(d) - new Date(dq.date)) <= 86400000; });
+        } else if (dq.mode === 'range' || dq.mode === 'holiday') {
+          okD = ds.some(function (d) { return !(new Date(d) < new Date(dq.start) || new Date(d) > new Date(dq.end)); });
+        } else if (dq.mode === 'month') {
+          okD = ds.some(function (d) { return (d || '').slice(5, 7) === dq.month; });
+        }
+        if (!okD) return false;
+      }
+      // 天数
+      if (o.days && String(p.days || '') !== o.days) return false;
+      // ★酒店维度（自由行专属，本次新增）+ 文本兜底：
+      //   残词命中「酒店名/房型/住宿安排/亮点」或「航线/城市/航班/机场名+IATA/国家」任一即算命中
+      if (o.hotels) {
+        var hw = o.hotels.toLowerCase();
+        var hd = p.hotel_details || {};
+        var poolH = [p.hotel, hd.display_name, hd.name, hd.plan, hd.note, (p.highlights || []).join(' '),
+          p.route, p.arr, p.dep, p.flight, p.flight_return, p.flight_desc, p.country,
+          (p.segments || []).map(function (s) { return s.flight; }).join(' ')];
+        (p.flights || []).forEach(function (f) { poolH.push(f.dep_airport || '', f.arr_airport || '', f.airline || ''); });
+        // ⚠ 先拼接后统一小写：否则 '(PVG)' 保留大写，搜 'pvg' 命中不了
+        if (poolH.join(' ').toLowerCase().indexOf(hw) === -1) return false;
+      }
+      // 兜底：未识别出任何维度时做通用模糊（航线/城市/酒店/航班/机场名+IATA/国家/亮点）
+      var noDim = !o.cities.length && !o.airlines.length && !o.flights.length && !o.hotels && !o.days
+        && (!dq || dq.mode === 'none') && !o.suppliers.length;
+      if (noDim) {
+        if (!o.q) return false;                       // 空条件闸门：无任何关键字 → 不匹配（禁全库）
+        var k = o.q.toLowerCase();
+        var pool = [p.route, p.arr, p.dep, p.hotel, p.flight_desc, p.country, p.flight, p.flight_return,
+          (p.highlights || []).join(' '), (p.hotel_details || {}).plan, (p.hotel_details || {}).display_name]
+          .join(' ').toLowerCase();
+        (p.flights || []).forEach(function (f) { pool += ' ' + (f.dep_airport || '') + ' ' + (f.arr_airport || ''); });
+        if (pool.indexOf(k) === -1) return false;
+      }
+      return true;
+    },
+
+    /* 按作用域取命中（内部）：tab='' 表示不限分类 */
+    _hitsIn: function (q, o, tab, _vis) {
+      var self = this;
+      if (/自由行/.test(q || '')) {
+        return this.JJ.packages.filter(function (p) { return _vis(p) && self._pkgInTab(p, tab); });
+      }
+      var hasCond = !!(o.cities.length || o.airlines.length || o.flights.length || o.suppliers.length
+        || o.days || (o.dates && o.dates.mode !== 'none') || o.hotels);
+      function noDimFlag(oo) {
+        return !oo.cities.length && !oo.airlines.length && !oo.flights.length && !oo.hotels
+          && !oo.days && (!oo.dates || oo.dates.mode === 'none') && !oo.suppliers.length;
+      }
+      if (!q || (!hasCond && noDimFlag(o))) return [];   // 空条件闸门（与单机票 hasCond 同义）
+      var hits = this.JJ.packages.filter(function (p) {
+        if (!_vis(p)) return false;
+        if (tab && !self._pkgInTab(p, tab)) return false;
+        return self._matchPkg(p, o);
+      });
+      // 拼音同音兜底（机场/城市，与单机票同一函数）
+      if (!hits.length && !o.airlines.length && (!o.dates || o.dates.mode === 'none')
+        && typeof window._pyMatchAirports === 'function') {
+        try {
+          var py = window._pyMatchAirports(q) || [];
+          if (py.length) {
+            hits = this.JJ.packages.filter(function (p) {
+              if (!_vis(p)) return false;
+              if (tab && !self._pkgInTab(p, tab)) return false;
+              return (p.flights || []).some(function (f) {
+                return py.some(function (a) { return ((f.dep_airport || '') + (f.arr_airport || '')).indexOf(a) !== -1; });
+              });
+            });
+          }
+        } catch (e) {}
+      }
+      return hits;
+    },
+
+    searchHits: function (q) {
+      if (!this.JJ || !this.JJ.packages || !this.JJ.packages.length) return [];
+      var _vis = function (p) {
+        if (!p.route) return !!canSeeSupplierFreeTour();
+        if (p._src === 'supplier' && p.internal) return !!canSeeSupplierFreeTour();
+        return true;
+      };
+      var self = this;
+      var o = this._parseQuery(q);
+      // ★导航 Tab 联动：先在当前分类内搜；0 命中自动放宽到全部分类
+      var tab = this._tabScope();
+      this._lastRelaxed = false;
+      var hits = this._hitsIn(q, o, tab, _vis);
+      if (!hits.length && tab) {
+        var wide = this._hitsIn(q, o, '', _vis);
+        if (wide.length) { hits = wide; this._lastRelaxed = true; }
       }
       return hits;
     },
@@ -1386,6 +1612,8 @@
     // 由 _filter（dep/arr/days/month/dates）过滤套餐；arr 容错 route 包含
     _matchFilter: function (p, f) {
       if (!p) return false;
+      // ★导航 Tab 联动：只保留当前分类套餐（首页/热门/放宽态不限）
+      if (!this._pkgInTab(p, this._tabScope())) return false;
       // 供应商套餐：仅 internal=true 的供应商组对游客隐藏，internal=false 的供应商组游客可见（可见性铁律例外）
       if (p._src === 'supplier' && p.internal && !canSeeSupplierFreeTour()) return false;
       f = f || {};
@@ -1416,21 +1644,22 @@
 
     filteredCount: function (filter) {
       if (!this.JJ.packages || !this.JJ.packages.length) return 0;
-      var self = this, n = 0;
-      this.JJ.packages.forEach(function (p) { if (self._matchFilter(p, filter)) n++; });
-      return n;
+      return this._resultHits(filter || {}).length;    // 与「查看 N 条结果」同源同数
     },
 
     // 渲染筛选结果到 cardList（自由行模式）；render() 重渲染时调用 renderFiltered 复用
     applyFilter: function (filter) {
       this._lastFilter = filter || { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
       var self = this;
-      var hits = (this.JJ.packages || []).filter(function (p) { return self._matchFilter(p, self._lastFilter); });
+      var hits = this._resultHits(this._lastFilter);   // 搜索态沿用命中，筛选态按条件（数据源仅自由行两库）
       var list = document.getElementById('cardList');
       if (!list) return;
       if (!hits.length) { list.innerHTML = '<div class="loading">无符合条件的自由行套餐</div>'; return; }
       self._filterActive = true;
-      list.innerHTML = hits.map(function (p) {
+      self._lastShareSrc = 'filter';     // 分享报价：本次结果来自「筛选」
+      // 顶部固定条（与单机票 renderFiltered 同款：排序 + 搜索 入口）
+      var bar = (typeof _filterStickyBar === 'function') ? _filterStickyBar(hits.length) : '';
+      list.innerHTML = bar + hits.map(function (p) {
         var pi = self.JJ.packages.indexOf(p);
         var dates = (p.dates && p.dates.length) ? p.dates.slice().sort() : [''];
         return dates.map(function (d) { return self.card(p, d, pi); }).join('');
@@ -1447,8 +1676,17 @@
     filterPills: function () {
       if (!this.JJ.loaded) return '<div class="loading">自由行套餐加载中…</div>';
       var self = this;
-      // 可见套餐（与 _matchFilter 空过滤一致：游客只看自营 + 公开组，特权账号看全部）
+      // ★导航 Tab 联动：先按当前分类取套餐集（放宽态由 _pkgInTab 内部处理）
+      var tab = this._tabScope();
       var pk = (this.JJ.packages || []).filter(function (p) { return self._matchFilter(p, {}); });
+      // 当前分类暂无自由行 → 自动放宽到全部分类并提示（避免空白面板）
+      this._tabRelaxed = false;
+      if (tab && !pk.length) {
+        this._tabRelaxed = true;
+        pk = (this.JJ.packages || []).filter(function (p) {
+          return !(p._src === 'supplier' && p.internal && !canSeeSupplierFreeTour());
+        });
+      }
       function _seg(p) { var s = (p.route || '').split('→'); return { dep: s[0] || '', arr: s[1] || '' }; }
 
       function deps() {
@@ -1463,7 +1701,20 @@
           if (_filter.dep && g.dep !== _filter.dep) return;
           if (g.arr) s.add(g.arr);
         });
-        return Array.from(s);
+        var list = Array.from(s);
+        // 与单机票一致：按 TAB_CITIES[tab] 目的地顺序（东京→大阪→冲绳…），未收录的排后面
+        var ord = [];
+        try { if (tab && typeof TAB_CITIES !== 'undefined') ord = TAB_CITIES[tab] || []; } catch (e) {}
+        if (ord.length) {
+          list.sort(function (a, b) {
+            var ia = ord.indexOf(a), ib = ord.indexOf(b);
+            if (ia === -1 && ib === -1) return String(a).localeCompare(String(b), 'zh');
+            if (ia === -1) return 1;
+            if (ib === -1) return -1;
+            return ia - ib;
+          });
+        }
+        return list;
       }
       function days() {
         var s = new Set();
@@ -1555,16 +1806,308 @@
         return h;
       })();
 
-      return depHtml + arrHtml + dayHtml + monthHtml + calHtml;
+      // 顶部：当前分类作用域提示（跟随导航 Tab）
+      var scopeHtml = '';
+      if (tab) {
+        scopeHtml = '<div style="margin-bottom:10px;padding:7px 10px;border-radius:8px;background:var(--tag-bg);'
+          + 'font-size:12px;color:var(--text-secondary);display:flex;align-items:center;justify-content:space-between;gap:8px">'
+          + '<span>当前分类 <b style="color:var(--text)">' + (this.TAB_LABEL[tab] || tab) + '</b> · 自由行 ' + pk.length + ' 个</span>'
+          + (this._tabRelaxed ? '<span style="font-size:11px;color:var(--text-light)">该分类暂无，显示全部</span>' : '')
+          + '</div>';
+      }
+
+      return scopeHtml + depHtml + arrHtml + dayHtml + monthHtml + calHtml;
     },
 
-    // 自由行模式：关键字检索套餐（路由自 searchFilter）
+    // 自由行模式：结构化关键字检索（复刻单机票规则 + 酒店维度）
     search: function (q) {
-      var hits = this.searchHits(q).filter(function (p) { return !(p._src === 'supplier' && p.internal && !canSeeSupplierFreeTour()); });
+      this._lastQuery = (q || '').trim();   // 深链 #fts=q|… 需要（2026-09-08）
+      var hits = this.searchHits(q).filter(function (p) {
+        return !(p._src === 'supplier' && p.internal && !canSeeSupplierFreeTour());
+      });
       var self = this;
       var body = document.getElementById('filterBody');
       if (!body) return;
-      if (!hits.length) { body.innerHTML = '<div class="loading">未找到匹配的自由行套餐</div>'; return; }
+      var o = this._parseQuery(q);
+      // 结果说明（与单机票一致：命中条件回显，含节假日窗口）
+      var notes = [];
+      var _tab = this._tabScope();
+      if (_tab) {
+        notes.push(this._lastRelaxed
+          ? '（当前分类「' + (this.TAB_LABEL[_tab] || _tab) + '」无结果，已显示全部分类）'
+          : '分类 <b>' + (this.TAB_LABEL[_tab] || _tab) + '</b>');
+      }
+      if (o.cities.length) notes.push('目的地 <b>' + o.cities.join(' / ') + '</b>');
+      if (o.airlines.length) notes.push('航司 <b>' + o.airlines.join(' / ') + '</b>');
+      if (o.flights.length) notes.push('航班 <b>' + o.flights.join(' / ') + '</b>');
+      if (o.days) notes.push('<b>' + o.days + '天</b>');
+      if (o.hotels) notes.push('酒店 <b>' + o.hotels + '</b>');
+      if (o.dates && o.dates.holiday) {
+        notes.push('（已按 <b>' + o.dates.holiday + '</b> ' + o.dates.start.slice(5) + '~' + o.dates.end.slice(5) + ' 筛选，去程或回程在窗口内即出）');
+      } else if (o.dates && o.dates.mode === 'single') {
+        notes.push('日期 <b>' + o.dates.date + '</b>');
+      } else if (o.dates && o.dates.mode === 'range') {
+        notes.push('日期 <b>' + o.dates.start + '~' + o.dates.end + '</b>');
+      } else if (o.dates && o.dates.mode === 'month') {
+        notes.push('月份 <b>' + o.dates.month + '月</b>');
+      }
+      if (!hits.length) {
+        body.innerHTML = '<div class="loading">未找到匹配的自由行套餐'
+          + (notes.length ? '<br><span style="font-size:11px">' + notes.join(' · ') + '</span>' : '')
+          + '<br><span style="font-size:11px">可试：目的地（巴厘岛/沙巴/新加坡）、日期（10月/国庆/10月3日）、天数（7天）、航司（新航/SQ）、酒店（凯悦/mulia）</span></div>';
+        return;
+      }
+      // 排序：默认价格升序（与单机票默认一致）
+      hits = hits.slice().sort(function (a, b) { return (Number(a.price) || 99999) - (Number(b.price) || 99999); });
+      var CAP = 30;
+      var shown = hits.slice(0, CAP);
+      var rows = shown.map(function (p) {
+        var pi = self.JJ.packages.indexOf(p);
+        var dates = (p.dates && p.dates.length) ? p.dates.slice().sort() : [''];
+        return dates.map(function (d) {
+          return self.card(p, d, pi).split('FreeTour.openDetail(').join('FreeTour.searchOpen(');
+        }).join('');
+      }).join('');
+      var html = '<div class="jj-search-block">'
+        + '<div class="jj-search-hd">自由行套餐 ' + hits.length + ' 个'
+        + (notes.length ? ' <span style="font-weight:400;font-size:11px">' + notes.join(' · ') + '</span>' : '')
+        + '</div>' + rows;
+      if (hits.length > CAP) {
+        html += '<div class="fit-apply" style="text-align:center;margin:6px 0" onclick="FreeTour.showAllSearch()">查看全部 ' + hits.length + ' 个</div>';
+      }
+      html += '<div class="fit-apply" style="text-align:center;margin:6px 0" onclick="FreeTour.copySearch()">📋 复制 ' + hits.length + ' 个</div>';
+      html += '</div>';
+      body.innerHTML = html;
+      this._lastHits = hits;
+      this._lastShareSrc = 'search';     // 分享报价：本次结果来自「关键字搜索」
+      // 底部「查看 N 条结果」按钮数字跟随搜索命中（否则沿用打开面板时的旧计数）
+      try {
+        var cd = document.getElementById('filterCountDisplay');
+        if (cd) cd.textContent = hits.length;
+      } catch (e) {}
+    },
+
+    /* ══ 分享报价：自由行态接管（2026-09-08）══════════════════════════════
+     * 问题：宿主 openShareModal()/_buildShareResultsText() 一律走 _getFilteredRecs()
+     *      （单机票 DB.records），自由行套餐的酒店信息永远进不了分享文本。
+     * 修法：在自由行「筛选结果 / 关键字搜索结果」态下，把分享文本换成自由行同源文案
+     *      （含 🏨 酒店），并临时清空 _filter/_isSearchView 借用宿主弹层与二维码
+     *      （此时链接自动是干净 pathname，不会带 ?f_* 触发单机票深链）。
+     * 约束：不修改 app_main.js 一个字符，只在自由行态生效，其余场景原样回落宿主逻辑。
+     */
+    // ★切入点（2026-09-08 Howard 定案）：分享报价跟随「单机票/自由行」切换按钮联动。
+    //   必须同时满足：①_searchMode='freetour' ②当前处于结果视图(currentTab='filter') ③有自由行结果集。
+    //   切导航 Tab（国内/日本…）后 ② 不成立 → 分享自动回到首页链接状态（与单机票模式一致），
+    //   而 _searchMode 本身不重置 → 再开搜索仍维持上次的自由行状态。
+    _ftShareCtx: function () {
+      try {
+        if (!(typeof _searchMode !== 'undefined' && global._searchMode === 'freetour')) return false;
+        var t = (typeof currentTab !== 'undefined' ? currentTab : '') + '';
+        if (t !== 'filter') return false;
+        return !!(this._filterActive || (this._lastHits && this._lastHits.length));
+      } catch (e) { return false; }
+    },
+    // 结果集唯一入口（2026-09-08）：数据源只有 JJ.packages（jj_packages.json + jj_packages_supplier.json）
+    // ① 有筛选条件 → 按条件重算；② 无筛选条件但做过关键字搜索 → 用搜索命中（不再被空条件放大成全分类）
+    _resultHits: function (filter) {
+      var self = this;
+      var f = filter || {};
+      var hasCond = !!(f.dep || f.arr || f.days || f.month || (f.dates && f.dates.length));
+      if (hasCond) {
+        return (this.JJ.packages || []).filter(function (p) { return self._matchFilter(p, f); });
+      }
+      if (this._lastHits && this._lastHits.length) return this._lastHits;
+      return (this.JJ.packages || []).filter(function (p) { return self._matchFilter(p, {}); });
+    },
+    _ftShareHits: function () {
+      return this._resultHits(this._lastFilter || {});
+    },
+    /* ── 自由行复制文本：沿用单机票 _buildCopyGroups 的格式，组头追加 🏨 酒店行 ──
+     * 组头：航线+天数晚数+航司 / 去程航班行 / 回程航班行 / 行李行(有则) / 🏨 酒店行
+     * 日期行：9月13日(日)-9月19日(六) ￥2400（自由行无余位字段，不带「余N」） */
+    _aptFt: function (s, t) {
+      var a = String(s || '').replace(/\s*\([A-Z]{3}\)\s*/g, '').replace(/国际机场|机场/g, '').trim();
+      var tt = String(t || '').replace(/^T/i, '');
+      return a + (tt ? 'T' + tt : '');
+    },
+    _legLineFt: function (f) {
+      if (!f) return '';
+      var d = this._fmtTime(f.dep_time), a = this._fmtTime(f.arr_time);
+      var tm = (d || a) ? ' ' + (d || '') + (a ? '-' + a : '') : '';
+      if (f.arr_next_day) tm += '+' + f.arr_next_day;
+      return (f.flight || '待定') + ' ' + this._aptFt(f.dep_airport, f.dep_terminal)
+        + '-' + this._aptFt(f.arr_airport, f.arr_terminal)
+        + tm + (f.duration ? ' ' + f.duration : '');
+    },
+    _copyGroupFT: function (p) {
+      var fl = (p.flights && p.flights.length) ? p.flights : [];
+      var air = (fl[0] && fl[0].airline) || p.airline || '';
+      var dep = String(p.dep || (p.route || '').split('→')[0] || '').trim();
+      var arr = String(p.arr || (p.route || '').split('→')[1] || '').trim();
+      var lg = '';
+      try { lg = (this._legName(p) || {}).name || ''; } catch (e) {}
+      // 开口程（回程出发城市 ≠ 去程到达城市）用组名展开；否则「上海-普吉岛/普吉岛-上海」
+      var routeLabel;
+      if (lg && lg.indexOf('/') !== -1) routeLabel = lg.replace(/\s*→\s*/g, '-').replace(/\s*\/\s*/g, '/');
+      else routeLabel = (dep || '') + '-' + (arr || '') + (arr ? '/' + arr + '-' + (dep || '') : '');
+      var head = p.days ? (p.days + '天') : '';
+      if (p.nights) head += (p.nights + '晚');
+      var header = [routeLabel + (head ? ' ' + head : '') + (air ? ' ' + air : '')];
+      if (fl.length) {
+        header.push(this._legLineFt(fl[0]));
+        if (fl[1]) header.push(this._legLineFt(fl[1]));
+      } else if (p.flight) {
+        header.push(String(p.flight) + (p.flight_return ? '/' + p.flight_return : ''));
+      }
+      var bg = String(p.baggage || '').trim();
+      if (bg) header.push('行李：' + bg);
+      var hd = p.hotel_details || {};
+      var hotel = p.hotel || hd.display_name || hd.name || '';
+      if (hotel) header.push('🏨 ' + hotel);
+      // 日期行：去程日期 ~ 回程日期 ￥人均价
+      var ds = (p.dates || []).slice().sort();
+      var rs = p.return_dates || [];
+      var self = this;
+      var dates = ds.map(function (d, i) {
+        var txt = '';
+        try { txt = (typeof _fmtDateShort === 'function') ? _fmtDateShort(d) : d; } catch (e) { txt = d; }
+        var rd = rs[i] || rs[rs.length - 1] || '';
+        if (rd) {
+          var rt = rd;
+          try { rt = (typeof _fmtDateShort === 'function') ? _fmtDateShort(rd) : rd; } catch (e) {}
+          txt += '-' + rt;
+        }
+        var per = Number(self.perPersonPrice ? self.perPersonPrice(p, d) : p.price) || 0;
+        return txt + ' ￥' + Math.round(per);
+      });
+      return { header: header, dates: dates, size: dates.length, _key: (p.flight || '') + '|' + (p.flight_return || '') + '|' + (p.days || '') + '|' + hotel };
+    },
+    _ftShareText: function () {
+      var hits = this._ftShareHits();
+      if (!hits.length) return '';
+      var self = this;
+      // 聚合：同航班号 + 同天数 + 同酒店 → 合并成一段（组头只出一次，日期行并列）
+      var map = {}, order = [];
+      hits.forEach(function (p) {
+        var g = self._copyGroupFT(p);
+        if (!map[g._key]) { map[g._key] = { header: g.header, dates: [], size: 0 }; order.push(g._key); }
+        map[g._key].dates = map[g._key].dates.concat(g.dates);
+        map[g._key].size += g.size;
+      });
+      var groups = order.map(function (k) { return map[k]; });
+      var base = this._ftShareUrl();
+      var trailer = '';
+      try { trailer = (typeof _PROMO !== 'undefined' ? _PROMO : '') + '\n🔗 ' + base; } catch (e) { trailer = '🔗 ' + base; }
+      try {
+        if (typeof _buildCopyBatchTexts === 'function') {
+          var batches = _buildCopyBatchTexts(groups, 100, trailer);
+          if (batches.length) return batches[0].text;
+        }
+      } catch (e) {}
+      var lines = [];
+      groups.forEach(function (g) { lines = lines.concat(g.header, g.dates, ['']); });
+      return lines.join('\n') + '\n' + trailer;
+    },
+    /* ── 结果页深链（2026-09-08）：复制文本末尾链接 → 打开直达自由行结果页 ──
+     * 走 hash（#fts=…）而非 query：query ?f_* 会被单机票 _applyFilterFromUrl 接走。
+     * 两种形态：#fts=q|<关键字>（搜索态） / #fts=f|dep|arr|days|month|dates逗号（筛选态） */
+    _ftShareUrl: function () {
+      var base = '';
+      try { base = window.location.href.split('#')[0].split('?')[0]; } catch (e) {}
+      try {
+        if (this._lastShareSrc === 'search' && this._lastQuery) {
+          return base + '#fts=' + encodeURIComponent('q|' + this._lastQuery);
+        }
+        var f = this._lastFilter || {};
+        var parts = [f.dep || '', f.arr || '', f.days || '', f.month || '', (f.dates || []).join(',')];
+        if (parts.some(function (x) { return x; })) {
+          return base + '#fts=' + encodeURIComponent('f|' + parts.join('|'));
+        }
+      } catch (e) {}
+      return base;
+    },
+    // 打开深链：恢复自由行模式 + 结果集 → 直接渲染结果页（currentTab=filter）
+    ftSearchDeepLink: function () {
+      try {
+        var h = decodeURIComponent(window.location.hash || '');
+        var m = h.match(/#fts=(.+)/);
+        if (!m) return;
+        var parts = m[1].split('|');
+        if (parts[0] === 'q' && parts[1]) {
+          this._lastQuery = parts[1];
+          this._lastHits = this.searchHits(parts[1]);
+          this._lastShareSrc = 'search';
+          this._filterActive = true;
+          this._lastFilter = { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
+        } else if (parts[0] === 'f') {
+          this._lastFilter = {
+            dep: parts[1] || '', arr: parts[2] || '', days: parts[3] || '',
+            month: parts[4] || '', date: '',
+            dates: (parts[5] || '').split(',').filter(function (x) { return x; })
+          };
+          this._lastShareSrc = 'filter';
+          this._filterActive = true;
+          this._lastHits = [];
+        } else {
+          return;
+        }
+        var self = this;
+        try {
+          if (typeof _searchMode !== 'undefined') global._searchMode = 'freetour';
+          global._filter = this._lastFilter;   // _filter 是 var → 可经 window 赋值
+          if (typeof global._refreshSearchModeUI === 'function') global._refreshSearchModeUI();
+        } catch (e) {}
+        // 走宿主 applyFilter()：由它设置 currentTab='filter'（currentTab 是 let，外部直接赋值无效）
+        global.setTimeout(function () {
+          try {
+            if (typeof global.applyFilter === 'function') { global.applyFilter(); return; }
+          } catch (e) {}
+          self.applyFilter(self._lastFilter || {});
+        }, 250);
+      } catch (e) {}
+    },
+    _patchShare: function (retry) {
+      var self = this;
+      if (typeof global.openShareModal !== 'function') {
+        if ((retry || 0) < 5) global.setTimeout(function () { self._patchShare((retry || 0) + 1); }, 300);
+        return;
+      }
+      if (global.openShareModal.__ftPatched) return;
+      var origShare = global.openShareModal;
+      var origBuild = (typeof global._buildShareResultsText === 'function') ? global._buildShareResultsText : null;
+      var ftShare = function () {
+        var text = '';
+        try { text = self._ftShareCtx() ? self._ftShareText() : ''; } catch (e) {}
+        if (!text) return origShare.apply(this, arguments);
+        var _f = null, _v = null, _t = null;
+        try { _f = global._filter; _v = global._isSearchView; _t = global._shareText; } catch (e) {}
+        try {
+          global._filter = { dep: '', arr: '', days: '', month: '', date: '', dates: [] };
+          global._isSearchView = false;
+          global._shareText = text;          // 宿主 isFilterCtx=false → 直接用 _shareText 渲染
+          return origShare.apply(this, arguments);
+        } finally {
+          try { global._filter = _f; global._isSearchView = _v; global._shareText = _t; } catch (e) {}
+        }
+      };
+      ftShare.__ftPatched = true;
+      global.openShareModal = ftShare;
+      if (origBuild && !origBuild.__ftPatched) {
+        var b = function () {
+          try { if (self._ftShareCtx()) { var t = self._ftShareText(); if (t) return t; } } catch (e) {}
+          return origBuild.apply(this, arguments);
+        };
+        b.__ftPatched = true;
+        global._buildShareResultsText = b;   // 客服咨询(openCSMulti)同样取到自由行文本
+      }
+    },
+
+    // 查看全部（突破 30 上限，仍在弹窗内滚动）
+    showAllSearch: function () {
+      var hits = this._lastHits || [];
+      var self = this;
+      var body = document.getElementById('filterBody');
+      if (!body || !hits.length) return;
       var rows = hits.map(function (p) {
         var pi = self.JJ.packages.indexOf(p);
         var dates = (p.dates && p.dates.length) ? p.dates.slice().sort() : [''];
@@ -1572,7 +2115,31 @@
           return self.card(p, d, pi).split('FreeTour.openDetail(').join('FreeTour.searchOpen(');
         }).join('');
       }).join('');
-      body.innerHTML = '<div class="jj-search-block"><div class="jj-search-hd">自由行套餐 ' + hits.length + ' 个</div>' + rows + '</div>';
+      body.innerHTML = '<div class="jj-search-block"><div class="jj-search-hd">自由行套餐 ' + hits.length + ' 个（全部）</div>'
+        + rows + '<div class="fit-apply" style="text-align:center;margin:6px 0" onclick="FreeTour.copySearch()">📋 复制 ' + hits.length + ' 个</div></div>';
+    },
+
+    // 复制搜索结果（游客口径：零供应商信息，与复制铁律一致）
+    copySearch: function () {
+      var hits = this._lastHits || [];
+      if (!hits.length) return;
+      var lines = ['【自由行套餐 ' + hits.length + ' 个】'];
+      hits.forEach(function (p) {
+        var d = (p.dates && p.dates[0]) || '';
+        lines.push('· ' + (p.route || '') + ' ' + (p.days || '') + '天' + (p.nights || '') + '晚'
+          + ' ' + d + ' ¥' + (p.price || 0) + ' ' + (p.hotel || ''));
+      });
+      var txt = lines.join('\n');
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt);
+        else {
+          var ta = document.createElement('textarea');
+          ta.value = txt; document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+          document.body.removeChild(ta);
+        }
+        if (typeof recordAction === 'function') recordAction('freetour_search_copy', { n: hits.length });
+        alert('已复制 ' + hits.length + ' 个自由行套餐');
+      } catch (e) { alert('复制失败，请手动选择'); }
     },
 
   };
@@ -1583,4 +2150,6 @@
   // 避免测试版 app_main.js 被 sandbox 版 cp 覆盖时丢失接入点）。
   // 其它版本（官方/客服）不引入本脚本 → 完全无自由行逻辑与渲染。
   if (typeof FreeTour.load === 'function') FreeTour.load();
+  // 接管「分享报价」：自由行筛选/搜索结果态下输出含酒店的自由行文案
+  global.setTimeout(function () { try { FreeTour._patchShare(0); } catch (e) {} }, 0);
 })(window);

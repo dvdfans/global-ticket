@@ -220,10 +220,7 @@ function renderTab() {
   // 所有区域统一使用排序+分组模式
   records = _sortRecords(records);
   var html = _stickyBar();
-  // 自由行套餐（机+酒）——独立模块 FreeTour（js/free_tour.js）；仅当 index.html 引入时启用
-  if (window.FreeTour) {
-    html += FreeTour.renderGroupHtml(currentTab);
-  }
+  // 自由行套餐（机+酒）——不再置顶，改为与机票分组按「同目的地：自由行在前」插入排序（2026-09-08）
   if (_groupMode) {
     // 分组模式
     var groups = {};
@@ -336,22 +333,56 @@ function renderTab() {
       }
       return da < db ? -1 : 1;
     });
+    var blocks = [];
     gKeys.forEach(function(k){
       var g=groups[k];var gid=k.replace(/[^a-z0-9\u4e00-\u9fa5]/g,'_');
       var mp=Math.min.apply(null,g.records.map(function(r){return r.retail||99999}));
       // 组内排序
       g.records = _sortRecords(g.records);
-      html+='<div class="hm-group" onclick="if(event.target.closest(\'.card\'))return;toggleGroup(\''+gid+'\')"><div class="hm-group-hd">'
+      // 2026-09-08：①加「机票」标签（与自由行标签同款、跟随主题色）②条数三位补零对齐
+      //             ③分组「N 条」仅登录可见（与余位权限同一把尺子 _isStaffUser）
+      var blockHtml='<div class="hm-group" onclick="if(event.target.closest(\'.card\'))return;toggleGroup(\''+gid+'\')"><div class="hm-group-hd">'
         +'<span class="hm-route">'+(g.isOpenJaw ? (g.dep+' → '+g.arr+' / '+g.retCity+' → '+(g.dep||'')) : (g.dep+' → '+g.arr))+'</span>'
+        +'<span class="jj-cat-tag">机票</span>'
         +'<span class="hm-nights">'+(g.nights?g.nights+'天':'自由')+'</span>'
-        +'<span class="hm-count">'+g.records.length+'条</span>'
+        +(_isStaffUser()?'<span class="hm-count">'+('000'+g.records.length).slice(-3)+'条</span>':'')
         +'<span class="hm-minprice">¥'+mp+'起</span>'
         +'<span class="hm-arrow">▾</span></div>'
         +'<div class="hm-group-bd" id="grp_'+gid+'" style="display:none">'
         +g.records.map(function(r){return hmCard(r)}).join('')+'</div></div>';
+      blocks.push({kind:'flight', gid:gid, html:blockHtml, dep:g.dep, arr:g.arr,
+        nights:parseInt(g.nights||'0',10)||0, count:g.records.length, minPrice:mp});
     });
+    // 自由行分组插入（取消置顶）：同目的地的第一个机票组之前 = 自由行在前、机票在后
+    try {
+      if (window.FreeTour && typeof FreeTour.groupBlocks === 'function') {
+        var FT_ORDER = TAB_CITIES[currentTab] || [];
+        function _ftMainCity(a) {          // 复合目的地（巴厘岛+新加坡）→ 取主城市定位
+          var best = a, bl = 0;
+          FT_ORDER.forEach(function (c) { if (a && a.indexOf(c) !== -1 && c.length > bl) { bl = c.length; best = c; } });
+          return best;
+        }
+        (FreeTour.groupBlocks(currentTab) || []).forEach(function (fb) {
+          var target = _ftMainCity(fb.arr || '');
+          var idx = -1, i;
+          for (i = 0; i < blocks.length; i++) {           // ① 同目的地的首个机票组之前
+            if (blocks[i].kind === 'flight' && blocks[i].arr === target) { idx = i; break; }
+          }
+          if (idx === -1) {                                // ② 按目的地顺序插到更靠后的机票组之前
+            var fi = FT_ORDER.indexOf(target); fi = fi < 0 ? 999 : fi;
+            for (i = 0; i < blocks.length; i++) {
+              var bj = FT_ORDER.indexOf(blocks[i].arr); bj = bj < 0 ? 999 : bj;
+              if (bj > fi) { idx = i; break; }
+            }
+          }
+          if (idx === -1) blocks.push(fb); else blocks.splice(idx, 0, fb);
+        });
+      }
+    } catch (e) {}
+    html += blocks.map(function (b) { return b.html; }).join('');
   } else {
-    // 不分组：扁平卡片列表
+    // 不分组：扁平卡片列表（自由行分组保持在最前，沿用原行为）
+    if (window.FreeTour) html += FreeTour.renderGroupHtml(currentTab);
     html += records.slice(0, 150).map(function(r){return hmCard(r)}).join('');
   }
   list.innerHTML = html; list.scrollTop = 0;
