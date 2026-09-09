@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-09-09 07:05:25",
+  "build_time": "2026-09-09 08:42:08",
   "record_count": 2239,
   "records": [
     {
@@ -22325,7 +22325,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "8",
+      "seats": "6",
       "erp_seats": "8",
       "airline": "MU",
       "airline_cn": "东航",
@@ -60895,7 +60895,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "120",
+      "supplier": "106",
       "dep": "上海",
       "arr": "新加坡",
       "flight": "SQ827",
@@ -60904,7 +60904,7 @@
       "return_date": "2026-11-29",
       "nights": "4",
       "days": "5",
-      "retail": 2499,
+      "retail": 2899,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -60947,7 +60947,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "106",
+      "supplier": "120",
       "dep": "上海",
       "arr": "新加坡",
       "flight": "SQ827",
@@ -60956,7 +60956,7 @@
       "return_date": "2026-11-29",
       "nights": "4",
       "days": "5",
-      "retail": 2899,
+      "retail": 2499,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
