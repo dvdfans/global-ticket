@@ -11,7 +11,8 @@ var ADMIN_LIST = [
 // 2026-08-11 ★铁律：游客行为看板只统计正式版(7116b6b0 沙箱)，其他版本一概不统计
 var STATS_API_URL = '';
 try {
-  if ((location.hostname || '').indexOf('7116b6b0') >= 0) {
+  var _h = location.hostname || '';
+  if (_h.indexOf('7116b6b0') >= 0 || _h.indexOf('305824db') >= 0 || _h.indexOf('7e62f7e0') >= 0) {
     STATS_API_URL = 'https://allocated-maui-tactics-physical.trycloudflare.com/track';
   }
 } catch(e) {}
@@ -24,7 +25,8 @@ try { var _sOv = localStorage.getItem('stats_api_override'); if (_sOv) STATS_API
 function _statsSrc() {
   var h = (location.hostname || '').toLowerCase();
   if (h.indexOf('github.io') >= 0) return 'GitHub Pages';
-  if (h.indexOf('7116b6b0') >= 0) return '正式版';
+  if (h.indexOf('7116b6b0') >= 0) return '正式版(旧7116)';
+  if (h.indexOf('305824db') >= 0 || h.indexOf('7e62f7e0') >= 0) return '正式版';
   if (h.indexOf('6677549d') >= 0) return '自由行测试版';
   if (h.indexOf('a52b3dc0') >= 0) return '客服版';
   if (h.indexOf('c3fcd2b5') >= 0) return '交付对比页';

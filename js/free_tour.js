@@ -1656,7 +1656,9 @@
       if (!list) return;
       if (!hits.length) { list.innerHTML = '<div class="loading">无符合条件的自由行套餐</div>'; return; }
       self._filterActive = true;
-      self._lastShareSrc = 'filter';     // 分享报价：本次结果来自「筛选」
+      // 分享报价来源：搜索框有关键字 → search；否则 filter
+      var _q = self._searchBoxQ ? self._searchBoxQ() : '';
+      self._lastShareSrc = _q ? 'search' : 'filter';
       // 顶部固定条（与单机票 renderFiltered 同款：排序 + 搜索 入口）
       var bar = (typeof _filterStickyBar === 'function') ? _filterStickyBar(hits.length) : '';
       list.innerHTML = bar + hits.map(function (p) {
@@ -1916,8 +1918,36 @@
       if (hasCond) {
         return (this.JJ.packages || []).filter(function (p) { return self._matchFilter(p, f); });
       }
+      // ★采纳搜索框手输关键字（2026-09-09）：修复「打字后不点搜索、直接点查看 N 条结果」
+      //   被忽略、结果回落成当前分类全量的 bug
+      var q = this._searchBoxQ();
+      if (q) {
+        this._syncSearchBox(q);
+        return this._lastHits || [];     // 0 命中即 0 条，绝不回落全量
+      }
       if (this._lastHits && this._lastHits.length) return this._lastHits;
       return (this.JJ.packages || []).filter(function (p) { return self._matchFilter(p, {}); });
+    },
+    // 搜索框当前关键字（仅自由行模式生效；单机票模式返回空，避免误伤）
+    _searchBoxQ: function () {
+      try {
+        if (typeof _searchMode !== 'undefined' && _searchMode !== 'freetour') return '';
+        var el = document.getElementById('fitSearch');
+        return el && el.value ? String(el.value).trim() : '';
+      } catch (e) { return ''; }
+    },
+    // 用搜索框文字刷新命中集（幂等：关键字未变且已搜过则跳过），并同步底部按钮数字
+    _syncSearchBox: function (q) {
+      q = q || this._searchBoxQ();
+      if (!q) return;
+      if (q === this._lastQuery && this._lastHits) return;
+      try {
+        this._lastHits = this.searchHits(q);
+        this._lastQuery = q;
+        this._lastShareSrc = 'search';
+        var cd = document.getElementById('filterCountDisplay');
+        if (cd) cd.textContent = this._lastHits.length;   // 「查看 N 条结果」数字实时跟随
+      } catch (e) {}
     },
     _ftShareHits: function () {
       return this._resultHits(this._lastFilter || {});
@@ -2152,4 +2182,18 @@
   if (typeof FreeTour.load === 'function') FreeTour.load();
   // 接管「分享报价」：自由行筛选/搜索结果态下输出含酒店的自由行文案
   global.setTimeout(function () { try { FreeTour._patchShare(0); } catch (e) {} }, 0);
+  // 搜索框手输关键字 → 实时同步命中集与「查看 N 条结果」按钮数字（防抖 300ms）
+  global.setTimeout(function () {
+    try {
+      var _t = null;
+      document.addEventListener('input', function (e) {
+        if (!e.target || e.target.id !== 'fitSearch') return;
+        try { if (typeof _searchMode !== 'undefined' && _searchMode !== 'freetour') return; } catch (x) {}
+        global.clearTimeout(_t);
+        _t = global.setTimeout(function () {
+          try { FreeTour._syncSearchBox(); } catch (x) {}
+        }, 300);
+      }, true);
+    } catch (e) {}
+  }, 0);
 })(window);

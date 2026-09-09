@@ -9,32 +9,9 @@
   <meta name="theme-color" content="#DA3A2C">
   <title>环球度假 - 特价机票·每日更新</title>
   <link rel="icon" type="image/png" href="img/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="css/style.css?v=118">
   <link rel="stylesheet" href="css/theme.css?v=110">
-<script src="https://beacon.cdn.qq.com/sdk/4.5.9/beacon_web.min.js"></script>
-<script>
-(function(){
-  try{
-    var beacon=new BeaconAction({
-      appkey:'0WEB06U85YBSLJNL',
-      versionCode:'1.0.0',
-      channelID:'share',
-      delay:1000,
-      sessionDuration:30*60*1000,
-      isOversea:false,
-      needReportRqdEvent:false
-    });
-    beacon.onDirectUserAction('preview_page_view',{
-      'url':location.href,
-      'referrer':document.referrer,
-      'title':document.title,
-      'sandbox_id':'4d48c0db65974179a8c59b43155e5ecb'
-    });
-  }catch(e){}
-})();
-</script></head>
+</head>
 <body>
 
   <!-- 固定顶部 -->
@@ -90,6 +67,32 @@
       <div class="qr-img" id="qrLinkCanvas" style="width:56px;height:56px;box-sizing:content-box;padding:1px;border-radius:4px;overflow:hidden;background:#fff;border:1px solid var(--border)"></div>
       <p>分享报价</p>
     </div>
+<!-- 数据看板：仅内部登录可见（游客行为数据，不对外）2026-09-09 -->
+    <div class="qr-item" id="btnBoard" style="display:none">
+      <div class="qr-img qr-filter-icon" style="font-size:30px;line-height:56px">📊</div>
+      <p>数据看板</p>
+    </div>
+  </footer>
+  <script>
+  (function () {
+    var BOARD = 'https://3000-358dca43f84e43379510a9528ec4a499.e2b.ap-beijing.sandbox.cloudstudio.club/';
+    function syncBoard() {
+      try {
+        var el = document.getElementById('btnBoard');
+        if (!el) return;
+        var staff = (typeof _isStaffUser === 'function') && _isStaffUser();
+        el.style.display = staff ? '' : 'none';
+        if (staff && !el._boardBound) {
+          el._boardBound = true;
+          el.onclick = function () { window.open(BOARD, '_blank'); };
+          el.style.cursor = 'pointer';
+        }
+      } catch (e) {}
+    }
+    syncBoard();
+    setInterval(syncBoard, 1500);
+  })();
+  </script>
   </footer>
 
   <!-- 分享弹层（含二维码） -->
@@ -130,10 +133,10 @@
   </div>
 
   <script src="js/qrcode.min.js"></script>
-  <script src="js/core.js?v=114"></script>
+  <script src="js/core.js?v=115"></script>
   <script src="js/data.js?v=102"></script>
   <script src="js/sort.js?v=105"></script>
-  <script src="js/free_tour.js?v=49"></script>
+  <script src="js/free_tour.js?v=50"></script>
   <script src="js/app_main.js?v=162"></script>
 </body>
 </html>
