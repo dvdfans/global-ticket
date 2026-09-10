@@ -1,0 +1,665 @@
+{
+ "meta": {
+  "source": "上海@澳门自营自由行组合(机+酒)·两维反推",
+  "generated": "2026-08-24",
+  "dep_date": "2026-10-04",
+  "return_date": "2026-10-07",
+  "nights": 3,
+  "flights_count": 9,
+  "hotels_count": 13,
+  "note": "机+酒虚拟打包价：机票直客价 + 酒店打包住宿，按2人拼住人均展示，不单列房价"
+ },
+ "flights": [
+  {
+   "id": "MU2055|MU9992",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 1699,
+   "avail": 19,
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "MU239|MU240",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 1699,
+   "avail": 20,
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU239",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "17:00",
+     "arr_time": "19:15",
+     "duration": "2h15",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "MU2007|FM806",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 1899,
+   "avail": 20,
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM806",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
+     "dep_time": "13:25",
+     "arr_time": "16:05",
+     "duration": "2h40",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "FM805|MU240",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 1999,
+   "avail": 12,
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "FM805|MU9992",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 1999,
+   "avail": 19,
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM805",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "09:40",
+     "arr_time": "12:25",
+     "duration": "2h45",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU9992",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "21:45",
+     "arr_time": "00:45",
+     "duration": "3小时",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "FM817|MU2008",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 2399,
+   "avail": 20,
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM817",
+     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "10:05",
+     "arr_time": "12:40",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2008",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "16:45",
+     "arr_time": "19:20",
+     "duration": "2h35",
+     "aircraft": "波音B737-800(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "MU2007|MU240",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 2399,
+   "avail": 12,
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2007",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "12:45",
+     "arr_time": "15:30",
+     "duration": "2h45",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU240",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "20:20",
+     "arr_time": "22:50",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "MU2055|MU2056",
+   "dep_city": "上海",
+   "route": "上海→澳门",
+   "flight_direct": 2399,
+   "avail": 20,
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2055",
+     "dep_airport": "上海浦东国际机场 T1 (PVG)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "16:05",
+     "arr_time": "19:00",
+     "duration": "2h55",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2056",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "上海浦东国际机场 T1 (PVG)",
+     "dep_time": "19:55",
+     "arr_time": "22:20",
+     "duration": "2h25",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  },
+  {
+   "id": "MU2961|MU2962",
+   "dep_city": "无锡",
+   "route": "无锡→澳门",
+   "flight_direct": 1699,
+   "avail": 13,
+   "flights": [
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2961",
+     "dep_airport": "无锡硕放国际机场 (WUX)",
+     "arr_airport": "澳门国际机场 (MFM)",
+     "dep_time": "13:30",
+     "arr_time": "15:50",
+     "duration": "2h20",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU2962",
+     "dep_airport": "澳门国际机场 (MFM)",
+     "arr_airport": "无锡硕放国际机场 (WUX)",
+     "dep_time": "16:50",
+     "arr_time": "19:20",
+     "duration": "2h30",
+     "aircraft": "空客A320/A321(中型)",
+     "meal": "含餐食"
+    }
+   ]
+  }
+ ],
+ "hotels": [
+  {
+   "name": "澳门东望洋酒店",
+   "nights": 3,
+   "hotel_total": 2593,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "3星",
+    "brand": "东望洋酒店（澳门世遗城区）",
+    "address": "松山马路1-5号",
+    "rooms": "约90间",
+    "location": "澳门半岛·东望洋/松山",
+    "dining": "西餐厅·酒吧",
+    "facilities": "免费班车·健身·环保银奖",
+    "urls": [
+     {
+      "name": "澳门东望洋酒店",
+      "url": "https://www.hotelguiamacau.com"
+     }
+    ],
+    "notes": [
+     "入住14:00后·退房12:00前",
+     "押金：每间房 HKD 500（现金/信用卡，退房原路退还）",
+     "早餐需另购：中式套餐 HKD 80/人（另加早费用酒店现付）",
+     "儿童：17岁及以下使用现有床铺免费；不提供婴儿床",
+     "其他：需出示澳门入境申报表办理入住；前台09:00-18:00"
+    ]
+   }
+  },
+  {
+   "name": "澳门御龙酒店",
+   "nights": 3,
+   "hotel_total": 2760,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "3星",
+    "brand": "环宇国际酒店集团",
+    "address": "果亚街61-77号",
+    "rooms": "144间",
+    "opened": "2017年开业",
+    "location": "澳门半岛·新口岸",
+    "dining": "中餐厅",
+    "facilities": "健身·免费班车",
+    "urls": [
+     {
+      "name": "澳门御龙酒店",
+      "url": "https://www.royaldragon.com.mo"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房12:00前",
+     "押金：固定 HKD 500/间（现金/信用卡，退房当日退还）",
+     "早餐：西式+中式套餐 HKD 74.8/人（另加早费用酒店现付）",
+     "儿童：12岁及以下使用现有床铺免费；13-17岁同成人",
+     "其他：需出示澳门入境申报表办理入住"
+    ]
+   }
+  },
+  {
+   "name": "澳门金龙酒店",
+   "nights": 3,
+   "hotel_total": 2835,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "4星",
+    "brand": "环宇国际酒店集团",
+    "address": "马六甲街17-103号",
+    "rooms": "483间",
+    "location": "澳门半岛·新口岸",
+    "dining": "中餐厅·西餐厅",
+    "facilities": "室外泳池·健身·免费班车",
+    "urls": [
+     {
+      "name": "澳门金龙酒店",
+      "url": "https://www.goldendragon.com.mo"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房12:00前",
+     "押金：固定 HKD 500/间（现金/信用卡/第三方，退房原路退还）",
+     "早餐：西式+中式自助餐 HKD 65/人（另加早费用酒店现付）",
+     "儿童：3岁及以下免费；4-12岁 HKD 45/人；13-17岁 HKD 65/人",
+     "其他：需出示澳门入境申报表办理入住"
+    ]
+   }
+  },
+  {
+   "name": "澳门皇都酒店",
+   "nights": 3,
+   "hotel_total": 2991,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "5星",
+    "brand": "皇都酒店",
+    "address": "得胜马路2-4号",
+    "rooms": "380间",
+    "opened": "1983年开业·2016年翻新",
+    "location": "澳门半岛·东望洋/松山",
+    "dining": "中餐厅·西餐厅·自助餐",
+    "facilities": "室内恒温泳池·健身·无赌场",
+    "urls": [
+     {
+      "name": "澳门皇都酒店",
+      "url": "https://www.hotelroyal.com.mo"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：每间房 HKD 500（现金/信用卡，原路退还）",
+     "早餐：自助餐 HKD 174/人（2岁及以下免费；3-17岁 HKD 174/人，酒店现付）",
+     "儿童：0-17岁使用现有床铺免费；加床依房型另计",
+     "其他：需出示澳门入境申报表；客房不主动提供一次性洗漱用品"
+    ]
+   }
+  },
+  {
+   "name": "澳门励庭海景酒店",
+   "nights": 3,
+   "hotel_total": 3073,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "4星",
+    "brand": "澳门渔人码头",
+    "address": "孙逸仙大马路渔人码头",
+    "rooms": "389间客房+55套房",
+    "location": "澳门半岛·渔人码头",
+    "dining": "中餐厅·西餐厅·酒吧",
+    "facilities": "健身·免费班车·海滨",
+    "urls": [
+     {
+      "name": "澳门励庭海景酒店",
+      "url": "https://www.fishermanswharf.com.mo"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：固定 HKD 1,000/间（信用卡/现金，退房14天内退还）",
+     "早餐：西式+中式+欧陆自助餐 HKD 162.8/人（5岁及以下免费；6-12岁 HKD 81.4/人，酒店现付）",
+     "儿童：13岁及以上按成人；加床 HKD 460/人·晚（酒店现付）",
+     "其他：需出示英文全名预订证件及信用卡担保"
+    ]
+   }
+  },
+  {
+   "name": "澳门新口岸智选假日酒店",
+   "nights": 3,
+   "hotel_total": 3150,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "3星",
+    "brand": "洲际酒店集团(IHG)·智选假日",
+    "address": "罗理基博士大马路338-362B",
+    "rooms": "259间",
+    "location": "澳门半岛·新口岸",
+    "dining": "含早餐·市区值机",
+    "facilities": "免费Wi-Fi·健身·市区值机",
+    "urls": [
+     {
+      "name": "澳门新口岸智选假日酒店",
+      "url": "https://www.ihg.com/holidayinnexpress"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房12:00前",
+     "押金：住宿方不收取押金",
+     "早餐：西式+中式自助餐 MOP 88/人（6岁及以下免费；7-17岁 MOP 88/人，酒店现付）",
+     "儿童：1-6岁使用现有床铺免费；7-11岁 MOP 88/人·晚；加床 MOP 440/人·晚（酒店现付）",
+     "其他：不接受现金付款，仅信用卡"
+    ]
+   }
+  },
+  {
+   "name": "澳门丽景湾艺术酒店",
+   "nights": 3,
+   "hotel_total": 3156,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "5星",
+    "brand": "丽景湾艺术酒店(Regency Art)",
+    "address": "氹仔史伯泰海军将军马路2号",
+    "rooms": "326间",
+    "location": "氹仔·旧城区",
+    "dining": "中餐厅·西餐厅·酒吧",
+    "facilities": "泳池·健身·海滨",
+    "urls": [
+     {
+      "name": "澳门丽景湾艺术酒店",
+      "url": "https://www.regencyarthotel.com.mo"
+     }
+    ],
+    "notes": [
+     "入住14:00后·退房12:00前",
+     "押金：住宿无需押金",
+     "早餐：西式+中式自助餐 MOP 99/人（3岁及以下免费；4-12岁 MOP 60/人，酒店现付）",
+     "儿童：1-12岁使用现有床铺免费；加床 MOP 288/人·晚（酒店现付）",
+     "其他：房费另收10%服务费+5%政府税；每间最多3成人或2成人+2儿童"
+    ]
+   }
+  },
+  {
+   "name": "澳门十六浦索菲特大酒店",
+   "nights": 3,
+   "hotel_total": 3402,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "5星",
+    "brand": "雅高集团(Accor)·索菲特",
+    "address": "内港巴素打尔古街",
+    "rooms": "389间客房+19套房",
+    "location": "澳门半岛·内港/十六浦",
+    "dining": "法式餐厅·中餐厅·酒吧",
+    "facilities": "健身·Spa·免费班车",
+    "urls": [
+     {
+      "name": "澳门十六浦索菲特大酒店",
+      "url": "https://www.sofitelmacau.com"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：固定 HKD 1,000/间（现金/信用卡，2-4周退还）",
+     "早餐：单点+自助 HKD 184.8/人（4岁及以下免费；5-12岁 HKD 100.8/人；13-17岁 HKD 128/人，酒店现付）",
+     "儿童：3-11岁使用现有床铺免费；加床 HKD 575/人·晚（酒店现付）",
+     "其他：需出示澳门入境申报表办理入住"
+    ]
+   }
+  },
+  {
+   "name": "澳门皇冠假日酒店",
+   "nights": 3,
+   "hotel_total": 3748,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "5星",
+    "brand": "洲际酒店集团(IHG)·皇冠假日",
+    "address": "东方明珠街君悦湾第七座",
+    "rooms": "208间",
+    "opened": "2015年开业",
+    "location": "澳门半岛·黑沙环/东方明珠",
+    "dining": "中餐厅·西餐厅·酒吧",
+    "facilities": "健身·泳池·免费班车",
+    "urls": [
+     {
+      "name": "澳门皇冠假日酒店",
+      "url": "https://www.crowneplaza.com/macau"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：入住时划扣信用卡冻结或现金（港币/人民币）押金",
+     "早餐：自助早餐（两位成人及两位小童套票价，详询酒店）",
+     "儿童：依 IHG 政策，部分套餐含两位小童早餐",
+     "其他：距拱北口岸约3公里，为半岛距关口最近五星酒店"
+    ]
+   }
+  },
+  {
+   "name": "澳门雅辰酒店",
+   "nights": 3,
+   "hotel_total": 3999,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "5星",
+    "brand": "雅辰酒店集团(Artyzen)",
+    "address": "友谊大马路956-1110号",
+    "rooms": "516间",
+    "location": "澳门半岛·新口岸/友谊大马路",
+    "dining": "中餐厅·西餐厅·自助餐",
+    "facilities": "室外泳池·滑梯·健身·免费班车",
+    "urls": [
+     {
+      "name": "澳门雅辰酒店",
+      "url": "https://www.grandlapa.com"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：固定 HKD 1,000/间（现金/信用卡/第三方，原路退还）",
+     "早餐：西式+中式自助餐 HKD 211/人（5岁及以下免费；6-12岁 HKD 105.6/人；13-17岁 HKD 211/人，酒店现付）",
+     "儿童：12岁及以下使用现有床铺免费；加床 HKD 345/人·晚（酒店现付）",
+     "其他：需出示澳门入境申报表；客房入住上限3成人或2成人+2儿童"
+    ]
+   }
+  },
+  {
+   "name": "澳门华都酒店",
+   "nights": 3,
+   "hotel_total": 4689,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "3星",
+    "brand": "华都酒店",
+    "address": "友谊大马路1071号",
+    "rooms": "161间",
+    "opened": "2004年开业·2018年装修",
+    "location": "澳门半岛·新口岸/友谊大马路",
+    "dining": "中餐厅·西餐厅",
+    "facilities": "健身·环保·免费班车",
+    "urls": [
+     {
+      "name": "澳门华都酒店",
+      "url": "https://www.waldohotel.com"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：固定 MOP 500/间（信用卡/现金，2-4周退还）",
+     "早餐：酒店不提供早餐",
+     "儿童：2-17岁使用现有床铺免费；加床 MOP 350/人·晚（酒店现付）",
+     "其他：需出示澳门入境申报表；客房内不举办派对"
+    ]
+   }
+  },
+  {
+   "name": "YOHO金银岛酒店",
+   "nights": 3,
+   "hotel_total": 5784,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "5星",
+    "brand": "YOHO集团",
+    "address": "南湾湖滨路12号",
+    "rooms": "600间",
+    "opened": "2023年开业·2024年装修",
+    "location": "澳门半岛·南湾湖",
+    "dining": "中餐厅·西餐厅·自助餐",
+    "facilities": "露天风吕首创·无边泳池·健身",
+    "urls": [
+     {
+      "name": "YOHO金银岛酒店",
+      "url": "https://www.yohogroup.com"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：每间房 MOP 1,000（现金/信用卡/第三方，退房14天内退还）",
+     "早餐：西式+中式+美式+亚洲自助餐 MOP 218/人（2岁及以下免费；3-11岁 MOP 109/人；12-17岁 MOP 218/人，酒店现付）",
+     "儿童：3岁及以下使用现有床铺免费；加床 MOP 700/人·晚（酒店现付）",
+     "其他：预订确认后不可修改住客姓名；酒店禁酒"
+    ]
+   }
+  },
+  {
+   "name": "澳门上葡京",
+   "nights": 3,
+   "hotel_total": 8448,
+   "note": "机+酒套餐打包价（含3晚住宿）· 按2人拼住人均，房价不单列",
+   "details": {
+    "star": "5星",
+    "brand": "澳娱综合(SJM)·葡京品牌",
+    "address": "路氹射击路",
+    "rooms": "1350间",
+    "opened": "2021年开业",
+    "location": "路氹·路环填海区",
+    "dining": "自助山·茶楼·御花园·大堂酒廊",
+    "facilities": "室内外泳池·儿童乐园·Spa·健身·免费班车",
+    "urls": [
+     {
+      "name": "澳门上葡京",
+      "url": "https://www.grandlisboapalace.com/sc/hotels/grand-lisboa-palace-macau"
+     }
+    ],
+    "notes": [
+     "入住15:00后·退房11:00前",
+     "押金：住宿无需押金",
+     "早餐：西式+中式自助餐 MOP 295/人（6岁及以下免费；7-12岁 MOP 148/人；13-17岁 MOP 295/人，酒店现付）",
+     "儿童：0-12岁使用现有床铺免费；13岁及以上加床 MOP 403/人·晚（酒店现付）",
+     "其他：需出示澳门入境申报表；泳池需着泳衣"
+    ]
+   }
+  }
+ ]
+}
