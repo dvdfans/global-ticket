@@ -1749,23 +1749,66 @@
       deps().forEach(function (c) { depHtml += pill('selectDep(\'' + c + '\')', c, _filter.dep === c); });
       depHtml += '</div></div>';
 
-      // 到达城市
-      var arrHtml = '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div><div style="display:flex;flex-wrap:wrap;gap:6px">';
-      arrs().forEach(function (c) { arrHtml += pill('selectArr(\'' + c + '\')', c, _filter.arr === c); });
-      arrHtml += '</div></div>';
+      // 到达城市（2026-09-11：复刻单机票「到达城市」分区布局）
+      //   分区依据 = 套餐数据自带的 country 字段（来自供应商源表「国家」列，零人工维护）
+      //   → 新增目的地城市自动归入正确分类，不再落「其他」。
+      //   分组顺序与单机票逐字一致：韩国 → 日本 → 东南亚 → 港澳 → 国内 → 其他（兜底）。
+      var _arrCountry = (function () {
+        var m = {};
+        (self.JJ.packages || []).forEach(function (p) {
+          var a = _seg(p).arr;
+          var ctry = (p.country || '').trim();
+          if (a && ctry && !m[a]) m[a] = ctry;
+        });
+        return m;
+      })();
+      var _REGION_SEQ = ['韩国', '日本', '东南亚', '港澳', '国内'];
+      function _arrRow(name, arr) {
+        var h = '<div style="font-size:10px;color:var(--text-light);margin:8px 0 2px;letter-spacing:2px">—— ' + name + ' ——</div>'
+          + '<div style="display:flex;flex-wrap:wrap;gap:6px">';
+        arr.forEach(function (c) { h += pill('selectArr(\'' + c + '\')', c, _filter.arr === c); });
+        return h + '</div>';
+      }
+      function arrGroupHtml(list) {
+        var groups = {}, others = [];
+        list.forEach(function (c) {
+          var r = _arrCountry[c];
+          if (r && _REGION_SEQ.indexOf(r) !== -1) { (groups[r] = groups[r] || []).push(c); }
+          else { others.push(c); }
+        });
+        var out = '';
+        _REGION_SEQ.forEach(function (name) {
+          if (groups[name] && groups[name].length) out += _arrRow(name, groups[name]);
+        });
+        if (others.length) out += _arrRow('其他', others);
+        return out;
+      }
+      var _arrList = arrs();
+      // 与单机票一致：已选到达城市 → 只显示同区域的城市
+      if (_filter.arr && _arrCountry[_filter.arr]) {
+        var _sameRegion = _arrCountry[_filter.arr];
+        _arrList = _arrList.filter(function (c) { return _arrCountry[c] === _sameRegion; });
+      }
+      var arrHtml = '<div style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">到达城市</div>'
+        + arrGroupHtml(_arrList) + '</div>';
 
-      // 天数
+      // 天数（与单机票一致：天数 / 月份 两列并排）
       var canSel = _filter.dep || _filter.arr;
       var dDisabled = canSel ? '' : ' style="opacity:0.4;pointer-events:none"';
-      var dayHtml = '<div' + dDisabled + ' style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">天数 <span style="font-size:11px;color:var(--text-light)">' + (canSel ? '' : '先选择出发或到达城市') + '</span></div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      var dayHtml = '<div' + dDisabled + ' style="margin-bottom:0"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">天数 <span style="font-size:11px;color:var(--text-light)">' + (canSel ? '' : '先选择出发或到达城市') + '</span></div><div style="display:flex;flex-wrap:wrap;gap:6px">';
       (canSel ? days() : []).forEach(function (d) { dayHtml += pill('selectDay(\'' + d + '\')', d + '天', String(_filter.days) === String(d)); });
       dayHtml += '</div></div>';
 
       // 月份
       var mDisabled = canSel ? '' : ' style="opacity:0.4;pointer-events:none"';
-      var monthHtml = '<div' + mDisabled + ' style="margin-bottom:10px"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">月份 <span style="font-size:11px;color:var(--text-light)">' + (canSel ? '' : '先选择出发或到达城市') + '</span></div><div style="display:flex;flex-wrap:wrap;gap:6px">';
+      var monthHtml = '<div' + mDisabled + ' style="margin-bottom:0"><div style="font-size:12px;color:var(--text-secondary);margin-bottom:4px">月份 <span style="font-size:11px;color:var(--text-light)">' + (canSel ? '' : '先选择出发或到达城市') + '</span></div><div style="display:flex;flex-wrap:wrap;gap:6px">';
       (canSel ? months() : []).forEach(function (m) { monthHtml += pill('selectMonth(\'' + m + '\')', parseInt(m.slice(5, 7)) + '月', _filter.month === m); });
       monthHtml += '</div></div>';
+
+      // 天数 + 月份 两列并排（复刻单机票布局）
+      var dayMonthHtml = '<div style="display:flex;gap:12px;margin-bottom:10px">'
+        + '<div style="flex:1;min-width:0">' + dayHtml + '</div>'
+        + '<div style="flex:1;min-width:0">' + monthHtml + '</div></div>';
 
       // 月历（按已选条件聚合每日最低人均价）
       var calHtml = (function () {
@@ -1818,7 +1861,7 @@
           + '</div>';
       }
 
-      return scopeHtml + depHtml + arrHtml + dayHtml + monthHtml + calHtml;
+      return scopeHtml + depHtml + arrHtml + dayMonthHtml + calHtml;
     },
 
     // 自由行模式：结构化关键字检索（复刻单机票规则 + 酒店维度）

@@ -211,10 +211,9 @@ function renderTab() {
     return;
   }
   
-  // 区域：日本/韩国/东南亚/港澳
+  // 区域：日本/韩国/东南亚/港澳/国内（2026-09-11 起按数据 region/regions 归类，旧库回退白名单）
   var records = DB.records.filter(function(r) { return _hasSeats(r); });
-  var cities = TAB_CITIES[currentTab] || [];
-  records = records.filter(function(r) { return cities.some(function(c){return r.arr===c}); });
+  records = records.filter(_inCurrentTab);
   records = records.filter(function(r) { return !(!r.flight_return && (r.dep==='济州岛'||r.dep==='济州') && r.arr==='上海'); });
   
   // 所有区域统一使用排序+分组模式
@@ -1816,6 +1815,67 @@ document.getElementById('filterModal').onclick = function(e) {
   if (e.target.id === 'filterModal') closeFilter();
 };
 
+// ═══════════ 区域归类（2026-09-11）：一律读数据里的 region / regions ═══════════
+// 数据侧由 lib/region_map.py 在建库时派生（IATA 机场码 → 国家 → 区域，全自动、零人工维护）。
+// 前端不再持有「城市 → 区域」知识：新增目的地城市自动归入正确分类，
+// 根治「落『其他』→ 导航无此分类 → 报价抓不到 = 漏售」。
+// 旧库（无 region 字段）自动回退 TAB_CITIES 白名单，保证兼容不白屏。
+var _REGION_TAB = { '韩国': 'korea', '日本': 'japan', '东南亚': 'seasia', '港澳': 'ganga', '国内': 'domestic' };
+var _TAB_REGION = { korea: '韩国', japan: '日本', seasia: '东南亚', ganga: '港澳', domestic: '国内' };
+var _cityRegionCache = null, _cityRegionLen = -1;
+function _cityRegionMap() {
+  if (_cityRegionCache && _cityRegionLen === DB.records.length) return _cityRegionCache;
+  var m = {};
+  DB.records.forEach(function(r) {
+    var a = r && r.arr; if (!a) return;
+    var regs = (r.regions && r.regions.length) ? r.regions : (r.region ? [r.region] : null);
+    if (regs && regs.length && !m[a]) m[a] = regs[0];
+  });
+  _cityRegionCache = m; _cityRegionLen = DB.records.length;
+  return m;
+}
+function _recRegions(r) {
+  if (!r) return null;
+  if (r.regions && r.regions.length) return r.regions;
+  return r.region ? [r.region] : null;
+}
+function _inTabRegion(r, region) {
+  var regs = _recRegions(r);
+  if (!regs) return null;                       // 旧库：交由调用方回退白名单
+  return regs.indexOf(region) !== -1;
+}
+function _currentRegion() { return _TAB_REGION[currentTab] || ''; }
+function _hasRegionData() { for (var k in _cityRegionMap()) { return true; } return false; }
+// 某区域下的目的地城市（数据驱动）；展示顺序仍沿用 TAB_CITIES 的既定顺序
+function _citiesInRegion(region) {
+  var tab = _REGION_TAB[region] || '';
+  var order = (tab && TAB_CITIES[tab]) ? TAB_CITIES[tab] : [];
+  var seen = {}, out = [];
+  DB.records.forEach(function(r) {
+    var a = r && r.arr; if (!a || seen[a]) return;
+    if (_inTabRegion(r, region) === true) { seen[a] = 1; out.push(a); }
+  });
+  if (!out.length) return order.slice();
+  out.sort(function(a, b) {
+    var ia = order.indexOf(a), ib = order.indexOf(b);
+    if (ia === -1 && ib === -1) return String(a).localeCompare(String(b), 'zh');
+    if (ia === -1) return 1;
+    if (ib === -1) return -1;
+    return ia - ib;
+  });
+  return out;
+}
+function _inCurrentTab(r) {
+  var reg = _currentRegion();
+  if (!reg) return true;                        // 首页/热门/筛选结果态：不限
+  var hit = _inTabRegion(r, reg);
+  if (hit === null) {                           // 旧库回退：白名单精确匹配 arr
+    var cities = TAB_CITIES[currentTab] || [];
+    return cities.some(function(c) { return r.arr === c; });
+  }
+  return hit;
+}
+
 function _scopeCities() {
   var s = currentTab;
   if (s === 'home' || s === 'hot' || s === 'filter') return null;
@@ -1825,11 +1885,16 @@ function _scopeCities() {
 function _scopeIsDomestic() { return currentTab === 'domestic'; }
 
 function _recordsInScope() {
-  var scope = _scopeCities();
   var r = DB.records.filter(function(x){return _hasSeats(x) && _validRecord(x)});
-  if (!scope) return r;
-  if (_scopeIsDomestic()) return r.filter(function(x){return scope.some(function(c){return x.arr===c}) && scope.some(function(c){return x.dep===c})});
-  return r.filter(function(x){return scope.some(function(c){return x.arr===c})});
+  // 2026-09-11：区域作用域一律读数据派生的 region/regions（与导航分类同一口径，
+  // 消除原先「导航只看 arr、弹窗额外要求 dep」的两套规则）；旧库回退白名单。
+  if (!_currentRegion()) return r;
+  if (!_hasRegionData()) {
+    var scope = TAB_CITIES[currentTab] || [];
+    if (_scopeIsDomestic()) return r.filter(function(x){return scope.some(function(c){return x.arr===c}) && scope.some(function(c){return x.dep===c})});
+    return r.filter(function(x){return scope.some(function(c){return x.arr===c})});
+  }
+  return r.filter(_inCurrentTab);
 }
 
 function _getDeps() {
@@ -2168,11 +2233,11 @@ function _filterCityPills() {
   if (_filter.arr) {
     var allArrs = _getArrs().filter(function(c){ return c !== '清迈天' && c !== '目的地'; });
     var regionOrder = [
-      {name:'韩国', cities: TAB_CITIES.korea},
-      {name:'日本', cities: TAB_CITIES.japan},
-      {name:'东南亚', cities: TAB_CITIES.seasia},
-      {name:'港澳', cities: TAB_CITIES.ganga},
-      {name:'国内', cities: TAB_CITIES.domestic},
+      {name:'韩国', cities: _citiesInRegion('韩国')},
+      {name:'日本', cities: _citiesInRegion('日本')},
+      {name:'东南亚', cities: _citiesInRegion('东南亚')},
+      {name:'港澳', cities: _citiesInRegion('港澳')},
+      {name:'国内', cities: _citiesInRegion('国内')},
     ];
     // 找到已选城市属于哪个区域
     var targetRegion = null;
@@ -2199,11 +2264,11 @@ function _filterCityPills() {
   
   // 到达城市按区域分组（完整显示）
   var regionOrder = [
-    {name:'韩国', cities: TAB_CITIES.korea},
-    {name:'日本', cities: TAB_CITIES.japan},
-    {name:'东南亚', cities: TAB_CITIES.seasia},
-    {name:'港澳', cities: TAB_CITIES.ganga},
-    {name:'国内', cities: TAB_CITIES.domestic},
+    {name:'韩国', cities: _citiesInRegion('韩国')},
+    {name:'日本', cities: _citiesInRegion('日本')},
+    {name:'东南亚', cities: _citiesInRegion('东南亚')},
+    {name:'港澳', cities: _citiesInRegion('港澳')},
+    {name:'国内', cities: _citiesInRegion('国内')},
   ];
   var allArrs = _getArrs().filter(function(c){ return c !== '清迈天' && c !== '目的地'; });
   var arrHtml = '';
