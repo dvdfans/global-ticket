@@ -13,7 +13,7 @@ var STATS_API_URL = '';
 try {
   var _h = location.hostname || '';
   if (_h.indexOf('7116b6b0') >= 0 || _h.indexOf('305824db') >= 0 || _h.indexOf('7e62f7e0') >= 0) {
-    STATS_API_URL = 'https://allocated-maui-tactics-physical.trycloudflare.com/track';
+    STATS_API_URL = 'https://absent-fellow-verse-leaving.trycloudflare.com';
   }
 } catch(e) {}
 
