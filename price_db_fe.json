@@ -1,6 +1,6 @@
 {
-  "build_time": "2026-09-12 13:43:33",
-  "record_count": 2203,
+  "build_time": "2026-09-12 15:22:56",
+  "record_count": 2202,
   "records": [
     {
       "supplier": "103",
@@ -469,7 +469,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "10+",
+      "seats": "6",
       "erp_seats": "10",
       "airline": "GK",
       "airline_cn": "捷星",
@@ -6909,7 +6909,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "8",
+      "seats": "6",
       "erp_seats": "8",
       "airline": "CA",
       "airline_cn": "国航",
@@ -87883,62 +87883,6 @@
       "arr": "上海",
       "flight": "HO1372",
       "flight_return": "",
-      "dep_date": "2026-10-06",
-      "return_date": "",
-      "nights": "",
-      "days": "",
-      "region": "国内",
-      "regions": [
-        "国内"
-      ],
-      "retail": 2220,
-      "jj": "",
-      "jj_hotel_stars": "",
-      "jj_includes": "",
-      "jj_hotel_nights": "",
-      "seats": "3",
-      "erp_seats": "3",
-      "airline": "HO",
-      "airline_cn": "吉祥",
-      "dep_airport": "CJU",
-      "arr_airport": "PVG",
-      "dep_airport_name": "济州岛",
-      "arr_airport_name": "上海浦东",
-      "dep_terminal": "",
-      "arr_terminal": "T2",
-      "return_dep_terminal": "",
-      "return_arr_terminal": "",
-      "aircraft_def": "",
-      "aircraft_ota": "",
-      "return_aircraft_ota": "",
-      "weekdays": "1111111",
-      "return_weekdays": "",
-      "dep_time": "22:20",
-      "arr_time": "22:45",
-      "duration": "1h25",
-      "return_duration": "",
-      "return_dep_airport": "",
-      "return_arr_airport": "",
-      "return_dep_airport_name": "",
-      "return_arr_airport_name": "",
-      "return_dep_time": "",
-      "return_arr_time": "",
-      "baggage": "",
-      "baggage_std": "托运行李 1件×23kg · 手提行李 1件10kg",
-      "baggage_std_ret": "",
-      "aircraft": "空客A320/A321(中型)",
-      "meal": "含餐食",
-      "remark": "",
-      "sub_sheet": "",
-      "overlap_excluded": "",
-      "overlap_source_supplier": ""
-    },
-    {
-      "supplier": "111",
-      "dep": "济州岛",
-      "arr": "上海",
-      "flight": "HO1372",
-      "flight_return": "",
       "dep_date": "2026-10-07",
       "return_date": "",
       "nights": "",
@@ -94934,7 +94878,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "124",
+      "supplier": "133",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "MU5071",
@@ -94947,13 +94891,13 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1799,
+      "retail": 1699,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "6",
-      "erp_seats": "6",
+      "seats": "5",
+      "erp_seats": "5",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "HGH",
@@ -94990,7 +94934,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "133",
+      "supplier": "124",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "MU5071",
@@ -95003,13 +94947,13 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1699,
+      "retail": 1799,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "5",
-      "erp_seats": "5",
+      "seats": "6",
+      "erp_seats": "6",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "HGH",
@@ -97846,7 +97790,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "124",
+      "supplier": "133",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "MU5071",
@@ -97859,7 +97803,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 2199,
+      "retail": 2249,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -97902,7 +97846,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "133",
+      "supplier": "124",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "MU5071",
@@ -97915,7 +97859,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 2249,
+      "retail": 2199,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
