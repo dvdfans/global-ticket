@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-12 18:43:32",
+ "build_time": "2026-09-12 20:27:09",
  "packages": [
   {
    "internal": false,
@@ -39040,68 +39040,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1150,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-13"
-   ],
-   "return_dates": [
-    "2026-09-16"
-   ],
-   "hotel": "三亚湾君然温泉度假酒店",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾君然温泉度假酒店",
-    "display_name": "三亚湾君然温泉度假酒店"
-   },
-   "itinerary": "9月13日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾君然温泉度假酒店。14:00后办理入住。\n9月14日（周一）·第二天：自由活动，行程自行安排。\n9月15日（周二）·第三天：自由活动，行程自行安排。\n9月16日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1150,
+   "price": 900,
    "price_type": "直客价",
    "dates": [
     "2026-09-18"
@@ -39223,129 +39162,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1250,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "三亚湾君然温泉度假酒店",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾君然温泉度假酒店",
-    "display_name": "三亚湾君然温泉度假酒店"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾君然温泉度假酒店。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1250,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-11"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "三亚湾君然温泉度假酒店",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾君然温泉度假酒店",
-    "display_name": "三亚湾君然温泉度假酒店"
-   },
-   "itinerary": "9月11日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾君然温泉度假酒店。14:00后办理入住。\n9月12日（周六）·第二天：自由活动，行程自行安排。\n9月13日（周日）·第三天：自由活动，行程自行安排。\n9月14日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1750,
+   "price": 1350,
    "price_type": "直客价",
    "dates": [
     "2026-09-27"
@@ -39406,7 +39223,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2150,
+   "price": 1650,
    "price_type": "直客价",
    "dates": [
     "2026-09-25"
@@ -39467,7 +39284,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2950,
+   "price": 2550,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -39528,7 +39345,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 3450,
+   "price": 3300,
    "price_type": "直客价",
    "dates": [
     "2026-10-02"
@@ -39589,495 +39406,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1350,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-13"
-   ],
-   "return_dates": [
-    "2026-09-16"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "9月13日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n9月14日（周一）·第二天：自由活动，行程自行安排。\n9月15日（周二）·第三天：自由活动，行程自行安排。\n9月16日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1350,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-18"
-   ],
-   "return_dates": [
-    "2026-09-21"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "9月18日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n9月19日（周六）·第二天：自由活动，行程自行安排。\n9月20日（周日）·第三天：自由活动，行程自行安排。\n9月21日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1350,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-20"
-   ],
-   "return_dates": [
-    "2026-09-23"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "9月20日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n9月21日（周一）·第二天：自由活动，行程自行安排。\n9月22日（周二）·第三天：自由活动，行程自行安排。\n9月23日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
    "price": 1450,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1450,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-11"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "9月11日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n9月12日（周六）·第二天：自由活动，行程自行安排。\n9月13日（周日）·第三天：自由活动，行程自行安排。\n9月14日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1950,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-27"
-   ],
-   "return_dates": [
-    "2026-09-30"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "9月27日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n9月28日（周一）·第二天：自由活动，行程自行安排。\n9月29日（周二）·第三天：自由活动，行程自行安排。\n9月30日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2350,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-25"
-   ],
-   "return_dates": [
-    "2026-09-28"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "9月25日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n9月26日（周六）·第二天：自由活动，行程自行安排。\n9月27日（周日）·第三天：自由活动，行程自行安排。\n9月28日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 3750,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-02"
-   ],
-   "return_dates": [
-    "2026-10-05"
-   ],
-   "hotel": "三亚湾红树林度假世界木棉酒店城市景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "三亚湾红树林度假世界木棉酒店城市景观房",
-    "display_name": "三亚湾红树林度假世界木棉酒店城市景观房"
-   },
-   "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾红树林度假世界木棉酒店城市景观房。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1550,
    "price_type": "直客价",
    "dates": [
     "2026-09-13"
@@ -40138,7 +39467,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1550,
+   "price": 1350,
    "price_type": "直客价",
    "dates": [
     "2026-09-18"
@@ -40260,129 +39589,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1650,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "海棠湾万丽度假酒店豪华房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "海棠湾万丽度假酒店豪华房",
-    "display_name": "海棠湾万丽度假酒店豪华房"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往海棠湾万丽度假酒店豪华房。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1650,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-11"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "海棠湾万丽度假酒店豪华房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "海棠湾万丽度假酒店豪华房",
-    "display_name": "海棠湾万丽度假酒店豪华房"
-   },
-   "itinerary": "9月11日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往海棠湾万丽度假酒店豪华房。14:00后办理入住。\n9月12日（周六）·第二天：自由活动，行程自行安排。\n9月13日（周日）·第三天：自由活动，行程自行安排。\n9月14日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2150,
+   "price": 1750,
    "price_type": "直客价",
    "dates": [
     "2026-09-27"
@@ -40443,7 +39650,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2550,
+   "price": 2050,
    "price_type": "直客价",
    "dates": [
     "2026-09-25"
@@ -40504,7 +39711,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 3800,
+   "price": 3600,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -40565,7 +39772,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 4450,
+   "price": 3900,
    "price_type": "直客价",
    "dates": [
     "2026-10-02"
@@ -40626,7 +39833,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1700,
+   "price": 1450,
    "price_type": "直客价",
    "dates": [
     "2026-09-13"
@@ -40687,7 +39894,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1700,
+   "price": 1450,
    "price_type": "直客价",
    "dates": [
     "2026-09-18"
@@ -40748,7 +39955,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1700,
+   "price": 1650,
    "price_type": "直客价",
    "dates": [
     "2026-09-20"
@@ -40809,129 +40016,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1800,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "天丽湾凯悦酒店园景房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "天丽湾凯悦酒店园景房",
-    "display_name": "天丽湾凯悦酒店园景房"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往天丽湾凯悦酒店园景房。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1800,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-11"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "天丽湾凯悦酒店园景房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "天丽湾凯悦酒店园景房",
-    "display_name": "天丽湾凯悦酒店园景房"
-   },
-   "itinerary": "9月11日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往天丽湾凯悦酒店园景房。14:00后办理入住。\n9月12日（周六）·第二天：自由活动，行程自行安排。\n9月13日（周日）·第三天：自由活动，行程自行安排。\n9月14日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2300,
+   "price": 1850,
    "price_type": "直客价",
    "dates": [
     "2026-09-27"
@@ -40992,7 +40077,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2700,
+   "price": 2150,
    "price_type": "直客价",
    "dates": [
     "2026-09-25"
@@ -41053,7 +40138,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 4250,
+   "price": 3750,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -41114,7 +40199,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 4850,
+   "price": 4400,
    "price_type": "直客价",
    "dates": [
     "2026-10-02"
@@ -41710,433 +40795,6 @@
     "display_name": "宿阿那亚三亚澜山酒店山居房"
    },
    "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿阿那亚三亚澜山酒店山居房。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1900,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-13"
-   ],
-   "return_dates": [
-    "2026-09-16"
-   ],
-   "hotel": "宿三亚香格里拉酒店豪华景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "宿三亚香格里拉酒店豪华景观房",
-    "display_name": "宿三亚香格里拉酒店豪华景观房"
-   },
-   "itinerary": "9月13日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月14日（周一）·第二天：自由活动，行程自行安排。\n9月15日（周二）·第三天：自由活动，行程自行安排。\n9月16日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1900,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-18"
-   ],
-   "return_dates": [
-    "2026-09-21"
-   ],
-   "hotel": "宿三亚香格里拉酒店豪华景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "宿三亚香格里拉酒店豪华景观房",
-    "display_name": "宿三亚香格里拉酒店豪华景观房"
-   },
-   "itinerary": "9月18日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月19日（周六）·第二天：自由活动，行程自行安排。\n9月20日（周日）·第三天：自由活动，行程自行安排。\n9月21日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 1900,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-20"
-   ],
-   "return_dates": [
-    "2026-09-23"
-   ],
-   "hotel": "宿三亚香格里拉酒店豪华景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "宿三亚香格里拉酒店豪华景观房",
-    "display_name": "宿三亚香格里拉酒店豪华景观房"
-   },
-   "itinerary": "9月20日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月21日（周一）·第二天：自由活动，行程自行安排。\n9月22日（周二）·第三天：自由活动，行程自行安排。\n9月23日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2000,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "宿三亚香格里拉酒店豪华景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "宿三亚香格里拉酒店豪华景观房",
-    "display_name": "宿三亚香格里拉酒店豪华景观房"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2100,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-11"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "宿三亚香格里拉酒店豪华景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "宿三亚香格里拉酒店豪华景观房",
-    "display_name": "宿三亚香格里拉酒店豪华景观房"
-   },
-   "itinerary": "9月11日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月12日（周六）·第二天：自由活动，行程自行安排。\n9月13日（周日）·第三天：自由活动，行程自行安排。\n9月14日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2900,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-27"
-   ],
-   "return_dates": [
-    "2026-09-30"
-   ],
-   "hotel": "宿三亚香格里拉酒店豪华景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "宿三亚香格里拉酒店豪华景观房",
-    "display_name": "宿三亚香格里拉酒店豪华景观房"
-   },
-   "itinerary": "9月27日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月28日（周一）·第二天：自由活动，行程自行安排。\n9月29日（周二）·第三天：自由活动，行程自行安排。\n9月30日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 3450,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-25"
-   ],
-   "return_dates": [
-    "2026-09-28"
-   ],
-   "hotel": "宿三亚香格里拉酒店豪华景观房",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "宿三亚香格里拉酒店豪华景观房",
-    "display_name": "宿三亚香格里拉酒店豪华景观房"
-   },
-   "itinerary": "9月25日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月26日（周六）·第二天：自由活动，行程自行安排。\n9月27日（周日）·第三天：自由活动，行程自行安排。\n9月28日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
@@ -66825,7 +65483,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2500,
+   "price": 2150,
    "price_type": "直客价",
    "dates": [
     "2026-09-14"
@@ -66886,7 +65544,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2500,
+   "price": 2250,
    "price_type": "直客价",
    "dates": [
     "2026-09-16"
@@ -66947,68 +65605,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2500,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-21"
-   ],
-   "return_dates": [
-    "2026-09-25"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "9月21日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n9月22日（周二）·第二天：自由活动，行程自行安排。\n9月23日（周三）·第三天：自由活动，行程自行安排。\n9月24日（周四）·第四天：自由活动，行程自行安排。\n9月25日（周五）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2800,
+   "price": 2550,
    "price_type": "直客价",
    "dates": [
     "2026-09-23"
@@ -67069,7 +65666,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 3300,
+   "price": 3500,
    "price_type": "直客价",
    "dates": [
     "2026-09-28"
@@ -67191,7 +65788,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 3600,
+   "price": 3450,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -67252,7 +65849,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2650,
+   "price": 2350,
    "price_type": "直客价",
    "dates": [
     "2026-10-07"
@@ -67313,129 +65910,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2650,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-12"
-   ],
-   "return_dates": [
-    "2026-10-16"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "10月12日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月13日（周二）·第二天：自由活动，行程自行安排。\n10月14日（周三）·第三天：自由活动，行程自行安排。\n10月15日（周四）·第四天：自由活动，行程自行安排。\n10月16日（周五）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2650,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-14"
-   ],
-   "return_dates": [
-    "2026-10-18"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "10月14日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月15日（周四）·第二天：自由活动，行程自行安排。\n10月16日（周五）·第三天：自由活动，行程自行安排。\n10月17日（周六）·第四天：自由活动，行程自行安排。\n10月18日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2550,
+   "price": 2200,
    "price_type": "直客价",
    "dates": [
     "2026-10-19"
@@ -67496,7 +65971,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2750,
+   "price": 2400,
    "price_type": "直客价",
    "dates": [
     "2026-10-21"
@@ -67557,129 +66032,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2350,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-25"
-   ],
-   "return_dates": [
-    "2026-10-29"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "10月25日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月26日（周一）·第二天：自由活动，行程自行安排。\n10月27日（周二）·第三天：自由活动，行程自行安排。\n10月28日（周三）·第四天：自由活动，行程自行安排。\n10月29日（周四）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2550,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-26"
-   ],
-   "return_dates": [
-    "2026-10-30"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "10月26日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+3晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月27日（周二）·第二天：自由活动，行程自行安排。\n10月28日（周三）·第三天：自由活动，行程自行安排。\n10月29日（周四）·第四天：自由活动，行程自行安排。\n10月30日（周五）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2550,
+   "price": 2300,
    "price_type": "直客价",
    "dates": [
     "2026-10-27"
@@ -67740,129 +66093,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2200,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2350,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-11"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "9月11日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n9月12日（周六）·第二天：自由活动，行程自行安排。\n9月13日（周日）·第三天：自由活动，行程自行安排。\n9月14日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2100,
+   "price": 1950,
    "price_type": "直客价",
    "dates": [
     "2026-09-13"
@@ -67923,7 +66154,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2100,
+   "price": 1850,
    "price_type": "直客价",
    "dates": [
     "2026-09-18"
@@ -67984,7 +66215,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2100,
+   "price": 2050,
    "price_type": "直客价",
    "dates": [
     "2026-09-20"
@@ -68045,7 +66276,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 3500,
+   "price": 3150,
    "price_type": "直客价",
    "dates": [
     "2026-09-25"
@@ -68106,7 +66337,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2850,
+   "price": 2750,
    "price_type": "直客价",
    "dates": [
     "2026-09-27"
@@ -68167,7 +66398,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 5300,
+   "price": 5450,
    "price_type": "直客价",
    "dates": [
     "2026-10-02"
@@ -68228,7 +66459,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 4950,
+   "price": 4750,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -68289,7 +66520,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2250,
+   "price": 1950,
    "price_type": "直客价",
    "dates": [
     "2026-10-09"
@@ -68350,129 +66581,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2250,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-11"
-   ],
-   "return_dates": [
-    "2026-10-14"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "10月11日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月12日（周一）·第二天：自由活动，行程自行安排。\n10月13日（周二）·第三天：自由活动，行程自行安排。\n10月14日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2250,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-16"
-   ],
-   "return_dates": [
-    "2026-10-19"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "10月16日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月17日（周六）·第二天：自由活动，行程自行安排。\n10月18日（周日）·第三天：自由活动，行程自行安排。\n10月19日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2250,
+   "price": 2050,
    "price_type": "直客价",
    "dates": [
     "2026-10-18"
@@ -68533,7 +66642,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2300,
+   "price": 2150,
    "price_type": "直客价",
    "dates": [
     "2026-10-23"
@@ -81010,6 +79119,1531 @@
    },
    "itinerary": "12月24日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 仁川国际机场 (ICN)。落地后专车送到明洞索拉戈公寓，不用自己找路。14:00后办理入住。 12月25日（周五）·第二天：自由活动，行程自己安排。首尔·明洞周边吃饭逛街都方便。 12月26日（周六）·第三天：自由活动。 12月27日（周日）·第四天：自由活动。 12月28日（周一）·第五天：12:00前退房，前往仁川国际机场 (ICN) 乘返程航班回上海浦东国际机场 (PVG)。全程共4晚。",
    "has_pickup": true,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1050,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-09"
+   ],
+   "return_dates": [
+    "2026-10-12"
+   ],
+   "hotel": "三亚湾君然温泉度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "三亚湾君然温泉度假酒店",
+    "display_name": "三亚湾君然温泉度假酒店"
+   },
+   "itinerary": "10月9日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾君然温泉度假酒店。14:00后办理入住。\n10月10日（周六）·第二天：自由活动，行程自行安排。\n10月11日（周日）·第三天：自由活动，行程自行安排。\n10月12日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1250,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-16"
+   ],
+   "return_dates": [
+    "2026-10-19"
+   ],
+   "hotel": "三亚湾君然温泉度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "三亚湾君然温泉度假酒店",
+    "display_name": "三亚湾君然温泉度假酒店"
+   },
+   "itinerary": "10月16日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往三亚湾君然温泉度假酒店。14:00后办理入住。\n10月17日（周六）·第二天：自由活动，行程自行安排。\n10月18日（周日）·第三天：自由活动，行程自行安排。\n10月19日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1400,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-13"
+   ],
+   "return_dates": [
+    "2026-09-16"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "9月13日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n9月14日（周一）·第二天：自由活动，行程自行安排。\n9月15日（周二）·第三天：自由活动，行程自行安排。\n9月16日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1150,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-18"
+   ],
+   "return_dates": [
+    "2026-09-21"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "9月18日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n9月19日（周六）·第二天：自由活动，行程自行安排。\n9月20日（周日）·第三天：自由活动，行程自行安排。\n9月21日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1200,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-09"
+   ],
+   "return_dates": [
+    "2026-10-12"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "10月9日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n10月10日（周六）·第二天：自由活动，行程自行安排。\n10月11日（周日）·第三天：自由活动，行程自行安排。\n10月12日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1350,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-20"
+   ],
+   "return_dates": [
+    "2026-09-23"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "9月20日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n9月21日（周一）·第二天：自由活动，行程自行安排。\n9月22日（周二）·第三天：自由活动，行程自行安排。\n9月23日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1300,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-18"
+   ],
+   "return_dates": [
+    "2026-10-21"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "10月18日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n10月19日（周一）·第二天：自由活动，行程自行安排。\n10月20日（周二）·第三天：自由活动，行程自行安排。\n10月21日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1400,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-16"
+   ],
+   "return_dates": [
+    "2026-10-19"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "10月16日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n10月17日（周六）·第二天：自由活动，行程自行安排。\n10月18日（周日）·第三天：自由活动，行程自行安排。\n10月19日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1550,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-27"
+   ],
+   "return_dates": [
+    "2026-09-30"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "9月27日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n9月28日（周一）·第二天：自由活动，行程自行安排。\n9月29日（周二）·第三天：自由活动，行程自行安排。\n9月30日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1850,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-25"
+   ],
+   "return_dates": [
+    "2026-09-28"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "9月25日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n9月26日（周六）·第二天：自由活动，行程自行安排。\n9月27日（周日）·第三天：自由活动，行程自行安排。\n9月28日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 2800,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-04"
+   ],
+   "return_dates": [
+    "2026-10-07"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "10月4日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n10月5日（周一）·第二天：自由活动，行程自行安排。\n10月6日（周二）·第三天：自由活动，行程自行安排。\n10月7日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 3300,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-02"
+   ],
+   "return_dates": [
+    "2026-10-05"
+   ],
+   "hotel": "大东海银泰阳光度假酒店",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "大东海银泰阳光度假酒店",
+    "display_name": "大东海银泰阳光度假酒店"
+   },
+   "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往大东海银泰阳光度假酒店。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1350,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-09"
+   ],
+   "return_dates": [
+    "2026-09-12"
+   ],
+   "hotel": "海棠湾万丽度假酒店豪华房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "海棠湾万丽度假酒店豪华房",
+    "display_name": "海棠湾万丽度假酒店豪华房"
+   },
+   "itinerary": "9月9日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往海棠湾万丽度假酒店豪华房。14:00后办理入住。\n9月10日（周四）·第二天：自由活动，行程自行安排。\n9月11日（周五）·第三天：自由活动，行程自行安排。\n9月12日（周六）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1550,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-16"
+   ],
+   "return_dates": [
+    "2026-09-19"
+   ],
+   "hotel": "海棠湾万丽度假酒店豪华房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "海棠湾万丽度假酒店豪华房",
+    "display_name": "海棠湾万丽度假酒店豪华房"
+   },
+   "itinerary": "9月16日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往海棠湾万丽度假酒店豪华房。14:00后办理入住。\n9月17日（周四）·第二天：自由活动，行程自行安排。\n9月18日（周五）·第三天：自由活动，行程自行安排。\n9月19日（周六）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1500,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-09"
+   ],
+   "return_dates": [
+    "2026-10-12"
+   ],
+   "hotel": "天丽湾凯悦酒店园景房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "天丽湾凯悦酒店园景房",
+    "display_name": "天丽湾凯悦酒店园景房"
+   },
+   "itinerary": "10月9日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往天丽湾凯悦酒店园景房。14:00后办理入住。\n10月10日（周六）·第二天：自由活动，行程自行安排。\n10月11日（周日）·第三天：自由活动，行程自行安排。\n10月12日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1600,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-11"
+   ],
+   "return_dates": [
+    "2026-10-14"
+   ],
+   "hotel": "天丽湾凯悦酒店园景房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "天丽湾凯悦酒店园景房",
+    "display_name": "天丽湾凯悦酒店园景房"
+   },
+   "itinerary": "10月11日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往天丽湾凯悦酒店园景房。14:00后办理入住。\n10月12日（周一）·第二天：自由活动，行程自行安排。\n10月13日（周二）·第三天：自由活动，行程自行安排。\n10月14日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1600,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-18"
+   ],
+   "return_dates": [
+    "2026-10-21"
+   ],
+   "hotel": "天丽湾凯悦酒店园景房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "天丽湾凯悦酒店园景房",
+    "display_name": "天丽湾凯悦酒店园景房"
+   },
+   "itinerary": "10月18日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往天丽湾凯悦酒店园景房。14:00后办理入住。\n10月19日（周一）·第二天：自由活动，行程自行安排。\n10月20日（周二）·第三天：自由活动，行程自行安排。\n10月21日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1700,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-16"
+   ],
+   "return_dates": [
+    "2026-10-19"
+   ],
+   "hotel": "天丽湾凯悦酒店园景房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "天丽湾凯悦酒店园景房",
+    "display_name": "天丽湾凯悦酒店园景房"
+   },
+   "itinerary": "10月16日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往天丽湾凯悦酒店园景房。14:00后办理入住。\n10月17日（周六）·第二天：自由活动，行程自行安排。\n10月18日（周日）·第三天：自由活动，行程自行安排。\n10月19日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1600,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-18"
+   ],
+   "return_dates": [
+    "2026-09-21"
+   ],
+   "hotel": "宿海棠湾三亚香格里拉酒店豪华景观房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "宿海棠湾三亚香格里拉酒店豪华景观房",
+    "display_name": "宿海棠湾三亚香格里拉酒店豪华景观房"
+   },
+   "itinerary": "9月18日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿海棠湾三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月19日（周六）·第二天：自由活动，行程自行安排。\n9月20日（周日）·第三天：自由活动，行程自行安排。\n9月21日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1750,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-09"
+   ],
+   "return_dates": [
+    "2026-10-12"
+   ],
+   "hotel": "宿海棠湾三亚香格里拉酒店豪华景观房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "宿海棠湾三亚香格里拉酒店豪华景观房",
+    "display_name": "宿海棠湾三亚香格里拉酒店豪华景观房"
+   },
+   "itinerary": "10月9日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿海棠湾三亚香格里拉酒店豪华景观房。14:00后办理入住。\n10月10日（周六）·第二天：自由活动，行程自行安排。\n10月11日（周日）·第三天：自由活动，行程自行安排。\n10月12日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1800,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-20"
+   ],
+   "return_dates": [
+    "2026-09-23"
+   ],
+   "hotel": "宿海棠湾三亚香格里拉酒店豪华景观房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "宿海棠湾三亚香格里拉酒店豪华景观房",
+    "display_name": "宿海棠湾三亚香格里拉酒店豪华景观房"
+   },
+   "itinerary": "9月20日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿海棠湾三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月21日（周一）·第二天：自由活动，行程自行安排。\n9月22日（周二）·第三天：自由活动，行程自行安排。\n9月23日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1850,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-18"
+   ],
+   "return_dates": [
+    "2026-10-21"
+   ],
+   "hotel": "宿海棠湾三亚香格里拉酒店豪华景观房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "宿海棠湾三亚香格里拉酒店豪华景观房",
+    "display_name": "宿海棠湾三亚香格里拉酒店豪华景观房"
+   },
+   "itinerary": "10月18日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿海棠湾三亚香格里拉酒店豪华景观房。14:00后办理入住。\n10月19日（周一）·第二天：自由活动，行程自行安排。\n10月20日（周二）·第三天：自由活动，行程自行安排。\n10月21日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 1950,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-16"
+   ],
+   "return_dates": [
+    "2026-10-19"
+   ],
+   "hotel": "宿海棠湾三亚香格里拉酒店豪华景观房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "宿海棠湾三亚香格里拉酒店豪华景观房",
+    "display_name": "宿海棠湾三亚香格里拉酒店豪华景观房"
+   },
+   "itinerary": "10月16日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿海棠湾三亚香格里拉酒店豪华景观房。14:00后办理入住。\n10月17日（周六）·第二天：自由活动，行程自行安排。\n10月18日（周日）·第三天：自由活动，行程自行安排。\n10月19日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 2500,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-27"
+   ],
+   "return_dates": [
+    "2026-09-30"
+   ],
+   "hotel": "宿海棠湾三亚香格里拉酒店豪华景观房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:35",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "宿海棠湾三亚香格里拉酒店豪华景观房",
+    "display_name": "宿海棠湾三亚香格里拉酒店豪华景观房"
+   },
+   "itinerary": "9月27日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿海棠湾三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月28日（周一）·第二天：自由活动，行程自行安排。\n9月29日（周二）·第三天：自由活动，行程自行安排。\n9月30日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-三亚",
+   "dep": "上海",
+   "arr": "三亚",
+   "route": "上海→三亚",
+   "country": "国内",
+   "days": "4",
+   "nights": "3",
+   "price": 2800,
+   "price_type": "直客价",
+   "dates": [
+    "2026-09-25"
+   ],
+   "return_dates": [
+    "2026-09-28"
+   ],
+   "hotel": "宿海棠湾三亚香格里拉酒店豪华景观房",
+   "flight": "9C8779",
+   "flight_return": "9C8780",
+   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C8779",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "三亚凤凰国际机场 (SYX)",
+     "dep_time": "07:25",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "3小时10分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C8780",
+     "dep_airport": "三亚凤凰国际机场 (SYX)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "11:55",
+     "arr_time": "15:20",
+     "arr_next_day": 0,
+     "duration": "3小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "宿海棠湾三亚香格里拉酒店豪华景观房",
+    "display_name": "宿海棠湾三亚香格里拉酒店豪华景观房"
+   },
+   "itinerary": "9月25日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往宿海棠湾三亚香格里拉酒店豪华景观房。14:00后办理入住。\n9月26日（周六）·第二天：自由活动，行程自行安排。\n9月27日（周日）·第三天：自由活动，行程自行安排。\n9月28日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
   }
