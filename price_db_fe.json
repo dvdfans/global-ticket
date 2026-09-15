@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-09-15 07:06:21",
+  "build_time": "2026-09-15 09:24:09",
   "record_count": 2298,
   "records": [
     {
@@ -2933,7 +2933,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "10+",
+      "seats": "5",
       "erp_seats": "",
       "airline": "GK",
       "airline_cn": "捷星",
@@ -11832,7 +11832,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1799,
+      "retail": 1599,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -11869,7 +11869,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0915下调",
       "sub_sheet": "首尔 釜山",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -16693,7 +16693,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "6",
+      "seats": "5",
       "erp_seats": "2",
       "airline": "CZ",
       "airline_cn": "南航",
@@ -47662,7 +47662,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "10+",
-      "erp_seats": "10",
+      "erp_seats": "5",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
@@ -101470,7 +101470,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "125",
+      "supplier": "126",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "CA139",
@@ -101483,7 +101483,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 3199,
+      "retail": 3300,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -101526,7 +101526,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "126",
+      "supplier": "125",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "CA139",
@@ -101539,7 +101539,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 3300,
+      "retail": 3199,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -102926,7 +102926,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "125",
+      "supplier": "133",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "CA139",
@@ -102939,7 +102939,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 2249,
+      "retail": 2549,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -102982,7 +102982,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "133",
+      "supplier": "125",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "CA139",
@@ -102995,7 +102995,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 2549,
+      "retail": 2249,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
