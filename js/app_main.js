@@ -1961,8 +1961,9 @@ function _showFilter() {
     if (_fcd) _fcd.textContent = _ftc;
     var _fbody = document.getElementById('filterBody');
     if (_fbody) _fbody.innerHTML = html;
-    var _fcb = document.getElementById('filterCopyBtn');
-    if (_fcb) _fcb.style.display = 'none';
+    // 2026-09-15：自由行同样提供「📋 复制」——文案与「分享报价」同源（FreeTour._ftShareText），
+    //   故不再隐藏该按钮；就绪状态统一交给 _updateCopyBtnState() 按模式判定。
+    _updateCopyBtnState();
     _refreshSearchModeUI();
     return;
   }
@@ -1985,6 +1986,10 @@ function _showFilter() {
 function _updateCopyBtnState() {
   var btn = document.getElementById('filterCopyBtn');
   if (!btn) return;
+  // 2026-09-15 修复：本按钮在两种模式下都应可见。历史上自由行分支把它设为 display:none
+  //   且无人恢复 → 切回单机票后按钮永久消失。此处按模式统一恢复可见性（幂等）。
+  btn.style.display = '';
+  // 就绪判据：单机票与自由行同为「出发城市 + 到达城市 + 天数 + 月份」四项齐全（两模式共用同一套 _filter）。
   var ready = _filter.dep && _filter.arr && _filter.days && _filter.month;
   if (ready) {
     btn.classList.remove('disabled');
@@ -2522,6 +2527,25 @@ function _closeCopyOverflowAlert() {
 }
 
 function copyFilterResults() {
+  // ── 2026-09-15：自由行模式分派 ──────────────────────────────────────────
+  // 文案复用 FreeTour._ftShareText()（含 🏨 酒店行），与「分享报价」同源同文本；
+  // 显式传入「当前面板条件」的命中集，避免默认走 _lastFilter（上次已应用的条件）导致所见≠所复制。
+  if (_searchMode === 'freetour' && window.FreeTour && typeof window.FreeTour._ftShareText === 'function') {
+    var _ftHits = [];
+    try { _ftHits = window.FreeTour._resultHits(_filter) || []; } catch (e) { _ftHits = []; }
+    if (!_ftHits.length) { showToast('没有可复制的自由行套餐'); return; }
+    var _ftText = '';
+    try { _ftText = window.FreeTour._ftShareText(_ftHits, _filter) || ''; } catch (e) { _ftText = ''; }
+    if (!_ftText) { showToast('没有可复制的自由行套餐'); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(_ftText).then(function () {
+        showToast('✅ 已复制 ' + _ftHits.length + ' 个自由行套餐');
+      });
+    } else { prompt('复制以下内容：', _ftText); }
+    try { recordAction('copy_filter_ft', { count: _ftHits.length, quote: _ftText.slice(0, 200) }); } catch (e) {}
+    return;
+  }
+  // ── 单机票模式：原逻辑不变 ──────────────────────────────────────────────
   var recs = _getFilteredRecs();
   if (!recs.length) { showToast('没有可复制的报价'); return; }
   var MAX_COPY = 100; // 2026-08-17 用户定案：单批复制上限100条日期报价

@@ -2055,8 +2055,10 @@
       });
       return { header: header, dates: dates, size: dates.length, _key: (p.flight || '') + '|' + (p.flight_return || '') + '|' + (p.days || '') + '|' + hotel };
     },
-    _ftShareText: function () {
-      var hits = this._ftShareHits();
+    // hitsOverride（2026-09-15）：允许外部传入结果集 —— 「📋 复制」按钮传「当前面板条件」的命中，
+    //   避免默认走 _lastFilter（上次点「查看 N 条结果」时的条件）导致复制文案与面板显示不符。不传则行为不变。
+    _ftShareText: function (hitsOverride, filterOverride) {
+      var hits = hitsOverride || this._ftShareHits();
       if (!hits.length) return '';
       var self = this;
       // 聚合：同航班号 + 同天数 + 同酒店 → 合并成一段（组头只出一次，日期行并列）
@@ -2068,7 +2070,7 @@
         map[g._key].size += g.size;
       });
       var groups = order.map(function (k) { return map[k]; });
-      var base = this._ftShareUrl();
+      var base = this._ftShareUrl(filterOverride);
       var trailer = '';
       try { trailer = (typeof _PROMO !== 'undefined' ? _PROMO : '') + '\n🔗 ' + base; } catch (e) { trailer = '🔗 ' + base; }
       try {
@@ -2084,17 +2086,20 @@
     /* ── 结果页深链（2026-09-08）：复制文本末尾链接 → 打开直达自由行结果页 ──
      * 走 hash（#fts=…）而非 query：query ?f_* 会被单机票 _applyFilterFromUrl 接走。
      * 两种形态：#fts=q|<关键字>（搜索态） / #fts=f|dep|arr|days|month|dates逗号（筛选态） */
-    _ftShareUrl: function () {
+    // filterOverride（2026-09-15）：允许传入「当前面板条件」来生成深链 —— 与 _resultHits() 同源判定，
+    //   修正「在面板里选好条件、未点『查看 N 条结果』就复制」时 _lastFilter 尚为空 → 深链退化成首页链接的问题。
+    _ftShareUrl: function (filterOverride) {
       var base = '';
       try { base = window.location.href.split('#')[0].split('?')[0]; } catch (e) {}
       try {
-        if (this._lastShareSrc === 'search' && this._lastQuery) {
-          return base + '#fts=' + encodeURIComponent('q|' + this._lastQuery);
-        }
-        var f = this._lastFilter || {};
+        var f = filterOverride || this._lastFilter || {};
         var parts = [f.dep || '', f.arr || '', f.days || '', f.month || '', (f.dates || []).join(',')];
+        // 有筛选条件 → 筛选态深链（优先级与 _resultHits() 保持一致：条件优先于关键字）
         if (parts.some(function (x) { return x; })) {
           return base + '#fts=' + encodeURIComponent('f|' + parts.join('|'));
+        }
+        if (this._lastShareSrc === 'search' && this._lastQuery) {
+          return base + '#fts=' + encodeURIComponent('q|' + this._lastQuery);
         }
       } catch (e) {}
       return base;
