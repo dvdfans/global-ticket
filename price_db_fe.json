@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-09-15 17:59:32",
+  "build_time": "2026-09-15 19:47:51",
   "record_count": 2285,
   "records": [
     {
@@ -1733,7 +1733,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320(中型)",
       "meal": "无餐食",
-      "remark": "0912上调",
+      "remark": "",
       "sub_sheet": "上海东京GK",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -2741,7 +2741,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320(中型)",
       "meal": "无餐食",
-      "remark": "0912上调",
+      "remark": "",
       "sub_sheet": "上海东京GK",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9093,7 +9093,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "8",
+      "seats": "7",
       "erp_seats": "8",
       "airline": "CZ",
       "airline_cn": "南航",
@@ -15182,7 +15182,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "4",
-      "erp_seats": "4",
+      "erp_seats": "2",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "PVG",
@@ -17198,7 +17198,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "10+",
-      "erp_seats": "10",
+      "erp_seats": "8",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
@@ -18037,7 +18037,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "5",
+      "seats": "2",
       "erp_seats": "10",
       "airline": "CZ",
       "airline_cn": "南航",
@@ -27837,7 +27837,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "2",
+      "seats": "1",
       "erp_seats": "6",
       "airline": "MU",
       "airline_cn": "东航",
@@ -27869,7 +27869,7 @@
       "baggage_std_ret": "托运行李 1件×23kg · 手提行李 1件8kg",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "单人不收",
+      "remark": "",
       "sub_sheet": "上海东京",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -46206,7 +46206,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "10+",
-      "erp_seats": "10",
+      "erp_seats": "8",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
@@ -52808,7 +52808,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 3199,
+      "retail": 2699,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -52864,7 +52864,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 2999,
+      "retail": 2599,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -52920,7 +52920,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 2999,
+      "retail": 2599,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -52976,7 +52976,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 2999,
+      "retail": 2599,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -53088,7 +53088,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 3199,
+      "retail": 2699,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -53200,7 +53200,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 3299,
+      "retail": 2899,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -53256,7 +53256,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 3299,
+      "retail": 2899,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -53312,7 +53312,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 3399,
+      "retail": 3299,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -56621,7 +56621,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "18",
+      "seats": "14",
       "erp_seats": "10",
       "airline": "FM",
       "airline_cn": "上航",
@@ -56845,7 +56845,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "20",
+      "seats": "10",
       "erp_seats": "10",
       "airline": "FM",
       "airline_cn": "上航",
@@ -82885,8 +82885,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "8",
-      "erp_seats": "8",
+      "seats": "6",
+      "erp_seats": "6",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "PVG",
@@ -82941,8 +82941,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "6",
-      "erp_seats": "6",
+      "seats": "8",
+      "erp_seats": "8",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "PVG",
@@ -104158,7 +104158,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "133",
+      "supplier": "125",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "MU5071",
@@ -104171,13 +104171,13 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1699,
+      "retail": 2249,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "9",
-      "erp_seats": "9",
+      "seats": "8",
+      "erp_seats": "8",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "HGH",
@@ -104214,7 +104214,7 @@
       "overlap_source_supplier": ""
     },
     {
-      "supplier": "125",
+      "supplier": "133",
       "dep": "杭州",
       "arr": "首尔",
       "flight": "MU5071",
@@ -104227,13 +104227,13 @@
       "regions": [
         "韩国"
       ],
-      "retail": 2249,
+      "retail": 1699,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "8",
-      "erp_seats": "8",
+      "seats": "9",
+      "erp_seats": "9",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "HGH",
