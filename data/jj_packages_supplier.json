@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-16 11:32:16",
+ "build_time": "2026-09-16 13:14:58",
  "packages": [
   {
    "internal": false,
@@ -78735,7 +78735,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2550,
+   "price": 2500,
    "price_type": "直客价",
    "dates": [
     "2026-10-28"
@@ -78796,7 +78796,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2350,
+   "price": 2300,
    "price_type": "直客价",
    "dates": [
     "2026-10-31"
