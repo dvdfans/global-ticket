@@ -13,7 +13,7 @@ var STATS_API_URL = '';
 try {
   var _h = location.hostname || '';
   if (_h.indexOf('7116b6b0') >= 0 || _h.indexOf('305824db') >= 0 || _h.indexOf('7e62f7e0') >= 0) {
-    STATS_API_URL = 'https://bizrate-supports-terrorists-warning.trycloudflare.com';
+    STATS_API_URL = 'https://execute-euro-hear-named.trycloudflare.com';
   }
 } catch(e) {}
 
