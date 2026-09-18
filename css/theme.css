@@ -491,6 +491,14 @@ body.dark[data-theme] .jjd-it-day {
   background: rgba(255,255,255,0.035);
 }
 
+/* ★2026-09-18 Howard 定案：深色下卡片内的【机场名】与周边同色、不再区分。
+   问题：`.cf-routepair`（如「上海浦东T1-香港T1」）用 --text-secondary（#a0a0b8，偏灰），
+        而同一行里由 _aptBlock() 生成的航站楼 <span class="t-term"> 用 --text（#E8E8F0，亮白）
+        ⇒ 一行里两种颜色，机场名显得比 T1 暗一截（实测 rgb(160,160,184) vs rgb(232,232,240)）。
+   修法：深色下让 .cf-routepair 也用 --text，与 T1 及相邻的日期/航班号完全一致。
+   注：仅改深色（Howard 只提深色模式）；浅色下保持原样，避免影响已验收的浅色视觉。 */
+body.dark[data-theme] .cf-routepair { color: var(--text); }
+
 
 /* ═══════════════════════════════════════════════════════════════════════════
    备案信息（法规强制展示 · 2026-09-18）
