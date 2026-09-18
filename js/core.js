@@ -319,6 +319,24 @@ const SUPPLIER_COLORS = {
   '119': { bg:'#FFF3E2', border:'#F0B060', dot:'#E88A00', glow:'rgba(232,138,0,0.18)' },
   '132': { bg:'#F5EEE4', border:'#D0B090', dot:'#8B5A2B', glow:'rgba(139,90,43,0.18)' },
   'ERP': { bg:'#EAECF2', border:'#98A2B8', dot:'#1F3A5F', glow:'rgba(31,58,95,0.18)' },
+  /* ── 2026-09-18 补齐：数据里存在但原色板缺失的 14 个代码（Howard 定案）──
+     原状这些代码查不到 → 兜底灰 #999；2374 条里 858 条（36%）的卡片左边条是灰的。
+     取色：(色相,明度) 二维『最远点插入』贪心，保证两两可区分；
+     避开 logo 红 #DA3A2C / logo 金 #F9BE00。可复跑 tools 里同名脚本重算。 ── */
+  '124': { bg:'#F8EFF8', border:'#C992C9', dot:'#BE2DBE', glow:'rgba(190,45,190,0.18)' },
+  '136': { bg:'#F6F8EF', border:'#BEC992', dot:'#A1BE2D', glow:'rgba(161,190,45,0.18)' },
+  '133': { bg:'#F8EFF3', border:'#C992AC', dot:'#AE2967', glow:'rgba(174,41,103,0.18)' },
+  '109': { bg:'#F8EFEF', border:'#C99292', dot:'#6B1919', glow:'rgba(107,25,25,0.18)' },
+  '134': { bg:'#EFF8F4', border:'#92C9AD', dot:'#2DBE75', glow:'rgba(45,190,117,0.18)' },
+  '125': { bg:'#EFF8EF', border:'#92C992', dot:'#196B19', glow:'rgba(25,107,25,0.18)' },
+  '106': { bg:'#EFF0F8', border:'#9297C9', dot:'#2D3BBE', glow:'rgba(45,59,190,0.18)' },
+  '007': { bg:'#F8F6EF', border:'#C9BA92', dot:'#AE8A29', glow:'rgba(174,138,41,0.18)' },
+  '107': { bg:'#F8EFEF', border:'#C99292', dot:'#AE2929', glow:'rgba(174,41,41,0.18)' },
+  '131': { bg:'#F4EFF8', border:'#AD92C9', dot:'#752DBE', glow:'rgba(117,45,190,0.18)' },
+  '130': { bg:'#EFF8F5', border:'#92C9B8', dot:'#196B53', glow:'rgba(25,107,83,0.18)' },
+  '126': { bg:'#F8EFF5', border:'#C992B8', dot:'#6B1953', glow:'rgba(107,25,83,0.18)' },
+  '120': { bg:'#F5F8EF', border:'#B8C992', dot:'#5F7C1D', glow:'rgba(95,124,29,0.18)' },
+  '137': { bg:'#F2F8EF', border:'#A6C992', dot:'#62BE2D', glow:'rgba(98,190,45,0.18)' },
 };
 // 2026-08-12: 供应商代码（46 家，与全量库 supplier_code / 子库 supplier 对应）
 
@@ -396,9 +414,13 @@ function supTagHtml(name, cls) {
   return '<span class="' + (cls || 'cf-sup-tag') + '" style="' + (isDetail ? '' : 'color:var(--text);') + 'border-color:' + sc.dot + '">' + esc(disp) + '</span>';
 }
 
-// 卡片装饰色（左边条/阴影）：无权限 → 中性灰，避免供应商专属色泄露身份（照搬客服版）
+// 卡片装饰色（左边条/阴影）
+// ★2026-09-18 Howard 定案：颜色【不再做权限门控】—— 左侧色条渲染供应商代码底色，
+//   游客端同样展示。理由：颜色本身不构成供应商名称泄露。
+//   真正泄露身份的是【文字】（供应商代码/名称），该链路走 supTagHtml()，
+//   仍由 canSeeSupplier() 严格门控，本次未改动。
 function supStripe(r) {
-  if (!canSeeSupplier() || !r) return { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999', glow:'rgba(0,0,0,0.05)' };
+  if (!r || !r.supplier) return { bg:'#F5F5F5', border:'#D0D0D0', dot:'#999', glow:'rgba(0,0,0,0.05)' };
   return supplierColor(_decSup(r.supplier));
 }
 

@@ -148,23 +148,32 @@ function toggleTheme() {
   render();
 }
 
-// ═══════════════ 颜色主题（环球红焰 / 紫金 / 深海蓝 / 翡翠绿）═══════════════
+// ═══════════════ 颜色主题（6 套 · VI 标准色，见 css/theme.css）═══════════════
 // 与现有 dark/light 并存：使用独立 localStorage 键 pq_theme，不覆盖原有 'theme'（深色模式）
 var PQ_THEMES = {
   red:    { name: '环球红焰' },
-  purple: { name: '紫金' },
-  blue:   { name: '深海蓝' },
-  green:  { name: '翡翠绿' }
+  navy:   { name: '深海蓝' },
+  blue:   { name: '碧海天蓝' },
+  green:  { name: '翡翠绿' },
+  cyan:   { name: '潮汐青' },
+  purple: { name: '紫金' }
 };
 function pqThemeGet() {
   var t = '';
   try { t = localStorage.getItem('pq_theme') || ''; } catch(e) {}
-  return PQ_THEMES[t] ? t : 'red';
+  return PQ_THEMES[t] ? t : 'cyan';
 }
 function applyTheme(t) {
-  if (!PQ_THEMES[t]) t = 'red';
+  if (!PQ_THEMES[t]) t = 'cyan';
   document.body.setAttribute('data-theme', t);
   try { localStorage.setItem('pq_theme', t); } catch(e) {}
+  // ★同步浏览器地址栏 / 状态栏色到当前主色（与 login.html / zizhi.html 一致）
+  //   2026-09-18：此前只有 meta 静态值，切主题后地址栏不跟随，默认改潮汐青时一并补上。
+  try {
+    var mtc = document.getElementById('metaThemeColor');
+    var bc = getComputedStyle(document.body).getPropertyValue('--brand').trim();
+    if (mtc && bc) mtc.setAttribute('content', bc);
+  } catch(e) {}
   var opts = document.querySelectorAll('.theme-opt');
   for (var i = 0; i < opts.length; i++) {
     opts[i].classList.toggle('active', opts[i].getAttribute('data-theme') === t);
@@ -179,9 +188,10 @@ function openThemeSwitcher() {
 }
 function setTheme(t) { applyTheme(t); }
 
-// 2026-08-05 用户：主题切换用「点击 logo」实现——循环切换 4 主题 + toast 提示 + localStorage 记忆
+// 2026-08-05 用户：主题切换用「点击 logo」实现——循环切换 6 主题 + toast 提示 + localStorage 记忆
 function cycleTheme() {
-  var order = ['red', 'purple', 'blue', 'green'];
+  // 默认主题＝潮汐青，故排首位：点击 logo 从青 → 红的顺序轮换
+  var order = ['cyan', 'red', 'navy', 'blue', 'green', 'purple'];
   var cur = pqThemeGet();
   var idx = order.indexOf(cur);
   var next = order[(idx + 1) % order.length];
@@ -937,8 +947,8 @@ function _comboBarHtml(outRec, ret) {
     + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1px">'
     + '<span id="comboHdTitle" style="font-size:11px;font-weight:600;letter-spacing:.3px">组合行程' + (days ? ' · ' + days + '天' : '') + (airCn ? ' · ' + airCn : '') + '</span>'
     + '</div>'
-    + '<div><span style="opacity:.7">去程</span> ' + _fmtDateShort(outRec.dep_date) + ' ' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '→' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + (function(){var t=_durTxt(outRec);return t?' '+t:'';})() + (outSeat ? ' <span style="color:#FFE58A;font-size:10px">' + outSeat + '</span>' : '') + '</div>'
-    + '<div id="comboHdRet"><span style="opacity:.7">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (function(){var t=_durTxt(ret);return t?' '+t:'';})() + (retSeat ? ' <span style="color:#FFE58A;font-size:10px">' + retSeat + '</span>' : '') + '</div>'
+    + '<div><span style="opacity:.7">去程</span> ' + _fmtDateShort(outRec.dep_date) + ' ' + (outRec.flight||'') + ' ' + _aptBlockTxt(outRec,'dep') + '→' + _aptBlockTxt(outRec,'arr') + ' ' + (outRec.dep_time||'') + '-' + (outRec.arr_time||'') + (function(){var t=_durTxt(outRec);return t?' '+t:'';})() + (outSeat ? ' <span style="color:var(--vi-gold-100);font-size:10px">' + outSeat + '</span>' : '') + '</div>'
+    + '<div id="comboHdRet"><span style="opacity:.7">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (function(){var t=_durTxt(ret);return t?' '+t:'';})() + (retSeat ? ' <span style="color:var(--vi-gold-100);font-size:10px">' + retSeat + '</span>' : '') + '</div>'
     + '<div id="comboHdTotal" style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid rgba(255,255,255,.3);margin-top:3px;padding-top:3px">'
     + '<span style="font-weight:700;font-size:14px">合计 ¥' + total + '<span style="font-size:10px;font-weight:400;opacity:.8">（含税）/人</span></span>'
     + '<span style="opacity:.85;font-size:11px">去¥' + (outRec.retail||0) + '+回¥' + (ret.retail||0) + '</span>'
@@ -1160,7 +1170,7 @@ function selectReturn(idx) {
   // 头部组合行程：回程行 + 合计行 + 标题天数
   var hdRet = document.getElementById('comboHdRet');
   if (hdRet) {
-    hdRet.innerHTML = '<span style="opacity:.7">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:#FFE58A;font-size:10px">' + retSeat + '</span>' : '');
+    hdRet.innerHTML = '<span style="opacity:.7">回程</span> ' + _fmtDateShort(ret.dep_date) + ' ' + (ret.flight||'') + ' ' + _aptBlockTxt(ret,'dep') + '→' + _aptBlockTxt(ret,'arr') + ' ' + (ret.dep_time||'') + '-' + (ret.arr_time||'') + (retSeat ? ' <span style="color:var(--vi-gold-100);font-size:10px">' + retSeat + '</span>' : '');
   }
   var hdTitle = document.getElementById('comboHdTitle');
   if (hdTitle) {
@@ -1318,7 +1328,7 @@ function openDetail(rec) {
     }
   }
 
-  var seatsBadge = (function(s){var t=_seatDispRender(s);if(!t)return'';var n=parseInt(t.replace(/^余/,''),10);if(!isNaN(n)&&n<=3)return'<span style="color:#FF7D00;font-weight:600">'+t+'</span>';return'<span style="color:var(--green)">'+t+'</span>';})(rec.seats);
+  var seatsBadge = (function(s){var t=_seatDispRender(s);if(!t)return'';var n=parseInt(t.replace(/^余/,''),10);if(!isNaN(n)&&n<=3)return'<span style="color:var(--c-seat-low,#FF7D00);font-weight:600">'+t+'</span>';return'<span style="color:var(--green)">'+t+'</span>';})(rec.seats);
 
   // ─── 复制文本（单日期 / 全日期）───
   // 铁律（REFERENCE §8）：复制信息严禁含供应商标签——任何登录态复制文本必须与游客逐字节一致
@@ -1387,7 +1397,7 @@ function openDetail(rec) {
     + (staff ? '<div style="margin-top:8px"><button id="odateMultiBtn" onclick="copySelectedDates()" style="width:100%;padding:10px;border:none;border-radius:8px;background:var(--red);color:#fff;font-size:13px;font-weight:700;cursor:pointer">📋 复制选中日期</button></div>' : '')
     + '</div>'
     + (!hasReturn ? renderReturnOptions(rec) : '')
-    + (staff ? '<div style="padding:0 12px 8px"><button onclick="copyStaffInfo()" style="width:100%;padding:10px;border:1px dashed #c0392b;border-radius:8px;background:#fff7f5;color:#c0392b;font-size:13px;font-weight:700;cursor:pointer">📋 复制（含行李、机型、餐食信息）</button></div>' : '')
+    + (staff ? '<div style="padding:0 12px 8px"><button onclick="copyStaffInfo()" style="width:100%;padding:10px;border:1px dashed var(--vi-red-700);border-radius:8px;background:var(--vi-red-50);color:var(--vi-red-700);font-size:13px;font-weight:700;cursor:pointer">📋 复制（含行李、机型、餐食信息）</button></div>' : '')
     + '<div class="detail-actions">'
     + '<button class="detail-share" onclick="copyAll()">📋 复制全部</button>'
     + '<button class="detail-consult" onclick="consultCSwithCopyAll(\'' + (rec.dep||'') + '-' + (rec.arr||'') + ' ' + (rec.dep_date||'') + ' ¥' + (rec.retail||0) + '\')">💬 咨询客服</button>'
@@ -1526,7 +1536,7 @@ function consultCS(quote) {
   var html = '<div style="text-align:center;padding:16px">'
     + '<img src="img/qr_cs.png" alt="客服" style="width:140px;height:140px;border-radius:8px">'
     + '<p style="margin-top:10px;font-size:13px;color:#4E5969">' + quote + '</p>'
-    + '<p style="margin-top:6px;color:#E60012;font-weight:700">长按识别二维码联系客服</p></div>';
+    + '<p style="margin-top:6px;color:var(--vi-red-500);font-weight:700">长按识别二维码联系客服</p></div>';
   document.getElementById('csModalContent').innerHTML = html;
   document.getElementById('csModal').classList.add('active');
   sendStats({action:'consult_request',quote:quote,ts:new Date().toISOString()});
@@ -1764,12 +1774,13 @@ var odStyle = document.createElement('style');
 odStyle.textContent = '.odate{display:flex;align-items:center;gap:6px;padding:8px;margin-bottom:4px;border-radius:6px;cursor:pointer;font-size:12px;background:var(--tag-bg)}'
   + '.odate:hover{background:var(--border)}'
   + '.odate-dot{font-size:10px;margin-right:2px;color:var(--text-light);width:10px;text-align:center}'
-  + '.odate-price{font-weight:700;color:#E60012;margin-left:auto}'
-  + '.odate-seats{color:#00B42A;font-size:11px;min-width:30px}'
+  + '.odate-price{font-weight:700;color:var(--c-price,var(--red));margin-left:auto}'
+  + '.odate-seats{color:var(--c-seat,var(--green));font-size:11px;min-width:30px}'
   + '.odate-time{color:#86909C;font-size:11px}'
   + '.detail-actions{display:flex;gap:8px;padding:0 16px 16px}'
   + '.detail-actions button{flex:1;padding:12px;border:none;border-radius:8px;font-size:14px;font-weight:700;cursor:pointer}'
-  + '.detail-share{background:#165DFF;color:#fff}'
+  + '.detail-share{background:var(--c-info,var(--blue));color:#fff}'
+  + '.detail-share:active{filter:brightness(0.88)}'
   + '.detail-share:active{background:#0E42D2}';
 document.head.appendChild(odStyle);
 
@@ -2494,7 +2505,7 @@ function _showCopyOverflowAlert(msg, batches) {
   var html = '<div style="background:var(--bg-card,#fff);border-radius:14px;max-width:340px;width:100%;padding:18px;box-shadow:0 8px 32px rgba(0,0,0,.25);margin:auto">'
     + '<div style="font-size:15px;font-weight:700;color:var(--text,#222);margin-bottom:4px">📋 复制已分批</div>'
     + '<div style="font-size:12px;color:var(--text-secondary,#666);line-height:1.6;margin-bottom:10px">' + msg + '</div>'
-    + '<div style="max-height:52vh;overflow:auto;margin-bottom:10px">';
+    + '<div style="max-height:52vh;max-height:52dvh;overflow:auto;margin-bottom:10px">';
   batches.forEach(function(b, i){
     html += '<div style="border:1px solid var(--border,#eee);border-radius:10px;padding:8px;margin-bottom:8px">'
       + '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px">'
@@ -2887,7 +2898,7 @@ function searchFilter(q) {
       if (!recs.length) {
         html += '<div style="font-size:12px;color:var(--text-light);padding:8px 0">未找到匹配结果，请调整关键词</div>';
       } else {
-        html += '<div style="max-height:56vh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;margin-bottom:8px">';
+        html += '<div style="max-height:56vh;max-height:56dvh;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;margin-bottom:8px">';
         recs.slice(0, INLINE_CAP).forEach(function(r){
           html += '<div class="fit-sr" onclick="closeFilter();showSearchResult(\'' + r.dep + '\',\'' + r.arr + '\',\'' + (r.flight||'') + '\',\'' + (r.dep_date||'') + '\')">'
             + '<span style="font-weight:600;font-size:13px">' + r.dep + '-' + r.arr + '</span>'

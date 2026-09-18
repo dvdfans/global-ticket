@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#26B7BC" id="metaThemeColor">
+  <title>备案与资质公示 - 环球度假</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <!-- 只引 theme.css（取 VI 标准色阶 + 品牌令牌 + 6 主题 + 深色底面）。
+       ★刻意【不引 style.css】：
+         style.css 含 `* { margin:0; padding:0 }` 与 `body{...}` 等全局规则，
+         且带 .logo / .header-bg 等整站类名。本页是独立文档流页面，自写最小 reset
+         更可控，也彻底避免类名撞车（登录页曾因 .logo 撞车导致布局错乱）。 -->
+  <link rel="stylesheet" href="css/theme.css?v=119">
+  <script>
+    /* 主题提前上色：与报价页 / 登录页共用同一套 localStorage（pq_theme / theme），
+       在首屏绘制前挂到 <html>，避免先白一下再变色。 */
+    (function () {
+      try {
+        var OK = { red: 1, navy: 1, blue: 1, green: 1, cyan: 1, purple: 1 };
+        var t = localStorage.getItem('pq_theme') || 'cyan';
+        if (!OK[t]) t = 'red';
+        document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    /* ══════════════════════════════════════════════════════════════════
+       资质公示页（zizhi.html）—— 独立页，承接底部「备案与资质」链接。
+
+       法规依据：
+         ·《旅行社条例实施细则》第 29 条：旅行社以互联网形式经营旅行社业务的，
+           其【网站首页】应当载明旅行社的名称、法定代表人、许可证编号和业务经营范围，
+           以及原许可的旅游行政管理部门的投诉电话。
+           ⇒ 首页底部仍保留精简版（编号 + 经营范围 + 投诉电话），本页给出【完整】公示。
+         ·《电子商务法》第 15 条：首页显著位置持续公示营业执照信息、行政许可信息
+           「或上述信息的链接标识」⇒ 链接标识是法定允许的形式。
+         ·《在线旅游经营服务管理暂行规定》第 10 条 / 第 12 条。
+
+       ★命名空间：本页所有类名一律 zz- 前缀 + #app 作用域包裹，
+         与整站 style.css 类名彻底隔离（登录页 .logo 撞车事故的教训）。
+       ══════════════════════════════════════════════════════════════════ */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      /* 深色下 --bg/--card-bg 由 theme.css 的 body.dark[data-theme=X] 提供（跟随主题）；
+         浅色下 theme.css 不含这两个令牌，用兜底值。 */
+      background: var(--bg, #F0F2F5);
+      color: #1A1A1A;
+      /* dvh = 动态视口高；vh 作旧浏览器回退 */
+      min-height: 100vh; min-height: 100dvh;
+      -webkit-font-smoothing: antialiased;
+    }
+    body.dark { color: #E8E8F0; }
+
+    #app {
+      --zz-bg: #F0F2F5;
+      --zz-card: #FFFFFF;
+      --zz-text: #1A1A1A;
+      /* ★灰阶取值按 WCAG AA 反推：对白底 ≥4.5，对页面底(#F0F2F5) 也要 ≥4.5。
+         #999 对白底只有 2.85、对 #F0F2F5 只有 2.54 —— 均不达标（踩过一次的坑）。 */
+      --zz-text2: #5A5A5A;   /* 白底 6.40 / 页面底 5.60 */
+      --zz-text3: #6E6E6E;   /* 白底 5.10 / 页面底 4.62 */
+      --zz-border: #E8E8EC;
+      --zz-line: #EDEDF1;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 0 28px;
+    }
+    body.dark #app {
+      --zz-card: var(--card-bg, #16213e);
+      --zz-text: #E8E8F0;
+      --zz-text2: #A8A8BE;
+      --zz-text3: #9A9AB4;   /* ★对【最暗】的深卡底(cyan 主题)也 ≥4.9；原 #9090A8 只有 4.43 */
+      --zz-border: rgba(255,255,255,0.10);
+      --zz-line: rgba(255,255,255,0.07);
+    }
+    /* ★★深色下【品牌色不可直接当文字色】——
+       深蓝 #004386 在深底上对比度只有 1.55、紫 #481C87 只有 1.37，等于看不见。
+       统一改用 --c-onDark（各主题的浅亮版，theme.css 已为 6 套主题各备一个）。 */
+    body.dark #app .zz-cert-no { color: var(--c-onDark, #FF7062); }
+    body.dark #app .zz-cert-owner {
+      background: rgba(255,255,255,0.10);   /* --brand-light 无深色版，会变成刺眼浅块 */
+      color: var(--c-onDark, #FF7062);
+    }
+    body.dark #app .zz-h2::before,
+    body.dark #app .zz-cert::after { background: var(--c-onDark, #FF7062); }
+
+    /* ── 页头：与站点同款品牌渐变 + 蒲公英辅助图形角隅 ── */
+    #app .zz-hd {
+      position: relative;
+      background: var(--brand-grad, linear-gradient(135deg,#D9392B 0%,#A9291E 50%,#571510 100%));
+      color: var(--brand-text, #FFFFFF);
+      padding: 16px 18px 18px;
+      border-radius: 0 0 14px 14px;
+      overflow: hidden;
+    }
+    /* 装饰层用 ::before（不与站点 ::after 金色光晕冲突；本页虽无光晕，仍统一约定） */
+    #app .zz-hd::before {
+      content: ''; position: absolute; inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300' viewBox='0 0 300 300'><g fill='%23FFFFFF' fill-opacity='0.07'><path d='M150 20c8 26 22 42 46 50-24 8-38 24-46 50-8-26-22-42-46-50 24-8 38-24 46-50z'/><path d='M60 150c20 6 33 17 39 39 6-22 19-33 39-39-20-6-33-17-39-39-6 22-19 33-39 39z'/><path d='M240 160c17 5 28 15 33 33 5-18 16-28 33-33-17-5-28-15-33-33-5 18-16 28-33 33z'/><circle cx='70' cy='245' r='17'/><circle cx='238' cy='62' r='14'/></g></svg>");
+      background-size: 300px 300px;
+      background-position: right -40px top -60px;
+      background-repeat: no-repeat;
+      pointer-events: none;
+    }
+    #app .zz-hd > * { position: relative; }
+
+    #app .zz-back {
+      display: inline-flex; align-items: center; gap: 4px;
+      color: var(--brand-ink, rgba(255,255,255,0.82));
+      font-size: 12px; text-decoration: none;
+      padding: 4px 10px 4px 8px; border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      margin-bottom: 12px;
+    }
+    #app .zz-back:active { background: rgba(255,255,255,0.24); }
+
+    #app .zz-title {
+      font-size: 20px; font-weight: 700; line-height: 1.3; letter-spacing: .5px;
+    }
+    #app .zz-sub {
+      font-size: 12px; margin-top: 4px; opacity: .88;
+    }
+
+    /* ── 区块 ── */
+    #app .zz-main { padding: 14px 12px 0; }
+
+    #app .zz-sec {
+      background: var(--zz-card);
+      border: 1px solid var(--zz-border);
+      border-radius: 12px;
+      padding: 14px 14px 15px;
+      margin-bottom: 12px;
+    }
+    #app .zz-h2 {
+      font-size: 14px; font-weight: 700; color: var(--zz-text);
+      padding-left: 9px; position: relative; margin-bottom: 11px;
+      line-height: 1.4;
+    }
+    #app .zz-h2::before {
+      content: ''; position: absolute; left: 0; top: 2px; bottom: 2px;
+      width: 3px; border-radius: 2px;
+      background: var(--brand, #D9392B);
+    }
+
+    /* ── 键值行 ── */
+    #app .zz-row {
+      display: flex; gap: 8px; align-items: flex-start;
+      padding: 6px 0;
+      border-bottom: 1px dashed var(--zz-line);
+      font-size: 13px; line-height: 1.65;
+    }
+    #app .zz-row:last-child { border-bottom: none; padding-bottom: 0; }
+    #app .zz-row dt {
+      flex: 0 0 76px; color: var(--zz-text3); font-size: 12.5px;
+      padding-top: 1px;
+    }
+    #app .zz-row dd { flex: 1; color: var(--zz-text); word-break: break-word; }
+
+    /* ── 证照卡：模拟证件排版，避免直接放扫描件（防冒用 + 免新增图片文件） ── */
+    #app .zz-cert {
+      border: 1px solid var(--zz-border);
+      border-radius: 9px;
+      padding: 11px 13px 12px;
+      margin-bottom: 9px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.012) 0%, rgba(0,0,0,0) 70%);
+      position: relative;
+    }
+    #app .zz-cert::after {
+      /* 左侧品牌色条：呼应报价卡片的 4px 色条语言 */
+      content: ''; position: absolute; left: 0; top: 9px; bottom: 9px;
+      width: 3px; border-radius: 0 2px 2px 0;
+      background: var(--brand, #D9392B);
+    }
+    #app .zz-cert-hd {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 8px; margin-bottom: 5px;
+    }
+    #app .zz-cert-kind {
+      font-size: 13.5px; font-weight: 700; color: var(--zz-text);
+    }
+    #app .zz-cert-owner {
+      flex: 0 0 auto; font-size: 11px; padding: 1px 7px; border-radius: 4px;
+      background: var(--brand-light, #FEF0EF);
+      color: var(--brand-2, #A9291E);
+      white-space: nowrap;
+    }
+    #app .zz-cert-no {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 14px; font-weight: 600; letter-spacing: .3px;
+      color: var(--brand, #D9392B);
+      word-break: break-all;
+    }
+
+    /* ── 状态标签（备案进度）── */
+    #app .zz-status {
+      display: inline-block; font-size: 11.5px; line-height: 1.5;
+      padding: 1px 8px; border-radius: 4px;
+      background: var(--tag-bg, #F1F2F4);
+      color: var(--zz-text2);
+    }
+    #app .zz-status.zz-wait {
+      background: var(--vi-gold-50, #FFF4D1); color: var(--vi-gold-900, #806100);
+    }
+    #app .zz-status.zz-done {
+      background: var(--vi-green-50, #EAF5EA); color: var(--vi-green-700, #287028);
+    }
+    body.dark #app .zz-status { background: rgba(255,255,255,0.08); color: var(--zz-text2); }
+    body.dark #app .zz-status.zz-wait { background: rgba(250,190,0,0.14); color: var(--vi-gold-300, #FFD242); }
+    body.dark #app .zz-status.zz-done { background: rgba(56,157,56,0.16); color: var(--vi-green-300, #59C459); }
+
+    /* ── 注记 / 法条引用 ── */
+    #app .zz-note {
+      font-size: 11.5px; line-height: 1.7; color: var(--zz-text3);
+      margin-top: 9px; padding-top: 9px;
+      border-top: 1px solid var(--zz-line);
+    }
+    #app .zz-note b { color: var(--zz-text2); font-weight: 600; }
+
+    /* ── 证照原件影像 ──
+       移动端宽度下按容器自适应；点击在新标签打开原图（190KB，浏览器直接渲染）。 */
+    #app .zz-scan { margin: 12px 0 0; }
+    #app .zz-scan-link {
+      display: block; position: relative; line-height: 0;
+      border: 1px solid var(--zz-border); border-radius: 8px; overflow: hidden;
+      background: #fff;                     /* 证照为浅底，深色模式下衬白更贴近实物 */
+    }
+    #app .zz-scan-link:active { opacity: .92; }
+    #app .zz-scan img { width: 100%; height: auto; display: block; }
+    #app .zz-scan-zoom {
+      position: absolute; right: 8px; bottom: 8px;
+      font-size: 11px; line-height: 1.4; padding: 3px 8px; border-radius: 4px;
+      background: rgba(0, 0, 0, 0.55); color: #fff;
+      -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+    }
+    #app .zz-scan figcaption {
+      font-size: 11px; line-height: 1.6; color: var(--zz-text3);
+      text-align: center; margin-top: 6px;
+    }
+
+    /* ── 页脚 ── */
+    #app .zz-ft {
+      text-align: center; font-size: 10.5px; line-height: 1.7;
+      color: var(--zz-text3);
+      padding: 6px 14px 0;
+    }
+    #app .zz-ft a { color: inherit; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header class="zz-hd">
+      <a class="zz-back" href="index.html">← 返回报价</a>
+      <h1 class="zz-title">备案与资质公示</h1>
+      <p class="zz-sub">环球度假 · 特价机票报价系统</p>
+    </header>
+
+    <main class="zz-main">
+
+      <!-- ══════════ 一、经营主体 ══════════
+           《电子商务法》第 15 条：首页显著位置持续公示营业执照信息或其链接标识。
+           《旅行社条例实施细则》第 29 条：载明旅行社的名称、法定代表人。
+
+           ★★主体关系（2026-09-18 Howard 定案 · 网站主体＝分公司）：
+             · 【网站运营主体】= 北京环球度假旅游有限公司上海杨浦区分公司
+               → ICP 备案主体 / 电子营业执照亮照主体 / 版权主体，三者统一为它。
+               分公司有独立营业执照，可以作为备案与亮照主体。
+             · 【设立社（旅行社主体）】= 北京环球度假旅游有限公司
+               → 《旅行社业务经营许可证》L-BJ-CJ00894 的持有人；分社不具法人资格
+                 （《旅行社条例实施细则》§18），责任最终由设立社承担。
+             · 分公司名称【本身已包含设立社名称】，故两行并列即同时满足 §29「载明旅行社的名称」。
+
+           ★「法定代表人」待补 —— 法条指向的是【旅行社（设立社）】的法定代表人，
+             分社只有「负责人」、没有法定代表人。拿到后加一行：
+             <div class="zz-row"><dt>法定代表人</dt><dd>XXX（设立社）</dd></div> -->
+      <section class="zz-sec">
+        <h2 class="zz-h2">经营主体</h2>
+        <dl>
+          <div class="zz-row"><dt>网站主体</dt><dd>北京环球度假旅游有限公司上海杨浦区分公司</dd></div>
+          <div class="zz-row"><dt>设立社</dt><dd>北京环球度假旅游有限公司</dd></div>
+          <div class="zz-row"><dt>经营场所</dt><dd>上海市杨浦区杭州路 741 号 6 幢 111 室</dd></div>
+        </dl>
+        <p class="zz-note">
+          <b>关于主体：</b>本网站由北京环球度假旅游有限公司上海杨浦区分公司（以下简称「本分公司」）运营，
+          ICP 备案主体、电子营业执照亮照主体与本页版权主体均为该分公司。
+          本分公司是北京环球度假旅游有限公司依法设立的分支机构，不具有法人资格，
+          以设立社名义从事旅游业务，其经营活动的责任和后果由设立社承担
+          （《旅行社条例实施细则》第 18 条）。
+        </p>
+      </section>
+
+      <!-- ══════════ 二、旅行社经营资质 ══════════
+           ★为什么这里只有《旅行社分社备案登记证明》、没有分社自己的许可证：
+             分社【本来就不发】独立许可证，这是法定形态，不是缺失。
+             ·《旅行社条例实施细则》第 18 条：分社不具有法人资格，以设立社名义经营，
+               责任和后果由设立社承担。
+             ·《旅行社条例实施细则》第 24 条：分社备案后，受理备案的旅游行政管理部门
+               向旅行社颁发《旅行社分社备案登记证明》。
+             ·《旅行社条例实施细则》第 26 条：许可证与备案登记证明应【一并】悬挂公示。
+             ⇒ 故本页两者并列展示，缺一不完整。 -->
+      <section class="zz-sec">
+        <h2 class="zz-h2">旅行社经营资质</h2>
+
+        <article class="zz-cert">
+          <div class="zz-cert-hd">
+            <span class="zz-cert-kind">旅行社业务经营许可证</span>
+            <span class="zz-cert-owner">设立社</span>
+          </div>
+          <div class="zz-cert-no">L-BJ-CJ00894</div>
+        </article>
+
+        <article class="zz-cert">
+          <div class="zz-cert-hd">
+            <span class="zz-cert-kind">旅行社分社备案登记证明</span>
+            <span class="zz-cert-owner">本分公司</span>
+          </div>
+          <div class="zz-cert-no">L-BJ-CJ00894-YPQ-FS0001</div>
+        </article>
+
+        <dl>
+          <div class="zz-row"><dt>业务经营范围</dt><dd>境内旅游、入境旅游、出境旅游招徕、组织、接待业务</dd></div>
+          <div class="zz-row"><dt>核发</dt><dd>杨浦区 · 2018-09-28</dd></div>
+          <div class="zz-row"><dt>监制</dt><dd>中华人民共和国国家旅游局<br>（2018 年 3 月已改组为文化和旅游部，现证书由文化和旅游部监制）</dd></div>
+        </dl>
+
+        <!-- ══ 证照原件影像 ══
+             ★法规不强制放原件：《电子商务法》§15 允许「链接标识」方式公示，
+               §29 只要求「载明」信息 —— 文字载明已满足。但放原件更有说服力，也是行业惯例
+               （携程即链接到许可证影像/PDF）。
+             ★不单独做页面：本页已承担「资质公示」职能，原件影像作为【佐证材料】附在同一页
+               最自然（用户无需跳转比对）；除非证照数量明显变多，才值得另建「证照库」页。
+             ★已叠淡斜向水印（透明度约 10%，不遮挡正文与印章）：证照影像一旦上网即可被下载，
+               水印用于降低「被裁剪后冒用」的风险。
+             ★⚠ 「查看大图」直链到 img/ 下的原图，属【新增文件】。部署是「增量合并且不做镜像」
+               ⇒ 该文件上线后删不掉，替换需用同文件名覆盖。 -->
+        <figure class="zz-scan">
+          <a class="zz-scan-link" href="img/zz_fenshe_beian.jpg" target="_blank" rel="noopener">
+            <img src="img/zz_fenshe_beian.jpg"
+                 alt="《旅行社分社备案登记证明》原件影像，编号 L-BJ-CJ00894-YPQ-FS0001"
+                 loading="lazy" decoding="async">
+            <span class="zz-scan-zoom">点击查看大图</span>
+          </a>
+          <figcaption>《旅行社分社备案登记证明》原件影像 · 编号 L-BJ-CJ00894-YPQ-FS0001</figcaption>
+        </figure>
+
+        <p class="zz-note">
+          <b>关于分社资质：</b>旅行社分社不具有法人资格，以设立社（总公司）名义从事经营活动，
+          其经营活动的责任和后果由设立社承担（《旅行社条例实施细则》第 18 条）。
+          分社经备案后取得《旅行社分社备案登记证明》，与设立社的《旅行社业务经营许可证》
+          配套生效。
+        </p>
+      </section>
+
+      <!-- ══════════ 三、网站备案 ══════════ -->
+      <section class="zz-sec">
+        <h2 class="zz-h2">网站备案</h2>
+        <dl>
+          <div class="zz-row">
+            <dt>ICP 备案</dt>
+            <dd><span class="zz-status zz-wait">办理中</span>
+              <div class="zz-note" style="border:none;padding-top:4px;margin-top:4px">
+                备案通过后，将在本行显示备案号并链接工信部备案系统。
+              </div>
+            </dd>
+          </div>
+          <div class="zz-row">
+            <dt>公安网备</dt>
+            <dd><span class="zz-status">待办理</span>
+              <div class="zz-note" style="border:none;padding-top:4px;margin-top:4px">
+                须在 ICP 备案通过后 30 日内，到全国互联网安全管理服务平台办理。
+              </div>
+            </dd>
+          </div>
+          <div class="zz-row">
+            <dt>电子营业执照</dt>
+            <dd><span class="zz-status">待办理</span>
+              <div class="zz-note" style="border:none;padding-top:4px;margin-top:4px">
+                通过市场监管总局「电子营业执照亮照系统」申请，链接绑定域名，
+                须在 ICP 备案通过、正式域名确定后办理。
+              </div>
+            </dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- ══════════ 四、投诉与监督 ══════════
+           《旅行社条例实施细则》第 29 条要求载明「原许可的旅游行政管理部门的投诉电话」。
+           现按全国统一热线标注（旅游投诉已并入 12345）。
+           ★若备案时登记的是具体部门号码，请以备案登记为准。 -->
+      <section class="zz-sec">
+        <h2 class="zz-h2">投诉与监督</h2>
+        <dl>
+          <div class="zz-row"><dt>旅游投诉</dt><dd>12345（全国政务服务便民热线）</dd></div>
+          <div class="zz-row"><dt>监管平台</dt><dd>全国旅游监管服务平台</dd></div>
+        </dl>
+        <p class="zz-note">
+          本网站所展示的机票报价信息仅供参考，实际以签约时的书面约定为准。
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="zz-ft">
+      © 2026 北京环球度假旅游有限公司上海杨浦区分公司 版权所有
+    </footer>
+  </div>
+
+  <!-- 深色 / 主题：与报价页共用 localStorage，跨标签页与 bfcache 同步 -->
+  <script>
+    (function () {
+      function apply() {
+        var t, dark;
+        try {
+          t = localStorage.getItem('pq_theme') || 'cyan';
+          dark = localStorage.getItem('theme') === 'dark';
+        } catch (e) { t = 'red'; dark = false; }
+        var OK = { red: 1, navy: 1, blue: 1, green: 1, cyan: 1, purple: 1 };
+        if (!OK[t]) t = 'red';
+        document.documentElement.setAttribute('data-theme', t);
+        document.body.setAttribute('data-theme', t);
+        document.documentElement.classList.toggle('dark', dark);
+        document.body.classList.toggle('dark', dark);
+        var m = document.getElementById('metaThemeColor');
+        if (m) {
+          var cs = getComputedStyle(document.body).getPropertyValue('--brand').trim();
+          if (cs) m.setAttribute('content', cs);
+        }
+      }
+      apply();
+      window.addEventListener('pageshow', apply);
+      window.addEventListener('storage', function (e) {
+        if (!e.key || e.key === 'pq_theme' || e.key === 'theme') apply();
+      });
+    })();
+  </script>
+</body>
+</html>

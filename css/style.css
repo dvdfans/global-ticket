@@ -47,6 +47,11 @@
 }
 
 :root {
+  /* ★2026-09-18 Howard 定案：首页头部高度变量化（原 112px）。
+     这三处原本各自硬编码：.app-header{height:112} / .tab-bar{top:112} /
+     .card-list{margin-top:152}—— 改头部必漏另两处，故统一由变量推导。 */
+  --header-h: 88px;
+  --tabbar-h: 40px;
   /* LOGO 主色 */
   --red: #DA3A2C;
   --red-dark: #B82E1F;
@@ -103,12 +108,24 @@ body {
   flex-direction: column;
   -webkit-font-smoothing: antialiased;
   font-weight: 400;
+  /* ★高度用【动态视口】100dvh（2026-09-18）：
+     dvh 的定义就是「排除浏览器 UI 后的可视高度」—— iOS Safari / 微信 的底部工具栏出现时
+     它自动收缩，底部坞（流内 flex item）随之上抬，不再被工具栏盖住。
+     先写 `height:100%` 作回退：旧浏览器不认 dvh 时行为等同改前，不会更差。 */
+  height: 100%;
+  height: 100dvh;
 }
 
 /* ── 固定顶部（LOGO红渐变）── */
 .app-header {
   position: fixed; top: 0; left: 0; right: 0;
-  height: 112px; z-index: 100;
+  height: var(--header-h); z-index: 100;
+  /* ★2026-09-18：固定头部的标准做法 —— 裁掉装饰层的溢出。
+     · .header-bg::after（金色光晕 right:-30/top:-20）本就该被裁；
+     · ✈ 装饰虽在头部内（实测 bottom 76 < 88），但它 64px 字体带 72px 行盒，
+       会把 .header-content 的 scrollHeight 撑到 90（计算噪声，非视觉溢出）；
+     加上本行后任何溢出都不可能露到头部之外。 */
+  overflow: hidden;
 }
 .header-bg {
   position: absolute; inset: 0;
@@ -124,7 +141,11 @@ body {
 }
 .header-content {
   position: relative; z-index: 1;
-  padding: 12px 16px 14px;
+  /* ★2026-09-18：12/14 → 8/4（配合头部 112→88 压缩）。
+     底部取 4 而非 8：实测内容总高 90px 会溢出 88px 的头部 2px；
+     减的是【底部】不留白——它下面紧贴 Tab 栏，视觉上无关紧要，
+     而【顶部】8px 是 logo 与屏幕上沿的呼吸位，必须保留。 */
+  padding: 8px 16px 4px;
   color: #fff;
   display: flex; flex-direction: column;
   height: 100%;
@@ -132,31 +153,31 @@ body {
 .brand { display: flex; align-items: center; }
 .header-theme{font-size:14px;cursor:pointer;margin-left:auto;padding:2px 4px;line-height:1;user-select:none;opacity:.7;align-self:flex-start;margin-top:4px}
 .logo {
-  width: 40px; height: 40px; margin-right: 10px;
+  width: 34px; height: 34px; margin-right: 9px;
   border-radius: 50%;
   background: #fff; padding: 2px;
   box-shadow: 0 2px 8px rgba(218,58,44,0.3);
 }
 .brand-text { flex: 1; }
 .brand-title {
-  font-size: 22px; font-weight: 800;
+  font-size: 20px; font-weight: 800;
   letter-spacing: 1px;
   text-shadow: 0 1px 4px rgba(0,0,0,0.15);
 }
 .brand-sub { font-size: 11px; opacity: 0.85; margin-top: 1px; display: none; }
 .header-stats {
-  font-size: 10px; opacity: 0.7; margin-top: 2px;
+  font-size: 10px; opacity: 0.7; margin-top: 1px;
   letter-spacing: 0.3px;
 }
 .header-stats span { font-weight: 700; color: var(--gold); }
 .header-promo {
-  font-size: 13px; font-weight: 700;
-  margin-top: 2px; align-self: flex-end;
+  font-size: 12px; font-weight: 700;
+  margin-top: 1px; align-self: flex-end;
   color: var(--gold);
   text-shadow: 0 1px 3px rgba(0,0,0,0.2);
   animation: pulse 2s infinite;
 }
-.header-plane{position:absolute;right:12px;top:12px;font-size:80px;opacity:0.15;color:#fff;transform:rotate(-8deg);pointer-events:none;line-height:1}
+.header-plane{position:absolute;right:12px;top:8px;font-size:64px;opacity:0.15;color:#fff;transform:rotate(-8deg);pointer-events:none;line-height:1}
 /* 滑动区固定顶栏 */
 /* 滑动区固定顶栏（2026-08-13: 加 -webkit-sticky 兼容 iOS Safari） */
 .sticky-bar{position:-webkit-sticky;position:sticky;top:0;z-index:10;background:var(--bg);display:flex;align-items:center;justify-content:space-between;padding:8px 4px 6px;border-bottom:1px solid var(--border);min-height:38px}.sticky-label{font-size:14px;font-weight:700;color:var(--text)}.sticky-filter{font-size:11px;font-weight:600;color:var(--red);cursor:pointer;padding:3px 8px;border-radius:10px;background:var(--red-light);line-height:1.4}
@@ -164,8 +185,8 @@ body {
 
 /* ── Tab栏 ── */
 .tab-bar {
-  position: fixed; top: 112px; left: 0; right: 0;
-  height: 40px; z-index: 99;
+  position: fixed; top: var(--header-h); left: 0; right: 0;
+  height: var(--tabbar-h); z-index: 99;
   background: var(--card-bg);
   display: flex;
   border-bottom: 1px solid var(--border);
@@ -193,7 +214,8 @@ body {
 /* ── 卡片区 ── */
 .card-list {
   flex: 1; min-height: 0;
-  margin-top: 152px; margin-bottom: 96px;
+  margin-top: calc(var(--header-h) + var(--tabbar-h)); margin-bottom: 0;   /* ★2026-09-18：原为固定底栏 96px 留白；
+                                            底栏改为流内坞（70px）后由 flex:1 自动适配，无需留白 */
   overflow-y: auto; padding: 0 12px 10px;
 }
 .loading { text-align: center; color: var(--text-light); padding: 60px 0; font-size: 14px; }
@@ -344,12 +366,17 @@ body {
 .card-btn:active { opacity: 0.9; }
 
 /* ── 底部条 ── */
+/* ★2026-09-18 压缩：96 → 70px（-27%）。
+   内部同步收紧：二维码 56→44px、文字 11→10px、内边距 8→4px。
+   目的：动作条更轻，且为「上滑升起的备案行」留出视觉焦点。
+   ★高度改动后须确认三处仍正常：#toast 用 --dock-h（脚本动态写入）、
+     .card-list 由 flex:1 自动吃掉剩余高度、iOS 安全区 padding 不变。 */
 .app-footer {
   position: fixed; bottom: 0; left: 0; right: 0;
-  height: 96px;
+  height: 70px;
   background: var(--card-bg);
   border-top: 1px solid var(--border);
-  display: flex; z-index: 100; padding: 8px 16px;
+  display: flex; z-index: 100; padding: 4px 16px;
 }
 .qr-item {
   flex: 1; display: flex; flex-direction: column;
@@ -357,7 +384,7 @@ body {
   cursor: pointer;
 }
 .qr-img {
-  width: 56px; height: 56px;
+  width: 44px; height: 44px;
   background: var(--tag-bg);
   border: 1px solid var(--border);
   border-radius: 4px;
@@ -366,7 +393,7 @@ body {
 .qr-img img { width: 100%; height: 100%; border-radius: 4px; }
 .qr-img canvas { width: 100%; height: 100%; border-radius: 4px; display: block; }
 .qr-share-icon { font-size: 24px; background: var(--tag-bg) !important; }
-.qr-item p { font-size: 11px; color: var(--text-secondary); margin-top: 4px; }
+.qr-item p { font-size: 10px; color: var(--text-secondary); margin-top: 2px; }
 
 /* ── 排序按钮 ── */
 .sticky-sort{font-size:11px;padding:4px 9px;border-radius:12px;border:0.5px solid var(--border);cursor:pointer;color:var(--text-secondary);white-space:nowrap}.sticky-sort:hover{background:var(--tag-bg)}.sort-opt:hover{background:var(--hover-bg)!important}.sort-opt-group:hover{background:var(--hover-bg)}
@@ -374,7 +401,16 @@ body {
 /* ── 详情弹层（2026-08-13 加宽：modal padding 20→10，内容宽度 +20px，缓解回程框左右滑动）── */
 .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 300; display: none; align-items: center; justify-content: center; padding: 10px; }
 .modal.active { display: flex; }
-.modal-content { background: var(--card-bg); border-radius: 14px; max-width: 420px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 0; }
+/* ★2026-09-18 Howard 定案：筛选弹层顶部让出首页头部 ——
+   遮罩 .modal 仍是 fixed inset:0 全屏（rgba(0,0,0,.5)），
+   所以让出的那一段露出的是【被遮罩压暗的首页头部】= 「隐约可见头部」。
+   弹层高度因此从「屏高 - 20」降为「屏高 - 96 - 10」。
+   ★只动 #filterModal：详情/客服/分享弹层保持全屏（需求只提搜索框，避免连带风险）。 */
+#filterModal { padding-top: calc(var(--header-h) + 8px); }
+.modal-content { background: var(--card-bg); border-radius: 14px; max-width: 420px; width: 100%;
+  /* ★2026-09-18：原 max-height:85vh —— 移动端 vh 是【大视口】高（工具栏收起时），
+     比实际可视区大 ⇒ 弹层会超出屏幕被切。改百分比跟随 .modal（fixed inset:0 = 可视区）。 */
+  max-height: 85%; overflow-y: auto; padding: 0; }
 .modal-qr { max-width: 320px; text-align: center; padding: 20px; }
 
 .detail-header { background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); color: #fff; padding: 8px 14px 10px; position: sticky; top: 0; z-index: 20; }
@@ -433,7 +469,8 @@ body {
 .odate-time { color: var(--text-light); font-size: 11px; white-space: nowrap; }
 
 /* Toast */
-#toast { position: fixed; bottom: 120px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 13px; z-index: 500; transition: opacity .3s; white-space: nowrap; pointer-events: none; }
+/* 坞高由页尾脚本写入 --dock-h；原写死 120px 是按坞高 96px 定的，坞变高后会被遮。 */
+#toast { position: fixed; bottom: calc(var(--dock-h, 152px) + 12px); left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.8); color: #fff; padding: 10px 20px; border-radius: 8px; font-size: 13px; z-index: 500; transition: opacity .3s; white-space: nowrap; pointer-events: none; }
 .share-copy:active,.share-wx:active{opacity:0.9}
 .ticket-badge{font-size:10px;padding:1px 5px;border-radius:3px;margin-left:4px;white-space:nowrap}.ticket-badge.group{background:var(--red-light);color:var(--red)}.ticket-badge.flex{background:#E8F5E9;color:var(--green)}
 .rodate{display:flex;align-items:center;gap:4px;padding:7px 6px;margin-bottom:4px;border-radius:6px;cursor:pointer;font-size:12px;background:var(--tag-bg);transition:background .1s}.rodate:hover{background:var(--hover-bg)}.ro-check{font-size:10px;width:12px;color:var(--text-light);flex:none}.ro-flight{font-weight:500;min-width:52px;white-space:nowrap}.ro-date{color:var(--text-secondary);min-width:78px;white-space:nowrap}.ro-time{color:var(--text-light);font-size:11px;min-width:42px;white-space:nowrap}.ro-price{font-weight:700;color:var(--red);margin-left:auto;min-width:44px;white-space:nowrap}.ro-seats{color:var(--green);font-size:11px;min-width:24px;white-space:nowrap;flex:none}

@@ -6,11 +6,33 @@
 <meta http-equiv="Expires" content="0">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#DA3A2C">
+  <meta name="theme-color" content="#26B7BC" id="metaThemeColor">
   <title>环球度假 - 特价机票·每日更新</title>
   <link rel="icon" type="image/png" href="img/logo.png">
-  <link rel="stylesheet" href="css/style.css?v=118">
-  <link rel="stylesheet" href="css/theme.css?v=110">
+  <link rel="stylesheet" href="css/style.css?v=124">
+  <link rel="stylesheet" href="css/theme.css?v=119">
+  <script>
+    /* 主题提前上色：与 login.html / zizhi.html 对齐，读同一套 localStorage（pq_theme / theme），
+       在首屏绘制前挂到 <html>，避免「先按 :root 默认色画一遍再变」的闪色。
+       ★为什么必须放 <head>：app_main.js 在 </body> 前才加载，等到那时首屏已经画完了。
+       ★默认主题＝潮汐青（2026-09-18 Howard 定案），故兜底值取 cyan。 */
+    (function () {
+      try {
+        var OK = { cyan: 1, red: 1, navy: 1, blue: 1, green: 1, purple: 1 };
+        var t = localStorage.getItem('pq_theme') || 'cyan';
+        if (!OK[t]) t = 'cyan';
+        document.documentElement.setAttribute('data-theme', t);
+        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
+      } catch (e) {}
+    })();
+  </script>
+  <script>
+    /* 给 <html> 挂 js-dock —— 语义 = 「脚本可用」标记，用于解锁备案行的【收起】能力。
+       ★注意方向：默认就是【可见】（首屏、无 JS 都可见），本类只额外允许「收起」。
+         所以脚本不执行时，备案行永远按正常流可见 —— 安全降级，不会两头空。
+       ★放在 <head>：与首屏同帧就绪，避免状态切换时样式晚到。 */
+    document.documentElement.classList.add('js-dock');
+  </script>
 </head>
 <body>
 
@@ -51,12 +73,39 @@
   <!-- 中间滚动卡片区 -->
   <main class="card-list" id="cardList">
     <div class="loading">加载中...</div>
+
   </main>
 
+  <!-- 固定底部坞（2026-09-18 三次定案）= 动作条 + 备案/资质行
+       .app-footer 原本 position:fixed bottom:0；在本坞内改为 static，
+       由 .bottom-dock 承载。坞本身是 body(flex-column) 的流内 item —— 不用 fixed，
+       因为 fixed 会被 iOS Safari / 微信的底部工具栏盖住（详见 css/theme.css 内说明）。
+
+       ★结构（2026-09-18 四次定案·需求原话）：「默认首页打开时是完整可见备案信息，
+         然后点击任意元素（滑动区、导航键、搜索、客服咨询、分享报价）备案信息就下沉不可见。
+         点击主题切换、浅色深色切换时也是可见备案信息。」
+       · 动作条已压缩：96px → 70px（二维码 56→44、文字 11→10、内边距 8→4）
+       · 备案行位于动作条【下方】，两个状态：
+         - 展开（默认 / 首屏 / 切主题后）：在坞内正常流，**完整可见**，坞高 = 70 + 备案行高
+         - 收起（任意点击后）：备案行被移出文档流并钉到坞底边之下 + 透明 ⇒
+           必然完全出屏，坞高自动回到动作条高度、动作条自动贴底
+       · 状态类 = `dock-collapsed`（仅 JS 加）；坞上上下滑手势保留。
+
+       ★★合规边界（务必知晓）：这是「需交互才可见」的形态，与监管口径中
+         「不得以折叠、弹窗或悬浮按钮替代，须直接渲染在 HTML 结构里」相邻。
+         · 硬性要求均已满足：静态 HTML 节点（非 JS 生成）、正常渲染不被裁切、
+           字号字色可辨认、展开后不被任何固定元素遮挡。
+         · 缓释设计：① 本页备案行「无 JS 时默认可见」（html.js-dock 类由脚本挂上，
+           脚本不执行则备案行按正常流显示在坞内 —— 绝不出现「必须靠脚本才可见」）；
+           ② zizhi.html 为静态公示页，无需任何交互即可完整查阅；
+           ③ login.html 备案行常驻可见。
+         · 若要求「零交互风险」，最稳做法是把本块放回 #cardList 末尾（滚到底可见，
+           属正常文档流内容）—— 改动量约 20 行，可随时回退。 -->
+  <div class="bottom-dock">
   <!-- 固定底部条 -->
   <footer class="app-footer">
     <div class="qr-item" id="filterBtn">
-      <div class="qr-img qr-filter-icon"><svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="搜索"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg></div>
+      <div class="qr-img qr-filter-icon"><svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="搜索"><circle cx="11" cy="11" r="7"></circle><line x1="16.5" y1="16.5" x2="21" y2="21"></line></svg></div>
       <p>搜索</p>
     </div>
     <div class="qr-item" id="qrCs">
@@ -64,10 +113,246 @@
       <p>客服咨询</p>
     </div>
     <div class="qr-item" id="qrShare">
-      <div class="qr-img" id="qrLinkCanvas" style="width:56px;height:56px;box-sizing:content-box;padding:1px;border-radius:4px;overflow:hidden;background:#fff;border:1px solid var(--border)"></div>
+      <div class="qr-img" id="qrLinkCanvas" style="width:44px;height:44px;box-sizing:content-box;padding:1px;border-radius:4px;overflow:hidden;background:#fff;border:1px solid var(--border)"></div>
       <p>分享报价</p>
     </div>
   </footer>
+    <!-- ════════════════ 备案与资质（法规强制：网站底部标明）════════════════
+       ★位置（2026-09-18 四次定案）：本块在【.bottom-dock 坞内、.app-footer 动作条之下】。
+         · 默认（首屏）= 正常流可见 —— 不需要任何 JS 或 CSS 变量，位置天然精确。
+           这一条是有意为之：**首屏就是合规展示态，必须零依赖可见**。
+         · 收起 = 本块被 CSS 移出文档流：`position: absolute; top: 100%; opacity: 0`
+           （坞同时获得 position: relative 作为定位上下文）。
+           于是它的顶边 = 坞底边 = 屏幕底 ⇒ **无论多高都必然完全出屏**；
+           坞的高度自动回落到动作条高度 ⇒ 动作条自动贴底、.card-list 自动回收空间。
+           ★**刻意不依赖任何测量值**（不用 --legal-h、不用 calc、不用负 margin）：
+             旧写法把「藏多深」与「动作条贴底」绑在同一个测量值上，
+             一旦测量值与实际渲染高度不符，就会「备案行没藏干净 + 动作条悬空」。
+         · 触发规则见页尾脚本：任意点击收起；点 logo / ☀️🌙 展开；坞上滑手势保留。
+
+         为什么不再放 <main id="cardList"> 内：
+         ① 放里面必然「滚到底才可见」，无法做到「上滑手势触发」；
+         ② #cardList 的 innerHTML 被 9 处 JS 渲染点整体覆盖
+            （app_main.js 201/395/2946/2958/3039/3087、free_tour.js 1583/1655/1674、
+            core.js 191），静态节点需 MutationObserver 保活才不被冲掉；
+            移入坞内后位于 #cardList 之外，**保活脚本已可整段删除**。
+
+       ★必须写在静态 HTML 里：备案审核 / 监管工具未必执行脚本。
+       ★★降级方向是刻意的：隐藏依赖 html.js-dock 类（<head> 内联脚本挂上）。
+         若环境不执行 JS → 无此类 → 本块按正常流显示在坞内（可见态）。
+         即「JS 正常 = 默认隐藏可上滑露出；JS 失效 = 直接可见」，不会两头空。
+
+       ── 四项资质：各自独立，有号即启用（取消注释 → 删掉 legal-pending）──
+       ① ICP 备案【强制】当前审核中 —— 依据《非经营性互联网信息服务备案管理办法》：
+          底部标明备案号 + 链接工信部 https://beian.miit.gov.cn/
+       ② 公安备案【强制】—— 依据《计算机信息网络国际联网安全保护管理办法》：
+          须在 ICP 通过后 30 日内到全国互联网安全管理服务平台办理；
+          底部标明 + 链接该平台 + 官方图标。
+          ⚠ 携程至今仍用旧域名 www.beian.gov.cn/portal/registerSystemInfo?recordcode=<code>；
+            官方现址为 https://beian.mps.gov.cn/#/query/webSearch?code=<code> —— 本页取【现址】。
+       ③ 增值电信业务经营许可证（ICP 证 沪B2-xxxxxxx）【仅经营性网站需要】
+          ★判定标准：是否通过互联网向上网用户有偿提供信息服务（在线收款/下单/撮合收费）。
+            若仅展示报价 + 引导线下成交 → 属非经营性，只需 ICP 备案，不需要本证。
+          ★无证绝不可标注 —— 虚假标注的风险远大于不标。
+       ④ 旅游度假资质【经营旅游业务必须】= 旅行社业务经营许可证（L-SH-xxxxx）
+          依据《旅游法》《旅行社条例》：经营旅游业务须持证，网站应公示；携程底部即用此名称。
+       ⑤ 电子营业执照亮照【建议必做】—— 市场监管总局官方「电子营业执照亮照系统」
+          依据：《电子商务法》第 15 条（首页显著位置持续公示营业执照信息「或该信息的链接标识」）
+                《网络交易监督管理办法》第 12 条（明确「鼓励链接到国家市场监督管理总局
+                电子营业执照亮照系统，公示其营业执照信息」）
+          系统入口：https://zzlz.gsxt.gov.cn/businessShow/
+          流程：法定代表人用「电子营业执照」微信/支付宝小程序扫码登录 → 亮照申请
+                （填网站名称 / 域名 / 网站类型 经营性|非经营性 / 联系人电话）→
+                生成签名二维码 → 扫码签名授权 → 得到【亮照链接】+【亮照图标】
+          链接形如：.../businessCheck/verifKey.do?showType=publish&serial=…&signData=…
+                    （以系统实际生成为准，勿手拼）
+          ★三条硬约束：
+            a) 亮照链接【绑定域名】—— 只有申报的那个站点能打开；
+               直接复制到浏览器、或放到别的网站，都打不开（这是它的防伪设计）。
+            b) 网站名称 / 域名 / 联系人【必须与 ICP 备案信息一致】，否则无法正常亮照。
+            c) 所以：**必须等 ICP 备案通过、正式域名确定后再申请**。
+               yitu 是测试域名，绑它没有意义，且换域名要重新申请。
+          效果：公众点图标 → 显示该企业【动态生成】的电子营业执照（按最新执照内容）。
+          图标：亮照系统提供下载的官方图片。★本仓部署是「增量合并且不做镜像」，
+                新增文件上线后删不掉，故此处先用文字链占位；
+                图标到位后放 img/ 下，文件名需单独确认。
+
+       ▸ 号码唯一正本 = 本段 HTML（index.html 与 login.html 各一份，改号时两处同步）
+    ══════════════════════════════════════════════════════════════════════════ -->
+  
+<div class="legal-footer" id="legalFooter">
+      <div class="legal-items">
+        <!-- 版权：改为 flow 内的 span（原为块级 div，会独占一行并留出整行空白） -->
+        <span class="legal-copy">
+        <!-- ══ 版权声明（法规不强制，但强烈建议标）══
+           ★为什么不强制：著作权「作品创作完成即自动产生」，登记都不是取得要件，
+             更无任何法规要求网站必须标 ©。
+           ★为什么仍要标（关键）：最高法「华盖创意案」(2014)民提字第 57 号明确 ——
+             网站上的「署名」，包括**权利声明和水印，构成证明著作权权属的初步证据**；
+             配合《著作权法》第 12 条「如无相反证明，在作品上署名的…为作者」+
+             最高法《关于加强著作权和与著作权有关的权利保护的意见》第 3 条的署名推定。
+             不标 → 遇到抄袭/盗用时举证被动，得另找底稿、合同、登记证书。
+           ★规范写法：© {年份} {营业执照上的公司全称} 版权所有
+             ⚠ 主体必须是能对应法律实体的【公司全称】。当前「环球度假」是品牌名，
+               属占位；维权时可能被质疑主体不适格，确认主体后替换。
+             ⚠ 若「环球度假」已注册商标，可在名称后加 ®（仅限已注册，未注册加了是违法）。
+           ★★主体已定（2026-09-18 Howard 定案）：网站主体 = 【北京环球度假旅游有限公司上海杨浦区分公司】。
+             理由与边界：
+               · 分公司有独立营业执照，【可以】作为 ICP 备案主体、亮照主体与版权主体；
+               · 分社不具有法人资格（《旅行社条例实施细则》§18），责任最终由设立社承担 ——
+                 但不影响分公司对外署名为网站运营主体；
+               · 分公司名称【本身已包含设立社名称】，故此行同时满足 §29「载明旅行社的名称」；
+               · 旅行社资质（许可证编号 L-BJ-CJ00894）的持有人仍是设立社，
+                 与本行主体不冲突 —— 见下方 ④ 的说明。
+             ⇒ ICP 备案 / 亮照 / 版权 三者统一为分公司，不再需要额外解释。
+           ★★若本站为外包或委托开发：先确认合同已约定著作权归我方 ——
+             《著作权法》第 19 条：受委托创作的作品，**未约定或约定不明的，著作权属于受托人**。
+             即合同没写 → 版权可能在开发方手上，此时标我方 © 名不副实。
+
+           ★★★【版权 ≠ 商标，别混】
+             · 版权（著作权）：**自愿登记，创作完成即自动产生**，不注册也享有、也能维权。
+               登记只是「自愿取得的证明权属的初步证据」，不是取得要件。
+             · 商标：**必须注册才受排他保护**。品牌名「环球度假」要防别人冒用，
+               靠的是**商标注册**（旅游/运输类第 39 类等），不是版权。
+             · Logo 图形可「版权 + 商标」双保护；页面设计/文案/代码属版权范畴。
+             · 所以：「版权不用注册、只需明示」这句一半对 —— 见下方注释。
+           明示（© 声明）的价值是让举证责任倒置（先推定归我，对方要举证推翻），
+           但它本身**只是初步证据**，可被相反证据推翻。底层证据仍建议留存：
+           委托/开发合同、设计稿与源文件、Git 提交历史、首次发布时间的存档。 -->
+        © 2026 北京环球度假旅游有限公司上海杨浦区分公司 版权所有
+        </span>
+        <span class="legal-sep">·</span>
+        <!-- ① ICP 备案（审核中）
+             启用方式：删掉下方 <span class="legal-pending" id="legalPending">，并取消本段注释。
+
+             ★号码格式（容易错，务必按此填）：
+               上海须标【网站备案号】并带序号，如「沪ICP备2026061234号-1」；
+               除广东省标【主体备案号】（不带序号，如「粤ICP备123456号」）外，
+               其他省份（含上海）都应带 -1/-2 等序号。错标成主体备案号会被责令改正。
+
+             ★★位置是否合规（2026-09-18 核实，回答 Howard「滚动区内是否符合法规」）：
+               ·《互联网信息服务管理办法》（国务院令 292 号）§12：
+                 互联网信息服务提供者应当在其网站【主页的显著位置】标明其经营许可证编号
+                 或者备案编号。（§22：未标明的，由省通信管理局责令改正，处 5000~50000 元罚款）
+               ·《非经营性互联网信息服务备案管理办法》（工信部令 33 号）§13 把"显著位置"
+                 **具体化**为「主页【底部】的中央位置」，并要求链接工信部备案系统。
+               · 四家云服务商（阿里云 / 华为云 / 腾讯云 / 移动云，均为对接管局的代备案机构）
+                 口径一致：「网站首页【底部中间位置】」、「首页显著位置（**一般为网页下方**）」。
+               ⇒ **结论：放页面底部、需滚动才可见，就是监管认可的位置。**
+                 长页面的"底部"本就意味着需要滚动；华为商城、腾讯云官网等官方示范页同样如此。
+                 本块现位于滚动区最末尾（滚到底可见）+ 文字居中，与上述要求一致。
+               ⇒ 真正的红线是这三条，而不是"要不要滚"：
+                 ① 号码与工信部备案系统里的**完全一致**；
+                 ② **必须带 -1 序号**（上海）；
+                 ③ **必须链接** https://beian.miit.gov.cn/ 。
+
+             ★★★「外面还套了固定的头部和尾部，是否影响合规」（2026-09-18 追加核实）：
+               · 结论：**不影响**。法规要的是「主页【底部】的中央位置」——指
+                 【**页面内容**的底部】(footer 区域)，不是"屏幕物理最下方"。
+                 固定 header / Tab 栏 / 底部动作条都是【**功能性 UI**】（导航、工具条），
+                 不属于"页面内容"，故不改变该位置的认定。
+               · 实务口径同样认可「**底部导航栏末端**」作为展示位置。
+               · ★真正的红线是下面这几条（本块均已满足）：
+                 a. **不被其他元素遮挡** —— 实测滚到底时本块 bottom 与动作条 top 重叠 ≈ 0
+                    （`_vi_footer_scroll_verify.py`，4 机型）；
+                 b. 不得以【**折叠 / 弹窗 / 悬浮按钮**】替代，必须**直接渲染在 HTML 结构里**
+                    —— 本块是静态 HTML 节点 ✅；
+                 c. 不得因响应式被【**裁切或隐藏**】，移动端缩放后仍可辨认 ✅；
+                 d. 不得用与背景同色 / 字号 0 / 透明等方式隐藏 ✅。
+               · ★★关键区分：「**需滚动才能看到**」≠「**被隐藏**」。
+                 前者是正常文档流内容（本块即如此）→ 合规；
+                 后者（display:none / visibility:hidden / 字体色=底色 / 折叠 / 弹窗）→ 违规。
+        <a class="legal-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow">沪ICP备2026XXXXXX号-1</a>
+        <span class="legal-sep">·</span>
+        -->
+        <!-- ② 公安备案（ICP 通过后 30 日内办理）
+        <a class="legal-link legal-police" href="https://beian.mps.gov.cn/#/query/webSearch?code=3101050200XXXXXX" target="_blank" rel="noopener nofollow"><svg class="legal-badge" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.6 20.4 5v7.1c0 5.3-3.5 8.9-8.4 10.3C7.1 21 3.6 17.4 3.6 12.1V5L12 1.6Zm0 2.2L5.6 6.4v5.7c0 4.1 2.6 6.9 6.4 8.1 3.8-1.2 6.4-4 6.4-8.1V6.4L12 3.8Zm0 2.9 1.5 3.1 3.4.5-2.5 2.4.6 3.4-3-1.6-3 1.6.6-3.4L7.1 10.3l3.4-.5L12 6.7Z"/></svg>沪公网备3101050200XXXXXX号</a>
+        <span class="legal-sep">·</span>
+        -->
+        <!-- ③ 增值电信业务经营许可证（ICP 证）—— 仅经营性网站标注，无证不得写
+        <a class="legal-link" href="#" target="_blank" rel="noopener nofollow">ICP证：沪B2-NNNNNNNN</a>
+        <span class="legal-sep">·</span>
+        -->
+        <!-- ④ 旅游度假资质 ★已启用（2026-09-18）
+           ★为什么只有《旅行社分社备案登记证明》、没有分社自己的《旅行社业务经营许可证》：
+             分社【本来就不发】独立许可证 —— 这是法定形态，不是缺失。
+             ·《旅行社条例实施细则》第 18 条：分社及服务网点【不具有法人资格】，
+               以【设立社】的名义从事经营活动，其经营活动的责任和后果【由设立社承担】。
+             ·《旅行社条例实施细则》第 24 条：分社备案后，受理备案的旅游行政管理部门
+               向旅行社颁发《旅行社分社备案登记证明》。（→ 分社拿到的就是这张）
+             ·《旅行社条例实施细则》第 26 条：《旅行社业务经营许可证》与
+               《旅行社分社备案登记证明》应当【一并】悬挂公示 —— 即两者配套展示，不是二选一。
+             ⇒ 所以本行【同时】标设立社许可证编号与分社备案登记编号，这才完整。
+
+           ★★《旅行社条例实施细则》第 29 条（比 ICP 备案更硬的一条）：
+             旅行社以互联网形式经营旅行社业务的，除符合法律法规规定外，
+             其【网站首页】应当载明：
+               ① 旅行社的名称  ② 法定代表人  ③ 许可证编号
+               ④ 业务经营范围  ⑤ 原许可的旅游行政管理部门的投诉电话
+             ⇒ 这是「载明」（必须写出），且位置是【首页】不是随便哪一页。
+
+           ★证照事实（唯一正本，改号时与 login.html 两处同步）：
+             设立社名称：北京环球度假旅游有限公司
+             设立社许可证编号：L-BJ-CJ00894
+             分社名称：北京环球度假旅游有限公司上海杨浦区分公司
+             分社备案登记编号：L-BJ-CJ00894-YPQ-FS0001
+             业务经营范围：境内旅游、入境旅游、出境旅游招徕、组织、接待业务
+             经营场所：杭州路 741 号 6 幢 111 室
+             发证：杨浦区（章）2018-09-28｜中华人民共和国国家旅游局监制
+
+           ★⚠ 第 29 条要求的「法定代表人」尚未提供（证照上无此项，分社只有「负责人」；
+             应填【设立社】即总公司的法定代表人姓名）。拿到后在此行补：
+             <span>法定代表人：XXX</span><span class="legal-sep">·</span>
+
+           ★⚠ 第 29 条的「投诉电话」= 【原许可】的旅游行政管理部门的投诉电话。
+             L-BJ-CJ00894 为北京注册的出境游组团社（CJ=出境游），
+             现按全国统一热线 12345 标注（旅游投诉已并入）；
+             若贵司备案时登记的是具体部门号码，请以备案登记为准替换。
+
+           ★⚠ 证照为 2018-09-28 核发，建议核验三件事：
+             a) 经营场所是否仍为「杭州路 741 号 6 幢 111 室」——搬迁须办变更备案；
+             b) 现备案走「全国旅游监管服务平台」线上办理（多证合一后可与营业执照一并办），
+                确认平台内信息与证面一致；
+             c) 监制单位 2018 年 3 月已由「国家旅游局」改为「文化和旅游部」，
+                旧证继续有效，但如换领新版，编号不变。
+        -->
+        <span class="legal-item">旅行社业务经营许可证 <span class="legal-num">L-BJ-CJ00894</span></span>
+        <span class="legal-sep">·</span>
+        <!-- 分社备案登记证明编号改由独立页 zizhi.html 公示 ——
+             它不属于《旅行社条例实施细则》第 29 条要求首页「载明」的 5 项，
+             放首页只是徒增行数（实测多占 1 行）。 -->
+        <!-- ⑤ 电子营业执照亮照（市场监管总局亮照系统）
+             ★href 必须是亮照系统生成的那条【绑定域名】的链接，不要手拼。
+               图标到位后把 <svg> 换成 <img src="img/xxx.png" class="legal-badge" alt="电子营业执照">。
+        <a class="legal-link legal-yyzz" href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=publish&serial=XXX&signData=XXX" target="_blank" rel="noopener nofollow">电子营业执照</a>
+        <span class="legal-sep">·</span>
+        -->
+        <span class="legal-item">经营范围：境内、入境、出境旅游招徕、组织、接待业务</span>
+        <span class="legal-sep">·</span>
+        <span class="legal-item">投诉电话 12345</span>
+        <span class="legal-sep">·</span>
+        <!-- 完整证照公示（备案登记证明编号 / 核发机关 / 监制单位 / 各备案进度）放独立页。
+             《电子商务法》第 15 条允许以「链接标识」方式公示行政许可信息。 -->
+        <a class="legal-link legal-more" href="zizhi.html">备案与资质公示 &rsaquo;</a>
+        <span class="legal-sep">·</span>
+        <span class="legal-pending" id="legalPending">ICP备案办理中</span>
+      </div>
+      <!-- ★首页「载明」与「完整公示」的分工（法规依据）：
+           ·《旅行社条例实施细则》第 29 条要求【网站首页载明】旅行社的名称、法定代表人、
+             许可证编号、业务经营范围、原许可部门投诉电话
+             ⇒ 这 5 项【必须留在首页】，不能只给一个链接（名称=上方版权行；
+               许可证编号、经营范围、投诉电话=本行；法定代表人待补）。
+           ·《电子商务法》第 15 条允许「营业执照信息、行政许可信息【或上述信息的链接标识】」
+             ⇒ 完整证照公示（分社备案登记证明编号、核发机关、监制单位、三项备案进度）
+                放独立页 zizhi.html。
+           ★排版要点：所有条目（含版权）【全部】写在同一个 .legal-items 里，靠 flex 流动填满每行。
+             教训：① 版权原为块级 div → 独占一行、行尾整行空白；
+                   ② 编号与经营范围曾拆成两个容器 → 各自折行、行尾双份空白，实测吃掉 6 行 / 91px，
+                      把底部坞撑到 187px（占屏 22%）。合并 + 内联后降到 3~4 行。
+           ★用静态 HTML 平铺而非折叠 —— 备案审核与监管工具未必执行 JS / 未必展开折叠。
+           ★法定代表人待补（见上方 ④ 注释）。 -->
+    </div>
+  </div>
 
   <!-- 分享弹层（含二维码） -->
   <div class="modal" id="shareModal">
@@ -86,7 +371,7 @@
 
   <!-- 筛选弹层 -->
   <div class="modal" id="filterModal">
-    <div class="modal-content" style="height:97vh;max-height:97vh;display:flex;flex-direction:column;overflow:hidden">
+    <div class="modal-content" style="height:100%;max-height:100%;display:flex;flex-direction:column;overflow:hidden">
       <div class="filter-modal-hd" style="padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:8px">
         <div style="display:flex;align-items:center;gap:10px;min-width:0">
           <span class="fml-title" style="font-size:16px;font-weight:700;cursor:pointer:text" onclick="location.href='login.html?goto='+encodeURIComponent(location.pathname+location.search)">筛选报价</span>
@@ -111,6 +396,87 @@
   <script src="js/data.js?v=102"></script>
   <script src="js/sort.js?v=105"></script>
   <script src="js/free_tour.js?v=53"></script>
-  <script src="js/app_main.js?v=165"></script>
+  <script src="js/app_main.js?v=167"></script>
+  <script>
+  /* ══ 底部坞状态机（Howard 2026-09-18 四次定案）════════════════════════════════
+     默认（首屏）            → 备案行【完整可见】  ← 纯 CSS 决定，零依赖、无跳动
+     点击任意元素            → 【下沉不可见】（滑动区 / 导航键 / 搜索 / 客服 / 分享 / 弹层…）
+     点 logo（切主题）、点 ☀️🌙（切深浅） → 回到【可见】
+     坞上向上滑 / 向下滑     → 切换可见 / 不可见（手势保留）
+     点备案行内部、点坞的空白处 → 不收起（后者兼作桌面端手动展开入口）
+     ★降级：本脚本不执行 ⇒ 无 html.js-dock ⇒ 收起样式不生效 ⇒ 备案行永远可见。
+     ★合规：首屏可见是本方案的合规基础 —— 它有纯 CSS 保证，不依赖任何脚本。 */
+  (function () {
+    var dock = document.querySelector('.bottom-dock');
+    var legal = document.getElementById('legalFooter');
+    if (!dock || !legal) return;
+
+    var collapsed = false;
+    var gestureAt = 0;   /* 手势结束时间戳：用于压掉紧随其后的 click */
+
+    /* ── ① 高度同步（只服务 #toast 浮层定位）─────────────────────
+       ★收起/展开【不依赖任何测量值】：收起由 CSS 把备案行移出文档流，
+         坞的 offsetHeight 随之自动变回「动作条高度」—— 直接读它即可，无需扣减。
+         这正是五次定案的要点：把「藏多深」与「动作条贴底」从测量值上解耦。 */
+    function syncDock() {
+      document.documentElement.style.setProperty('--dock-h', Math.ceil(dock.offsetHeight) + 'px');
+    }
+
+    /* ── ② 状态切换 ──────────────────────────────────────────────── */
+    function setCollapsed(v) {
+      if (collapsed === v) return;
+      collapsed = v;
+      dock.classList.toggle('dock-collapsed', v);
+      syncDock();
+    }
+
+    /* ── ③ 点击规则（capture 阶段，先于各元素自身的 onclick）────── */
+    document.addEventListener('click', function (e) {
+      /* 手势刚结束时浏览器仍可能补发 click —— 不挡的话「上滑展开」会被立刻收回 */
+      if (Date.now() - gestureAt < 400) return;
+      var t = e.target;
+      if (!t || !t.closest) { setCollapsed(true); return; }
+      /* a. 主题切换（logo）/ 浅色深色切换（☀️🌙）→ 展开可见 */
+      if (t.closest('.logo') || t.closest('#headerTheme')) { setCollapsed(false); return; }
+      /* b. 点备案行自身（含其中链接）→ 不收起 */
+      if (t.closest('#legalFooter')) return;
+      /* c. 点坞的空白处（不是 搜索/客服/分享 三个按钮）→ 展开（桌面端手动入口） */
+      if (t.closest('.bottom-dock') && !t.closest('.qr-item')) { setCollapsed(false); return; }
+      /* d. 其余任意点击 → 收起 */
+      setCollapsed(true);
+    }, true);
+
+    /* ── ④ 手势：坞上向上滑 = 展开，向下滑 = 收起（阈值 22px，短按不误触发按钮）── */
+    var tracking = false, y0 = 0, TH = 22;
+    dock.addEventListener('touchstart', function (e) {
+      if (e.touches.length !== 1) { tracking = false; return; }
+      y0 = e.touches[0].clientY;
+      tracking = true;
+    }, { passive: true });
+    dock.addEventListener('touchmove', function (e) {
+      if (!tracking) return;
+      var dy = e.touches[0].clientY - y0;
+      if (collapsed && dy <= -TH) { setCollapsed(false); gestureAt = Date.now(); }
+      else if (!collapsed && dy >= TH) { setCollapsed(true); gestureAt = Date.now(); }
+    }, { passive: true });
+    function stopTrack() { tracking = false; }
+    dock.addEventListener('touchend', stopTrack, { passive: true });
+    dock.addEventListener('touchcancel', stopTrack, { passive: true });
+
+    /* ── ⑤ Esc 收起 ──────────────────────────────────────────────── */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' || e.keyCode === 27) setCollapsed(true);
+    });
+
+    /* ── ⑥ 初始化与尺寸跟踪 ──────────────────────────────────────── */
+    syncDock();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncDock);
+    window.addEventListener('resize', syncDock);
+    window.addEventListener('orientationchange', syncDock);
+    if (window.ResizeObserver) new ResizeObserver(syncDock).observe(dock);
+  })();
+  </script>
+
+
 </body>
 </html>

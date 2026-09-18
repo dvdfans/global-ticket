@@ -1,50 +1,190 @@
-/* ═══════════════════════════════════════════════════════════════
-   环球度假 H5 — 颜色主题系统（theme.css）
-   4 主题：环球红焰(默认) / 紫金 / 深海蓝 / 翡翠绿
-   原则：不改动 style.css 语义色，仅通过 body[data-theme] 覆盖主题关键元素
-   ═══════════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════════════════
+   环球度假 H5 — 颜色主题系统 v2（VI 令牌化 · 2026-09-18）
+   ───────────────────────────────────────────────────────────────────────────
+   依据：《环球vi展示.pptx》A11 标志标准色（8 色，CMYK/RGB 已逐字节核对）
+         《环球vi展示.pptx》A12 标志辅助图形（蒲公英花瓣）
+   结构：L1 基础色板（VI 8 色 × 6 阶明度）→ L2 语义令牌 → L3 兼容别名
+   主题：6 套（红焰默认 / 深海蓝 / 碧海天蓝 / 翡翠绿 / 潮汐青 / 紫金）
+   原则：不改动 style.css 语义色，仅通过 body[data-theme] 覆盖关键元素；
+        本文件在 style.css 之后加载，同权重后者生效 → 覆盖无需 !important
+   ═══════════════════════════════════════════════════════════════════════════ */
 
-/* ── 主题变量集 ── */
-/* 默认 = 环球红焰（不设 data-theme 时 :root 生效，保证既有用户看到升级版红渐变） */
-:root, body[data-theme="red"] {
-  --brand: #DA3A2C;
-  --brand-2: #B82E1F;
-  --brand-grad: linear-gradient(135deg, #DA3A2C 0%, #B82E1F 50%, #5C1A10 100%);
-  --brand-light: #FEF0EF;
-  --brand-text: #FFFFFF;
-  --brand-accent: #F9BE00;   /* LOGO 金色点缀 */
+/* ───────────────────────────────────────────────────────────────────────────
+   L1 · VI 基础色板（8 个标志标准色 × 6 阶明度）
+   500 = 官方标准色，原值来自 VI 手册 A11（不因主题变化）
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* 红 C10 M90 Y85 K0 · 手册 rgb(217,57,43) */
+  --vi-red-50:#FAE3E1;  --vi-red-100:#F0B2AD; --vi-red-300:#E47268;
+  --vi-red-500:#D9392B; --vi-red-700:#A9291E; --vi-red-900:#751D15;
+  /* 黄 C0 M30 Y100 K0 · 手册 rgb(250,190,0) */
+  --vi-gold-50:#FFF4D1; --vi-gold-100:#FFE594; --vi-gold-300:#FFD242;
+  --vi-gold-500:#FABE00; --vi-gold-700:#BD8F00; --vi-gold-900:#806100;
+  /* 黄绿 C45 M0 Y90 K0 · 手册 rgb(157,201,58) */
+  --vi-lime-50:#F1F7E2; --vi-lime-100:#D9EAB2; --vi-lime-300:#B9D872;
+  --vi-lime-500:#9DC93A; --vi-lime-700:#799B2B; --vi-lime-900:#536B1D;
+  /* 绿 C75 M15 Y100 K0 · 手册 rgb(56,157,56) */
+  --vi-green-50:#EAF5EA; --vi-green-100:#C2E9C2; --vi-green-300:#59C459;
+  --vi-green-500:#389D38; --vi-green-700:#287028; --vi-green-900:#184318;
+  /* 天蓝 C85 M50 Y15 K0 · 手册 rgb(13,111,167) */
+  --vi-blue-50:#E8F2FB; --vi-blue-100:#94D3F7; --vi-blue-300:#129BE9;
+  --vi-blue-500:#0D6FA7; --vi-blue-700:#09496E; --vi-blue-900:#042435;
+  /* 深蓝 C100 M80 Y20 K0 · 手册 rgb(0,67,134) */
+  --vi-navy-50:#E8EEF7; --vi-navy-100:#5DAEFF; --vi-navy-300:#0067CD;
+  --vi-navy-500:#004386; --vi-navy-700:#002449; --vi-navy-900:#00060C;
+  /* 青 C70 M0 Y30 K0 · 手册 rgb(38,183,188) */
+  --vi-cyan-50:#E6F7F8; --vi-cyan-100:#C5F2F3; --vi-cyan-300:#4ED7DB;
+  --vi-cyan-500:#26B7BC; --vi-cyan-700:#1C8589; --vi-cyan-900:#104E50;
+  /* 紫 C85 M100 Y0 K0 · 手册 rgb(72,28,135) */
+  --vi-purple-50:#F3EAFB; --vi-purple-100:#B591E8; --vi-purple-300:#6828C2;
+  --vi-purple-500:#481C87; --vi-purple-700:#2D1154; --vi-purple-900:#1A0932;
+
+  /* 中性阶（与 style.css 既有灰度对齐，不新增体系） */
+  --vi-ink:#1A1A1A; --vi-ink-2:#666666; --vi-ink-3:#999999;
+  --vi-hairline:#E8E8EC;
 }
-body[data-theme="purple"] {
-  --brand: #491B87;
-  --brand-2: #6B27A8;
-  --brand-grad: linear-gradient(135deg, #491B87 0%, #6B27A8 55%, #2E0E55 100%);
-  --brand-light: #F3E8FF;
-  --brand-text: #FFFFFF;
-  --brand-accent: #F9BE00;
+
+/* ───────────────────────────────────────────────────────────────────────────
+   L2 · 语义令牌（按「岗位」而非「颜色」命名）
+   岗位表（VI 8 色的业务角色，2026-09-18 定）
+     深蓝 → 信任/主体   |  天蓝 → 品牌/链接/信息
+     红   → 价格/促销   |  绿   → 余位/可订/成功
+     黄   → 强调/星级   |  黄绿 → 自由行/新品类
+     青   → 特殊/回程   |  紫   → 高端/VIP
+   说明：不随主题变化的「语义锁色」全部集中在此，主题只改 --c-brand* 一族
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* 语义锁色 —— 无论切换哪套主题都不变（业务含义固定） */
+  --c-price:   var(--vi-red-500);      /* 价格数字（可被主题覆盖，见下） */
+  --c-hot:     var(--vi-red-500);      /* 促销 / 热门（锁红：紧迫感） */
+  --c-seat:    var(--vi-green-700);    /* 余位「可订」（加深：白底正文达标 5.0+） */
+  --c-seat-on: var(--vi-green-500);    /* 余位色块 / 图标 */
+  /* 余位紧张（≤3）警示橙 —— ★VI 8 色中无橙色，此为「记录在案的例外」：
+     原本硬编码 #FF7D00，现收进令牌同名托管（视觉零变化），待 Howard 决定是否改
+     用 VI 黄-深 #BD8F00（偏橄榄，警示感弱）或 VI 红-深 #A9291E（警示强但近价格色） */
+  --c-seat-low: #FF7D00;
+  --c-star:    var(--vi-gold-700);     /* 星级文字（白底达标） */
+  --c-star-bg: var(--vi-gold-500);     /* 星级/精选色块 */
+  --c-free:    var(--vi-lime-700);     /* 自由行文字 */
+  --c-free-bg: var(--vi-lime-500);     /* 自由行色块 */
+  --c-info:    var(--vi-blue-500);     /* 信息色 / 次要操作 */
+  --c-info-bg: var(--vi-blue-50);
+  --c-special: var(--vi-cyan-700);     /* 特殊等级文字 */
+  --c-special-bg: var(--vi-cyan-500);  /* 特殊等级色块 */
+  --c-vip:     var(--vi-purple-500);   /* 高端 / VIP */
+  --c-vip-bg:  var(--vi-purple-50);
+  --c-trust:   var(--vi-navy-500);     /* 信任 / 主体 */
+  --c-trust-bg:var(--vi-navy-50);
+  /* 深色模式前景提亮（各主题分别覆盖，默认给红焰） */
+  --c-onDark:  #FF7062;
 }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   L3 · 主题定义（6 套）
+   --brand       主色（承载白字的实心区）
+   --brand-2     深一号（渐变收尾 / hover）
+   --brand-grad  主渐变（页头 / 主按钮）
+   --brand-light 软底（标签底 / 浅色区块）
+   --brand-text  主色上的文字色
+   --brand-ink   主色上的次级文字（半透明白）
+   --brand-accent 强调点缀（固定为 VI 黄，纯正品牌记忆点）
+   注：绿/青两套的白字对比度不足，故主色取达标加深版，渐变浅端仍保留 VI 原色。
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ① 环球红焰 —— 默认（不设 data-theme 时 :root 生效） */
+:root, html[data-theme="cyan"], body[data-theme="cyan"] {
+  --brand: #1A7A7E;
+  --brand-2: #104E50;
+  --brand-grad: linear-gradient(135deg, #26B7BC 0%, #1A7A7E 52%, #104E50 100%);
+  --brand-light: #E6F7F8;
+  --brand-text: #FFFFFF;
+  --brand-ink: rgba(255,255,255,0.82);
+  --brand-accent: #FABE00;
+  --c-onDark: #4DD0D6;
+}
+
+/* ② 深海蓝 —— 最"重"、最沉稳（VI 深蓝，白字 9.78） */
+html[data-theme="navy"],
+body[data-theme="navy"] {
+  --brand: #004386;
+  --brand-2: #002B5C;
+  --brand-grad: linear-gradient(135deg, #004386 0%, #002B5C 55%, #001830 100%);
+  --brand-light: #E8EEF7;
+  --brand-text: #FFFFFF;
+  --brand-ink: rgba(255,255,255,0.82);
+  --brand-accent: #FABE00;
+  --c-onDark: #5EA8FF;
+}
+
+/* ③ 碧海天蓝 —— 品牌默认蓝（白字 5.46） */
+html[data-theme="blue"],
 body[data-theme="blue"] {
-  --brand: #0C6FA8;
-  --brand-2: #004286;
-  --brand-grad: linear-gradient(135deg, #0C6FA8 0%, #004286 55%, #002B5C 100%);
+  --brand: #0D6FA7;
+  --brand-2: #004386;
+  --brand-grad: linear-gradient(135deg, #0D6FA7 0%, #004386 55%, #002B5C 100%);
   --brand-light: #E8F2FB;
   --brand-text: #FFFFFF;
-  --brand-accent: #F9BE00;
-}
-body[data-theme="green"] {
-  --brand: #389C39;
-  --brand-2: #2E7D32;
-  --brand-grad: linear-gradient(135deg, #389C39 0%, #2E7D32 55%, #1F5C24 100%);
-  --brand-light: #E8F5E9;
-  --brand-text: #FFFFFF;
-  --brand-accent: #F9BE00;
+  --brand-ink: rgba(255,255,255,0.82);
+  --brand-accent: #FABE00;
+  --c-onDark: #4AA8E0;
 }
 
-/* ── 主题关键元素应用点（最小侵入，优先级高于 style.css）── */
-/* 页面 header 背景 */
+/* ④ 翡翠绿 —— 主色用达标加深版 #2E822E(白字 4.83)，渐变浅端保留 VI 绿 #389D38 */
+html[data-theme="green"],
+body[data-theme="green"] {
+  --brand: #2E822E;
+  --brand-2: #205C20;
+  --brand-grad: linear-gradient(135deg, #389D38 0%, #2E822E 50%, #184318 100%);
+  --brand-light: #EAF5EA;
+  --brand-text: #FFFFFF;
+  --brand-ink: rgba(255,255,255,0.82);
+  --brand-accent: #FABE00;
+  --c-onDark: #55C955;
+}
+
+/* ⑤ 潮汐青 —— 主色用达标加深版 #1A7A7E(白字 5.09)，渐变浅端保留 VI 青 #26B7BC */
+html[data-theme="cyan"],
+html[data-theme="red"], body[data-theme="red"] {
+  --brand: #D9392B;
+  --brand-2: #A9291E;
+  --brand-grad: linear-gradient(135deg, #D9392B 0%, #A9291E 50%, #571510 100%);
+  --brand-light: #FEF0EF;
+  --brand-text: #FFFFFF;
+  --brand-ink: rgba(255,255,255,0.82);
+  --brand-accent: #FABE00;
+  --c-onDark: #FF7062;
+}
+
+/* ⑥ 紫金 —— 最高端（VI 紫，白字 11.72） */
+html[data-theme="purple"],
+body[data-theme="purple"] {
+  --brand: #481C87;
+  --brand-2: #2D1154;
+  --brand-grad: linear-gradient(135deg, #481C87 0%, #2D1154 55%, #1A0932 100%);
+  --brand-light: #F3EAFB;
+  --brand-text: #FFFFFF;
+  --brand-ink: rgba(255,255,255,0.82);
+  --brand-accent: #FABE00;
+  --c-onDark: #B892F0;
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+   主题应用点（相对 v1 补全）
+   v1 漏项 → 这些元素原先硬绑 var(--red) 不随主题变，现统一改为跟随
+   ─────────────────────────────────────────────────────────────────────────── */
+
+/* ① 大面积品牌区：页头 / 详情头 / 筛选头 */
 body[data-theme] .header-bg { background: var(--brand-grad); }
-/* 详情弹层头部 */
 body[data-theme] .detail-header { background: var(--brand-grad); }
-/* 价格强调色 */
+body[data-theme] .filter-modal-hd { background: var(--brand-grad); }
+body[data-theme] .filter-modal-hd .fml-title { color: var(--brand-text); }
+body[data-theme] .filter-modal-hd .fml-close { background: rgba(255,255,255,0.22) !important; color: var(--brand-text) !important; }
+/* 页头次级文字 → 半透明白，避免与主色打架 */
+body[data-theme] .header-promo { color: var(--brand-accent); }
+body[data-theme] .header-stats,
+body[data-theme] .header-stats span { color: var(--brand-ink); }
+
+/* ② 价格：全部跟随主题（这是主题感知最强的地方） */
 body[data-theme] .cf-price,
 body[data-theme] .dp-price,
 body[data-theme] .card-price,
@@ -53,26 +193,112 @@ body[data-theme] .cfs-price,
 body[data-theme] .hmcard-price,
 body[data-theme] .hm-minprice,
 body[data-theme] .hm-nights,
+body[data-theme] .hm-price,
 body[data-theme] .ro-price,
 body[data-theme] .odate-price,
-body[data-theme] .fit-price { color: var(--brand); }
-/* Tab 激活态 */
-body[data-theme] .tab.active { color: var(--brand); border-bottom-color: var(--brand); }
-/* 主按钮（咨询 / 锁单 / 搜索 / 筛选应用） */
+body[data-theme] .fit-price,
+body[data-theme] .jj-price,
+body[data-theme] .jj-nights,
+body[data-theme] .jj-date,
+body[data-theme] .jj-date-big,
+body[data-theme] .detail-price-num { color: var(--brand); }
+
+/* ③ 主按钮：统一品牌渐变（原先 .card-btn / .card-btn-v2 / .detail-consult / .jjd-consult 硬绑红） */
 body[data-theme] .cf-btn,
 body[data-theme] .detail-consult,
 body[data-theme] .card-btn,
 body[data-theme] .card-btn-v2,
-body[data-theme] .fit-apply { background: var(--brand-grad); }
-body[data-theme] #filterApplyBtn { background: var(--brand-grad) !important; }
-/* 滑动顶栏筛选/排序按钮 */
-body[data-theme] .sticky-filter { color: var(--brand); background: var(--brand-light); }
-/* 筛选弹层标题条 */
-body[data-theme] .filter-modal-hd { background: var(--brand-grad); }
-body[data-theme] .filter-modal-hd .fml-title { color: #fff; }
-body[data-theme] .filter-modal-hd .fml-close { background: rgba(255,255,255,0.22) !important; color: #fff !important; }
+body[data-theme] .fit-apply,
+body[data-theme] .jjd-consult { background: var(--brand-grad); color: var(--brand-text); }
+body[data-theme] #filterApplyBtn { background: var(--brand-grad) !important; color: var(--brand-text) !important; }
+/* 「复制」类次级按钮 → 信息色（原为野色 #165DFF） */
+body[data-theme] .detail-share { background: var(--c-info) !important; color: #fff !important; }
 
-/* ── 主题切换按钮（header 右侧，与深色模式 ☀️ 并列）── */
+/* ④ 软底标签：品牌浅底 + 品牌深字（原先硬绑红底红字） */
+body[data-theme] .card-type-tag.group,
+body[data-theme] .ticket-badge.group,
+body[data-theme] .cf-label,
+body[data-theme] .sticky-filter,
+body[data-theme] .cfs-consult,
+body[data-theme] .detail-price,
+body[data-theme] .dp-row { background: var(--brand-light); }
+body[data-theme] .card-type-tag.group,
+body[data-theme] .ticket-badge.group,
+body[data-theme] .cf-label,
+body[data-theme] .cf-leg-tag,
+body[data-theme] .cfs-consult,
+body[data-theme] .sticky-filter,
+body[data-theme] .dd-toggle,
+body[data-theme] .tab-filter-btn { color: var(--brand); }
+body[data-theme] .sticky-filter { border-color: var(--brand-light); }
+
+/* ⑤ Tab / 表单焦点 / 原生控件 */
+body[data-theme] .tab.active { color: var(--brand); border-bottom-color: var(--brand); }
+body[data-theme] .fit-search:focus { border-color: var(--brand); }
+body[data-theme] .ro-multi-wrap input,
+body[data-theme] .odate-multi-wrap input { accent-color: var(--brand); }
+
+/* ⑥ 语义锁色：显式钉住，防止被主题波及（业务含义固定） */
+body[data-theme] .card-level.hot { background: linear-gradient(135deg, var(--c-hot), var(--vi-red-700)); }
+body[data-theme] .card-level.featured { background: linear-gradient(135deg, var(--vi-gold-500), var(--vi-gold-700)); }
+body[data-theme] .card-level.special { background: linear-gradient(135deg, var(--vi-cyan-500), var(--vi-cyan-700)); }
+body[data-theme] .card-seats,
+body[data-theme] .odate-seats,
+body[data-theme] .ro-seats,
+body[data-theme] .hm-seats,
+body[data-theme] .seat-ok,
+body[data-theme] .seat-full { color: var(--c-seat); }
+body[data-theme] .jjd-copy.copied { background: var(--c-seat-on); }
+body[data-theme] .hm-ret,
+body[data-theme] .hmcard-ret,
+body[data-theme] .cf-retflex { color: var(--c-special); }
+body[data-theme] .card-nights-badge { background: linear-gradient(135deg, var(--vi-gold-50), #FFFDF5); }
+body[data-theme] .card-time,
+body[data-theme] .cf-duration-badge { background: var(--vi-gold-50); }
+body[data-theme] .cf-sup-tag { color: var(--text); }
+/* 自由行区块 ← 补上 VI 黄绿（原先 0 使用） */
+body[data-theme] .jj-sup,
+body[data-theme] .jj-ptype,
+body[data-theme] .jjd-ptype,
+body[data-theme] .jjd-f-dur,
+body[data-theme] .jjd-nights,
+body[data-theme] .jjd-pickup .jjd-pk-yes { color: var(--c-free); }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   深色模式：价格与次级文字按主题提亮（每套主题一个值，均已在 #121214 底实测 ≥4.5）
+   ─────────────────────────────────────────────────────────────────────────── */
+body.dark[data-theme] .cf-price,
+body.dark[data-theme] .dp-price,
+body.dark[data-theme] .card-price,
+body.dark[data-theme] .card-price-num,
+body.dark[data-theme] .cfs-price,
+body.dark[data-theme] .hmcard-price,
+body.dark[data-theme] .hm-minprice,
+body.dark[data-theme] .hm-nights,
+body.dark[data-theme] .hm-price,
+body.dark[data-theme] .ro-price,
+body.dark[data-theme] .odate-price,
+body.dark[data-theme] .fit-price,
+body.dark[data-theme] .jj-price,
+body.dark[data-theme] .jj-nights,
+body.dark[data-theme] .jj-date,
+body.dark[data-theme] .jj-date-big,
+body.dark[data-theme] .detail-price-num,
+body.dark[data-theme] .dp-tax,
+body.dark[data-theme] .qr-filter-icon { color: var(--c-onDark); }
+
+/* 深色下软底需转为「主色深调」，否则浅底刺眼 */
+body.dark[data-theme] .card-type-tag.group,
+body.dark[data-theme] .ticket-badge.group,
+body.dark[data-theme] .cf-label,
+body.dark[data-theme] .sticky-filter,
+body.dark[data-theme] .cfs-consult,
+body.dark[data-theme] .detail-price,
+body.dark[data-theme] .dp-row { background: rgba(255,255,255,0.07); }
+
+/* ───────────────────────────────────────────────────────────────────────────
+   主题切换 UI（弹层 + 色块，v1 保留）
+   ─────────────────────────────────────────────────────────────────────────── */
 .theme-switch {
   font-size: 15px; cursor: pointer; margin-left: 8px;
   padding: 3px 6px; line-height: 1; user-select: none;
@@ -82,7 +308,6 @@ body[data-theme] .filter-modal-hd .fml-close { background: rgba(255,255,255,0.22
 }
 .theme-switch:active { transform: scale(0.92); }
 
-/* ── 主题选择弹层（header 内绝对定位）── */
 .theme-pop {
   position: absolute; right: 10px; top: 46px; z-index: 210;
   background: var(--card-bg); border-radius: 12px;
@@ -109,39 +334,276 @@ body[data-theme] .filter-modal-hd .fml-close { background: rgba(255,255,255,0.22
 /* ── 新组件样式（元信息组）── */
 .cf-meta-group { display: inline-flex; align-items: center; gap: 6px; }
 
-/* ── 深色主题·报价卡片价格提亮
-   （2026-08-10 用户指定：仅 深海蓝/紫金 两主题深色模式，只提亮价格字体，其他元素一律不动）── */
-body.dark[data-theme="purple"] .cf-price,
-body.dark[data-theme="purple"] .dp-price,
-body.dark[data-theme="purple"] .card-price,
-body.dark[data-theme="purple"] .card-price-num,
-body.dark[data-theme="purple"] .cfs-price,
-body.dark[data-theme="purple"] .hmcard-price,
-body.dark[data-theme="purple"] .hm-minprice,
-body.dark[data-theme="purple"] .hm-nights,
-body.dark[data-theme="purple"] .ro-price,
-body.dark[data-theme="purple"] .odate-price,
-body.dark[data-theme="purple"] .fit-price { color: #b892f0; }
-body.dark[data-theme="blue"] .cf-price,
-body.dark[data-theme="blue"] .dp-price,
-body.dark[data-theme="blue"] .card-price,
-body.dark[data-theme="blue"] .card-price-num,
-body.dark[data-theme="blue"] .cfs-price,
-body.dark[data-theme="blue"] .hmcard-price,
-body.dark[data-theme="blue"] .hm-minprice,
-body.dark[data-theme="blue"] .hm-nights,
-body.dark[data-theme="blue"] .ro-price,
-body.dark[data-theme="blue"] .odate-price,
-body.dark[data-theme="blue"] .fit-price { color: #4aa8e0; }
+/* ───────────────────────────────────────────────────────────────────────────
+   VI 辅助图形落地（A12 蒲公英花瓣）
+   叠加层用 ::before —— style.css 已有的 .header-bg::after（金色光晕）保持不动。
+   ★注意：绝不能改 .header-bg 自己的 position —— style.css 用的是
+     `position:absolute; inset:0`，若被覆盖成 relative 会让高度塌缩为 0、渐变整体不可见。
+   ─────────────────────────────────────────────────────────────────────────── */
+.header-bg::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><g fill='%23FFFFFF' fill-opacity='0.08'><path d='M120 120 C136 108 154 84 158 62 C161 42 152 28 137 30 C121 32 110 54 110 76 C110 94 114 110 120 120 Z'/><path d='M120 120 C132 136 156 154 178 158 C198 161 212 152 210 137 C208 121 186 110 164 110 C146 110 130 114 120 120 Z' transform='rotate(45 120 120)'/><path d='M120 120 C124 138 136 164 152 180 C166 193 182 194 189 182 C196 168 184 147 167 133 C153 122 134 114 120 120 Z' transform='rotate(90 120 120)'/><path d='M120 120 C102 124 76 136 60 152 C47 166 46 182 58 189 C72 196 93 184 107 167 C118 153 126 134 120 120 Z' transform='rotate(135 120 120)'/></g></svg>");
+  background-size: 300px 300px;
+  background-position: right -46px top -66px;
+  background-repeat: no-repeat;
+  pointer-events: none;
+}
 
-/* ── 详情页（含税）/人 深色提亮
-   （2026-08-10：.dp-tax 深色下由暗灰提亮为各主题亮色，与价格提亮协调）── */
-body.dark[data-theme="red"] .dp-tax { color: #ff6b5e; }
-body.dark[data-theme="purple"] .dp-tax { color: #b892f0; }
-body.dark[data-theme="blue"] .dp-tax { color: #4aa8e0; }
-body.dark[data-theme="green"] .dp-tax { color: #55c955; }
+/* ═══════════════════════════════════════════════════════════════════════════
+   深色模式 · 报价卡片底面 v2（2026-09-18）
 
-/* ── 首页底部放大镜图标·深色跟随价格
-   （2026-08-10：深色下底部图标颜色与价格提亮色一致；红焰/翡翠绿价格保持 var(--brand)，图标已同色）── */
-body.dark[data-theme="purple"] .qr-filter-icon { color: #b892f0; }
-body.dark[data-theme="blue"] .qr-filter-icon { color: #4aa8e0; }
+   问题：深色下 6 套主题的卡片底面都取同一个 --card-bg:#16213e  →  切主题零变化。
+   方案：① 底色 —— 用主题主色的【色相】在 HSL 空间生成同调性深色，
+                6 套主题各不同（暖炭/冷靛/墨绿/黛青/夜紫…）；
+                卡底刻意比页面底亮 ΔL=+0.055 → 卡片"浮起"而非"凹陷"
+                （原 #16213e vs #1a1a2e 的 ΔL 只有 +0.024，已在及格线边缘）。
+        ② 渐变 —— 纵向受光渐变（顶亮→底暗，模拟上方光源）
+                + 右上角一层极淡的供应商色辉光（复用 --card-stripe，天然受权限门控）。
+        ③ 图案 —— VI A12 蒲公英花瓣，单枚角隅，白色 5%，no-repeat，不抢内容。
+        ④ 描边 —— 深色下投影几乎不可见，改用 inset 描边 + 顶部内高光做出"玻璃厚度"；
+                用 inset box-shadow 而非 border，保证零布局位移。
+
+   ★铁律：卡片底面只跟随【主题色】，绝不按【供应商】上色。
+     供应商辨识只允许走已被 supStripe() 门控的 --card-stripe
+     （游客 / 无权限客服 → #999）。若按供应商铺卡底，游客即可从配色反推
+     供应商身份，等于绕过 2026-08-31 F1 的门控。
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ① 6 套主题各自的深色底面（页面底 + 卡片三档 + 描边/内高光/投影） */
+html.dark[data-theme="red"],
+body.dark[data-theme="red"] {
+  --bg: #1E1514;
+  --card-bg: #301F1E;
+  --card-top: #382422; --card-bottom: #291A19;
+  --card-grad: linear-gradient(180deg, #382422 0%, #301F1E 44%, #291A19 100%);
+  --card-edge: rgba(255,255,255,0.075);
+  --card-inner: rgba(255,255,255,0.055);
+  --card-shadow: 0 4px 18px rgba(0,0,0,0.40);
+}
+
+html.dark[data-theme="navy"],
+body.dark[data-theme="navy"] {
+  --bg: #14191E;
+  --card-bg: #1E2730;
+  --card-top: #222D38; --card-bottom: #192129;
+  --card-grad: linear-gradient(180deg, #222D38 0%, #1E2730 44%, #192129 100%);
+  --card-edge: rgba(255,255,255,0.075);
+  --card-inner: rgba(255,255,255,0.055);
+  --card-shadow: 0 4px 18px rgba(0,0,0,0.40);
+}
+
+html.dark[data-theme="blue"],
+body.dark[data-theme="blue"] {
+  --bg: #141A1E;
+  --card-bg: #1E2A30;
+  --card-top: #223038; --card-bottom: #192329;
+  --card-grad: linear-gradient(180deg, #223038 0%, #1E2A30 44%, #192329 100%);
+  --card-edge: rgba(255,255,255,0.075);
+  --card-inner: rgba(255,255,255,0.055);
+  --card-shadow: 0 4px 18px rgba(0,0,0,0.40);
+}
+
+html.dark[data-theme="green"],
+body.dark[data-theme="green"] {
+  --bg: #141E14;
+  --card-bg: #1E301E;
+  --card-top: #223822; --card-bottom: #192919;
+  --card-grad: linear-gradient(180deg, #223822 0%, #1E301E 44%, #192919 100%);
+  --card-edge: rgba(255,255,255,0.075);
+  --card-inner: rgba(255,255,255,0.055);
+  --card-shadow: 0 4px 18px rgba(0,0,0,0.40);
+}
+
+html.dark[data-theme="cyan"],
+body.dark[data-theme="cyan"] {
+  --bg: #141E1E;
+  --card-bg: #1E3030;
+  --card-top: #223838; --card-bottom: #192929;
+  --card-grad: linear-gradient(180deg, #223838 0%, #1E3030 44%, #192929 100%);
+  --card-edge: rgba(255,255,255,0.075);
+  --card-inner: rgba(255,255,255,0.055);
+  --card-shadow: 0 4px 18px rgba(0,0,0,0.40);
+}
+
+html.dark[data-theme="purple"],
+body.dark[data-theme="purple"] {
+  --bg: #18141E;
+  --card-bg: #251E30;
+  --card-top: #2B2238; --card-bottom: #201929;
+  --card-grad: linear-gradient(180deg, #2B2238 0%, #251E30 44%, #201929 100%);
+  --card-edge: rgba(255,255,255,0.075);
+  --card-inner: rgba(255,255,255,0.055);
+  --card-shadow: 0 4px 18px rgba(0,0,0,0.40);
+}
+
+/* ②③④ 卡片底面合成：花瓣图案(最上层) → 供应商辉光 → 主题深色渐变(最底层)
+   ── 用元素自身的 background-image 而不是伪元素：
+      .cf-card::before 已被左侧色条占用，且伪元素会盖在文字上；
+      背景层天然位于内容之下，最安全。 */
+body.dark[data-theme] .card,
+body.dark[data-theme] .cfs-card,
+body.dark[data-theme] .hm-group,
+body.dark[data-theme] .jj-card {
+  background-color: var(--card-bg);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><g fill='%23FFFFFF' fill-opacity='0.05'><path d='M120 120 C136 108 154 84 158 62 C161 42 152 28 137 30 C121 32 110 54 110 76 C110 94 114 110 120 120 Z'/><path d='M120 120 C132 136 156 154 178 158 C198 161 212 152 210 137 C208 121 186 110 164 110 C146 110 130 114 120 120 Z' transform='rotate(45 120 120)'/><path d='M120 120 C124 138 136 164 152 180 C166 193 182 194 189 182 C196 168 184 147 167 133 C153 122 134 114 120 120 Z' transform='rotate(90 120 120)'/><path d='M120 120 C102 124 76 136 60 152 C47 166 46 182 58 189 C72 196 93 184 107 167 C118 153 126 134 120 120 Z' transform='rotate(135 120 120)'/><path d='M120 120 C104 108 78 100 58 103 C38 106 28 119 36 132 C44 146 68 150 88 143 C104 137 116 129 120 120 Z' transform='rotate(180 120 120)'/><path d='M120 120 C136 128 162 136 182 133 C202 130 212 117 204 104 C196 90 172 86 152 93 C136 99 124 111 120 120 Z' transform='rotate(225 120 120)'/><path d='M120 120 C120 138 120 166 128 185 C136 203 151 208 160 197 C169 186 163 162 150 145 C140 132 128 124 120 120 Z' transform='rotate(270 120 120)'/><path d='M120 120 C112 136 96 160 88 179 C81 197 88 212 102 212 C116 212 126 190 126 169 C126 150 124 131 120 120 Z' transform='rotate(315 120 120)'/></g></svg>"),
+    radial-gradient(120% 80% at 100% 0%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 58%),
+    var(--card-grad);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 190px 190px, auto, auto;
+  background-position: right -26px bottom -32px, center, center;
+  box-shadow: var(--card-shadow), inset 0 0 0 1px var(--card-edge), inset 0 1px 0 var(--card-inner);
+}
+
+/* .cf-card 在新格式卡片里另有三条 !important（style.css 第 484 行），
+   故深色投影必须同样带 !important 才能覆盖。 */
+body.dark[data-theme] .cf-card {
+  background-color: var(--card-bg);
+  background-image:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><g fill='%23FFFFFF' fill-opacity='0.05'><path d='M120 120 C136 108 154 84 158 62 C161 42 152 28 137 30 C121 32 110 54 110 76 C110 94 114 110 120 120 Z'/><path d='M120 120 C132 136 156 154 178 158 C198 161 212 152 210 137 C208 121 186 110 164 110 C146 110 130 114 120 120 Z' transform='rotate(45 120 120)'/><path d='M120 120 C124 138 136 164 152 180 C166 193 182 194 189 182 C196 168 184 147 167 133 C153 122 134 114 120 120 Z' transform='rotate(90 120 120)'/><path d='M120 120 C102 124 76 136 60 152 C47 166 46 182 58 189 C72 196 93 184 107 167 C118 153 126 134 120 120 Z' transform='rotate(135 120 120)'/><path d='M120 120 C104 108 78 100 58 103 C38 106 28 119 36 132 C44 146 68 150 88 143 C104 137 116 129 120 120 Z' transform='rotate(180 120 120)'/><path d='M120 120 C136 128 162 136 182 133 C202 130 212 117 204 104 C196 90 172 86 152 93 C136 99 124 111 120 120 Z' transform='rotate(225 120 120)'/><path d='M120 120 C120 138 120 166 128 185 C136 203 151 208 160 197 C169 186 163 162 150 145 C140 132 128 124 120 120 Z' transform='rotate(270 120 120)'/><path d='M120 120 C112 136 96 160 88 179 C81 197 88 212 102 212 C116 212 126 190 126 169 C126 150 124 131 120 120 Z' transform='rotate(315 120 120)'/></g></svg>"),
+    radial-gradient(120% 80% at 100% 0%, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 58%),
+    var(--card-grad);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-size: 190px 190px, auto, auto;
+  background-position: right -26px bottom -32px, center, center;
+  box-shadow: var(--card-shadow), inset 0 0 0 1px var(--card-edge), inset 0 1px 0 var(--card-inner) !important;
+}
+
+/* 供应商色辉光：复用已门控的 --card-stripe（游客/无权限 → #999 灰，不泄密）。
+   放在渐变之上、花瓣之下。color-mix 不支持的浏览器会整条失效并退回上一版声明，安全降级。 */
+@supports (background: color-mix(in srgb, red 10%, transparent)) {
+  body.dark[data-theme] .cf-card,
+  body.dark[data-theme] .card {
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 240'><g fill='%23FFFFFF' fill-opacity='0.05'><path d='M120 120 C136 108 154 84 158 62 C161 42 152 28 137 30 C121 32 110 54 110 76 C110 94 114 110 120 120 Z'/><path d='M120 120 C132 136 156 154 178 158 C198 161 212 152 210 137 C208 121 186 110 164 110 C146 110 130 114 120 120 Z' transform='rotate(45 120 120)'/><path d='M120 120 C124 138 136 164 152 180 C166 193 182 194 189 182 C196 168 184 147 167 133 C153 122 134 114 120 120 Z' transform='rotate(90 120 120)'/><path d='M120 120 C102 124 76 136 60 152 C47 166 46 182 58 189 C72 196 93 184 107 167 C118 153 126 134 120 120 Z' transform='rotate(135 120 120)'/><path d='M120 120 C104 108 78 100 58 103 C38 106 28 119 36 132 C44 146 68 150 88 143 C104 137 116 129 120 120 Z' transform='rotate(180 120 120)'/><path d='M120 120 C136 128 162 136 182 133 C202 130 212 117 204 104 C196 90 172 86 152 93 C136 99 124 111 120 120 Z' transform='rotate(225 120 120)'/><path d='M120 120 C120 138 120 166 128 185 C136 203 151 208 160 197 C169 186 163 162 150 145 C140 132 128 124 120 120 Z' transform='rotate(270 120 120)'/><path d='M120 120 C112 136 96 160 88 179 C81 197 88 212 102 212 C116 212 126 190 126 169 C126 150 124 131 120 120 Z' transform='rotate(315 120 120)'/></g></svg>"),
+      radial-gradient(130% 84% at 100% 0%,
+        color-mix(in srgb, var(--card-stripe, #999) 22%, transparent) 0%,
+        rgba(255,255,255,0) 60%),
+      var(--card-grad);
+  }
+}
+
+/* 卡片内次级区块（.cf-leg / .hm-card 等）在深色下不能再压一层不透明底，
+   否则会把卡片渐变盖平；改用半透明白提亮。 */
+body.dark[data-theme] .cf-leg,
+body.dark[data-theme] .hm-card,
+body.dark[data-theme] .jjd-it-day {
+  background: rgba(255,255,255,0.035);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   备案信息（法规强制展示 · 2026-09-18）
+   ── ICP 备案：主页底部标明备案号 + 链接工信部 https://beian.miit.gov.cn/
+   ── 公安备案：底部标明公安备案号 + 链接 https://beian.mps.gov.cn/ ，配官方图标
+   ── 位置：固定底部坞 .bottom-dock 内、动作条（70px）之下 ——
+      默认脱流钉在坞底边之外（屏幕下方，看不见），手指上滑时随坞升起露出。
+      ★内容写在静态 HTML 里：备案审核工具未必执行脚本；
+        隐藏依赖 html.js-dock 类，脚本不执行时备案行按正常流可见（安全降级）。
+   ═══════════════════════════════════════════════════════════════════════════ */
+/* ── 底部坞（2026-09-18 三次定案）= 动作条 + 备案/资质行 ──
+   .app-footer 原本 position:fixed bottom:0；在本坞内改为 static，由坞承载。
+   坞是 body(flex-column) 的流内 item —— 不用 fixed，因为 fixed 相对【布局视口】定位，
+   会被 iOS Safari / 微信的底部工具栏盖住；流内则其底部 = body 底部 = 100dvh 底部
+   = 【可视区底部（工具栏之上）】，工具栏出现/收起自动跟随。
+   ★坞内布局高度 = 动作条(70px) + 备案行 —— 展开态由 CSS 天然布局决定，不依赖 JS 变量。 */
+.bottom-dock {
+  position: static;
+  flex: 0 0 auto;
+  z-index: 100;
+  /* ★安全区【不在这里】承担 —— 改由 .legal-footer 的 padding-bottom 承担：
+     它本质是「最后一行内容的下边距」，挂在那一行上语义更准；
+     且以后若开全屏（PWA 需要 viewport-fit=cover）时，不会因坞自身 padding
+     而让备案行的可视位置与安全区错位。
+     注：本页 viewport 未设 viewport-fit=cover，Safari 下 env() 实为 0，两条路等价。 */
+  padding-bottom: 0;
+}
+.bottom-dock .app-footer { position: static; }
+
+/* ══ 备案行状态机（Howard 2026-09-18 五次定案 · 零测量依赖版）══════════════════
+   · 展开（默认 / 首屏 / 切主题后）＝ 备案行在坞内【正常流】，完整可见。
+     **纯 CSS 即可确定位置，不依赖任何 JS 变量** ⇒ 首屏永远精确、无跳动。
+     这一点是刻意的：「首屏」就是合规展示态，必须零依赖可见。
+   · 收起（任意点击后）＝ 把备案行【移出文档流】、钉到坞底边之下、并置透明：
+       position: absolute; left: 0; right: 0; top: 100%; opacity: 0;
+     于是：a) 备案行顶边 = 坞底边 = 屏幕底 ⇒ **无论它多高都必然完全出屏**；
+           b) 坞的 offsetHeight 自动变回「动作条高度」⇒ **动作条自动贴底**、
+              .card-list 自动拿回备案行占的高度 —— 两件事都不需要计算。
+           c) opacity: 0 是双保险：即使某个内核的 absolute 定位异常，也看不见。
+   ★★为什么废弃「负 margin + --legal-h」的旧写法（四次定案）：
+     旧写法把「备案行藏多深」与「动作条贴不贴底」绑在同一个测量值上 ——
+     设动作条高 70px、备案行实际高 H、位移 X，则
+         动作条悬空 = H - X      备案行露出 = H - X
+     ⇒ X 只要比 H 稍小，备案行就露出多少、动作条就同时悬空多少。
+     真机上字体/换行差异、测量时机、旧内核 calc 支持度都会让 X ≠ H，
+     症状就是「只藏住最下面一行、上面几行还露着」。
+     本版**不读任何测量值、不用 calc、不用负 margin**：隐藏结果 100% 确定。
+     （附带好处：坞不再溢出 body 之外，文档也不会因此出现可滚动余量。）
+   ★代价：位置类属性无法平滑过渡 ⇒ 收起是瞬时切换；展开用 opacity 淡入补偿。
+   ★降级：无 JS ⇒ 无 html.js-dock ⇒ 本段样式整体不生效 ⇒ 备案行永远按正常流可见。 */
+html.js-dock .bottom-dock .legal-footer {
+  /* 只用于「展开时淡入」；收起为瞬时（见上） */
+  transition: opacity .18s ease;
+}
+html.js-dock .bottom-dock.dock-collapsed {
+  /* 给 absolutely 定位的备案行建立定位上下文。
+     坞是 flex item，position: relative 不脱流、不影响布局尺寸。 */
+  position: relative;
+}
+html.js-dock .bottom-dock.dock-collapsed .legal-footer {
+  position: absolute; left: 0; right: 0; top: 100%;
+  opacity: 0;
+  pointer-events: none;   /* 已不可见，顺便避免误触其中链接 */
+}
+@media (prefers-reduced-motion: reduce) {
+  html.js-dock .bottom-dock .legal-footer { transition: none; }
+}
+
+/* ── 备案/资质行：以文字为主、小字、低对比，不抢注意力 ──
+   ★用 --text-secondary 而不用 --text-light：11px 小字下 #999 在白底上仅 **2.85**（不达 AA 4.5），
+     #666 为 5.74 ✓；深色下 #a0a0b8 对深卡底 5.92 ✓。两种模式一套 token，无需分支。 */
+/* ★用【inline 文本流】而不是 flex 流：
+   flex 下每个 .legal-item 是原子 flex item，**内部不参与跨 item 流动**，
+   行末剩余空间会被整段浪费 —— 实测同一批内容 flex 要 5 行、inline 只要 3 行。
+   （坞高随行数线性变化，每行约 15px，5→3 行即省 30px。） */
+/* ★本块位于 .bottom-dock【坞内】、动作条之下：
+   默认（含首屏、无 JS）按正常流显示 = 完整可见；被收起时随坞整体下沉到屏幕外。
+   padding-bottom 含 iPhone 安全区 —— 理由见上方坞段落（为何不放在坞上）。 */
+.legal-footer {
+  display: block;
+  margin: 0;
+  padding: 8px 12px calc(8px + env(safe-area-inset-bottom, 0px));
+  background: var(--card-bg);
+  border-top: 1px solid var(--border);
+  font-size: 10px; line-height: 1.45;
+  color: var(--text-secondary);
+  text-align: center;
+}
+.legal-footer .legal-items { display: block; }
+/* 版权与各资质条目同处一个 flow 容器 —— 若改回块级会独占一行并留下整行空白 */
+.legal-footer .legal-copy { opacity: .85; }
+.legal-footer .legal-item { opacity: .9; }
+/* 证照编号在连字符处会被浏览器拆行（如 `L-` / `BJ-CJ00894`），读起来像两个东西 —— 禁止内部换行 */
+.legal-footer .legal-num { white-space: nowrap; }
+.legal-footer .legal-link { color: var(--text-secondary); text-decoration: none; }
+.legal-footer .legal-link:hover { text-decoration: underline; }
+/* 「备案与资质公示」入口必须可辨认为链接：《电子商务法》第 15 条允许以「链接标识」
+   方式公示行政许可信息，但标识须显著 —— 故用品牌色与同行的灰色条目拉开区分。
+   深色下品牌色（深蓝 #004386）在深底上对比度仅 1.55，必须切 --c-onDark。 */
+.legal-footer .legal-more { color: var(--brand); text-underline-offset: 2px; }
+.legal-footer .legal-more:hover { text-decoration: underline; }
+body.dark[data-theme] .legal-footer .legal-more { color: var(--c-onDark); }
+/* 官方「公安备案图标」占位：内联 SVG（不新增文件 —— 部署是增量合并且不做镜像，
+   新增文件上线后删不掉）。拿到官方图标后如需换图，请单独确认。 */
+.legal-footer .legal-badge { width: 12px; height: 12px; flex: 0 0 auto; }
+.legal-footer .legal-sep { opacity: .5; margin: 0 3px; }  /* 取代 flex gap */
+.legal-footer .legal-pending { opacity: .8; }
+
+/* 坞高由页尾脚本实时写入（**仅供 #toast 浮层定位**）：
+   --dock-h = 坞【当前占用】的高度 —— 展开时 = 动作条 + 备案行；
+              收起时由 CSS 自动回落到动作条高度，脚本直接读 offsetHeight 即可、无需扣减。
+   ★备案行的隐藏【不再依赖任何 CSS 变量】—— 见上方状态机段（五次定案）。 */
+.card-list { margin-bottom: 0; }
+.legal-footer .legal-pending { opacity: .85; }
+
+/* 深色无需另写：--text-secondary 在深色下已是 #a0a0b8，对深底 6.0+ */
