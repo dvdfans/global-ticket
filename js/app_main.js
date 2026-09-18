@@ -140,8 +140,17 @@ document.addEventListener('click', function(e) {
 });
 
 function toggleTheme() {
+  /* ★2026-09-18 修复「切不回浅色」：
+     dark 类必须同时挂在 <html> 与 <body>（与 login.html / zizhi.html 的既有写法一致）。
+     原因：<head> 的提前上色脚本把 .dark 挂在 <html>（首屏前防闪色），而
+       · style.css 的 `.dark{…}` 是【裸类选择器】—— html 上的 .dark 同样命中，
+         会把深色令牌（--bg/--card-bg/--text…）灌进根节点并向下继承；
+       · theme.css 的 `html.dark[data-theme=X]` 也会命中。
+     若切换时只摘掉 body 的 .dark，html 上那份仍在 ⇒ 页面底色与卡片令牌仍是深色，
+     ☀️ 按钮亮了却回不到浅色（实测 --bg 仍 #141E1E、bodyBg 仍 rgb(20,30,30)）。 */
   document.body.classList.toggle('dark');
   var dark = document.body.classList.contains('dark');
+  document.documentElement.classList.toggle('dark', dark);
   localStorage.setItem('theme', dark ? 'dark' : 'light');
   var el = document.getElementById('headerTheme');
   if (el) el.textContent = dark ? '🌙' : '☀️';

@@ -147,6 +147,9 @@ let isAdmin = false;
 // 初始化主题 + 游客ID
 (function() {
   if (localStorage.getItem('theme') === 'dark') {
+    // ★2026-09-18：html 与 body 必须同时挂 .dark（html 那份由 <head> 脚本先挂上，
+    //   这里补一次保证两者永远同步，否则摘类时残留会导致回不到浅色）。
+    document.documentElement.classList.add('dark');
     document.body.classList.add('dark');
     var el = document.getElementById('headerTheme');
     if (el) el.textContent = '🌙';

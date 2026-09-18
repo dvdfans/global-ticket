@@ -91,7 +91,7 @@
    注：绿/青两套的白字对比度不足，故主色取达标加深版，渐变浅端仍保留 VI 原色。
    ─────────────────────────────────────────────────────────────────────────── */
 
-/* ① 环球红焰 —— 默认（不设 data-theme 时 :root 生效） */
+/* ① 潮汐青 —— 全站默认主题（不设 data-theme 时 :root 生效） */
 :root, html[data-theme="cyan"], body[data-theme="cyan"] {
   --brand: #1A7A7E;
   --brand-2: #104E50;
@@ -142,9 +142,9 @@ body[data-theme="green"] {
   --c-onDark: #55C955;
 }
 
-/* ⑤ 潮汐青 —— 主色用达标加深版 #1A7A7E(白字 5.09)，渐变浅端保留 VI 青 #26B7BC */
-html[data-theme="cyan"],
-html[data-theme="red"], body[data-theme="red"] {
+/* ⑤ 环球红焰 —— 主色用 VI 红 #D9392B(白字 4.59)，渐变收尾深红 */
+html[data-theme="red"],
+body[data-theme="red"] {
   --brand: #D9392B;
   --brand-2: #A9291E;
   --brand-grad: linear-gradient(135deg, #D9392B 0%, #A9291E 50%, #571510 100%);
