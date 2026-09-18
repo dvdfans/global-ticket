@@ -383,7 +383,7 @@
         <span class="fml-close" onclick="closeFilter()" style="width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--tag-bg);cursor:pointer;font-size:14px">×</span>
       </div>
       <div id="filterBody" style="flex:1 1 0;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:12px 16px"></div>
-      <div style="padding:12px 16px;border-top:1px solid var(--border);display:flex;gap:8px">
+      <div style="padding:10px 16px;border-top:1px solid var(--border);display:flex;gap:8px">
         <button onclick="resetFilter()" style="flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text-secondary);font-size:13px;font-weight:500;cursor:pointer">重置</button>
         <button id="filterCopyBtn" onclick="if(!this.classList.contains('disabled'))copyFilterResults()" style="flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card-bg);color:var(--text-secondary);font-size:13px;font-weight:500;cursor:pointer;transition:all .2s">📋 复制</button>
         <button id="filterApplyBtn" onclick="applyFilter()" style="flex:2;padding:10px;border:none;border-radius:8px;background:var(--brand,var(--red));color:var(--brand-text,#fff);font-size:13px;font-weight:700;cursor:pointer">查看 <span id="filterCountDisplay">0</span> 条结果</button>
