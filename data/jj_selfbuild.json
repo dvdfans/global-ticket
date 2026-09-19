@@ -5,45 +5,17 @@
   "dep_date": "2026-10-04",
   "return_date": "2026-10-07",
   "nights": 3,
-  "flights_count": 12,
+  "flights_count": 5,
   "hotels_count": 29,
   "note": "机+酒虚拟打包价：机票直客价 + 酒店打包住宿，按2人拼住人均展示，不单列房价"
  },
  "flights": [
   {
-   "id": "MU2055|MU9992",
-   "dep_city": "上海",
-   "route": "上海→澳门",
-   "flight_direct": 1699,
-   "avail": "19",
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU2055",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "澳门国际机场 (MFM)",
-     "dep_time": "16:00",
-     "arr_time": "19:00",
-     "duration": "3小时"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU9992",
-     "dep_airport": "澳门国际机场 (MFM)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "18:45",
-     "arr_time": "21:45",
-     "duration": "3小时"
-    }
-   ],
-   "dest": "澳门"
-  },
-  {
    "id": "MU239|MU240",
    "dep_city": "上海",
    "route": "上海→澳门",
    "flight_direct": 1699,
-   "avail": "20",
+   "avail": "16",
    "flights": [
     {
      "airline": "东方航空(MU)",
@@ -67,179 +39,11 @@
    "dest": "澳门"
   },
   {
-   "id": "MU2007|FM806",
-   "dep_city": "上海",
-   "route": "上海→澳门",
-   "flight_direct": 1899,
-   "avail": "20",
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU2007",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "澳门国际机场 (MFM)",
-     "dep_time": "12:30",
-     "arr_time": "15:30",
-     "duration": "3小时"
-    },
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM806",
-     "dep_airport": "澳门国际机场 (MFM)",
-     "arr_airport": "上海虹桥国际机场 T2 (SHA)",
-     "dep_time": "10:25",
-     "arr_time": "13:25",
-     "duration": "3小时"
-    }
-   ],
-   "dest": "澳门"
-  },
-  {
-   "id": "FM805|MU240",
-   "dep_city": "上海",
-   "route": "上海→澳门",
-   "flight_direct": 1999,
-   "avail": "12",
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM805",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "澳门国际机场 (MFM)",
-     "dep_time": "09:20",
-     "arr_time": "12:25",
-     "duration": "2小时5分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU240",
-     "dep_airport": "澳门国际机场 (MFM)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "17:20",
-     "arr_time": "20:20",
-     "duration": "3小时"
-    }
-   ],
-   "dest": "澳门"
-  },
-  {
-   "id": "FM805|MU9992",
-   "dep_city": "上海",
-   "route": "上海→澳门",
-   "flight_direct": 1999,
-   "avail": "19",
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM805",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "澳门国际机场 (MFM)",
-     "dep_time": "09:20",
-     "arr_time": "12:25",
-     "duration": "2小时5分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU9992",
-     "dep_airport": "澳门国际机场 (MFM)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "18:45",
-     "arr_time": "21:45",
-     "duration": "3小时"
-    }
-   ],
-   "dest": "澳门"
-  },
-  {
-   "id": "FM817|MU2008",
-   "dep_city": "上海",
-   "route": "上海→澳门",
-   "flight_direct": 2399,
-   "avail": "20",
-   "flights": [
-    {
-     "airline": "上海航空(FM)",
-     "flight": "FM817",
-     "dep_airport": "上海虹桥国际机场 T2 (SHA)",
-     "arr_airport": "澳门国际机场 (MFM)",
-     "dep_time": "09:55",
-     "arr_time": "12:40",
-     "duration": "2小时45分"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU2008",
-     "dep_airport": "澳门国际机场 (MFM)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "13:45",
-     "arr_time": "16:45",
-     "duration": "3小时"
-    }
-   ],
-   "dest": "澳门"
-  },
-  {
-   "id": "MU2007|MU240",
-   "dep_city": "上海",
-   "route": "上海→澳门",
-   "flight_direct": 2399,
-   "avail": "12",
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU2007",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "澳门国际机场 (MFM)",
-     "dep_time": "12:30",
-     "arr_time": "15:30",
-     "duration": "3小时"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU240",
-     "dep_airport": "澳门国际机场 (MFM)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "17:20",
-     "arr_time": "20:20",
-     "duration": "3小时"
-    }
-   ],
-   "dest": "澳门"
-  },
-  {
-   "id": "MU2055|MU2056",
-   "dep_city": "上海",
-   "route": "上海→澳门",
-   "flight_direct": 2399,
-   "avail": "20",
-   "flights": [
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU2055",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "澳门国际机场 (MFM)",
-     "dep_time": "16:00",
-     "arr_time": "19:00",
-     "duration": "3小时"
-    },
-    {
-     "airline": "东方航空(MU)",
-     "flight": "MU2056",
-     "dep_airport": "澳门国际机场 (MFM)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "16:55",
-     "arr_time": "19:55",
-     "duration": "3小时"
-    }
-   ],
-   "dest": "澳门"
-  },
-  {
    "id": "MU2961|MU2962",
    "dep_city": "无锡",
    "route": "无锡→澳门",
    "flight_direct": 1699,
-   "avail": "13",
+   "avail": "2",
    "flights": [
     {
      "airline": "东方航空(MU)",
