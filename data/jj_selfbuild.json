@@ -268,7 +268,7 @@
    "route": "上海→香港",
    "dest": "香港",
    "flight_direct": 1799,
-   "avail": "4",
+   "avail": "1",
    "flights": [
     {
      "airline": "上海航空(FM)",
@@ -296,7 +296,7 @@
    "route": "上海→香港",
    "dest": "香港",
    "flight_direct": 1799,
-   "avail": "10",
+   "avail": "9",
    "flights": [
     {
      "airline": "东方航空(MU)",
