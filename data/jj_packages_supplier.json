@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-21 22:06:06",
+ "build_time": "2026-09-22 07:04:50",
  "packages": [
   {
    "internal": false,
@@ -70214,67 +70214,6 @@
     "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
    },
    "itinerary": "10月23日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月24日（周六）·第二天：自由活动，行程自行安排。\n10月25日（周日）·第三天：自由活动，行程自行安排。\n10月26日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3170,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-02"
-   ],
-   "return_dates": [
-    "2026-10-06"
-   ],
-   "hotel": "重庆华宇温德姆至尊豪廷大酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆华宇温德姆至尊豪廷大酒店",
-    "display_name": "重庆华宇温德姆至尊豪廷大酒店"
-   },
-   "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆华宇温德姆至尊豪廷大酒店。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：自由活动，行程自行安排。\n10月6日（周二）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
