@@ -13,7 +13,7 @@ var STATS_API_URL = '';
 try {
   var _h = location.hostname || '';
   if (_h.indexOf('7116b6b0') >= 0 || _h.indexOf('305824db') >= 0 || _h.indexOf('7e62f7e0') >= 0 || /(app\.workbuddy\.host|app\.codebuddy\.work|agentos-app\.net|workbuddy\.link|github\.io)$/.test(_h)) {
-    STATS_API_URL = 'https://initial-matthew-corner-edgar.trycloudflare.com/track';
+    STATS_API_URL = 'https://gathering-taking-unix-lives.trycloudflare.com/track';
   }
 } catch(e) {}
 
