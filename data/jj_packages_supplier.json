@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-23 09:19:47",
+ "build_time": "2026-09-23 11:18:09",
  "packages": [
   {
    "internal": false,
@@ -50795,7 +50795,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 2049,
+   "price": 1849,
    "price_type": "直客价",
    "dates": [
     "2026-09-24"
@@ -50854,7 +50854,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 2049,
+   "price": 1849,
    "price_type": "直客价",
    "dates": [
     "2026-09-25"
@@ -50972,7 +50972,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 2349,
+   "price": 2149,
    "price_type": "直客价",
    "dates": [
     "2026-09-30"
@@ -51326,7 +51326,7 @@
    "country": "韩国",
    "days": "4",
    "nights": "1",
-   "price": 1549,
+   "price": 1349,
    "price_type": "直客价",
    "dates": [
     "2026-10-06"
@@ -53745,7 +53745,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1335,
+   "price": 1249,
    "price_type": "直客价",
    "dates": [
     "2026-09-28"
@@ -53806,7 +53806,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1755,
+   "price": 1355,
    "price_type": "直客价",
    "dates": [
     "2026-09-29"
@@ -53867,190 +53867,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2375,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-30"
-   ],
-   "return_dates": [
-    "2026-10-04"
-   ],
-   "hotel": "IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "IU酒店",
-    "display_name": "IU酒店"
-   },
-   "itinerary": "9月30日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往IU酒店。14:00后办理入住。\n10月1日（周四）·第二天：自由活动，行程自行安排。\n10月2日（周五）·第三天：自由活动，行程自行安排。\n10月3日（周六）·第四天：自由活动，行程自行安排。\n10月4日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2795,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-01"
-   ],
-   "return_dates": [
-    "2026-10-05"
-   ],
-   "hotel": "IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "IU酒店",
-    "display_name": "IU酒店"
-   },
-   "itinerary": "10月1日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往IU酒店。14:00后办理入住。\n10月2日（周五）·第二天：自由活动，行程自行安排。\n10月3日（周六）·第三天：自由活动，行程自行安排。\n10月4日（周日）·第四天：自由活动，行程自行安排。\n10月5日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2720,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-02"
-   ],
-   "return_dates": [
-    "2026-10-06"
-   ],
-   "hotel": "IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "IU酒店",
-    "display_name": "IU酒店"
-   },
-   "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往IU酒店。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：自由活动，行程自行安排。\n10月6日（周二）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2395,
+   "price": 2195,
    "price_type": "直客价",
    "dates": [
     "2026-10-03"
@@ -54111,7 +53928,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1780,
+   "price": 1775,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -54172,7 +53989,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1465,
+   "price": 1355,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -54233,7 +54050,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1450,
+   "price": 1249,
    "price_type": "直客价",
    "dates": [
     "2026-10-06"
@@ -54294,434 +54111,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1360,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-07"
-   ],
-   "return_dates": [
-    "2026-10-11"
-   ],
-   "hotel": "IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "IU酒店",
-    "display_name": "IU酒店"
-   },
-   "itinerary": "10月7日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往IU酒店。14:00后办理入住。\n10月8日（周四）·第二天：自由活动，行程自行安排。\n10月9日（周五）·第三天：自由活动，行程自行安排。\n10月10日（周六）·第四天：自由活动，行程自行安排。\n10月11日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-05"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "重庆IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆IU酒店",
-    "display_name": "重庆IU酒店"
-   },
-   "itinerary": "9月5日（周六）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆IU酒店。14:00后办理入住。\n9月6日（周日）·第二天：自由活动，行程自行安排。\n9月7日（周一）·第三天：自由活动，行程自行安排。\n9月8日（周二）·第四天：自由活动，行程自行安排。\n9月9日（周三）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-10"
-   ],
-   "hotel": "重庆IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆IU酒店",
-    "display_name": "重庆IU酒店"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆IU酒店。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：自由活动，行程自行安排。\n9月10日（周四）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-07"
-   ],
-   "return_dates": [
-    "2026-09-11"
-   ],
-   "hotel": "重庆IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆IU酒店",
-    "display_name": "重庆IU酒店"
-   },
-   "itinerary": "9月7日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆IU酒店。14:00后办理入住。\n9月8日（周二）·第二天：自由活动，行程自行安排。\n9月9日（周三）·第三天：自由活动，行程自行安排。\n9月10日（周四）·第四天：自由活动，行程自行安排。\n9月11日（周五）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-08"
-   ],
-   "return_dates": [
-    "2026-09-12"
-   ],
-   "hotel": "重庆IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆IU酒店",
-    "display_name": "重庆IU酒店"
-   },
-   "itinerary": "9月8日（周二）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆IU酒店。14:00后办理入住。\n9月9日（周三）·第二天：自由活动，行程自行安排。\n9月10日（周四）·第三天：自由活动，行程自行安排。\n9月11日（周五）·第四天：自由活动，行程自行安排。\n9月12日（周六）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-09"
-   ],
-   "return_dates": [
-    "2026-09-13"
-   ],
-   "hotel": "重庆IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆IU酒店",
-    "display_name": "重庆IU酒店"
-   },
-   "itinerary": "9月9日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆IU酒店。14:00后办理入住。\n9月10日（周四）·第二天：自由活动，行程自行安排。\n9月11日（周五）·第三天：自由活动，行程自行安排。\n9月12日（周六）·第四天：自由活动，行程自行安排。\n9月13日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-10"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "重庆IU酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆IU酒店",
-    "display_name": "重庆IU酒店"
-   },
-   "itinerary": "9月10日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆IU酒店。14:00后办理入住。\n9月11日（周五）·第二天：自由活动，行程自行安排。\n9月12日（周六）·第三天：自由活动，行程自行安排。\n9月13日（周日）·第四天：自由活动，行程自行安排。\n9月14日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1945,
+   "price": 1670,
    "price_type": "直客价",
    "dates": [
     "2026-09-28"
@@ -54782,7 +54172,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2420,
+   "price": 1845,
    "price_type": "直客价",
    "dates": [
     "2026-09-29"
@@ -54843,190 +54233,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 3245,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-30"
-   ],
-   "return_dates": [
-    "2026-10-04"
-   ],
-   "hotel": "重庆WPLUS江景酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆WPLUS江景酒店",
-    "display_name": "重庆WPLUS江景酒店"
-   },
-   "itinerary": "9月30日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆WPLUS江景酒店。14:00后办理入住。\n10月1日（周四）·第二天：自由活动，行程自行安排。\n10月2日（周五）·第三天：自由活动，行程自行安排。\n10月3日（周六）·第四天：自由活动，行程自行安排。\n10月4日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3670,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-01"
-   ],
-   "return_dates": [
-    "2026-10-05"
-   ],
-   "hotel": "重庆WPLUS江景酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆WPLUS江景酒店",
-    "display_name": "重庆WPLUS江景酒店"
-   },
-   "itinerary": "10月1日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆WPLUS江景酒店。14:00后办理入住。\n10月2日（周五）·第二天：自由活动，行程自行安排。\n10月3日（周六）·第三天：自由活动，行程自行安排。\n10月4日（周日）·第四天：自由活动，行程自行安排。\n10月5日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3670,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-02"
-   ],
-   "return_dates": [
-    "2026-10-06"
-   ],
-   "hotel": "重庆WPLUS江景酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆WPLUS江景酒店",
-    "display_name": "重庆WPLUS江景酒店"
-   },
-   "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆WPLUS江景酒店。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：自由活动，行程自行安排。\n10月6日（周二）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3170,
+   "price": 2745,
    "price_type": "直客价",
    "dates": [
     "2026-10-03"
@@ -55148,7 +54355,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1970,
+   "price": 1870,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -55209,7 +54416,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1895,
+   "price": 1695,
    "price_type": "直客价",
    "dates": [
     "2026-10-06"
@@ -55270,68 +54477,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1820,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-07"
-   ],
-   "return_dates": [
-    "2026-10-11"
-   ],
-   "hotel": "重庆WPLUS江景酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆WPLUS江景酒店",
-    "display_name": "重庆WPLUS江景酒店"
-   },
-   "itinerary": "10月7日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆WPLUS江景酒店。14:00后办理入住。\n10月8日（周四）·第二天：自由活动，行程自行安排。\n10月9日（周五）·第三天：自由活动，行程自行安排。\n10月10日（周六）·第四天：自由活动，行程自行安排。\n10月11日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1870,
+   "price": 1695,
    "price_type": "直客价",
    "dates": [
     "2026-09-28"
@@ -55392,7 +54538,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2220,
+   "price": 1745,
    "price_type": "直客价",
    "dates": [
     "2026-09-29"
@@ -55453,129 +54599,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2770,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-30"
-   ],
-   "return_dates": [
-    "2026-10-04"
-   ],
-   "hotel": "重庆华宇温德姆至尊豪廷大酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆华宇温德姆至尊豪廷大酒店",
-    "display_name": "重庆华宇温德姆至尊豪廷大酒店"
-   },
-   "itinerary": "9月30日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆华宇温德姆至尊豪廷大酒店。14:00后办理入住。\n10月1日（周四）·第二天：自由活动，行程自行安排。\n10月2日（周五）·第三天：自由活动，行程自行安排。\n10月3日（周六）·第四天：自由活动，行程自行安排。\n10月4日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3270,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-01"
-   ],
-   "return_dates": [
-    "2026-10-05"
-   ],
-   "hotel": "重庆华宇温德姆至尊豪廷大酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆华宇温德姆至尊豪廷大酒店",
-    "display_name": "重庆华宇温德姆至尊豪廷大酒店"
-   },
-   "itinerary": "10月1日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆华宇温德姆至尊豪廷大酒店。14:00后办理入住。\n10月2日（周五）·第二天：自由活动，行程自行安排。\n10月3日（周六）·第三天：自由活动，行程自行安排。\n10月4日（周日）·第四天：自由活动，行程自行安排。\n10月5日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2720,
+   "price": 2445,
    "price_type": "直客价",
    "dates": [
     "2026-10-03"
@@ -55636,7 +54660,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2170,
+   "price": 2145,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -55697,7 +54721,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1920,
+   "price": 1795,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -55758,7 +54782,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1970,
+   "price": 1745,
    "price_type": "直客价",
    "dates": [
     "2026-10-06"
@@ -55819,68 +54843,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1920,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-07"
-   ],
-   "return_dates": [
-    "2026-10-11"
-   ],
-   "hotel": "重庆华宇温德姆至尊豪廷大酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆华宇温德姆至尊豪廷大酒店",
-    "display_name": "重庆华宇温德姆至尊豪廷大酒店"
-   },
-   "itinerary": "10月7日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆华宇温德姆至尊豪廷大酒店。14:00后办理入住。\n10月8日（周四）·第二天：自由活动，行程自行安排。\n10月9日（周五）·第三天：自由活动，行程自行安排。\n10月10日（周六）·第四天：自由活动，行程自行安排。\n10月11日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2100,
+   "price": 1860,
    "price_type": "直客价",
    "dates": [
     "2026-09-28"
@@ -55941,7 +54904,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2510,
+   "price": 1920,
    "price_type": "直客价",
    "dates": [
     "2026-09-29"
@@ -56002,190 +54965,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 3270,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-30"
-   ],
-   "return_dates": [
-    "2026-10-04"
-   ],
-   "hotel": "重庆曦越雅高铂尔曼酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆曦越雅高铂尔曼酒店",
-    "display_name": "重庆曦越雅高铂尔曼酒店"
-   },
-   "itinerary": "9月30日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆曦越雅高铂尔曼酒店。14:00后办理入住。\n10月1日（周四）·第二天：自由活动，行程自行安排。\n10月2日（周五）·第三天：自由活动，行程自行安排。\n10月3日（周六）·第四天：自由活动，行程自行安排。\n10月4日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3680,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-01"
-   ],
-   "return_dates": [
-    "2026-10-05"
-   ],
-   "hotel": "重庆曦越雅高铂尔曼酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆曦越雅高铂尔曼酒店",
-    "display_name": "重庆曦越雅高铂尔曼酒店"
-   },
-   "itinerary": "10月1日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆曦越雅高铂尔曼酒店。14:00后办理入住。\n10月2日（周五）·第二天：自由活动，行程自行安排。\n10月3日（周六）·第三天：自由活动，行程自行安排。\n10月4日（周日）·第四天：自由活动，行程自行安排。\n10月5日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3680,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-02"
-   ],
-   "return_dates": [
-    "2026-10-06"
-   ],
-   "hotel": "重庆曦越雅高铂尔曼酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆曦越雅高铂尔曼酒店",
-    "display_name": "重庆曦越雅高铂尔曼酒店"
-   },
-   "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆曦越雅高铂尔曼酒店。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：自由活动，行程自行安排。\n10月6日（周二）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3180,
+   "price": 2740,
    "price_type": "直客价",
    "dates": [
     "2026-10-03"
@@ -56246,7 +55026,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2430,
+   "price": 2340,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -56307,7 +55087,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2120,
+   "price": 1940,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -56368,7 +55148,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2160,
+   "price": 1880,
    "price_type": "直客价",
    "dates": [
     "2026-10-06"
@@ -56429,434 +55209,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2150,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-07"
-   ],
-   "return_dates": [
-    "2026-10-11"
-   ],
-   "hotel": "重庆曦越雅高铂尔曼酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆曦越雅高铂尔曼酒店",
-    "display_name": "重庆曦越雅高铂尔曼酒店"
-   },
-   "itinerary": "10月7日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆曦越雅高铂尔曼酒店。14:00后办理入住。\n10月8日（周四）·第二天：自由活动，行程自行安排。\n10月9日（周五）·第三天：自由活动，行程自行安排。\n10月10日（周六）·第四天：自由活动，行程自行安排。\n10月11日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-05"
-   ],
-   "return_dates": [
-    "2026-09-09"
-   ],
-   "hotel": "重庆福朋喜来登酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆福朋喜来登酒店",
-    "display_name": "重庆福朋喜来登酒店"
-   },
-   "itinerary": "9月5日（周六）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆福朋喜来登酒店。14:00后办理入住。\n9月6日（周日）·第二天：自由活动，行程自行安排。\n9月7日（周一）·第三天：自由活动，行程自行安排。\n9月8日（周二）·第四天：自由活动，行程自行安排。\n9月9日（周三）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-06"
-   ],
-   "return_dates": [
-    "2026-09-10"
-   ],
-   "hotel": "重庆福朋喜来登酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆福朋喜来登酒店",
-    "display_name": "重庆福朋喜来登酒店"
-   },
-   "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆福朋喜来登酒店。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：自由活动，行程自行安排。\n9月10日（周四）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-07"
-   ],
-   "return_dates": [
-    "2026-09-11"
-   ],
-   "hotel": "重庆福朋喜来登酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆福朋喜来登酒店",
-    "display_name": "重庆福朋喜来登酒店"
-   },
-   "itinerary": "9月7日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆福朋喜来登酒店。14:00后办理入住。\n9月8日（周二）·第二天：自由活动，行程自行安排。\n9月9日（周三）·第三天：自由活动，行程自行安排。\n9月10日（周四）·第四天：自由活动，行程自行安排。\n9月11日（周五）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-08"
-   ],
-   "return_dates": [
-    "2026-09-12"
-   ],
-   "hotel": "重庆福朋喜来登酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆福朋喜来登酒店",
-    "display_name": "重庆福朋喜来登酒店"
-   },
-   "itinerary": "9月8日（周二）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆福朋喜来登酒店。14:00后办理入住。\n9月9日（周三）·第二天：自由活动，行程自行安排。\n9月10日（周四）·第三天：自由活动，行程自行安排。\n9月11日（周五）·第四天：自由活动，行程自行安排。\n9月12日（周六）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-09"
-   ],
-   "return_dates": [
-    "2026-09-13"
-   ],
-   "hotel": "重庆福朋喜来登酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆福朋喜来登酒店",
-    "display_name": "重庆福朋喜来登酒店"
-   },
-   "itinerary": "9月9日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆福朋喜来登酒店。14:00后办理入住。\n9月10日（周四）·第二天：自由活动，行程自行安排。\n9月11日（周五）·第三天：自由活动，行程自行安排。\n9月12日（周六）·第四天：自由活动，行程自行安排。\n9月13日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "1",
-   "price": 999,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-10"
-   ],
-   "return_dates": [
-    "2026-09-14"
-   ],
-   "hotel": "重庆福朋喜来登酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆福朋喜来登酒店",
-    "display_name": "重庆福朋喜来登酒店"
-   },
-   "itinerary": "9月10日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆福朋喜来登酒店。14:00后办理入住。\n9月11日（周五）·第二天：自由活动，行程自行安排。\n9月12日（周六）·第三天：自由活动，行程自行安排。\n9月13日（周日）·第四天：自由活动，行程自行安排。\n9月14日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1739,
+   "price": 1545,
    "price_type": "直客价",
    "dates": [
     "2026-09-28"
@@ -56917,7 +55270,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2158,
+   "price": 1664,
    "price_type": "直客价",
    "dates": [
     "2026-09-29"
@@ -56978,190 +55331,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2770,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-30"
-   ],
-   "return_dates": [
-    "2026-10-04"
-   ],
-   "hotel": "重庆观音桥华美达安可酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆观音桥华美达安可酒店",
-    "display_name": "重庆观音桥华美达安可酒店"
-   },
-   "itinerary": "9月30日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆观音桥华美达安可酒店。14:00后办理入住。\n10月1日（周四）·第二天：自由活动，行程自行安排。\n10月2日（周五）·第三天：自由活动，行程自行安排。\n10月3日（周六）·第四天：自由活动，行程自行安排。\n10月4日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3270,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-01"
-   ],
-   "return_dates": [
-    "2026-10-05"
-   ],
-   "hotel": "重庆观音桥华美达安可酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆观音桥华美达安可酒店",
-    "display_name": "重庆观音桥华美达安可酒店"
-   },
-   "itinerary": "10月1日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆观音桥华美达安可酒店。14:00后办理入住。\n10月2日（周五）·第二天：自由活动，行程自行安排。\n10月3日（周六）·第三天：自由活动，行程自行安排。\n10月4日（周日）·第四天：自由活动，行程自行安排。\n10月5日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 3170,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-02"
-   ],
-   "return_dates": [
-    "2026-10-06"
-   ],
-   "hotel": "重庆观音桥华美达安可酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆观音桥华美达安可酒店",
-    "display_name": "重庆观音桥华美达安可酒店"
-   },
-   "itinerary": "10月2日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆观音桥华美达安可酒店。14:00后办理入住。\n10月3日（周六）·第二天：自由活动，行程自行安排。\n10月4日（周日）·第三天：自由活动，行程自行安排。\n10月5日（周一）·第四天：自由活动，行程自行安排。\n10月6日（周二）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 2720,
+   "price": 2445,
    "price_type": "直客价",
    "dates": [
     "2026-10-03"
@@ -57222,7 +55392,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2130,
+   "price": 2033,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -57283,7 +55453,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1830,
+   "price": 1639,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -57344,7 +55514,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1830,
+   "price": 1545,
    "price_type": "直客价",
    "dates": [
     "2026-10-06"
@@ -57391,67 +55561,6 @@
     "display_name": "重庆观音桥华美达安可酒店"
    },
    "itinerary": "10月6日（周二）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆观音桥华美达安可酒店。14:00后办理入住。\n10月7日（周三）·第二天：自由活动，行程自行安排。\n10月8日（周四）·第三天：自由活动，行程自行安排。\n10月9日（周五）·第四天：自由活动，行程自行安排。\n10月10日（周六）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-重庆",
-   "dep": "上海",
-   "arr": "重庆",
-   "route": "上海→重庆",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1720,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-07"
-   ],
-   "return_dates": [
-    "2026-10-11"
-   ],
-   "hotel": "重庆观音桥华美达安可酒店",
-   "flight": "9C8867",
-   "flight_return": "9C8868",
-   "flight_desc": "9C8867 上海浦东-重庆江北 1750-2100 回 9C8868 重庆江北-上海浦东 2200-0045 +1",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8867",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "重庆江北国际机场 (CKG)",
-     "dep_time": "1750",
-     "arr_time": "2100",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T3"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8868",
-     "dep_airport": "重庆江北国际机场 (CKG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "2200",
-     "arr_time": "0045",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T3",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "重庆观音桥华美达安可酒店",
-    "display_name": "重庆观音桥华美达安可酒店"
-   },
-   "itinerary": "10月7日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 重庆江北国际机场 (CKG)。落地后自行前往重庆观音桥华美达安可酒店。14:00后办理入住。\n10月8日（周四）·第二天：自由活动，行程自行安排。\n10月9日（周五）·第三天：自由活动，行程自行安排。\n10月10日（周六）·第四天：自由活动，行程自行安排。\n10月11日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8868 返回上海浦东国际机场 (PVG)。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
