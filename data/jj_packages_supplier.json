@@ -1,5 +1,5 @@
 {
- "build_time": "2026-09-23 15:25:32",
+ "build_time": "2026-09-23 17:33:41",
  "packages": [
   {
    "internal": false,
@@ -11903,7 +11903,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2225,
+   "price": 2325,
    "price_type": "直客价",
    "dates": [
     "2026-09-28"
@@ -13517,250 +13517,6 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1549,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-15"
-   ],
-   "return_dates": [
-    "2026-09-19"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月15日（周二）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月16日（周三）·第二天：自由活动，行程自行安排。\n9月17日（周四）·第三天：自由活动，行程自行安排。\n9月18日（周五）·第四天：自由活动，行程自行安排。\n9月19日（周六）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1749,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-16"
-   ],
-   "return_dates": [
-    "2026-09-20"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月16日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月17日（周四）·第二天：自由活动，行程自行安排。\n9月18日（周五）·第三天：自由活动，行程自行安排。\n9月19日（周六）·第四天：自由活动，行程自行安排。\n9月20日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1749,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-17"
-   ],
-   "return_dates": [
-    "2026-09-21"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月17日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月18日（周五）·第二天：自由活动，行程自行安排。\n9月19日（周六）·第三天：自由活动，行程自行安排。\n9月20日（周日）·第四天：自由活动，行程自行安排。\n9月21日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1549,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-22"
-   ],
-   "return_dates": [
-    "2026-09-26"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月22日（周二）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月23日（周三）·第二天：自由活动，行程自行安排。\n9月24日（周四）·第三天：自由活动，行程自行安排。\n9月25日（周五）·第四天：自由活动，行程自行安排。\n9月26日（周六）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
    "price": 1649,
    "price_type": "直客价",
    "dates": [
@@ -13869,128 +13625,6 @@
     "display_name": "雨林公园戴斯温德姆酒店"
    },
    "itinerary": "9月6日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月7日（周一）·第二天：自由活动，行程自行安排。\n9月8日（周二）·第三天：自由活动，行程自行安排。\n9月9日（周三）·第四天：自由活动，行程自行安排。\n9月10日（周四）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1549,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-19"
-   ],
-   "return_dates": [
-    "2026-09-23"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月19日（周六）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月20日（周日）·第二天：自由活动，行程自行安排。\n9月21日（周一）·第三天：自由活动，行程自行安排。\n9月22日（周二）·第四天：自由活动，行程自行安排。\n9月23日（周三）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1949,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-20"
-   ],
-   "return_dates": [
-    "2026-09-24"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月20日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月21日（周一）·第二天：自由活动，行程自行安排。\n9月22日（周二）·第三天：自由活动，行程自行安排。\n9月23日（周三）·第四天：自由活动，行程自行安排。\n9月24日（周四）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
@@ -14127,128 +13761,6 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1549,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-12"
-   ],
-   "return_dates": [
-    "2026-09-16"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月12日（周六）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月13日（周日）·第二天：自由活动，行程自行安排。\n9月14日（周一）·第三天：自由活动，行程自行安排。\n9月15日（周二）·第四天：自由活动，行程自行安排。\n9月16日（周三）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1449,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-13"
-   ],
-   "return_dates": [
-    "2026-09-17"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月13日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月14日（周一）·第二天：自由活动，行程自行安排。\n9月15日（周二）·第三天：自由活动，行程自行安排。\n9月16日（周三）·第四天：自由活动，行程自行安排。\n9月17日（周四）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
    "price": 2049,
    "price_type": "直客价",
    "dates": [
@@ -14310,128 +13822,6 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1949,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-23"
-   ],
-   "return_dates": [
-    "2026-09-27"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月23日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月24日（周四）·第二天：自由活动，行程自行安排。\n9月25日（周五）·第三天：自由活动，行程自行安排。\n9月26日（周六）·第四天：自由活动，行程自行安排。\n9月27日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1949,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-24"
-   ],
-   "return_dates": [
-    "2026-09-28"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月24日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月25日（周五）·第二天：自由活动，行程自行安排。\n9月26日（周六）·第三天：自由活动，行程自行安排。\n9月27日（周日）·第四天：自由活动，行程自行安排。\n9月28日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
    "price": 1849,
    "price_type": "直客价",
    "dates": [
@@ -14479,128 +13869,6 @@
     "display_name": "雨林公园戴斯温德姆酒店"
    },
    "itinerary": "9月9日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月10日（周四）·第二天：自由活动，行程自行安排。\n9月11日（周五）·第三天：自由活动，行程自行安排。\n9月12日（周六）·第四天：自由活动，行程自行安排。\n9月13日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1949,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-18"
-   ],
-   "return_dates": [
-    "2026-09-22"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月18日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月19日（周六）·第二天：自由活动，行程自行安排。\n9月20日（周日）·第三天：自由活动，行程自行安排。\n9月21日（周一）·第四天：自由活动，行程自行安排。\n9月22日（周二）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-西双版纳",
-   "dep": "上海",
-   "arr": "西双版纳",
-   "route": "上海→西双版纳",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1549,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-21"
-   ],
-   "return_dates": [
-    "2026-09-25"
-   ],
-   "hotel": "雨林公园戴斯温德姆酒店",
-   "flight": "9C6449",
-   "flight_return": "9C6450",
-   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C6449",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "dep_time": "06:30",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "4小时5分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C6450",
-     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:20",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "雨林公园戴斯温德姆酒店",
-    "display_name": "雨林公园戴斯温德姆酒店"
-   },
-   "itinerary": "9月21日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n9月22日（周二）·第二天：自由活动，行程自行安排。\n9月23日（周三）·第三天：自由活动，行程自行安排。\n9月24日（周四）·第四天：自由活动，行程自行安排。\n9月25日（周五）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
@@ -19794,7 +19062,7 @@
    "country": "日本",
    "days": "5",
    "nights": "4",
-   "price": 3999,
+   "price": 4099,
    "price_type": "直客价",
    "dates": [
     "2026-10-25"
@@ -19859,7 +19127,7 @@
    "country": "日本",
    "days": "5",
    "nights": "4",
-   "price": 3999,
+   "price": 4099,
    "price_type": "直客价",
    "dates": [
     "2026-11-01"
@@ -19989,7 +19257,7 @@
    "country": "日本",
    "days": "5",
    "nights": "4",
-   "price": 3999,
+   "price": 4099,
    "price_type": "直客价",
    "dates": [
     "2026-11-29"
@@ -37098,80 +36366,6 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1275,
-   "price_type": "直客价",
-   "dates": [
-    "2026-11-11"
-   ],
-   "return_dates": [
-    "2026-11-14"
-   ],
-   "hotel": "长白山铂尔曼酒店",
-   "flight": "9C7751",
-   "flight_return": "9C7752",
-   "flight_desc": "9C7751 上海浦东T2-长白山 18:15-20:55 +1 回 9C7752 长白山-上海浦东T2 21:40-00:25 +1",
-   "baggage": "",
-   "highlights": [
-    "全天候餐饮",
-    "室内外活动",
-    "天然温泉",
-    "迷你俱乐部",
-    "舒适客房",
-    "限时礼遇",
-    "出入无忧",
-    "自助早餐",
-    "与鹿同行",
-    "车辆服务",
-    "疗愈身心",
-    "自然栖居"
-   ],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C7751",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "长白山机场 (NBS)",
-     "dep_time": "18:15",
-     "arr_time": "20:55",
-     "arr_next_day": 1,
-     "duration": "2小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C7752",
-     "dep_airport": "长白山机场 (NBS)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "21:40",
-     "arr_time": "00:25",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "长白山铂尔曼酒店",
-    "display_name": "长白山铂尔曼酒店"
-   },
-   "itinerary": "11月11日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 长白山机场 (NBS)。落地后自行前往长白山铂尔曼酒店。14:00后办理入住。\n11月12日（周四）·第二天：自由活动，行程自行安排。\n11月13日（周五）·第三天：自由活动，行程自行安排。\n11月14日（周六）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C7752 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-长白山2",
-   "dep": "上海",
-   "arr": "长白山",
-   "route": "上海→长白山",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
    "price": 1375,
    "price_type": "直客价",
    "dates": [
@@ -37616,7 +36810,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1450,
+   "price": 1850,
    "price_type": "直客价",
    "dates": [
     "2026-11-10"
@@ -37676,154 +36870,6 @@
     "display_name": "长白山铂尔曼酒店"
    },
    "itinerary": "11月10日（周二）·第一天：上海浦东国际机场 (PVG) 飞往 长白山机场 (NBS)。落地后自行前往长白山铂尔曼酒店。14:00后办理入住。\n11月11日（周三）·第二天：自由活动，行程自行安排。\n11月12日（周四）·第三天：自由活动，行程自行安排。\n11月13日（周五）·第四天：自由活动，行程自行安排。\n11月14日（周六）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C7752 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-长白山2",
-   "dep": "上海",
-   "arr": "长白山",
-   "route": "上海→长白山",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1550,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-28"
-   ],
-   "return_dates": [
-    "2026-11-01"
-   ],
-   "hotel": "长白山铂尔曼酒店",
-   "flight": "9C7751",
-   "flight_return": "9C7752",
-   "flight_desc": "9C7751 上海浦东T2-长白山 18:15-20:55 +1 回 9C7752 长白山-上海浦东T2 21:40-00:25 +1",
-   "baggage": "",
-   "highlights": [
-    "全天候餐饮",
-    "室内外活动",
-    "天然温泉",
-    "迷你俱乐部",
-    "舒适客房",
-    "限时礼遇",
-    "出入无忧",
-    "自助早餐",
-    "与鹿同行",
-    "车辆服务",
-    "疗愈身心",
-    "自然栖居"
-   ],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C7751",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "长白山机场 (NBS)",
-     "dep_time": "18:15",
-     "arr_time": "20:55",
-     "arr_next_day": 1,
-     "duration": "2小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C7752",
-     "dep_airport": "长白山机场 (NBS)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "21:40",
-     "arr_time": "00:25",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "长白山铂尔曼酒店",
-    "display_name": "长白山铂尔曼酒店"
-   },
-   "itinerary": "10月28日（周三）·第一天：上海浦东国际机场 (PVG) 飞往 长白山机场 (NBS)。落地后自行前往长白山铂尔曼酒店。14:00后办理入住。\n10月29日（周四）·第二天：自由活动，行程自行安排。\n10月30日（周五）·第三天：自由活动，行程自行安排。\n10月31日（周六）·第四天：自由活动，行程自行安排。\n11月1日（周日）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C7752 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-长白山2",
-   "dep": "上海",
-   "arr": "长白山",
-   "route": "上海→长白山",
-   "country": "国内",
-   "days": "5",
-   "nights": "4",
-   "price": 1550,
-   "price_type": "直客价",
-   "dates": [
-    "2026-10-31"
-   ],
-   "return_dates": [
-    "2026-11-04"
-   ],
-   "hotel": "长白山铂尔曼酒店",
-   "flight": "9C7751",
-   "flight_return": "9C7752",
-   "flight_desc": "9C7751 上海浦东T2-长白山 18:15-20:55 +1 回 9C7752 长白山-上海浦东T2 21:40-00:25 +1",
-   "baggage": "",
-   "highlights": [
-    "全天候餐饮",
-    "室内外活动",
-    "天然温泉",
-    "迷你俱乐部",
-    "舒适客房",
-    "限时礼遇",
-    "出入无忧",
-    "自助早餐",
-    "与鹿同行",
-    "车辆服务",
-    "疗愈身心",
-    "自然栖居"
-   ],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C7751",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "长白山机场 (NBS)",
-     "dep_time": "18:15",
-     "arr_time": "20:55",
-     "arr_next_day": 1,
-     "duration": "2小时40分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C7752",
-     "dep_airport": "长白山机场 (NBS)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "21:40",
-     "arr_time": "00:25",
-     "arr_next_day": 1,
-     "duration": "2小时45分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "长白山铂尔曼酒店",
-    "display_name": "长白山铂尔曼酒店"
-   },
-   "itinerary": "10月31日（周六）·第一天：上海浦东国际机场 (PVG) 飞往 长白山机场 (NBS)。落地后自行前往长白山铂尔曼酒店。14:00后办理入住。\n11月1日（周日）·第二天：自由活动，行程自行安排。\n11月2日（周一）·第三天：自由活动，行程自行安排。\n11月3日（周二）·第四天：自由活动，行程自行安排。\n11月4日（周三）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C7752 返回上海浦东国际机场 (PVG)。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
@@ -48141,7 +47187,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1549,
+   "price": 1449,
    "price_type": "直客价",
    "dates": [
     "2026-10-08"
@@ -48202,7 +47248,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1549,
+   "price": 1449,
    "price_type": "直客价",
    "dates": [
     "2026-10-09"
@@ -48263,7 +47309,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1549,
+   "price": 1449,
    "price_type": "直客价",
    "dates": [
     "2026-10-10"
@@ -48324,7 +47370,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1649,
+   "price": 1549,
    "price_type": "直客价",
    "dates": [
     "2026-10-11"
@@ -48385,7 +47431,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1649,
+   "price": 1549,
    "price_type": "直客价",
    "dates": [
     "2026-10-12"
@@ -48568,7 +47614,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 1749,
+   "price": 1849,
    "price_type": "直客价",
    "dates": [
     "2026-10-14"
@@ -58776,7 +57822,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2850,
+   "price": 3200,
    "price_type": "直客价",
    "dates": [
     "2026-10-05"
@@ -58898,7 +57944,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2250,
+   "price": 2150,
    "price_type": "直客价",
    "dates": [
     "2026-10-12"
@@ -58959,7 +58005,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2250,
+   "price": 2450,
    "price_type": "直客价",
    "dates": [
     "2026-10-21"
@@ -59264,7 +58310,7 @@
    "country": "国内",
    "days": "5",
    "nights": "4",
-   "price": 2350,
+   "price": 2450,
    "price_type": "直客价",
    "dates": [
     "2026-10-28"
@@ -67788,129 +66834,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2700,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-25"
-   ],
-   "return_dates": [
-    "2026-09-28"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  11:55-15:20",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "11:55",
-     "arr_time": "15:20",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "9月25日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n9月26日（周六）·第二天：自由活动，行程自行安排。\n9月27日（周日）·第三天：自由活动，行程自行安排。\n9月28日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 2250,
-   "price_type": "直客价",
-   "dates": [
-    "2026-09-27"
-   ],
-   "return_dates": [
-    "2026-09-30"
-   ],
-   "hotel": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-   "flight": "9C8779",
-   "flight_return": "9C8780",
-   "flight_desc": "9C8779 浦东T2-三亚 07:25-10:35 回 9C8780  12:35-16:00",
-   "baggage": "",
-   "highlights": [],
-   "flights": [
-    {
-     "airline": "春秋",
-     "flight": "9C8779",
-     "dep_airport": "上海浦东国际机场 (PVG)",
-     "arr_airport": "三亚凤凰国际机场 (SYX)",
-     "dep_time": "07:25",
-     "arr_time": "10:35",
-     "arr_next_day": 0,
-     "duration": "3小时10分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    },
-    {
-     "airline": "春秋",
-     "flight": "9C8780",
-     "dep_airport": "三亚凤凰国际机场 (SYX)",
-     "arr_airport": "上海浦东国际机场 (PVG)",
-     "dep_time": "12:35",
-     "arr_time": "16:00",
-     "arr_next_day": 0,
-     "duration": "3小时25分",
-     "via": "",
-     "dep_terminal": "T2",
-     "arr_terminal": "T2"
-    }
-   ],
-   "hotel_details": {
-    "name": "1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景",
-    "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
-   },
-   "itinerary": "9月27日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n9月28日（周一）·第二天：自由活动，行程自行安排。\n9月29日（周二）·第三天：自由活动，行程自行安排。\n9月30日（周三）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
-   "has_pickup": false,
-   "child_policy": "",
-   "avail": "充足"
-  },
-  {
-   "internal": false,
-   "supplier": "132",
-   "subtable": "132-三亚",
-   "dep": "上海",
-   "arr": "三亚",
-   "route": "上海→三亚",
-   "country": "国内",
-   "days": "4",
-   "nights": "3",
-   "price": 5250,
+   "price": 5500,
    "price_type": "直客价",
    "dates": [
     "2026-10-02"
@@ -67971,7 +66895,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 4550,
+   "price": 4500,
    "price_type": "直客价",
    "dates": [
     "2026-10-04"
@@ -68032,7 +66956,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 1950,
+   "price": 2000,
    "price_type": "直客价",
    "dates": [
     "2026-10-09"
@@ -68093,7 +67017,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2050,
+   "price": 2100,
    "price_type": "直客价",
    "dates": [
     "2026-10-11"
@@ -68154,7 +67078,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2050,
+   "price": 2100,
    "price_type": "直客价",
    "dates": [
     "2026-10-18"
@@ -68215,7 +67139,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2250,
+   "price": 2100,
    "price_type": "直客价",
    "dates": [
     "2026-10-16"
@@ -68276,7 +67200,7 @@
    "country": "国内",
    "days": "4",
    "nights": "3",
-   "price": 2250,
+   "price": 2200,
    "price_type": "直客价",
    "dates": [
     "2026-10-23"
@@ -68323,6 +67247,385 @@
     "display_name": "海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景"
    },
    "itinerary": "10月23日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 三亚凤凰国际机场 (SYX)。落地后自行前往1晚海棠湾地标·亚特兰蒂斯酒店海景房+2晚三亚湾五星国光豪生酒店标准海景。14:00后办理入住。\n10月24日（周六）·第二天：自由活动，行程自行安排。\n10月25日（周日）·第三天：自由活动，行程自行安排。\n10月26日（周一）·第四天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C8780 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-长白山2",
+   "dep": "上海",
+   "arr": "长白山",
+   "route": "上海→长白山",
+   "country": "国内",
+   "days": "5",
+   "nights": "4",
+   "price": 2050,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-08"
+   ],
+   "return_dates": [
+    "2026-10-12"
+   ],
+   "hotel": "长白山铂尔曼酒店",
+   "flight": "9C7751",
+   "flight_return": "9C7752",
+   "flight_desc": "9C7751 上海浦东T2-长白山 19:10-21:35 回 9C7752 长白山-上海浦东T2 22:30-01:15 +1",
+   "baggage": "",
+   "highlights": [
+    "全天候餐饮",
+    "室内外活动",
+    "天然温泉",
+    "迷你俱乐部",
+    "舒适客房",
+    "限时礼遇",
+    "出入无忧",
+    "自助早餐",
+    "与鹿同行",
+    "车辆服务",
+    "疗愈身心",
+    "自然栖居"
+   ],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C7751",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "长白山机场 (NBS)",
+     "dep_time": "19:10",
+     "arr_time": "21:35",
+     "arr_next_day": 0,
+     "duration": "2小时25分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C7752",
+     "dep_airport": "长白山机场 (NBS)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "22:30",
+     "arr_time": "01:15",
+     "arr_next_day": 1,
+     "duration": "2小时45分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "长白山铂尔曼酒店",
+    "display_name": "长白山铂尔曼酒店"
+   },
+   "itinerary": "10月8日（周四）·第一天：上海浦东国际机场 (PVG) 飞往 长白山机场 (NBS)。落地后自行前往长白山铂尔曼酒店。14:00后办理入住。\n10月9日（周五）·第二天：自由活动，行程自行安排。\n10月10日（周六）·第三天：自由活动，行程自行安排。\n10月11日（周日）·第四天：自由活动，行程自行安排。\n10月12日（周一）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C7752 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-西双版纳",
+   "dep": "上海",
+   "arr": "西双版纳",
+   "route": "上海→西双版纳",
+   "country": "国内",
+   "days": "5",
+   "nights": "4",
+   "price": 1549,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-18"
+   ],
+   "return_dates": [
+    "2026-10-22"
+   ],
+   "hotel": "雨林公园戴斯温德姆酒店",
+   "flight": "9C6449",
+   "flight_return": "9C6450",
+   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C6449",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "dep_time": "06:30",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "4小时5分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C6450",
+     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:20",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时40分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "雨林公园戴斯温德姆酒店",
+    "display_name": "雨林公园戴斯温德姆酒店"
+   },
+   "itinerary": "10月18日（周日）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n10月19日（周一）·第二天：自由活动，行程自行安排。\n10月20日（周二）·第三天：自由活动，行程自行安排。\n10月21日（周三）·第四天：自由活动，行程自行安排。\n10月22日（周四）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-西双版纳",
+   "dep": "上海",
+   "arr": "西双版纳",
+   "route": "上海→西双版纳",
+   "country": "国内",
+   "days": "5",
+   "nights": "4",
+   "price": 1649,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-19"
+   ],
+   "return_dates": [
+    "2026-10-23"
+   ],
+   "hotel": "雨林公园戴斯温德姆酒店",
+   "flight": "9C6449",
+   "flight_return": "9C6450",
+   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C6449",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "dep_time": "06:30",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "4小时5分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C6450",
+     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:20",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时40分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "雨林公园戴斯温德姆酒店",
+    "display_name": "雨林公园戴斯温德姆酒店"
+   },
+   "itinerary": "10月19日（周一）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n10月20日（周二）·第二天：自由活动，行程自行安排。\n10月21日（周三）·第三天：自由活动，行程自行安排。\n10月22日（周四）·第四天：自由活动，行程自行安排。\n10月23日（周五）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-西双版纳",
+   "dep": "上海",
+   "arr": "西双版纳",
+   "route": "上海→西双版纳",
+   "country": "国内",
+   "days": "5",
+   "nights": "4",
+   "price": 1849,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-17"
+   ],
+   "return_dates": [
+    "2026-10-21"
+   ],
+   "hotel": "雨林公园戴斯温德姆酒店",
+   "flight": "9C6449",
+   "flight_return": "9C6450",
+   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C6449",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "dep_time": "06:30",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "4小时5分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C6450",
+     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:20",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时40分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "雨林公园戴斯温德姆酒店",
+    "display_name": "雨林公园戴斯温德姆酒店"
+   },
+   "itinerary": "10月17日（周六）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n10月18日（周日）·第二天：自由活动，行程自行安排。\n10月19日（周一）·第三天：自由活动，行程自行安排。\n10月20日（周二）·第四天：自由活动，行程自行安排。\n10月21日（周三）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-西双版纳",
+   "dep": "上海",
+   "arr": "西双版纳",
+   "route": "上海→西双版纳",
+   "country": "国内",
+   "days": "5",
+   "nights": "4",
+   "price": 1749,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-16"
+   ],
+   "return_dates": [
+    "2026-10-20"
+   ],
+   "hotel": "雨林公园戴斯温德姆酒店",
+   "flight": "9C6449",
+   "flight_return": "9C6450",
+   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C6449",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "dep_time": "06:30",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "4小时5分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C6450",
+     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:20",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时40分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "雨林公园戴斯温德姆酒店",
+    "display_name": "雨林公园戴斯温德姆酒店"
+   },
+   "itinerary": "10月16日（周五）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n10月17日（周六）·第二天：自由活动，行程自行安排。\n10月18日（周日）·第三天：自由活动，行程自行安排。\n10月19日（周一）·第四天：自由活动，行程自行安排。\n10月20日（周二）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
+   "has_pickup": false,
+   "child_policy": "",
+   "avail": "充足"
+  },
+  {
+   "internal": false,
+   "supplier": "132",
+   "subtable": "132-西双版纳",
+   "dep": "上海",
+   "arr": "西双版纳",
+   "route": "上海→西双版纳",
+   "country": "国内",
+   "days": "5",
+   "nights": "4",
+   "price": 2049,
+   "price_type": "直客价",
+   "dates": [
+    "2026-10-20"
+   ],
+   "return_dates": [
+    "2026-10-24"
+   ],
+   "hotel": "雨林公园戴斯温德姆酒店",
+   "flight": "9C6449",
+   "flight_return": "9C6450",
+   "flight_desc": "9C6449 浦东T2-版纳 06:30-10:35 回 9C6450 版纳-浦东T2 12:20-16:00",
+   "baggage": "",
+   "highlights": [],
+   "flights": [
+    {
+     "airline": "春秋",
+     "flight": "9C6449",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "dep_time": "06:30",
+     "arr_time": "10:35",
+     "arr_next_day": 0,
+     "duration": "4小时5分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    },
+    {
+     "airline": "春秋",
+     "flight": "9C6450",
+     "dep_airport": "西双版纳嘎洒国际机场 (JHG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:20",
+     "arr_time": "16:00",
+     "arr_next_day": 0,
+     "duration": "3小时40分",
+     "via": "",
+     "dep_terminal": "T2",
+     "arr_terminal": "T2"
+    }
+   ],
+   "hotel_details": {
+    "name": "雨林公园戴斯温德姆酒店",
+    "display_name": "雨林公园戴斯温德姆酒店"
+   },
+   "itinerary": "10月20日（周二）·第一天：上海浦东国际机场 (PVG) 飞往 西双版纳嘎洒国际机场 (JHG)。落地后自行前往雨林公园戴斯温德姆酒店。14:00后办理入住。\n10月21日（周三）·第二天：自由活动，行程自行安排。\n10月22日（周四）·第三天：自由活动，行程自行安排。\n10月23日（周五）·第四天：自由活动，行程自行安排。\n10月24日（周六）·第五天：睡到自然醒，退房后前往上海浦东国际机场 (PVG)，9C6450 返回上海浦东国际机场 (PVG)。",
    "has_pickup": false,
    "child_policy": "",
    "avail": "充足"
