@@ -1,63 +1,7 @@
 {
-  "build_time": "2026-09-23 11:13:49",
-  "record_count": 2463,
+  "build_time": "2026-09-23 13:11:56",
+  "record_count": 2459,
   "records": [
-    {
-      "supplier": "103",
-      "dep": "上海",
-      "arr": "东京",
-      "flight": "GK036",
-      "flight_return": "GK035",
-      "dep_date": "2026-09-28",
-      "return_date": "2026-10-02",
-      "nights": "4",
-      "days": "5",
-      "region": "日本",
-      "regions": [
-        "日本"
-      ],
-      "retail": 3799,
-      "jj": "",
-      "jj_hotel_stars": "",
-      "jj_includes": "",
-      "jj_hotel_nights": "",
-      "seats": "1",
-      "erp_seats": "10",
-      "airline": "GK",
-      "airline_cn": "捷星",
-      "dep_airport": "PVG",
-      "arr_airport": "NRT",
-      "dep_airport_name": "上海浦东机场",
-      "arr_airport_name": "东京成田机场",
-      "dep_terminal": "T2",
-      "arr_terminal": "T3",
-      "return_dep_terminal": "T3",
-      "return_arr_terminal": "T2",
-      "aircraft_def": "",
-      "aircraft_ota": "",
-      "return_aircraft_ota": "",
-      "weekdays": "",
-      "return_weekdays": "",
-      "dep_time": "02:15",
-      "arr_time": "06:20",
-      "duration": "3h05",
-      "return_duration": "3h25",
-      "return_dep_airport": "NRT",
-      "return_arr_airport": "PVG",
-      "return_dep_airport_name": "东京成田机场",
-      "return_arr_airport_name": "上海浦东机场",
-      "return_dep_time": "22:25",
-      "return_arr_time": "00:50",
-      "baggage": "托运行李 1件×20kg",
-      "baggage_std": "无免费托运行李 · 手提行李 1件7kg",
-      "baggage_std_ret": "",
-      "aircraft": "空客A320(中型)",
-      "meal": "无餐食",
-      "remark": "二次确认",
-      "sub_sheet": "上海东京GK",
-      "overlap_excluded": "",
-      "overlap_source_supplier": ""
-    },
     {
       "supplier": "103",
       "dep": "上海",
@@ -10829,8 +10773,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "9",
-      "erp_seats": "10",
+      "seats": "7",
+      "erp_seats": "9",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "PVG",
@@ -14272,62 +14216,6 @@
       "arr": "首尔",
       "flight": "KE892",
       "flight_return": "KE891",
-      "dep_date": "2026-10-15",
-      "return_date": "2026-10-18",
-      "nights": "3",
-      "days": "4",
-      "region": "韩国",
-      "regions": [
-        "韩国"
-      ],
-      "retail": 1999,
-      "jj": "",
-      "jj_hotel_stars": "",
-      "jj_includes": "",
-      "jj_hotel_nights": "",
-      "seats": "10+",
-      "erp_seats": "10",
-      "airline": "KE",
-      "airline_cn": "大韩",
-      "dep_airport": "PVG",
-      "arr_airport": "ICN",
-      "dep_airport_name": "上海浦东机场",
-      "arr_airport_name": "首尔仁川机场",
-      "dep_terminal": "T1",
-      "arr_terminal": "T2",
-      "return_dep_terminal": "T2",
-      "return_arr_terminal": "T1",
-      "aircraft_def": "",
-      "aircraft_ota": "",
-      "return_aircraft_ota": "",
-      "weekdays": "",
-      "return_weekdays": "",
-      "dep_time": "08:50",
-      "arr_time": "11:55",
-      "duration": "2h05",
-      "return_duration": "2h15",
-      "return_dep_airport": "ICN",
-      "return_arr_airport": "PVG",
-      "return_dep_airport_name": "首尔仁川机场",
-      "return_arr_airport_name": "上海浦东机场",
-      "return_dep_time": "18:55",
-      "return_arr_time": "20:10",
-      "baggage": "托运行李 1件×23kg",
-      "baggage_std": "托运行李 1件×23kg · 手提行李 1件10kg",
-      "baggage_std_ret": "",
-      "aircraft": "空客A330(宽体机)",
-      "meal": "含餐食",
-      "remark": "",
-      "sub_sheet": "首尔&釜山&济州(大韩&东航",
-      "overlap_excluded": "",
-      "overlap_source_supplier": ""
-    },
-    {
-      "supplier": "111",
-      "dep": "上海",
-      "arr": "首尔",
-      "flight": "KE892",
-      "flight_return": "KE891",
       "dep_date": "2026-10-17",
       "return_date": "2026-10-20",
       "nights": "3",
@@ -14392,7 +14280,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 2999,
+      "retail": 2499,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -15741,7 +15629,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "4",
+      "seats": "6",
       "erp_seats": "10",
       "airline": "CZ",
       "airline_cn": "南航",
@@ -15797,7 +15685,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "3",
+      "seats": "5",
       "erp_seats": "6",
       "airline": "CZ",
       "airline_cn": "南航",
@@ -17287,62 +17175,6 @@
       "meal": "含餐食",
       "remark": "",
       "sub_sheet": "首尔（南航",
-      "overlap_excluded": "",
-      "overlap_source_supplier": ""
-    },
-    {
-      "supplier": "111",
-      "dep": "上海",
-      "arr": "东京",
-      "flight": "CZ8309",
-      "flight_return": "CZ8310",
-      "dep_date": "2026-10-03",
-      "return_date": "2026-10-08",
-      "nights": "5",
-      "days": "6",
-      "region": "日本",
-      "regions": [
-        "日本"
-      ],
-      "retail": 4699,
-      "jj": "",
-      "jj_hotel_stars": "",
-      "jj_includes": "",
-      "jj_hotel_nights": "",
-      "seats": "2",
-      "erp_seats": "2",
-      "airline": "CZ",
-      "airline_cn": "南航",
-      "dep_airport": "PVG",
-      "arr_airport": "NRT",
-      "dep_airport_name": "上海浦东机场",
-      "arr_airport_name": "东京成田机场",
-      "dep_terminal": "T2",
-      "arr_terminal": "T1",
-      "return_dep_terminal": "T1",
-      "return_arr_terminal": "T2",
-      "aircraft_def": "738",
-      "aircraft_ota": "波音737（中）",
-      "return_aircraft_ota": "波音737（中）",
-      "weekdays": "",
-      "return_weekdays": "",
-      "dep_time": "09:20",
-      "arr_time": "13:20",
-      "duration": "3h00",
-      "return_duration": "3h30",
-      "return_dep_airport": "NRT",
-      "return_arr_airport": "PVG",
-      "return_dep_airport_name": "东京成田机场",
-      "return_arr_airport_name": "上海浦东机场",
-      "return_dep_time": "14:35",
-      "return_arr_time": "17:05",
-      "baggage": "托运行李 2件×23kg",
-      "baggage_std": "托运行李 2件×23kg · 手提行李 1件8kg",
-      "baggage_std_ret": "",
-      "aircraft": "空客A320/A321(中型)",
-      "meal": "含餐食",
-      "remark": "",
-      "sub_sheet": "东京&大阪（南航&日航主推",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
     },
@@ -27152,62 +26984,6 @@
       "arr": "东京",
       "flight": "FM895",
       "flight_return": "FM896",
-      "dep_date": "2026-09-30",
-      "return_date": "2026-10-05",
-      "nights": "5",
-      "days": "6",
-      "region": "日本",
-      "regions": [
-        "日本"
-      ],
-      "retail": 4999,
-      "jj": "",
-      "jj_hotel_stars": "",
-      "jj_includes": "",
-      "jj_hotel_nights": "",
-      "seats": "1",
-      "erp_seats": "1",
-      "airline": "FM",
-      "airline_cn": "上航",
-      "dep_airport": "PVG",
-      "arr_airport": "HND",
-      "dep_airport_name": "上海浦东机场",
-      "arr_airport_name": "东京羽田机场",
-      "dep_terminal": "T1",
-      "arr_terminal": "T3",
-      "return_dep_terminal": "T3",
-      "return_arr_terminal": "T1",
-      "aircraft_def": "738",
-      "aircraft_ota": "波音737（中）",
-      "return_aircraft_ota": "波音737（中）",
-      "weekdays": "",
-      "return_weekdays": "",
-      "dep_time": "12:00",
-      "arr_time": "15:50",
-      "duration": "2h50",
-      "return_duration": "3h10",
-      "return_dep_airport": "HND",
-      "return_arr_airport": "PVG",
-      "return_dep_airport_name": "东京羽田机场",
-      "return_arr_airport_name": "上海浦东机场",
-      "return_dep_time": "17:10",
-      "return_arr_time": "19:20",
-      "baggage": "托运行李 2件×23kg",
-      "baggage_std": "托运行李 2件×23kg · 手提行李 1件8kg",
-      "baggage_std_ret": "",
-      "aircraft": "波音B737-800(中型)",
-      "meal": "含餐食",
-      "remark": "9/22尾单",
-      "sub_sheet": "上海东京",
-      "overlap_excluded": "",
-      "overlap_source_supplier": ""
-    },
-    {
-      "supplier": "104",
-      "dep": "上海",
-      "arr": "东京",
-      "flight": "FM895",
-      "flight_return": "FM896",
       "dep_date": "2026-10-02",
       "return_date": "2026-10-07",
       "nights": "5",
@@ -28117,7 +27893,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "7",
+      "seats": "5",
       "erp_seats": "8",
       "airline": "GJ",
       "airline_cn": "长龙航空",
@@ -46592,7 +46368,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 5899,
+      "retail": 5599,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -46648,7 +46424,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 5599,
+      "retail": 5199,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -46760,7 +46536,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 4899,
+      "retail": 4499,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -48053,7 +47829,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "12",
+      "seats": "16",
       "erp_seats": "10",
       "airline": "SQ",
       "airline_cn": "新航",
@@ -51184,12 +50960,12 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 4899,
+      "retail": 4799,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "11",
+      "seats": "10",
       "erp_seats": "10",
       "airline": "SQ",
       "airline_cn": "新航",
@@ -51240,7 +51016,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 4699,
+      "retail": 4499,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -51352,7 +51128,7 @@
       "regions": [
         "东南亚"
       ],
-      "retail": 6699,
+      "retail": 5999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -70392,7 +70168,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1200,
+      "retail": 1050,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -71232,13 +71008,13 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1100,
+      "retail": 1300,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "10",
-      "erp_seats": "10",
+      "seats": "6",
+      "erp_seats": "6",
       "airline": "HO",
       "airline_cn": "吉祥",
       "dep_airport": "PVG",
@@ -71288,7 +71064,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1000,
+      "retail": 1200,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -71344,7 +71120,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1300,
+      "retail": 1600,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -71736,7 +71512,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 520,
+      "retail": 650,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -71792,7 +71568,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 520,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -71848,7 +71624,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 580,
+      "retail": 650,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -71904,7 +71680,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 580,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -71960,7 +71736,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 540,
+      "retail": 520,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -72016,7 +71792,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 540,
+      "retail": 520,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -72240,7 +72016,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 580,
+      "retail": 650,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -72576,7 +72352,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 800,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -72744,7 +72520,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 580,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -72800,7 +72576,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 580,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -72856,7 +72632,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 850,
+      "retail": 580,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -72912,7 +72688,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 850,
+      "retail": 580,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -73024,7 +72800,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 800,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -73136,7 +72912,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 850,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -73304,7 +73080,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 800,
+      "retail": 650,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -73360,7 +73136,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 650,
+      "retail": 800,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -74816,7 +74592,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 1400,
+      "retail": 1700,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -74984,7 +74760,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 750,
+      "retail": 700,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -75213,8 +74989,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "6",
-      "erp_seats": "6",
+      "seats": "4",
+      "erp_seats": "4",
       "airline": "HO",
       "airline_cn": "吉祥",
       "dep_airport": "PVG",
@@ -75656,7 +75432,7 @@
       "regions": [
         "韩国"
       ],
-      "retail": 600,
+      "retail": 650,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -80285,62 +80061,6 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
-      "sub_sheet": "",
-      "overlap_excluded": "",
-      "overlap_source_supplier": ""
-    },
-    {
-      "supplier": "103",
-      "dep": "上海",
-      "arr": "东京",
-      "flight": "GK036",
-      "flight_return": "GK035",
-      "dep_date": "2026-09-29",
-      "return_date": "2026-10-04",
-      "nights": "5",
-      "days": "6",
-      "region": "日本",
-      "regions": [
-        "日本"
-      ],
-      "retail": 4599,
-      "jj": "",
-      "jj_hotel_stars": "",
-      "jj_includes": "",
-      "jj_hotel_nights": "",
-      "seats": "2",
-      "erp_seats": "2",
-      "airline": "GK",
-      "airline_cn": "捷星",
-      "dep_airport": "PVG",
-      "arr_airport": "NRT",
-      "dep_airport_name": "上海浦东",
-      "arr_airport_name": "东京成田",
-      "dep_terminal": "T2",
-      "arr_terminal": "T3",
-      "return_dep_terminal": "T3",
-      "return_arr_terminal": "T2",
-      "aircraft_def": "",
-      "aircraft_ota": "",
-      "return_aircraft_ota": "",
-      "weekdays": "1111111",
-      "return_weekdays": "1111111",
-      "dep_time": "02:15",
-      "arr_time": "06:20",
-      "duration": "3h05",
-      "return_duration": "3h25",
-      "return_dep_airport": "NRT",
-      "return_arr_airport": "PVG",
-      "return_dep_airport_name": "东京成田",
-      "return_arr_airport_name": "上海浦东",
-      "return_dep_time": "22:25",
-      "return_arr_time": "00:50",
-      "baggage": "",
-      "baggage_std": "无免费托运行李 · 手提行李 1件7kg",
-      "baggage_std_ret": "",
-      "aircraft": "空客A320(中型)",
-      "meal": "无餐食",
       "remark": "",
       "sub_sheet": "",
       "overlap_excluded": "",
@@ -93307,7 +93027,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 470,
+      "retail": 520,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -93363,13 +93083,13 @@
       "regions": [
         "国内"
       ],
-      "retail": 550,
+      "retail": 620,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "5",
-      "erp_seats": "5",
+      "seats": "3",
+      "erp_seats": "3",
       "airline": "HO",
       "airline_cn": "吉祥",
       "dep_airport": "CJU",
@@ -93419,7 +93139,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 820,
+      "retail": 1020,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -93587,7 +93307,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 960,
+      "retail": 860,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -94147,7 +93867,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 670,
+      "retail": 810,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -94203,7 +93923,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 670,
+      "retail": 570,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -94763,7 +94483,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 1110,
+      "retail": 1060,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -94819,7 +94539,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 1060,
+      "retail": 860,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -94987,7 +94707,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 660,
+      "retail": 610,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -95099,7 +94819,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 610,
+      "retail": 660,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -95603,7 +95323,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 620,
+      "retail": 720,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -95659,7 +95379,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 720,
+      "retail": 820,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -96219,7 +95939,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 1220,
+      "retail": 1120,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -96331,7 +96051,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 720,
+      "retail": 620,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -96387,7 +96107,7 @@
       "regions": [
         "国内"
       ],
-      "retail": 570,
+      "retail": 620,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -129514,6 +129234,62 @@
         "国内"
       ],
       "retail": 1740,
+      "jj": "",
+      "jj_hotel_stars": "",
+      "jj_includes": "",
+      "jj_hotel_nights": "",
+      "seats": "10+",
+      "erp_seats": "10+",
+      "airline": "HO",
+      "airline_cn": "吉祥",
+      "dep_airport": "WUX",
+      "arr_airport": "SYX",
+      "dep_airport_name": "无锡硕放",
+      "arr_airport_name": "三亚凤凰",
+      "dep_terminal": "",
+      "arr_terminal": "",
+      "return_dep_terminal": "",
+      "return_arr_terminal": "",
+      "aircraft_def": "321",
+      "aircraft_ota": "空客321（中）",
+      "return_aircraft_ota": "空客320（中）",
+      "weekdays": "",
+      "return_weekdays": "",
+      "dep_time": "12:35",
+      "arr_time": "15:50",
+      "duration": "3h15",
+      "return_duration": "3h30",
+      "return_dep_airport": "SYX",
+      "return_arr_airport": "WUX",
+      "return_dep_airport_name": "三亚凤凰",
+      "return_arr_airport_name": "无锡硕放",
+      "return_dep_time": "16:50",
+      "return_arr_time": "20:20",
+      "baggage": "",
+      "baggage_std": "托运行李 1件×23kg · 手提行李 1件10kg",
+      "baggage_std_ret": "",
+      "aircraft": "空客A320/A321(中型)",
+      "meal": "含餐食",
+      "remark": "",
+      "sub_sheet": "",
+      "overlap_excluded": "",
+      "overlap_source_supplier": ""
+    },
+    {
+      "supplier": "",
+      "dep": "无锡",
+      "arr": "三亚",
+      "flight": "HO2009",
+      "flight_return": "HO2010",
+      "dep_date": "2026-10-13",
+      "return_date": "2026-10-17",
+      "nights": "4",
+      "days": "5",
+      "region": "国内",
+      "regions": [
+        "国内"
+      ],
+      "retail": 1540,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
