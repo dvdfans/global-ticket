@@ -5,7 +5,7 @@
   "dep_date": "2026-10-04",
   "return_date": "2026-10-07",
   "nights": 3,
-  "flights_count": 11,
+  "flights_count": 12,
   "hotels_count": 29,
   "note": "机+酒虚拟打包价：机票直客价 + 酒店打包住宿，按2人拼住人均展示，不单列房价"
  },
@@ -261,6 +261,34 @@
     }
    ],
    "dest": "澳门"
+  },
+  {
+   "id": "FM811|MU502",
+   "dep_city": "上海",
+   "route": "上海→香港",
+   "dest": "香港",
+   "flight_direct": 1799,
+   "avail": "1",
+   "flights": [
+    {
+     "airline": "上海航空(FM)",
+     "flight": "FM811",
+     "dep_airport": "上海浦东国际机场 (PVG)",
+     "arr_airport": "香港国际机场 (HKG)",
+     "dep_time": "09:40",
+     "arr_time": "12:45",
+     "duration": "3小时05分"
+    },
+    {
+     "airline": "东方航空(MU)",
+     "flight": "MU502",
+     "dep_airport": "香港国际机场 (HKG)",
+     "arr_airport": "上海浦东国际机场 (PVG)",
+     "dep_time": "12:50",
+     "arr_time": "15:15",
+     "duration": "2小时25分"
+    }
+   ]
   },
   {
    "id": "MU501|MU506",
