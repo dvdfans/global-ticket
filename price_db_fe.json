@@ -1,5 +1,5 @@
 {
-  "build_time": "2026-09-26 07:02:36",
+  "build_time": "2026-09-26 09:11:40",
   "record_count": 2517,
   "records": [
     {
@@ -3046,7 +3046,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "2",
-      "erp_seats": "4",
+      "erp_seats": "2",
       "airline": "CA",
       "airline_cn": "国航",
       "dep_airport": "PVG",
@@ -44806,7 +44806,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "4",
-      "erp_seats": "4",
+      "erp_seats": "10",
       "airline": "MU",
       "airline_cn": "东航",
       "dep_airport": "PVG",
@@ -44918,7 +44918,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "10+",
-      "erp_seats": "4",
+      "erp_seats": "2",
       "airline": "CA",
       "airline_cn": "国航",
       "dep_airport": "PVG",
