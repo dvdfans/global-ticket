@@ -1,6 +1,6 @@
 {
-  "build_time": "2026-09-27 15:22:17",
-  "record_count": 2496,
+  "build_time": "2026-09-27 17:31:58",
+  "record_count": 2498,
   "records": [
     {
       "supplier": "103",
@@ -5616,7 +5616,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2799,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -5653,7 +5653,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -5672,7 +5672,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2799,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -5709,7 +5709,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6120,7 +6120,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2799,
+      "retail": 2899,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6157,7 +6157,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6176,7 +6176,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2799,
+      "retail": 2899,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6213,7 +6213,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6232,7 +6232,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2799,
+      "retail": 2899,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6269,7 +6269,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "红叶",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6288,7 +6288,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2799,
+      "retail": 2899,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6325,7 +6325,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "红叶",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6560,6 +6560,62 @@
       "arr": "大阪",
       "flight": "JL894",
       "flight_return": "JL891",
+      "dep_date": "2026-10-11",
+      "return_date": "2026-10-16",
+      "nights": "5",
+      "days": "6",
+      "region": "日本",
+      "regions": [
+        "日本"
+      ],
+      "retail": 2999,
+      "jj": "",
+      "jj_hotel_stars": "",
+      "jj_includes": "",
+      "jj_hotel_nights": "",
+      "seats": "2",
+      "erp_seats": "6",
+      "airline": "JL",
+      "airline_cn": "日航",
+      "dep_airport": "PVG",
+      "arr_airport": "KIX",
+      "dep_airport_name": "上海浦东机场",
+      "arr_airport_name": "大阪关西机场",
+      "dep_terminal": "T1",
+      "arr_terminal": "T1",
+      "return_dep_terminal": "T1",
+      "return_arr_terminal": "T1",
+      "aircraft_def": "738",
+      "aircraft_ota": "波音737（中）",
+      "return_aircraft_ota": "波音737（中）",
+      "weekdays": "",
+      "return_weekdays": "",
+      "dep_time": "13:15",
+      "arr_time": "16:35",
+      "duration": "2h20",
+      "return_duration": "2h30",
+      "return_dep_airport": "KIX",
+      "return_arr_airport": "PVG",
+      "return_dep_airport_name": "大阪关西机场",
+      "return_arr_airport_name": "上海浦东机场",
+      "return_dep_time": "10:15",
+      "return_arr_time": "11:45",
+      "baggage": "托运行李 2件×23kg",
+      "baggage_std": "托运行李 2件×23kg · 手提行李 1件10kg",
+      "baggage_std_ret": "",
+      "aircraft": "波音B787(宽体机)",
+      "meal": "含餐食",
+      "remark": "",
+      "sub_sheet": "上海大阪CA HO JL",
+      "overlap_excluded": "",
+      "overlap_source_supplier": ""
+    },
+    {
+      "supplier": "103",
+      "dep": "上海",
+      "arr": "大阪",
+      "flight": "JL894",
+      "flight_return": "JL891",
       "dep_date": "2026-10-17",
       "return_date": "2026-10-22",
       "nights": "5",
@@ -6685,7 +6741,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "10+",
+      "seats": "7",
       "erp_seats": "10",
       "airline": "JL",
       "airline_cn": "日航",
@@ -6792,7 +6848,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2899,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6829,7 +6885,7 @@
       "baggage_std_ret": "",
       "aircraft": "波音B787(宽体机)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6848,7 +6904,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2899,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6885,7 +6941,7 @@
       "baggage_std_ret": "",
       "aircraft": "波音B787(宽体机)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6904,7 +6960,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2899,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6941,7 +6997,7 @@
       "baggage_std_ret": "",
       "aircraft": "波音B787(宽体机)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -6960,7 +7016,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2899,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -6997,7 +7053,7 @@
       "baggage_std_ret": "",
       "aircraft": "波音B787(宽体机)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -7240,7 +7296,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2899,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -7277,7 +7333,7 @@
       "baggage_std_ret": "",
       "aircraft": "波音B787(宽体机)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -7296,7 +7352,7 @@
       "regions": [
         "日本"
       ],
-      "retail": 2899,
+      "retail": 2999,
       "jj": "",
       "jj_hotel_stars": "",
       "jj_includes": "",
@@ -7333,7 +7389,7 @@
       "baggage_std_ret": "",
       "aircraft": "波音B787(宽体机)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "0927上调",
       "sub_sheet": "上海大阪CA HO JL",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8509,7 +8565,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "0924下调",
+      "remark": "",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8565,7 +8621,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（1人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8621,7 +8677,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8677,7 +8733,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8733,7 +8789,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8789,7 +8845,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8845,7 +8901,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8901,7 +8957,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8957,7 +9013,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -8982,7 +9038,7 @@
       "jj_includes": "",
       "jj_hotel_nights": "",
       "seats": "6",
-      "erp_seats": "7",
+      "erp_seats": "6",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
@@ -9013,7 +9069,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9069,7 +9125,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9125,7 +9181,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9181,7 +9237,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9237,7 +9293,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9293,7 +9349,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9349,7 +9405,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9405,7 +9461,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9461,7 +9517,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9517,7 +9573,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9573,7 +9629,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9629,7 +9685,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9685,7 +9741,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9741,7 +9797,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9797,7 +9853,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9853,7 +9909,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9909,7 +9965,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -9965,7 +10021,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10021,7 +10077,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10077,7 +10133,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10133,7 +10189,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10189,7 +10245,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10245,7 +10301,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10301,7 +10357,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10357,7 +10413,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10413,7 +10469,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10525,7 +10581,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10581,7 +10637,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10637,7 +10693,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10693,7 +10749,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10749,7 +10805,7 @@
       "baggage_std_ret": "托运行李 1件×23kg · 手提行李 1件8kg",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10805,7 +10861,7 @@
       "baggage_std_ret": "托运行李 1件×23kg · 手提行李 1件8kg",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10861,7 +10917,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10917,7 +10973,7 @@
       "baggage_std_ret": "托运行李 1件×23kg · 手提行李 1件8kg",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -10973,7 +11029,7 @@
       "baggage_std_ret": "",
       "aircraft": "波音B737-800(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -11029,7 +11085,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -11085,7 +11141,7 @@
       "baggage_std_ret": "",
       "aircraft": "空客A320/A321(中型)",
       "meal": "含餐食",
-      "remark": "",
+      "remark": "可拼团签（3人起）",
       "sub_sheet": "首尔 釜山 济州",
       "overlap_excluded": "",
       "overlap_source_supplier": ""
@@ -45645,7 +45701,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "10",
+      "seats": "7",
       "erp_seats": "10",
       "airline": "SQ",
       "airline_cn": "新航",
@@ -46485,7 +46541,7 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "19",
+      "seats": "18",
       "erp_seats": "10",
       "airline": "SQ",
       "airline_cn": "新航",
@@ -83438,6 +83494,62 @@
       "overlap_source_supplier": ""
     },
     {
+      "supplier": "103",
+      "dep": "上海",
+      "arr": "首尔",
+      "flight": "MU5061",
+      "flight_return": "MU5034",
+      "dep_date": "2026-10-02",
+      "return_date": "2026-10-06",
+      "nights": "4",
+      "days": "5",
+      "region": "韩国",
+      "regions": [
+        "韩国"
+      ],
+      "retail": 2899,
+      "jj": "",
+      "jj_hotel_stars": "",
+      "jj_includes": "",
+      "jj_hotel_nights": "",
+      "seats": "2",
+      "erp_seats": "2",
+      "airline": "MU",
+      "airline_cn": "东航",
+      "dep_airport": "PVG",
+      "arr_airport": "ICN",
+      "dep_airport_name": "上海浦东",
+      "arr_airport_name": "首尔仁川",
+      "dep_terminal": "T1",
+      "arr_terminal": "T1",
+      "return_dep_terminal": "T1",
+      "return_arr_terminal": "T1",
+      "aircraft_def": "",
+      "aircraft_ota": "",
+      "return_aircraft_ota": "",
+      "weekdays": "0010101",
+      "return_weekdays": "1111111",
+      "dep_time": "10:20",
+      "arr_time": "13:30",
+      "duration": "2h10",
+      "return_duration": "2h10",
+      "return_dep_airport": "ICN",
+      "return_arr_airport": "PVG",
+      "return_dep_airport_name": "首尔仁川",
+      "return_arr_airport_name": "上海浦东",
+      "return_dep_time": "16:20",
+      "return_arr_time": "17:30",
+      "baggage": "",
+      "baggage_std": "托运行李 2件×23kg · 手提行李 1件8kg",
+      "baggage_std_ret": "",
+      "aircraft": "空客A320/A321(中型)",
+      "meal": "含餐食",
+      "remark": "",
+      "sub_sheet": "",
+      "overlap_excluded": "",
+      "overlap_source_supplier": ""
+    },
+    {
       "supplier": "107",
       "dep": "上海",
       "arr": "首尔",
@@ -114984,8 +115096,8 @@
       "jj_hotel_stars": "",
       "jj_includes": "",
       "jj_hotel_nights": "",
-      "seats": "9",
-      "erp_seats": "9",
+      "seats": "8",
+      "erp_seats": "8",
       "airline": "CZ",
       "airline_cn": "南航",
       "dep_airport": "PVG",
