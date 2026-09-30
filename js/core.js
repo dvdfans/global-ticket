@@ -7,15 +7,9 @@ var ADMIN_LIST = [
   {user:'adminxxy',role:'admin',name:'管理员xxy'},
 ];
 
-// 统计上报地址（cloudflared 隧道，数据汇总到您电脑本地）
-// 2026-08-11 ★铁律：游客行为看板只统计正式版(7116b6b0 沙箱)，其他版本一概不统计
+// ★合规清除（2026-09-28 Howard 指令，2026-09-29 改 SSOT 根治）：游客行为统计已全线下线。
+// 本文件不再包含任何统计上报地址；未来恢复统计 = server/PLAN.md P2A（腾讯云后端 + PIPL 告知先行）。
 var STATS_API_URL = '';
-try {
-  var _h = location.hostname || '';
-  if (_h.indexOf('7116b6b0') >= 0 || _h.indexOf('305824db') >= 0 || _h.indexOf('7e62f7e0') >= 0 || /(app\.workbuddy\.host|app\.codebuddy\.work|agentos-app\.net|workbuddy\.link|github\.io)$/.test(_h)) {
-    STATS_API_URL = 'https://paxil-duo-roughly-shorts.trycloudflare.com/track';
-  }
-} catch(e) {}
 
 // ── 埋点维度辅助 STATS-DIM v1（2026-08-10）──────────────────
 // 应急切换上报地址（无需重新部署）：localStorage.setItem('stats_api_override','https://xxx/track')
@@ -175,7 +169,7 @@ let _lastSharedRec = null;
 
 async function loadDB() {
   try {
-    const r = await fetch('price_db_fe.json?_=' + Date.now());
+    const r = await fetch('price_db_fe.json', {cache:'no-cache'});
     DB = await r.json();
     // 2026-08-06: 售罄记录（0/售罄/满/(空)/候补/暂停/0805上调/停售）加载后一次性过滤——
     // 环球度假 H5 只渲染在售数据条，售罄不渲染也不显示到结果（数据仍一比一保留在 price_db.json 全量库/对比表）
@@ -199,7 +193,7 @@ async function loadDB() {
 let _autoRefreshTimer = null;
 async function autoRefreshOnce() {
   try {
-    const r = await fetch('price_db_fe.json?_=' + Date.now());
+    const r = await fetch('price_db_fe.json', {cache:'no-cache'});
     if (!r.ok) return;
     const nd = await r.json();
     if (!nd || !nd.build_time) return;

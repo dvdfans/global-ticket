@@ -1,383 +1,126 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <meta name="theme-color" content="#26B7BC" id="metaThemeColor">
-  <title>登录 - 环球度假</title>
-  <link rel="icon" type="image/png" href="img/logo.png">
-  <link rel="stylesheet" href="css/style.css?v=124">
-  <link rel="stylesheet" href="css/theme.css?v=121">
-  <script>
-    /* 主题提前上色：读报价页同一套 localStorage（pq_theme / theme），
-       在首屏绘制前挂到 <html>，避免先白一下再变色的闪烁。 */
-    (function () {
-      try {
-        var OK = { red: 1, navy: 1, blue: 1, green: 1, cyan: 1, purple: 1 };
-        var t = localStorage.getItem('pq_theme') || 'cyan';
-        if (!OK[t]) t = 'red';
-        document.documentElement.setAttribute('data-theme', t);
-        if (localStorage.getItem('theme') === 'dark') document.documentElement.classList.add('dark');
-      } catch (e) {}
-    })();
-  </script>
-  <style>
-    /* ─────────────────────────────────────────────────────────────────────
-       ★登录页样式一律用 lg- 前缀 + #app 作用域包裹。
-       原因：本站 style.css 是整站样式表，其中 `.logo` 是给顶部
-       <img class="logo"> 用的（width:40px;height:40px;margin-right:10px）。
-       登录页早期版本也用 <div class="logo"> 当区块容器 → 被压成 40×40、
-       内容溢出，整个登录卡片布局错乱（圆标跑位、标题与标签叠字）。
-       加命名空间后与整站类名彻底隔离。
-       ───────────────────────────────────────────────────────────────────── */
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    /* body/html 不进 #app 作用域，单独写，并压过 style.css 的 body 规则 */
-    body {
-      font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: var(--bg, #F0F2F5);
-      color: var(--text, #1A1A1A);
-      display: flex; align-items: center; justify-content: center;
-      height: auto;
-      /* dvh = 动态视口高（随工具栏变化）；vh 作旧浏览器回退 */
-      min-height: 100vh; min-height: 100dvh;
-      padding: 20px;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    #app {
-      position: relative; overflow: hidden;
-      background: var(--card-bg, #FFFFFF);
-      border: 1px solid var(--border, #E8E8EC);
-      border-radius: 16px;
-      padding: 32px 28px;
-      width: 340px; max-width: 100%;
-      box-shadow: 0 2px 12px var(--shadow, rgba(0,0,0,0.08));
-      text-align: left;
-    }
-    /* 顶部品牌渐变条 —— 跟随主题 */
-    #app::before {
-      content: ''; position: absolute; left: 0; right: 0; top: 0; height: 4px;
-      background: var(--brand-grad, var(--brand, #D9392B));
-    }
-
-    #app .lg-logo { text-align: center; margin-bottom: 24px; }
-    /* 品牌标记是八色蒲公英，必须衬白底才能显色 —— 与报价页顶部 .logo 同处理 */
-    #app .lg-logo-mark {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: #FFFFFF; padding: 5px;
-      display: inline-flex; align-items: center; justify-content: center;
-      margin: 0 0 10px 0;
-      cursor: pointer; user-select: none;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.10);
-    }
-    #app .lg-logo-mark:active { opacity: .88; }
-    #app .lg-logo-img {
-      width: 100%; height: 100%; display: block;
-      border-radius: 50%; object-fit: contain;
-    }
-    #app .lg-title { font-size: 20px; font-weight: 700; color: var(--text, #1A1A1A); }
-    #app .lg-sub { font-size: 12px; color: var(--text-light, #999999); margin-top: 4px; }
-
-    #app .lg-field { margin-bottom: 14px; }
-    #app .lg-field label { font-size: 12px; color: var(--text-secondary, #666666); margin-bottom: 4px; display: block; }
-    #app .lg-input {
-      display: block; width: 100%; padding: 10px 14px;
-      border: 1px solid var(--border, #E5E6EB); border-radius: 8px;
-      font-size: 14px; outline: none; font-family: inherit;
-      background: var(--card-bg, #FFFFFF); color: var(--text, #1A1A1A);
-      transition: border-color .2s, box-shadow .2s;
-    }
-    #app .lg-input:focus { border-color: var(--brand, #D9392B); box-shadow: 0 0 0 3px var(--brand-light, #FEF0EF); }
-    #app .lg-input::placeholder { color: var(--text-light, #C0C0C0); }
-
-    #app .lg-btn {
-      display: block; width: 100%; padding: 12px; border: none; border-radius: 8px;
-      background: var(--brand-grad, var(--brand, #D9392B));
-      color: var(--brand-text, #FFFFFF);
-      font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 4px;
-      font-family: inherit; letter-spacing: 1px;
-    }
-    #app .lg-btn:active { opacity: .88; }
-    #app .lg-btn + .lg-btn { margin-top: 8px; }
-
-    #app .lg-btn-outline {
-      display: block; width: 100%; padding: 10px;
-      border: 1px solid var(--border, #E5E6EB); border-radius: 8px;
-      background: var(--card-bg, #FFFFFF); color: var(--text-secondary, #666666);
-      font-size: 14px; cursor: pointer; margin-top: 8px; font-family: inherit;
-    }
-
-    #app .lg-msg { font-size: 13px; text-align: center; margin-top: 12px; min-height: 20px; }
-    #app .lg-ok { color: var(--c-seat, #389D38); }
-    #app .lg-err { color: var(--c-hot, #D9392B); }
-
-    #app .lg-back { text-align: center; margin-top: 16px; font-size: 13px; }
-    #app .lg-back a { color: var(--brand, #D9392B); text-decoration: none; }
-
-    #app .lg-user { text-align: center; margin-bottom: 20px; }
-    #app .lg-avatar { font-size: 40px; margin-bottom: 8px; }
-    #app .lg-uname { font-size: 16px; font-weight: 700; color: var(--text, #1A1A1A); }
-    #app .lg-urole { font-size: 12px; color: var(--text-light, #999999); margin-top: 4px; }
-
-    /* 图表看板按钮：VI 紫（VIP/高端语义色，锁色不随主题） */
-    #app #dashBtn { margin-top: 8px; background: var(--c-vip, #481C87); }
-
-    #app .lg-footer { text-align: center; margin-top: 20px; font-size: 11px; color: var(--text-light, #C0C0C0); }
-
-    /* ── 备案/资质行：以文字为主、小字、低对比，不抢注意力 ──
-       用 --text-secondary：#999 在 11px 小字下对白底仅 2.85（不达 AA），#666 为 5.74 ✓。 */
-    #app .lg-legal {
-      margin-top: 8px; padding-top: 8px;
-      border-top: 1px solid var(--border, #E8E8EC);
-      font-size: 10px; line-height: 1.5;
-      color: var(--text-secondary, #666666);
-      text-align: center;
-    }
-    #app .lg-legal-copy { opacity: .85; }
-    #app .lg-legal-items {
-      display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-      gap: 2px 6px;
-    }
-    #app .lg-legal-num { white-space: nowrap; }
-    #app .lg-legal-badge { width: 12px; height: 12px; flex: 0 0 auto; }
-    #app .lg-legal-link {
-      display: inline-flex; align-items: center; gap: 4px;
-      color: var(--text-secondary, #666666); text-decoration: none;
-    }
-    #app .lg-legal-link:hover { text-decoration: underline; }
-    #app .lg-legal-badge { width: 14px; height: 14px; flex: 0 0 auto; }
-    #app .lg-legal-sep { opacity: .55; }
-    #app .lg-legal-pending { opacity: .85; }
-
-    /* 深色模式微调 */
-    body.dark #app { border-color: rgba(255,255,255,0.10); }
-    body.dark #app .lg-input { background: rgba(255,255,255,0.05); }
-    body.dark #app .lg-btn-outline { background: rgba(255,255,255,0.05); }
-    /* ★深色下 --brand 太暗：深蓝 #004386 在 #1a1a2e 上对比度仅 1.49、紫金 1.6，
-       品牌色【文字】必须改用 --c-onDark（各主题均按深底色校过 ≥4.5）；
-       主按钮是实心+白字，不受影响。 */
-    body.dark #app .lg-back a { color: var(--c-onDark, #FF7062); }
-    body.dark #app .lg-msg.lg-err { color: var(--c-onDark, #FF7062); }
-    body.dark #app .lg-msg.lg-ok { color: var(--vi-green-300, #59C459); }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#004386">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<link rel="canonical" href="https://huanqiudujia.com/">
+<title>环球度假 · 正式版网站已上线</title>
+<style>
+  /* mg- 前缀作用域（独立迁移海报页，不与任何 H5 样式冲突） */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+    background: linear-gradient(155deg, #002B5C 0%, #004386 38%, #0D6FA7 72%, #26B7BC 100%);
+    color: #1a2433;
+    min-height: 100dvh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 24px 16px;
+    position: relative; overflow: hidden;
+  }
+  .mg-deco { position: absolute; border-radius: 50%; filter: blur(2px); pointer-events: none; }
+  .mg-d1 { width: 340px; height: 340px; right: -120px; top: -110px; background: rgba(250,190,0,.14); }
+  .mg-d2 { width: 260px; height: 260px; left: -100px; bottom: -90px; background: rgba(38,183,188,.22); }
+  .mg-d3 { width: 120px; height: 120px; left: 12%; top: 14%; background: rgba(255,255,255,.07); }
+  .mg-card {
+    position: relative; z-index: 2;
+    width: 100%; max-width: 520px;
+    background: #ffffff;
+    border-radius: 28px;
+    box-shadow: 0 24px 70px rgba(0, 20, 45, .45);
+    padding: 44px 30px 30px;
+    text-align: center;
+  }
+  .mg-brand {
+    font-size: 15px; letter-spacing: 6px; color: #004386;
+    font-weight: 700; margin-bottom: 4px;
+  }
+  .mg-brand-en { font-size: 10px; letter-spacing: 3px; color: #8aa0b8; margin-bottom: 22px; }
+  .mg-badge {
+    display: inline-block; background: #FABE00; color: #00304f;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    padding: 6px 18px; border-radius: 999px; margin-bottom: 20px;
+  }
+  .mg-h1 { font-size: 30px; line-height: 1.3; color: #0d2137; font-weight: 800; margin-bottom: 12px; }
+  .mg-h1 .mg-hl { color: #0D6FA7; }
+  .mg-sub { font-size: 14.5px; color: #5a6b80; line-height: 1.75; margin-bottom: 26px; }
+  .mg-sub b { color: #D9392B; }
+  .mg-url {
+    display: block; text-decoration: none;
+    background: #f2f7fb; border: 1.5px dashed #9dc3dd;
+    border-radius: 14px; padding: 14px 12px; margin-bottom: 22px;
+    font-size: 19px; font-weight: 800; color: #0D6FA7;
+    letter-spacing: .4px; word-break: break-all;
+    transition: background .2s;
+  }
+  .mg-url:active { background: #e2eef7; }
+  .mg-btn {
+    display: block; text-decoration: none;
+    background: linear-gradient(135deg, #004386, #0D6FA7);
+    color: #fff; font-size: 17.5px; font-weight: 700; letter-spacing: 2px;
+    padding: 15px 0; border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(13,111,167,.38);
+    margin-bottom: 16px;
+  }
+  .mg-btn:active { transform: scale(.98); }
+  .mg-count { font-size: 13px; color: #8296ab; margin-bottom: 26px; }
+  .mg-count a { color: #0D6FA7; text-decoration: underline; }
+  .mg-feats {
+    display: flex; justify-content: center; gap: 0;
+    border-top: 1px solid #edf2f7; padding-top: 20px; margin-bottom: 18px;
+  }
+  .mg-feat { flex: 1; font-size: 13px; color: #33475e; font-weight: 600; }
+  .mg-feat + .mg-feat { border-left: 1px solid #edf2f7; }
+  .mg-feat span { display: block; font-size: 10px; color: #9db0c3; letter-spacing: 2px; margin-top: 3px; }
+  .mg-footer { font-size: 11.5px; color: #a5b4c4; line-height: 1.8; }
+  .mg-footer a { color: #8aa0b8; text-decoration: none; }
+  @media (max-width: 380px) { .mg-h1 { font-size: 25px; } .mg-url { font-size: 16px; } }
+</style>
 </head>
 <body>
-  <div id="app">
-    <div class="lg-logo">
-      <div class="lg-logo-mark" id="logoIcon" onclick="cycleLoginTheme()" title="点击切换主题">
-        <img class="lg-logo-img" src="img/logo.png" alt="环球度假">
-      </div>
-      <h1 class="lg-title">环球度假</h1>
-      <p class="lg-sub" id="themeName">特价机票 · 报价查询系统</p>
-    </div>
-    <div id="loginForm">
-      <div class="lg-field">
-        <label for="loginUser">用户名</label>
-        <input class="lg-input" id="loginUser" placeholder="请输入用户名" onkeydown="if(event.key==='Enter')doLogin()">
-      </div>
-      <div class="lg-field">
-        <label for="loginPwd">密码</label>
-        <input class="lg-input" id="loginPwd" type="password" placeholder="请输入密码" onkeydown="if(event.key==='Enter')doLogin()">
-      </div>
-      <button class="lg-btn" onclick="doLogin()">登 录</button>
-      <div class="lg-msg" id="loginMsg"></div>
-      <div class="lg-back"><a href="index.html">← 返回报价页面</a></div>
-    </div>
-    <div id="userPanel" style="display:none">
-      <div class="lg-user">
-        <div class="lg-avatar" id="userAvatar">👤</div>
-        <div class="lg-uname" id="userName"></div>
-        <div class="lg-urole" id="userRole"></div>
-      </div>
-      <button class="lg-btn" onclick="goHome()">进入报价页面</button>
-      <button class="lg-btn" id="dashBtn" onclick="window.open('https://stats-dashboard.app.workbuddy.host','_blank')" style="display:none">📈 图表看板</button>
-      <button class="lg-btn-outline" onclick="doLogout()">退出登录</button>
-      <div class="lg-msg" id="logoutMsg"></div>
-    </div>
-    <div class="lg-footer">仅限内部使用 · 操作将被记录</div>
+  <div class="mg-deco mg-d1"></div>
+  <div class="mg-deco mg-d2"></div>
+  <div class="mg-deco mg-d3"></div>
 
-    <!-- 备案与资质 —— 与 index.html 保持同一份号码，改号时两处同步。
-         法规依据、四项含义与填写步骤见 index.html 内的详细注释。 -->
-    <div class="lg-legal">
-      <!-- 版权声明（法规不强制，但强烈建议）：
-           ★主体已定 = 【北京环球度假旅游有限公司上海杨浦区分公司】（2026-09-18 Howard 定案）；
-             ICP 备案主体 / 亮照主体 / 版权主体三者统一为分公司，不再需要额外解释；
-           ★若为委托开发，须先确认合同约定著作权归我方（著作权法第 19 条：
-             未约定或约定不明的，著作权属于受托人）。
-           完整依据见 index.html 内注释。 -->
-      <div class="lg-legal-items">
-        <span class="lg-legal-copy">© 2026 北京环球度假旅游有限公司上海杨浦区分公司 版权所有</span>
-        <span class="lg-legal-sep">·</span>
-        <!-- ① ICP 备案 ★已启用（2026-09-28 管局审核通过）-->
-        <a class="lg-legal-link" href="https://beian.miit.gov.cn/" target="_blank" rel="noopener nofollow">沪ICP备2024044050号-3</a>
-        <span class="lg-legal-sep">·</span>
-        <!-- ② 公安备案（ICP 通过后 30 日内办理）
-        <a class="lg-legal-link" href="https://beian.mps.gov.cn/#/query/webSearch?code=3101050200XXXXXX" target="_blank" rel="noopener nofollow"><svg class="lg-legal-badge" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.6 20.4 5v7.1c0 5.3-3.5 8.9-8.4 10.3C7.1 21 3.6 17.4 3.6 12.1V5L12 1.6Zm0 2.2L5.6 6.4v5.7c0 4.1 2.6 6.9 6.4 8.1 3.8-1.2 6.4-4 6.4-8.1V6.4L12 3.8Zm0 2.9 1.5 3.1 3.4.5-2.5 2.4.6 3.4-3-1.6-3 1.6.6-3.4L7.1 10.3l3.4-.5L12 6.7Z"/></svg>沪公网备3101050200XXXXXX号</a>
-        <span class="lg-legal-sep">·</span>
-        -->
-        <!-- ③ 增值电信业务经营许可证（仅经营性网站标注，无证不得写）
-        <a class="lg-legal-link" href="#" target="_blank" rel="noopener nofollow">ICP证：沪B2-NNNNNNNN</a>
-        <span class="lg-legal-sep">·</span>
-        -->
-        <!-- ④ 旅游度假资质 ★已启用（2026-09-18）—— 分社只发《备案登记证明》，
-             许可证在设立社（总公司），两者配套公示。法条依据见 index.html 内详解。
-             营业执照/许可证号：L-BJ-CJ00894｜分社备案登记号：L-BJ-CJ00894-YPQ-FS0001 -->
-        <span class="lg-legal-item">旅行社业务经营许可证 <span class="lg-legal-num">L-BJ-CJ00894</span></span>
-        <span class="lg-legal-sep">·</span>
-        <!-- ⑤ 电子营业执照亮照 ★已启用（2026-09-28，链接绑定域名 huanqiudujia.com，详见 index.html 注释）-->
-        <a class="lg-legal-link" href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&serial=91310110MA1G8R1FXL-SAIC_SHOW_10000091310110MA1G8R1FXL1790575703923&signData=MEUCIBcq6oG0cgQkHetiR2XBuv/WjC3TE/4Tm4Vbeqp1vv3BAiEA4UOZcfwVjUyMhOnUm7x+c1sQXAfsuef6ASrbiSQ8ELs=" target="_blank" rel="noopener nofollow"><img src="img/lz4_small.png" class="lg-legal-badge" alt="电子营业执照亮照" style="height:18px;width:18px;vertical-align:-4px">电子营业执照</a>
-        <span class="lg-legal-sep">·</span>
-        <span class="lg-legal-item">经营范围：境内、入境、出境旅游招徕、组织、接待业务</span>
-        <span class="lg-legal-sep">·</span>
-        <span class="lg-legal-item">投诉电话 12345</span>
-        <span class="lg-legal-sep">·</span>
-        <a class="lg-legal-link" href="zizhi.html">备案与资质公示 &rsaquo;</a>
-      </div>
-    </div>
-  </div>
+  <main class="mg-card">
+    <div class="mg-brand">环球度假</div>
+    <div class="mg-brand-en">HUANQIU HOLIDAY</div>
 
+    <div class="mg-badge">官方公告</div>
+    <h1 class="mg-h1">正式版网站<span class="mg-hl">已上线</span></h1>
+    <p class="mg-sub">原测试版网址已全面废弃，请访问并收藏新官网<br><b>本页将于数秒后自动跳转</b></p>
+
+    <a class="mg-url" href="https://huanqiudujia.com/">huanqiudujia.com</a>
+
+    <a class="mg-btn" href="https://huanqiudujia.com/">立即前往新官网</a>
+
+    <p class="mg-count"><span id="mg-n">5</span> 秒后自动前往 · <a href="javascript:void(0)" id="mg-cancel">取消自动跳转</a></p>
+
+    <div class="mg-feats">
+      <div class="mg-feat">特价机票<span>SPECIAL FARES</span></div>
+      <div class="mg-feat">每日更新<span>DAILY UPDATE</span></div>
+      <div class="mg-feat">官方直营<span>OFFICIAL</span></div>
+    </div>
+
+    <p class="mg-footer">环球度假 © 2026 · <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">沪ICP备2024044050号-3</a></p>
+  </main>
+
+  <noscript><meta http-equiv="refresh" content="5; url=https://huanqiudujia.com/"></noscript>
   <script>
-    // 2026-08-11: 账号密码哈希化（sha256(用户名+密码)），源码不再存明文。
-    // 密码规则：Ivision@ + 6位数字 + 姓名末字拼音首字母（手机可输，用户定稿）。
-    var ADMIN_LIST = [
-      {user:'admin',hash:'f401b6220bf559896ff87696e85652b942f03d91e5f00df37f9d63b9b2a4a421',role:'admin',name:'陈浩'},
-      {user:'adminzch',hash:'306bf2625096fd9d5236b5adee65f7893448b9deec73fc6dcf1bf954872e580f',role:'admin',name:'朱诚宏'},
-      {user:'adminxxy',hash:'0eb500ed664d459b1e09022564043af360861429f1c61e18f4a4569dd3307a5e',role:'admin',name:'徐晓贇'},
-    ];
-    // 默认客服账号（哈希）
-    var CS_DEFAULTS = [
-      {user:'hq_zhangw',hash:'b07784cd7f14be5dbb14f0b9d32ad3f91e2418d66a2aef4679947928031d9a35',name:'张雯'},
-      {user:'hq_liujq',hash:'b1bfa19d70ebd0d6f8d8329eae08925e0e55ce95ace4e40ba4244785561c3c19',name:'刘珏琼'},
-      {user:'hq_liuw',hash:'2d8f15180e03ef581eba8a43efb90dfdb60dcffd7cbb962761c54863e39f3778',name:'刘薇'},
-      {user:'hq_baif',hash:'d9077d895e9587b5c05403eb457bf52f133c64fc9eef12ed859d6469ab1eb5ac',name:'百芳'},
-      {user:'hq_mifm',hash:'8e1e05e2a79a1ce5e8e7765739fa6d4c14562cf223c2db7e026e3c57b5b921bf',name:'宓方明'},
-      {user:'hq_liurong',hash:'fdf23a5d42fd0243dc75d2831cccc643110d44a39aa110fa9ec5650375c9ee7b',name:'刘蓉'},
-      {user:'hq_shenzy',hash:'7dcf939fc212d3e92225ee7bd8db5062ab13b03edb65fa283c4485ac9761e65f',name:'沈子元'},
-      {user:'hq_sunyw',hash:'93accf1c2729889430e282fc6b9b900fefdff60242b52bc5d754571d4c572737',name:'孙奕雯'}
-    ];
-
-    // 2026-08-11: 账号静态化（不再依赖 localStorage cs_accounts，杜绝旧明文残留）；
-    // 顺带清理历史明文缓存。
-    function loadAccounts() {
-      try { localStorage.removeItem('cs_accounts'); } catch(e) {}
-      var accs = ADMIN_LIST.map(function(a){ return {user:a.user, hash:a.hash, role:a.role, name:a.name}; });
-      CS_DEFAULTS.forEach(function(a){ accs.push({user:a.user, hash:a.hash, role:'cs', name:a.name}); });
-      return accs;
-    }
-
-    // SHA-256 hex（crypto.subtle，https 环境可用）
-    async function _sha256hex(str) {
-      var buf = new TextEncoder().encode(str);
-      var h = await crypto.subtle.digest('SHA-256', buf);
-      return Array.from(new Uint8Array(h)).map(function(b){ return ('0' + b.toString(16)).slice(-2); }).join('');
-    }
-
-    async function doLogin() {
-      var user = document.getElementById('loginUser').value.trim();
-      var pwd = document.getElementById('loginPwd').value.trim();
-      var accounts = loadAccounts();
-      var h = await _sha256hex(user + pwd);
-      var found = null;
-      for (var i=0; i<accounts.length; i++) {
-        if (accounts[i].user === user && accounts[i].hash === h) { found = accounts[i]; break; }
-      }
-      var msg = document.getElementById('loginMsg');
-      if (found) {
-        localStorage.setItem('current_user', JSON.stringify({user:found.user,role:found.role,name:found.name}));
-        // 记录登录事件（正式版统计；客服版不统计，见 customer_h5/login.html）
-        msg.className = 'lg-msg lg-ok';
-        msg.textContent = '✅ 登录成功，正在跳转...';
-        var params = new URLSearchParams(location.search);
-        var goto = params.get('goto') || 'index.html';
-        setTimeout(function(){ window.location.href = goto; }, 600);
-      } else {
-        msg.className = 'lg-msg lg-err';
-        msg.textContent = '❌ 用户名或密码错误';
-      }
-    }
-
-    // 检查是否已登录
-    (function() {
-      var saved = localStorage.getItem('current_user');
-      if (saved) {
-        try {
-          var u = JSON.parse(saved);
-          document.getElementById('loginForm').style.display = 'none';
-          document.getElementById('userPanel').style.display = 'block';
-          document.getElementById('userAvatar').textContent = u.role === 'admin' ? '👑' : '👤';
-          document.getElementById('userName').textContent = u.user + ' (' + u.name + ')';
-          document.getElementById('userRole').textContent = u.role === 'admin' ? '管理员' : '客服';
-          if (u.role === 'admin') {
-            document.getElementById('dashBtn').style.display = 'block';
-          }
-        } catch(e) {}
-      }
+    (function () {
+      var n = 5, el = document.getElementById('mg-n'),
+          timer = setInterval(function () {
+            n -= 1;
+            if (n <= 0) { clearInterval(timer); location.replace('https://huanqiudujia.com/'); return; }
+            el.textContent = n;
+          }, 1000);
+      document.getElementById('mg-cancel').onclick = function () {
+        clearInterval(timer); el.textContent = '已';
+        this.parentNode.innerHTML = '自动跳转已取消，可点击上方链接前往新官网';
+      };
     })();
-
-    function goHome() {
-      var params = new URLSearchParams(location.search);
-      var goto = params.get('goto') || 'index.html';
-      window.location.href = goto;
-    }
-    function doLogout() {
-      // 记录登出事件（正式版统计；客服版不统计，见 customer_h5/login.html）
-      localStorage.removeItem('current_user');
-      document.getElementById('loginForm').style.display = 'block';
-      document.getElementById('userPanel').style.display = 'none';
-      document.getElementById('loginMsg').className = 'lg-msg lg-ok';
-      document.getElementById('loginMsg').textContent = '✅ 已退出登录';
-    }
-
-    /* ── 主题 / 深色模式：与报价页共用同一套 localStorage，跨标签页与 bfcache 同步 ── */
-    var LOGIN_THEMES = {
-      red:    { name: '环球红焰' },
-      navy:   { name: '深海蓝'   },
-      blue:   { name: '碧海天蓝' },
-      green:  { name: '翡翠绿'   },
-      cyan:   { name: '潮汐青'   },
-      purple: { name: '紫金'     }
-    };
-    // 默认主题＝潮汐青，排首位
-    var LOGIN_ORDER = ['cyan', 'red', 'navy', 'blue', 'green', 'purple'];
-
-    function applyLoginTheme() {
-      var t = 'cyan', dark = false;
-      try {
-        t = localStorage.getItem('pq_theme') || 'cyan';
-        if (!LOGIN_THEMES[t]) t = 'cyan';
-        dark = localStorage.getItem('theme') === 'dark';
-      } catch (e) {}
-      document.documentElement.setAttribute('data-theme', t);
-      document.body.setAttribute('data-theme', t);
-      document.documentElement.classList.toggle('dark', dark);
-      document.body.classList.toggle('dark', dark);
-      // 同步浏览器地址栏 / 状态栏色到当前主色
-      try {
-        var m = document.getElementById('metaThemeColor');
-        var bc = getComputedStyle(document.body).getPropertyValue('--brand').trim();
-        if (m && bc) m.setAttribute('content', bc);
-      } catch (e) {}
-      try {
-        var ic = document.getElementById('logoIcon');
-        if (ic) ic.title = '点击切换主题（当前：' + LOGIN_THEMES[t].name + '）';
-      } catch (e) {}
-    }
-
-    function cycleLoginTheme() {
-      var t = 'red';
-      try { t = localStorage.getItem('pq_theme') || 'red'; } catch (e) {}
-      var i = LOGIN_ORDER.indexOf(t);
-      var next = LOGIN_ORDER[(i + 1) % LOGIN_ORDER.length];
-      try { localStorage.setItem('pq_theme', next); } catch (e) {}
-      applyLoginTheme();
-    }
-
-    applyLoginTheme();
-    window.addEventListener('storage', function (e) {
-      if (!e.key || e.key === 'pq_theme' || e.key === 'theme') applyLoginTheme();
-    });
-    window.addEventListener('pageshow', function (e) { if (e.persisted) applyLoginTheme(); });
   </script>
 </body>
 </html>
