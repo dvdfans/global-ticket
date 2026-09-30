@@ -90,11 +90,11 @@
 
     <div class="mg-badge">官方公告</div>
     <h1 class="mg-h1">正式版网站<span class="mg-hl">已上线</span></h1>
-    <p class="mg-sub">原测试版网址已全面废弃，请访问并收藏新官网<br><b>本页将于数秒后自动跳转</b></p>
+    <p class="mg-sub">原测试版网址已全面废弃，请访问并收藏新官网<br><b>本页将于数秒后自动跳转（保留您访问的具体页面）</b></p>
 
-    <a class="mg-url" href="https://huanqiudujia.com/">huanqiudujia.com</a>
+    <a class="mg-url" id="mg-url" href="https://huanqiudujia.com/">huanqiudujia.com</a>
 
-    <a class="mg-btn" href="https://huanqiudujia.com/">立即前往新官网</a>
+    <a class="mg-btn" id="mg-btn" href="https://huanqiudujia.com/">立即前往新官网</a>
 
     <p class="mg-count"><span id="mg-n">5</span> 秒后自动前往 · <a href="javascript:void(0)" id="mg-cancel">取消自动跳转</a></p>
 
@@ -110,10 +110,22 @@
   <noscript><meta http-equiv="refresh" content="5; url=https://huanqiudujia.com/"></noscript>
   <script>
     (function () {
+      /* 深链透传：旧沙箱路径+查询参数+hash 原样拼到新官网后跳转。
+         白名单 = 新官网真实存在的页面路径；未知名路径回退首页+查询串。 */
+      var OFFICIAL = 'https://huanqiudujia.com';
+      var ALLOWED = { '/': 1, '/index.html': 1, '/zizhi.html': 1, '/login.html': 1 };
+      var path = location.pathname || '/';
+      var pass = ALLOWED[path] ? path : '/';
+      var target = OFFICIAL + pass + location.search + (location.hash || '');
+      ['mg-url', 'mg-btn'].forEach(function (id) {
+        var a = document.getElementById(id);
+        if (a) a.href = target;
+      });
+
       var n = 5, el = document.getElementById('mg-n'),
           timer = setInterval(function () {
             n -= 1;
-            if (n <= 0) { clearInterval(timer); location.replace('https://huanqiudujia.com/'); return; }
+            if (n <= 0) { clearInterval(timer); location.replace(target); return; }
             el.textContent = n;
           }, 1000);
       document.getElementById('mg-cancel').onclick = function () {
